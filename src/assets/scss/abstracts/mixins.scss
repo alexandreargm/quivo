@@ -1,0 +1,76 @@
+/// Event wrapper
+/// Helps styling event elements like links
+///
+/// Example use:
+/// @include on-event() {
+///   text-decoration: underline;
+/// }
+///
+/// @author Harry Roberts
+/// @param {Bool} $self [false] - Whether or not to include current selector
+/// @link https://twitter.com/csswizardry/status/478938530342006784 Original tweet from Harry Roberts
+@mixin on-event($self: false) {
+  @if $self {
+    &,
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  }
+
+  @else {
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  }
+}
+
+/// Use a breakpoint from the defined breakpoints map variable
+/// Mobile first aproach (min-width)
+///
+/// Example use:
+/// @include breakpoint("tablet") {
+///   color: red;
+///   .link { color: white; }
+/// }
+///
+/// @author Kitty Giraudel
+/// @param {String} $breakpoint
+@mixin breakpoint($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (min-width: #{map-get($breakpoints, $breakpoint)}) {
+      @content;
+    }
+  }
+
+  @else {
+    @warn 'Unfortunately, no value could be retrieved from `#{$breakpoint}`. '
+      + 'Please make sure it is defined in `$breakpoints` map.';
+  }
+}
+
+@mixin create-color-scheme($color-map) {
+  @each $category in map-keys($color-map) {
+    @include list-colors('#{$category}-surface', map-get($color-map, $category));
+    @include list-inverted-colors('#{$category}-text', map-get($color-map, $category));
+  }
+}
+
+@mixin list-colors($name, $color-pool) {
+  @for $i from 1 to length($color-pool) + 1 {
+    --#{$name + $i}: #{nth($color-pool, $i)};
+  }
+}
+
+@mixin list-inverted-colors($name, $color-pool) {
+  $colors-length: length($color-pool);
+  $counter: $colors-length;
+
+  @for $i from 1 to $colors-length + 1 {
+    --#{$name + $i}: #{nth($color-pool, $counter)};
+    $counter: $counter - 1;
+  }
+}
