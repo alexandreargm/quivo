@@ -1,0 +1,117 @@
+:root {
+  /*
+
+    Typography
+
+  */
+  --sans-family: 'Rubik', system-ui, sans-serif;
+  --mono-family: monospace;
+
+  $font-weights: (
+    'light': 300,
+    'regular': 400,
+    'semibold': 600,
+    'extrabold': 800
+  );
+
+  @each $name, $weight in $font-weights {
+    --weight-#{$name}: #{$weight};
+  }
+
+  $font-sizes: (
+    'sm': 12px,
+    'md': 14px,
+    'base': 16px,
+    'lg': 18px,
+    'xl': 20px,
+    '2xl': 24px,
+    '3xl': 28px,
+    '4xl': 32px,
+    '5xl': 40px,
+    '6xl': 48px,
+    '7xl': 56px,
+    '8xl': 64px
+  );
+
+  @each $name, $size in $font-sizes {
+    --font-#{$name}: #{$size};
+  }
+
+  /*
+
+    Breakpoints
+
+  */
+  $breakpoints: (
+    'mobile': 375px,
+    'mobile2': 480px,
+    'tablet': 760px,
+    'tablet2': 1024px,
+    'desktop': 1200px,
+    'desktop2': 1400px
+  );
+
+  @each $name, $breakpoint in $breakpoints {
+    --#{$name}: #{$breakpoint};
+  }
+
+  /*
+
+    Layout helpers
+
+  */
+  // Spacings for paddings and margins
+  $spacings: (
+    'xs': 4px,
+    'sm': 8px,
+    'md': 12px,
+    'base': 16px,
+    'lg': 18px,
+    'xl': 24px,
+    '2xl': 32px,
+    '3xl': 48px,
+    '4xl': 64px,
+    '5xl': 128px,
+    '6xl': 256px
+  );
+
+  @each $name, $breakpoint in $breakpoints {
+    --spacing-#{$name}: #{$breakpoint};
+  }
+
+  // Border radius
+  $rounded: (
+    'xs': 2px,
+    'sm': 4px,
+    'md': 6px,
+    'base': 8px,
+    'lg': 12px,
+    'xl': 16px,
+    '2xl': 24px,
+    '3xl': 32px,
+    '4xl': 48px,
+    '5xl': 64px,
+    'full': 9999px
+  );
+
+  @each $name, $value in $rounded {
+    --rounded-#{$name}: #{$value};
+  }
+
+  // z-indexes
+  $indexes: (
+    'icon': 50,
+    'dropdown': 100,
+    'sticky': 200,
+    'overlay': 300,
+    'fixed': 400,
+    'modal-overlay': 490,
+    'modal': 500,
+    'popover': 600,
+    'tooltip': 700
+  );
+
+  @each $name, $value in $indexes {
+    --z-#{$name}: #{$value};
+  }
+}
