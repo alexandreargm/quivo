@@ -52,25 +52,47 @@
   }
 }
 
+// Aspect ratio mixin for images and background images.
+// img elements require a parent element, figure for example,
+// with this mixin applied.
+// Author: Chris Coyier
+// Ref: https://css-tricks.com/snippets/sass/maintain-aspect-ratio-mixin/
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+
+  &::before {
+    content: '';
+    display: block;
+    padding-top: ($height / $width) * 100%;
+    width: 100%;
+  }
+
+  > * {
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+  }
+}
+
+/*
+ * Mixin that creates a list of css properties
+ * using a color map.
+ */
 @mixin create-color-scheme($color-map) {
-  @each $category in map-keys($color-map) {
-    @include list-colors('#{$category}-surface', map-get($color-map, $category));
-    @include list-inverted-colors('#{$category}-text', map-get($color-map, $category));
-  }
-}
+  @each $categoryName, $list in $color-map {
+    $reverse-counter: length($list);
 
-@mixin list-colors($name, $color-pool) {
-  @for $i from 1 to length($color-pool) + 1 {
-    --#{$name + $i}: #{nth($color-pool, $i)};
-  }
-}
+    @for $i from 1 to length($list) + 1 {
+      --surface-#{$categoryName + $i}: #{nth($list, $i)};
+    }
 
-@mixin list-inverted-colors($name, $color-pool) {
-  $colors-length: length($color-pool);
-  $counter: $colors-length;
-
-  @for $i from 1 to $colors-length + 1 {
-    --#{$name + $i}: #{nth($color-pool, $counter)};
-    $counter: $counter - 1;
+    @for $i from 1 to length($list) + 1 {
+      --text-#{$categoryName + $i}: #{nth($list, $reverse-counter)};
+      $reverse-counter: $reverse-counter - 1;
+    }
   }
 }
