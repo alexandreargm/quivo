@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600;800&display=optional');
+
 html,
 body {
-  color: #222;
-  font-family: system-ui;
+  color: var(--gray-text1);
+  font-family: var(--sans-family);
 }
 
 h1,
