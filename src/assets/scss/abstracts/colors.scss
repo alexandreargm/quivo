@@ -1,6 +1,8 @@
+/* stylelint-disable */ // Error disable for color-scheme beign before css properties.
+
 /*
 
-  Base colors
+  Light color scheme
 
 */
 
@@ -83,13 +85,8 @@ $light-theme: (
   )
 );
 
-/*
-
-  Light color scheme
-
-*/
 :root {
-  @include create-color-scheme($light-theme);
-
   color-scheme: light;
+
+  @include create-color-scheme($light-theme);
 }
