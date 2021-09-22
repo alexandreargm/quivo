@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   "stories": [
     "../src/**/*.stories.mdx",
@@ -6,5 +8,19 @@ module.exports = {
   "addons": [
     "@storybook/addon-links",
     "@storybook/addon-essentials"
-  ]
+  ],
+  webpackFinal: async (config, { configType }) => {
+    config.module.rules.push({
+      test: /\.scss$/,
+      use: ['style-loader', 'postcss-loader', 
+        {
+          loader: 'sass-loader',
+          options: {
+            prependData: '@import "../assets/scss/abstracts/_all.scss"; @import "../assets/scss/main.scss";'
+          }
+        }
+      ],
+    });
+    return config;
+  },
 }
