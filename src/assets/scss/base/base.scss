@@ -1,10 +1,11 @@
-/**
+/*
  * Make all elements from the DOM inherit from the parent box-sizing
  * Since `*` has a specificity of 0, it does not override the `html` value
  * making all elements inheriting from the root box-sizing value
  * See: https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
  */
 html {
+  background-color: var(--surface1-gray);
   box-sizing: border-box;
 }
 
@@ -22,7 +23,7 @@ body {
   overflow-y: scroll; // Always show scrollbar to prevent layout shifting
 }
 
-/**
+/*
  * Make images and svg adjust to its container's height and width
  */
 svg,
@@ -30,4 +31,12 @@ img {
   height: auto;
   max-width: 100%;
   -webkit-user-drag: none; // Prevent accidental image drag
+}
+
+/*
+ * Setup base link style
+ */
+a {
+  color: var(--text4-brand);
+  text-decoration: none;
 }
