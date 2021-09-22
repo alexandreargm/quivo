@@ -82,16 +82,21 @@
  * Mixin that creates a list of css properties
  * using a color map.
  */
-@mixin create-color-scheme($color-map) {
+@mixin create-color-scheme($color-map, $is-inverted: false) {
+  $text-name: '--text';
+  $surface-name: '--surface';
+  $normal-scheme-name: if($is-inverted, $text-name, $surface-name);
+  $inverted-scheme-name: if($is-inverted, $surface-name, $text-name);
+
   @each $categoryName, $list in $color-map {
     $reverse-counter: length($list);
 
     @for $i from 1 to length($list) + 1 {
-      --surface-#{$categoryName + $i}: #{nth($list, $i)};
+      #{$normal-scheme-name + $i}-#{$categoryName}: #{nth($list, $i)};
     }
 
     @for $i from 1 to length($list) + 1 {
-      --text-#{$categoryName + $i}: #{nth($list, $reverse-counter)};
+      #{$inverted-scheme-name + $i}-#{$categoryName}: #{nth($list, $reverse-counter)};
       $reverse-counter: $reverse-counter - 1;
     }
   }
