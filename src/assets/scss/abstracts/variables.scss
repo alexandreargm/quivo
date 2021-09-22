@@ -66,7 +66,7 @@
     'sm': 8px,
     'md': 12px,
     'base': 16px,
-    'lg': 18px,
+    'lg': 20px,
     'xl': 24px,
     '2xl': 32px,
     '3xl': 48px,
@@ -75,8 +75,8 @@
     '6xl': 256px
   );
 
-  @each $name, $breakpoint in $breakpoints {
-    --spacing-#{$name}: #{$breakpoint};
+  @each $name, $value in $spacings {
+    --spacing-#{$name}: #{$value};
   }
 
   // Border radius
