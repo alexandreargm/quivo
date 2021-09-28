@@ -79,25 +79,26 @@
 }
 
 /*
- * Mixin that creates a list of css properties
- * using a color map.
+ * Create the surface colors css custom properties using a
+ * color map that contains the schemes.
  */
-@mixin create-color-scheme($color-map, $is-inverted: false) {
-  $text-name: '--text';
-  $surface-name: '--surface';
-  $normal-scheme-name: if($is-inverted, $text-name, $surface-name);
-  $inverted-scheme-name: if($is-inverted, $surface-name, $text-name);
+@mixin create-surface-colors($color-map, $is-reverse: false) {
+  @if $is-reverse {
+    @each $categoryName, $list in $color-map {
+      $reverse-counter: length($list);
 
-  @each $categoryName, $list in $color-map {
-    $reverse-counter: length($list);
-
-    @for $i from 1 to length($list) + 1 {
-      #{$normal-scheme-name + $i}-#{$categoryName}: #{nth($list, $i)};
+      @for $i from 1 to length($list) + 1 {
+        --surface#{$i}-#{$categoryName}: #{nth($list, $reverse-counter)};
+        $reverse-counter: $reverse-counter - 1;
+      }
     }
+  }
 
-    @for $i from 1 to length($list) + 1 {
-      #{$inverted-scheme-name + $i}-#{$categoryName}: #{nth($list, $reverse-counter)};
-      $reverse-counter: $reverse-counter - 1;
+  @else {
+    @each $categoryName, $list in $color-map {
+      @for $i from 1 to length($list) + 1 {
+        --surface#{$i}-#{$categoryName}: #{nth($list, $i)};
+      }
     }
   }
 }
