@@ -9,7 +9,15 @@ module.exports = {
     "@storybook/addon-links",
     "@storybook/addon-essentials"
   ],
-  webpackFinal: async (config, { configType }) => {
+  webpackFinal: (config) => {
+
+    // Allow the use of @ alias
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '@': path.resolve(__dirname, '../src/'),
+    }
+
+    // Load scss colors, mixins, variables, etc.
     config.module.rules.push({
       test: /\.scss$/,
       use: ['style-loader', 'postcss-loader', 
@@ -20,7 +28,8 @@ module.exports = {
           }
         }
       ],
-    });
-    return config;
+    })
+
+    return config
   },
 }
