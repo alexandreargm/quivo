@@ -5,8 +5,9 @@
  * See: https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
  */
 html {
-  background-color: var(--surface1-gray);
+  background-color: var(--gray12);
   box-sizing: border-box;
+  color: var(--text4-brand);
 }
 
 *,
@@ -37,6 +38,15 @@ img {
  * Setup base link style
  */
 a {
-  color: var(--text4-brand);
+  color: var(--text1-brand);
   text-decoration: none;
+}
+
+/*
+ * Add cursor pointer to clickable elements
+ */
+button,
+a,
+input {
+  cursor: pointer;
 }
