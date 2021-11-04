@@ -1,5 +1,5 @@
 {
-  "global": {
+  "base": {
     "font70": {
       "value": "96px",
       "type": "fontSizes"
@@ -307,6 +307,14 @@
     "trackingToken": {
       "value": "$tracking30",
       "type": "letterSpacing"
+    },
+    "sans-serif": {
+      "value": "Rubik",
+      "type": "fontFamilies"
+    },
+    "monospace": {
+      "value": "monospace",
+      "type": "fontFamilies"
     },
     "White": {
       "value": "#ffffff",
@@ -665,14 +673,6 @@
         "value": "#e6f9ff",
         "type": "color"
       }
-    },
-    "sans-serif": {
-      "value": "Rubik",
-      "type": "fontFamilies"
-    },
-    "monospace": {
-      "value": "monospace",
-      "type": "fontFamilies"
     }
   },
   "light": {
