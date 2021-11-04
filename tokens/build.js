@@ -8,9 +8,6 @@ StyleDictionaryPackage.registerFormat({
     return `$${this.selector}: (
       ${dictionary.allProperties.map(prop => ` '${prop.name}': ${prop.value},`).join('\n')}
     )`
-    // return `${this.selector} {
-    //     ${dictionary.allProperties.map(prop => `  --${prop.name}: ${prop.value};`).join('\n')}
-    //   }`
   }
 })
 
@@ -38,7 +35,7 @@ function getStyleDictionaryConfig (theme) {
         buildPath: 'src/assets/scss/abstracts/tokens/',
         files: [{
           destination: `${theme}.scss`,
-          format: 'scss/map-flat',
+          format: 'scss-map', // 'scss/map-flat',
           selector: theme
         }]
       }
