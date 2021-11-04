@@ -1,182 +1,152 @@
 {
   "$ui-background": {
-    "value": "$Greys.00",
+    "value": "#f7f2ff",
     "type": "color",
-    "description": "Default page background",
-    "failedToResolve": true
+    "description": "Default page background"
   },
   "$interactive-01": {
-    "value": "$Brand.30",
+    "value": "#e32f85",
     "type": "color",
-    "description": "Primary interactive color; Primary buttons",
-    "failedToResolve": true
+    "description": "Primary interactive color; Primary buttons"
   },
   "$interactive-02": {
-    "value": "$Brand.40",
+    "value": "#d0097e",
     "type": "color",
-    "description": "Secondary interactive color; Secondary button",
-    "failedToResolve": true
+    "description": "Secondary interactive color; Secondary button"
   },
   "$interactive-03": {
-    "value": "$Brand.30",
+    "value": "#e32f85",
     "type": "color",
-    "description": "4.5:1 AA contrast; Tertiary button",
-    "failedToResolve": true
+    "description": "4.5:1 AA contrast; Tertiary button"
   },
   "$interactive-04": {
-    "value": "$Brand.30",
+    "value": "#e32f85",
     "type": "color",
-    "description": "3:1 AA contrast; Selected elements; Active elements; Accent icons",
-    "failedToResolve": true
+    "description": "3:1 AA contrast; Selected elements; Active elements; Accent icons"
   },
   "$danger-01": {
-    "value": "$Danger.30",
+    "value": "#b12427",
     "type": "color",
-    "description": "Danger button background; 3:1 AA contrast",
-    "failedToResolve": true
+    "description": "Danger button background; 3:1 AA contrast"
   },
   "$danger-02": {
-    "value": "$Danger.30",
+    "value": "#b12427",
     "type": "color",
-    "description": "Danger button variant; Text; Icon; Border",
-    "failedToResolve": true
+    "description": "Danger button variant; Text; Icon; Border"
   },
   "$ui-01": {
-    "value": "$Greys.10",
+    "value": "#d8d3e5",
     "description": "Container background on $ui-background; Secondary page background",
-    "type": "color",
-    "failedToResolve": true
+    "type": "color"
   },
   "$ui-02": {
-    "value": "$Greys.00",
+    "value": "#f7f2ff",
     "description": "Container background on $ui-01; `Light` variant background",
-    "type": "color",
-    "failedToResolve": true
+    "type": "color"
   },
   "$ui-03": {
-    "value": "$Greys.20",
+    "value": "#bab6cb",
     "description": "Subtle border; Tertiary background",
-    "type": "color",
-    "failedToResolve": true
+    "type": "color"
   },
   "$ui-04": {
-    "value": "$Greys.50",
+    "value": "#68667e",
     "description": "3:1 aa element contrast; Medium contrast border",
-    "type": "color",
-    "failedToResolve": true
+    "type": "color"
   },
   "$ui-05": {
-    "value": "$Greys.90",
+    "value": "#101017",
     "description": "4.5:1 aa element contrast; High contrast border; Emphasis elements",
-    "type": "color",
-    "failedToResolve": true
+    "type": "color"
   },
   "$button-separator": {
-    "value": "$Greys.20",
+    "value": "#bab6cb",
     "description": "3:1 aa element contrast; Fluid button separator",
-    "type": "color",
-    "failedToResolve": true
+    "type": "color"
   },
   "$decorative-01": {
-    "value": "$Greys.20",
+    "value": "#bab6cb",
     "description": "'Light' variant elements",
-    "type": "color",
-    "failedToResolve": true
+    "type": "color"
   },
   "$text-01": {
-    "value": "$Greys.90",
+    "value": "#101017",
     "description": "Primary text; Body copy; Headers; Hover text color for $text-02",
-    "type": "color",
-    "failedToResolve": true
+    "type": "color"
   },
   "$text-02": {
-    "value": "$Greys.60",
+    "value": "#4f4f64",
     "description": "Secondary text; Input labels",
-    "type": "color",
-    "failedToResolve": true
+    "type": "color"
   },
   "$text-03": {
-    "value": "$Greys.40",
+    "value": "#827f98",
     "description": "Placeholder text",
-    "type": "color",
-    "failedToResolve": true
+    "type": "color"
   },
   "$text-04": {
-    "value": "$Greys.00",
+    "value": "#f7f2ff",
     "description": "Text on interactive colors",
-    "type": "color",
-    "failedToResolve": true
+    "type": "color"
   },
   "$text-05": {
-    "value": "$Greys.50",
+    "value": "#68667e",
     "description": " Tertiary text; Help text",
-    "type": "color",
-    "failedToResolve": true
+    "type": "color"
   },
   "$text-error": {
-    "value": "$Danger.30",
+    "value": "#b12427",
     "description": "Error message text",
-    "type": "color",
-    "failedToResolve": true
+    "type": "color"
   },
   "$link-01": {
-    "value": "$Brand.50",
+    "value": "#b5007a",
     "description": "Primary links; Ghost button",
-    "type": "color",
-    "failedToResolve": true
+    "type": "color"
   },
   "$link-02": {
-    "value": "$Brand.60",
+    "value": "#93006b",
     "description": "Secondary link color for lower contrast backgrounds",
-    "type": "color",
-    "failedToResolve": true
+    "type": "color"
   },
   "$inverse-link": {
-    "value": "$Brand.40",
+    "value": "#d0097e",
     "description": "Links on $inverse-02 backgrounds",
-    "type": "color",
-    "failedToResolve": true
+    "type": "color"
   },
   "$icon-01": {
-    "value": "$Greys.90",
+    "value": "#101017",
     "description": "Primary icons",
-    "type": "color",
-    "failedToResolve": true
+    "type": "color"
   },
   "$icon-02": {
-    "value": "$Greys.60",
+    "value": "#4f4f64",
     "description": "Secondary icons",
-    "type": "color",
-    "failedToResolve": true
+    "type": "color"
   },
   "$icon-03": {
-    "value": "$Greys.00",
+    "value": "#f7f2ff",
     "description": "Icons on interactive colors; Icons on non-ui colors",
-    "type": "color",
-    "failedToResolve": true
+    "type": "color"
   },
   "$support-01": {
-    "value": "$Danger.30",
+    "value": "#b12427",
     "description": "Error",
-    "type": "color",
-    "failedToResolve": true
+    "type": "color"
   },
   "$support-02": {
-    "value": "$Success.30",
+    "value": "#33b135",
     "description": "Success",
-    "type": "color",
-    "failedToResolve": true
+    "type": "color"
   },
   "$support-03": {
-    "value": "$Warning.30",
+    "value": "#b18b24",
     "description": "Warning",
-    "type": "color",
-    "failedToResolve": true
+    "type": "color"
   },
   "$support-04": {
-    "value": "$Info.30",
+    "value": "#24b0b1",
     "description": "Information",
-    "type": "color",
-    "failedToResolve": true
+    "type": "color"
   }
 }
