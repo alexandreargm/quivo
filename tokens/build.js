@@ -2,14 +2,14 @@ const StyleDictionaryPackage = require('style-dictionary')
 
 // HAVE THE STYLE DICTIONARY CONFIG DYNAMICALLY GENERATED
 
-StyleDictionaryPackage.registerFormat({
-  name: 'css/variables',
-  formatter: function (dictionary, config) {
-    return `${this.selector} {
-        ${dictionary.allProperties.map(prop => `  --${prop.name}: ${prop.value};`).join('\n')}
-      }`
-  }
-})
+// StyleDictionaryPackage.registerFormat({
+//   name: 'css/variables',
+//   formatter: function (dictionary, config) {
+//     return `${this.selector} {
+//         ${dictionary.allProperties.map(prop => `  --${prop.name}: ${prop.value};`).join('\n')}
+//       }`
+//   }
+// })
 
 StyleDictionaryPackage.registerTransform({
   name: 'sizes/px',
@@ -32,16 +32,57 @@ function getStyleDictionaryConfig (theme) {
     platforms: {
       web: {
         transforms: ['attribute/cti', 'name/cti/kebab', 'sizes/px'],
-        buildPath: 'output/',
+        buildPath: 'src/assets/scss/abstracts/tokens',
         files: [{
-          destination: `${theme}.css`,
-          format: 'css/variables',
-          selector: `.${theme}-theme`
+          destination: `${theme}.scss`,
+          format: 'scss/map-flat'
+          // selector: `.${theme}-theme`
         }]
       }
     }
   }
 }
+
+// StyleDictionaryPackage.registerFormat({
+//   name: 'css/variables',
+//   formatter: function (dictionary, config) {
+//     return `${this.selector} {
+//         ${dictionary.allProperties.map(prop => `  --${prop.name}: ${prop.value};`).join('\n')}
+//       }`
+//   }
+// })
+
+// StyleDictionaryPackage.registerTransform({
+//   name: 'sizes/px',
+//   type: 'value',
+//   matcher: function (prop) {
+//     // You can be more specific here if you only want 'em' units for font sizes
+//     return ['fontSizes', 'spacing', 'borderRadius', 'borderWidth', 'sizing'].includes(prop.attributes.category)
+//   },
+//   transformer: function (prop) {
+//     // You can also modify the value here if you want to convert pixels to ems
+//     return parseFloat(prop.original.value) + 'px'
+//   }
+// })
+
+// function getStyleDictionaryConfig (theme) {
+//   return {
+//     source: [
+//       `tokens/${theme}.json`
+//     ],
+//     platforms: {
+//       web: {
+//         transforms: ['attribute/cti', 'name/cti/kebab', 'sizes/px'],
+//         buildPath: 'output/',
+//         files: [{
+//           destination: `${theme}.css`,
+//           format: 'css/variables',
+//           selector: `.${theme}-theme`
+//         }]
+//       }
+//     }
+//   }
+// }
 
 console.log('Build started...');
 
