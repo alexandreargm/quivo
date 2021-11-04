@@ -4,17 +4,23 @@ export default {
   title: 'Components/BaseIcon',
   argTypes: {
     color: {
-      options: ['default', 'accent', 'danger', 'success', 'warning', 'info'],
-      control: { type: 'select' }
+      options: ['inherit', 'brand', 'accent', 'danger', 'success', 'warning', 'info'],
+      control: { type: 'select' },
+      table: { defaultValue: 'brand' }
     },
     type: {
       options: ['solid', 'outline'],
       control: { type: 'select' }
     },
     size: {
-      options: ['default', 'xs', 'sm', 'md', 'lg', 'xl', 'xl2', 'xl3', 'xl4', 'xl5', 'xl6'],
+      options: ['base', 'xs', 'sm', 'md', 'lg', 'xl', 'xl2', 'xl3', 'xl4', 'xl5', 'xl6', 'h-full'],
       control: { type: 'select' }
     }
+  },
+  args: {
+    color: 'brand',
+    type: 'solid',
+    size: 'base'
   }
 }
 
@@ -23,5 +29,5 @@ export const Icon = (args) => ({
   setup () {
     return { args }
   },
-  template: '<base-icon v-bind="args"></base-icon>'
+  template: '<base-icon v-bind="args" name="BeakerIcon" ></base-icon>'
 })

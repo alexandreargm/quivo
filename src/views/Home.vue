@@ -1,18 +1,27 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <default-layout>
+    <main class="home-page">
+      <base-icon name="BeakerIcon" />
+    </main>
+  </default-layout>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import defaultLayout from '@/layouts/default'
+import BaseIcon from '@/components/BaseIcon'
 
 export default {
   name: 'Home',
   components: {
-    HelloWorld
+    defaultLayout,
+    BaseIcon
+  },
+  created () {
+    this.$http('configuration')
   }
 }
 </script>
+
+<style lang="scss" scoped>
+  //
+</style>

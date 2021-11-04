@@ -5,9 +5,9 @@
  * See: https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
  */
 html {
-  background-color: var(--gray12);
+  background-color: var(--ui-background);
   box-sizing: border-box;
-  color: var(--text4-brand);
+  color: var(--text-01);
 }
 
 *,
@@ -38,7 +38,7 @@ img {
  * Setup base link style
  */
 a {
-  color: var(--text1-brand);
+  color: var(--interactive-01);
   text-decoration: none;
 }
 

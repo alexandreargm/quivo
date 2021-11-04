@@ -1,23 +1,32 @@
 import BaseButton from '../components/BaseButton'
-import { BeakerIcon } from '@heroicons/vue/solid'
+import BaseIcon from '@/components/BaseIcon'
 
 export default {
   title: 'Components/BaseButton',
+  component: { BaseButton, BaseIcon },
   argTypes: {
     color: {
-      options: ['default', 'accent', 'danger', 'success', 'warning', 'info'],
+      options: ['brand', 'accent', 'danger', 'success', 'warning', 'info', 'white', 'black'],
       control: { type: 'select' }
     },
     variant: {
-      options: ['default', 'secondary', 'tertiary', 'link'],
+      options: ['primary', 'secondary', 'tertiary', 'link'],
       control: { type: 'select' }
     },
     size: {
-      options: ['default', 'sm', 'lg', 'xl'],
+      options: ['base', 'sm', 'lg', 'xl'],
       control: { type: 'select' }
     },
-    default: { control: { type: 'text' } },
+    isIcon: {
+      control: { type: 'boolean' }
+    },
     onClick: {}
+  },
+  args: {
+    color: 'brand',
+    variant: 'primary',
+    size: 'base',
+    isIcon: false
   }
 }
 
@@ -29,8 +38,38 @@ export const Button = (args) => ({
   template: '<base-button v-bind="args">Button</base-button>'
 })
 
+export const ButtonWithIcon = (args) => ({
+  components: { BaseButton, BaseIcon },
+  setup () {
+    return { args }
+  },
+  template: `<base-button v-bind="args">
+                <template #left>
+                  <base-icon color="gray" name="BeakerIcon" />
+                </template>
+
+                Button
+              </base-button>`
+})
+
+export const ButtonWithIconRight = (args) => ({
+  components: { BaseButton, BaseIcon },
+  setup () {
+    return {
+      args
+    }
+  },
+  template: `<base-button v-bind="args">
+                Button
+
+                <template #right>
+                  <base-icon color="inherit" name="BeakerIcon" />
+                </template>
+              </base-button>`
+})
+
 export const IconButton = (args) => ({
-  components: { BaseButton, BeakerIcon },
+  components: { BaseButton, BaseIcon },
   setup () {
     return {
       args: {
@@ -39,5 +78,5 @@ export const IconButton = (args) => ({
       }
     }
   },
-  template: '<base-button v-bind="args"><beaker-icon></beaker-icon></base-button>'
+  template: '<base-button v-bind="args"><base-icon color="gray" name="BeakerIcon" /></base-button>'
 })

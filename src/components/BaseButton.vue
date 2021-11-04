@@ -6,10 +6,10 @@
     @click="onClick"
   >
     <span
-      v-if="$slots.before"
-      class="base-button__before"
+      v-if="$slots.left"
+      class="base-button__left-slot"
     >
-      <slot name="before" />
+      <slot name="left" />
     </span>
 
     <span class="base-button__main">
@@ -17,10 +17,10 @@
     </span>
 
     <span
-      v-if="$slots.after"
-      class="base-button__after"
+      v-if="$slots.right"
+      class="base-button__right-slot"
     >
-      <slot name="after" />
+      <slot name="right" />
     </span>
   </button>
 </template>
@@ -33,23 +33,23 @@ export default {
   props: {
     color: {
       type: String,
-      default: 'default',
+      default: 'brand',
       validator: function (value) {
-        return ['accent', 'danger', 'success', 'warning', 'info'].indexOf(value) !== -1
+        return ['brand', 'accent', 'danger', 'success', 'warning', 'info', 'white', 'black'].indexOf(value) !== -1
       }
     },
     variant: {
       type: String,
-      default: 'default',
+      default: 'primary',
       validator: function (value) {
-        return ['secondary', 'tertiary', 'link'].indexOf(value) !== -1
+        return ['primary', 'secondary', 'tertiary', 'link'].indexOf(value) !== -1
       }
     },
     size: {
       type: String,
-      default: 'default',
+      default: 'base',
       validator: function (value) {
-        return ['sm', 'lg', 'xl'].indexOf(value) !== -1
+        return ['base', 'sm', 'lg', 'xl'].indexOf(value) !== -1
       }
     },
     isIcon: {
@@ -73,9 +73,6 @@ export default {
 
 <style lang='scss' scoped>
 .base-button {
-  --bg-color: var(--brand);
-  --border-color: transparent;
-  --color: var(--gray2);
   --height: 40px;
 
   align-items: center;
@@ -87,16 +84,32 @@ export default {
   font-family: inherit;
   font-size: var(--font-base);
   height: var(--height);
+  justify-content: center;
   line-height: 1;
   padding: 0 var(--spacing-xl);
+  vertical-align: middle;
   white-space: nowrap;
 
   > * + * {
-    margin-left: var(--spacing-md);
+    margin-left: var(--spacing-sm);
+  }
+
+  &__right-slot {
+    margin-right: calc(var(--spacing-sm) * -1);
+  }
+
+  &__left-slot {
+    margin-left: calc(var(--spacing-sm) * -1);
   }
 }
 
 // Colors
+
+.base-button.brand {
+  --bg-color: var(--brand);
+  --border-color: transparent;
+  --color: var(--gray2);
+}
 
 .base-button.accent {
   --bg-color: var(--accent);
@@ -128,7 +141,30 @@ export default {
   --color: var(--gray2);
 }
 
+.base-button.white {
+  --bg-color: var(--gray1);
+  --border-color: transparent;
+  --color: var(--gray12);
+}
+
+.base-button.black {
+  --bg-color: var(--gray12);
+  --border-color: transparent;
+  --color: var(--gray1);
+}
+
+// States
+.base-button:hover {
+  //
+}
+
 // Variant
+
+.base-button.primary {
+  background-color: var(--bg-color);
+  border-color: transparent;
+  color: var(--color);
+}
 
 .base-button.secondary {
   background-color: var(--gray12);

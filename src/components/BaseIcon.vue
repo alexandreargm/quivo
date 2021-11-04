@@ -1,7 +1,7 @@
 <template>
   <component
     v-if="isLoaded"
-    :is="getIconType"
+    :is="getIcon"
     class="base-icon"
     :class="[size, color]"
   />
@@ -17,7 +17,6 @@ export default {
   props: {
     name: {
       type: String,
-      default: 'BeakerIcon',
       required: true
     },
     type: {
@@ -29,16 +28,16 @@ export default {
     },
     size: {
       type: String,
-      default: '',
+      default: 'base',
       validator: function (value) {
-        return ['xs', 'sm', 'md', 'lg', 'xl', 'xl2', 'xl3', 'xl4', 'xl5', 'xl6'].indexOf(value) !== -1
+        return ['base', 'xs', 'sm', 'md', 'lg', 'xl', 'xl2', 'xl3', 'xl4', 'xl5', 'xl6', 'h-full'].indexOf(value) !== -1
       }
     },
     color: {
       type: String,
-      default: '',
+      default: 'white',
       validator: function (value) {
-        return ['accent', 'danger', 'success', 'warning', 'info'].indexOf(value) !== -1
+        return ['inherit', 'brand', 'accent', 'danger', 'success', 'warning', 'info', 'black', 'white'].indexOf(value) !== -1
       }
     }
   },
@@ -47,7 +46,7 @@ export default {
     const solidIcons = ref(solidHeroicons)
     const outlineIcons = ref(outlineHeroicons)
 
-    const getIconType = computed(() => {
+    const getIcon = computed(() => {
       return props.type === 'solid' ? solidIcons.value[props.name] : outlineIcons.value[props.name]
     })
 
@@ -57,7 +56,7 @@ export default {
 
     return {
       isLoaded,
-      getIconType
+      getIcon
     }
   }
 }
@@ -65,15 +64,27 @@ export default {
 
 <style lang='scss' scoped>
 .base-icon {
-  color: var(--color, var(--brand));
+  color: var(--color);
   height: auto;
-  width: var(--width, 20px);
+  width: var(--width);
 }
 
 // Colors
 
+.base-icon.inherit {
+  --color: inherit;
+}
+
+.base-icon.brand {
+  --color: var(--brand);
+}
+
 .base-icon.accent {
   --color: var(--accent);
+}
+
+.base-icon.gray {
+  --color: var(--gray2);
 }
 
 .base-icon.danger {
@@ -93,6 +104,10 @@ export default {
 }
 
 // Sizes
+
+.base-icon.base {
+  --width: 20px;
+}
 
 .base-icon.xs {
   --width: 12px;
