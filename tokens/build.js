@@ -32,7 +32,7 @@ function getStyleDictionaryConfig (theme) {
     platforms: {
       web: {
         transforms: ['attribute/cti', 'name/cti/kebab', 'sizes/px'],
-        buildPath: 'src/assets/scss/abstracts/tokens',
+        buildPath: 'src/assets/scss/abstracts/tokens/',
         files: [{
           destination: `${theme}.scss`,
           format: 'scss/map-flat'
