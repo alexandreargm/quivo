@@ -1,0 +1,152 @@
+{
+  "$ui-background": {
+    "value": "#f7f2ff",
+    "type": "color",
+    "description": "Default page background"
+  },
+  "$interactive-01": {
+    "value": "#e32f85",
+    "type": "color",
+    "description": "Primary interactive color; Primary buttons"
+  },
+  "$interactive-02": {
+    "value": "#d0097e",
+    "type": "color",
+    "description": "Secondary interactive color; Secondary button"
+  },
+  "$interactive-03": {
+    "value": "#e32f85",
+    "type": "color",
+    "description": "4.5:1 AA contrast; Tertiary button"
+  },
+  "$interactive-04": {
+    "value": "#e32f85",
+    "type": "color",
+    "description": "3:1 AA contrast; Selected elements; Active elements; Accent icons"
+  },
+  "$danger-01": {
+    "value": "#b12427",
+    "type": "color",
+    "description": "Danger button background; 3:1 AA contrast"
+  },
+  "$danger-02": {
+    "value": "#b12427",
+    "type": "color",
+    "description": "Danger button variant; Text; Icon; Border"
+  },
+  "$ui-01": {
+    "value": "#d8d3e5",
+    "description": "Container background on $ui-background; Secondary page background",
+    "type": "color"
+  },
+  "$ui-02": {
+    "value": "#f7f2ff",
+    "description": "Container background on $ui-01; `Light` variant background",
+    "type": "color"
+  },
+  "$ui-03": {
+    "value": "#bab6cb",
+    "description": "Subtle border; Tertiary background",
+    "type": "color"
+  },
+  "$ui-04": {
+    "value": "#68667e",
+    "description": "3:1 aa element contrast; Medium contrast border",
+    "type": "color"
+  },
+  "$ui-05": {
+    "value": "#101017",
+    "description": "4.5:1 aa element contrast; High contrast border; Emphasis elements",
+    "type": "color"
+  },
+  "$button-separator": {
+    "value": "#bab6cb",
+    "description": "3:1 aa element contrast; Fluid button separator",
+    "type": "color"
+  },
+  "$decorative-01": {
+    "value": "#bab6cb",
+    "description": "'Light' variant elements",
+    "type": "color"
+  },
+  "$text-01": {
+    "value": "#101017",
+    "description": "Primary text; Body copy; Headers; Hover text color for $text-02",
+    "type": "color"
+  },
+  "$text-02": {
+    "value": "#4f4f64",
+    "description": "Secondary text; Input labels",
+    "type": "color"
+  },
+  "$text-03": {
+    "value": "#827f98",
+    "description": "Placeholder text",
+    "type": "color"
+  },
+  "$text-04": {
+    "value": "#f7f2ff",
+    "description": "Text on interactive colors",
+    "type": "color"
+  },
+  "$text-05": {
+    "value": "#68667e",
+    "description": " Tertiary text; Help text",
+    "type": "color"
+  },
+  "$text-error": {
+    "value": "#b12427",
+    "description": "Error message text",
+    "type": "color"
+  },
+  "$link-01": {
+    "value": "#b5007a",
+    "description": "Primary links; Ghost button",
+    "type": "color"
+  },
+  "$link-02": {
+    "value": "#93006b",
+    "description": "Secondary link color for lower contrast backgrounds",
+    "type": "color"
+  },
+  "$inverse-link": {
+    "value": "#d0097e",
+    "description": "Links on $inverse-02 backgrounds",
+    "type": "color"
+  },
+  "$icon-01": {
+    "value": "#101017",
+    "description": "Primary icons",
+    "type": "color"
+  },
+  "$icon-02": {
+    "value": "#4f4f64",
+    "description": "Secondary icons",
+    "type": "color"
+  },
+  "$icon-03": {
+    "value": "#f7f2ff",
+    "description": "Icons on interactive colors; Icons on non-ui colors",
+    "type": "color"
+  },
+  "$support-01": {
+    "value": "#b12427",
+    "description": "Error",
+    "type": "color"
+  },
+  "$support-02": {
+    "value": "#33b135",
+    "description": "Success",
+    "type": "color"
+  },
+  "$support-03": {
+    "value": "#b18b24",
+    "description": "Warning",
+    "type": "color"
+  },
+  "$support-04": {
+    "value": "#24b0b1",
+    "description": "Information",
+    "type": "color"
+  }
+}
