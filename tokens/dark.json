@@ -55,7 +55,7 @@
     "type": "color"
   },
   "$ui-05": {
-    "value": "#000",
+    "value": "#f7f2ff",
     "description": "4.5:1 aa element contrast; High contrast border; Emphasis elements",
     "type": "color"
   },
@@ -70,7 +70,7 @@
     "type": "color"
   },
   "$text-01": {
-    "value": "#000",
+    "value": "#f7f2ff",
     "description": "Primary text; Body copy; Headers; Hover text color for $text-02",
     "type": "color"
   },
@@ -115,7 +115,7 @@
     "type": "color"
   },
   "$icon-01": {
-    "value": "#000",
+    "value": "#f7f2ff",
     "description": "Primary icons",
     "type": "color"
   },

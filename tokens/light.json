@@ -1,6 +1,6 @@
 {
   "$ui-background": {
-    "value": "#000",
+    "value": "#f7f2ff",
     "type": "color",
     "description": "Default page background"
   },
@@ -40,7 +40,7 @@
     "type": "color"
   },
   "$ui-02": {
-    "value": "#000",
+    "value": "#f7f2ff",
     "description": "Container background on $ui-01; `Light` variant background",
     "type": "color"
   },
@@ -85,7 +85,7 @@
     "type": "color"
   },
   "$text-04": {
-    "value": "#000",
+    "value": "#f7f2ff",
     "description": "Text on interactive colors",
     "type": "color"
   },
@@ -125,7 +125,7 @@
     "type": "color"
   },
   "$icon-03": {
-    "value": "#000",
+    "value": "#f7f2ff",
     "description": "Icons on interactive colors; Icons on non-ui colors",
     "type": "color"
   },
