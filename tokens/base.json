@@ -364,15 +364,15 @@
       "value": "#ffe6e6",
       "type": "color"
     },
-    "Hover-light": {
+    "hover-light": {
       "value": "#e64787",
       "type": "color"
     },
-    "Selected-light": {
+    "selected-light": {
       "value": "#e4397e",
       "type": "color"
     },
-    "Disabled-light": {
+    "disabled-light": {
       "value": "#f093b8",
       "type": "color"
     }
@@ -418,23 +418,23 @@
       "value": "#f7f2ff",
       "type": "color"
     },
-    "Hover-light": {
+    "hover-light": {
       "value": "#0b0b0f",
       "type": "color"
     },
-    "Selected-light": {
+    "selected-light": {
       "value": "#1d1c27",
       "type": "color"
     },
-    "Disabled-light": {
+    "disabled-light": {
       "value": "#cccccc",
       "type": "color"
     },
-    "Hover-dark": {
+    "hover-dark": {
       "value": "#ffffff",
       "type": "color"
     },
-    "Selected-dark": {
+    "selected-dark": {
       "value": "#f6f2ff",
       "type": "color"
     }
@@ -480,15 +480,15 @@
       "value": "#fdffe6",
       "type": "color"
     },
-    "Hover-light": {
+    "hover-light": {
       "value": "#b4e647",
       "type": "color"
     },
-    "Selected-light": {
+    "selected-light": {
       "value": "#aee439",
       "type": "color"
     },
-    "Disabled-light": {
+    "disabled-light": {
       "value": "#dcf4aa",
       "type": "color"
     }
@@ -534,15 +534,15 @@
       "value": "#ffe6e6",
       "type": "color"
     },
-    "Hover-light": {
+    "hover-light": {
       "value": "#c73329",
       "type": "color"
     },
-    "Selected-light": {
+    "selected-light": {
       "value": "#ba3026",
       "type": "color"
     },
-    "Disabled-light": {
+    "disabled-light": {
       "value": "#e06f66",
       "type": "color"
     }

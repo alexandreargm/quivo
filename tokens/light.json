@@ -10,12 +10,12 @@
     "description": "Primary interactive color; Primary buttons"
   },
   "$interactive-02": {
-    "value": "#d0097e",
+    "value": "#bab6cb",
     "type": "color",
     "description": "Secondary interactive color; Secondary button"
   },
   "$interactive-03": {
-    "value": "#e32f85",
+    "value": "#d0097e",
     "type": "color",
     "description": "4.5:1 AA contrast; Tertiary button"
   },
@@ -105,7 +105,7 @@
     "type": "color"
   },
   "$link-02": {
-    "value": "#93006b",
+    "value": "#4f4f64",
     "description": "Secondary link color for lower contrast backgrounds",
     "type": "color"
   },
@@ -147,6 +147,136 @@
   "$support-04": {
     "value": "#24b0b1",
     "description": "Information",
+    "type": "color"
+  },
+  "$inverse-01": {
+    "value": "#ffffff",
+    "description": " Inverse text color; Inverse icon color",
+    "type": "color"
+  },
+  "$inverse-02": {
+    "value": "#39384b",
+    "description": "High contrast backgrounds; High contrast elements",
+    "type": "color"
+  },
+  "$focus": {
+    "value": "#e32f85",
+    "description": "Focus border; Focus underline",
+    "type": "color"
+  },
+  "$inverse-focus-ui": {
+    "value": "#ffffff",
+    "description": "Focus on high contrast moments",
+    "type": "color"
+  },
+  "$hover-primary": {
+    "value": "#e64787",
+    "description": "$interactive-01 hover",
+    "type": "color"
+  },
+  "$hover-primary-text": {
+    "value": "#d0097e",
+    "description": "$interactive-01 text hover",
+    "type": "color"
+  },
+  "$hover-secondary": {
+    "value": "#9d9ab2",
+    "description": "$interactive-02 hover",
+    "type": "color"
+  },
+  "$hover-tertiary": {
+    "value": "#b5007a",
+    "description": "$interactive-03 hover; $inverse-01 hover",
+    "type": "color"
+  },
+  "$hover-ui": {
+    "value": "#d8d3e5",
+    "description": "$ui-01 hover; $ui-02 hover; Transparent background hover",
+    "type": "color"
+  },
+  "$hover-light-ui": {
+    "value": "#d8d3e5",
+    "description": "'Light' variant hover",
+    "type": "color"
+  },
+  "$hover-selected-ui": {
+    "value": "#bab6cb",
+    "description": "Selected row hover",
+    "type": "color"
+  },
+  "$hover-danger": {
+    "value": "#c73329",
+    "description": "Danger hover; $support-01 hover",
+    "type": "color"
+  },
+  "$hover-row": {
+    "value": "#d8d3e5",
+    "description": "Row hover",
+    "type": "color"
+  },
+  "$inverse-hover-ui": {
+    "value": "#39384b",
+    "description": "Hover for $inverse-02",
+    "type": "color"
+  },
+  "$active-primary": {
+    "value": "#d0097e",
+    "description": "$interactive-01 active",
+    "type": "color"
+  },
+  "$active-secondary": {
+    "value": "#827f98",
+    "description": "$interactive-02 active; $inverse-01 active",
+    "type": "color"
+  },
+  "$active-tertiary": {
+    "value": "#93006b",
+    "description": "$interactive-03 active",
+    "type": "color"
+  },
+  "$active-ui": {
+    "value": "#bab6cb",
+    "description": "$ui-01 active; $ui-02 active",
+    "type": "color"
+  },
+  "$active-light-ui": {
+    "value": "#bab6cb",
+    "description": "'Light'variant active",
+    "type": "color"
+  },
+  "$active-danger": {
+    "value": "#970609",
+    "description": "Danger active; $support-01 active",
+    "type": "color"
+  },
+  "$selected-ui": {
+    "value": "#bab6cb",
+    "description": "Selected UI elements",
+    "type": "color"
+  },
+  "$selected-ui-light": {
+    "value": "#bab6cb",
+    "description": "'Light' variant selected",
+    "type": "color"
+  },
+  "$highlight": {
+    "value": "#faa2b2",
+    "description": "$interactive-01 highlight",
+    "type": "color"
+  },
+  "$disabled-01": {
+    "value": "#cccccc",
+    "description": "Disabled fields; Disabled backgrounds; Disabled border",
+    "type": "color"
+  },
+  "$disabled-02": {
+    "value": "#827f98",
+    "description": "Disabled elements on $disabled-01; Disabled label; Disabled text on $disabled-01; Disabled icons; Disabled border",
+    "type": "color"
+  },
+  "$disabled-03": {
+    "value": "#242331",
+    "description": "Disabled text on $disabled-02; Disabled icons on $disabled-02",
     "type": "color"
   }
 }
