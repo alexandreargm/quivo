@@ -215,7 +215,7 @@
     "type": "color"
   },
   "$inverse-hover-ui": {
-    "value": "#39384b",
+    "value": "#242331",
     "description": "Hover for $inverse-02",
     "type": "color"
   },
@@ -277,6 +277,11 @@
   "$disabled-03": {
     "value": "#242331",
     "description": "Disabled text on $disabled-02; Disabled icons on $disabled-02",
+    "type": "color"
+  },
+  "$inverse-active-ui": {
+    "value": "#101017",
+    "description": "$inverse-01 active; $inverse-02 active",
     "type": "color"
   }
 }
