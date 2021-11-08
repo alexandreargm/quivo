@@ -892,7 +892,7 @@
       "type": "color"
     },
     "$inverse-hover-ui": {
-      "value": "$Greys.70",
+      "value": "$Greys.80",
       "description": "Hover for $inverse-02",
       "type": "color"
     },
@@ -954,6 +954,11 @@
     "$disabled-03": {
       "value": "$Greys.80",
       "description": "Disabled text on $disabled-02; Disabled icons on $disabled-02",
+      "type": "color"
+    },
+    "$inverse-active-ui": {
+      "value": "$Greys.90",
+      "description": "$inverse-01 active; $inverse-02 active",
       "type": "color"
     }
   },
