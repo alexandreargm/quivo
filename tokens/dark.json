@@ -25,7 +25,7 @@
     "description": "3:1 AA contrast; Selected elements; Active elements; Accent icons"
   },
   "$danger-01": {
-    "value": "#b12427",
+    "value": "#c73329",
     "type": "color",
     "description": "Danger button background; 3:1 AA contrast"
   },
@@ -155,7 +155,7 @@
     "type": "color"
   },
   "$inverse-02": {
-    "value": "#d8d3e5",
+    "value": "#9d9ab2",
     "description": "High contrast backgrounds; High contrast elements",
     "type": "color"
   },
@@ -205,7 +205,7 @@
     "type": "color"
   },
   "$hover-danger": {
-    "value": "#c73329",
+    "value": "#cb5355",
     "description": "Danger hover; $support-01 hover",
     "type": "color"
   },
@@ -245,7 +245,7 @@
     "type": "color"
   },
   "$active-danger": {
-    "value": "#970609",
+    "value": "#e59596",
     "description": "Danger active; $support-01 active",
     "type": "color"
   },
@@ -280,7 +280,7 @@
     "type": "color"
   },
   "$inverse-active-ui": {
-    "value": "#9d9ab2",
+    "value": "#d8d3e5",
     "description": "$inverse-01 active; $inverse-02 active",
     "type": "color"
   }

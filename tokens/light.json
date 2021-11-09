@@ -5,7 +5,7 @@
     "description": "Default page background"
   },
   "$interactive-01": {
-    "value": "#e32f85",
+    "value": "#e64787",
     "type": "color",
     "description": "Primary interactive color; Primary buttons"
   },
@@ -25,7 +25,7 @@
     "description": "3:1 AA contrast; Selected elements; Active elements; Accent icons"
   },
   "$danger-01": {
-    "value": "#b12427",
+    "value": "#c73329",
     "type": "color",
     "description": "Danger button background; 3:1 AA contrast"
   },
@@ -170,7 +170,7 @@
     "type": "color"
   },
   "$hover-primary": {
-    "value": "#e64787",
+    "value": "#e32f85",
     "description": "$interactive-01 hover",
     "type": "color"
   },
@@ -205,7 +205,7 @@
     "type": "color"
   },
   "$hover-danger": {
-    "value": "#c73329",
+    "value": "#b12427",
     "description": "Danger hover; $support-01 hover",
     "type": "color"
   },
