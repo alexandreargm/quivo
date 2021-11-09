@@ -682,7 +682,7 @@
       "description": "Default page background"
     },
     "$interactive-01": {
-      "value": "$Brand.30",
+      "value": "$Brand.hover-light",
       "type": "color",
       "description": "Primary interactive color; Primary buttons"
     },
@@ -702,7 +702,7 @@
       "description": "3:1 AA contrast; Selected elements; Active elements; Accent icons"
     },
     "$danger-01": {
-      "value": "$Danger.30",
+      "value": "$Danger.hover-light",
       "type": "color",
       "description": "Danger button background; 3:1 AA contrast"
     },
@@ -847,7 +847,7 @@
       "type": "color"
     },
     "$hover-primary": {
-      "value": "$Brand.hover-light",
+      "value": "$Brand.30",
       "description": "$interactive-01 hover",
       "type": "color"
     },
@@ -882,7 +882,7 @@
       "type": "color"
     },
     "$hover-danger": {
-      "value": "$Danger.hover-light",
+      "value": "$Danger.30",
       "description": "Danger hover; $support-01 hover",
       "type": "color"
     },
@@ -989,7 +989,7 @@
       "description": "3:1 AA contrast; Selected elements; Active elements; Accent icons"
     },
     "$danger-01": {
-      "value": "$Danger.30",
+      "value": "$Danger.hover-light",
       "type": "color",
       "description": "Danger button background; 3:1 AA contrast"
     },
@@ -1119,7 +1119,7 @@
       "type": "color"
     },
     "$inverse-02": {
-      "value": "$Greys.10",
+      "value": "$Greys.30",
       "description": "High contrast backgrounds; High contrast elements",
       "type": "color"
     },
@@ -1169,7 +1169,7 @@
       "type": "color"
     },
     "$hover-danger": {
-      "value": "$Danger.hover-light",
+      "value": "$Danger.20",
       "description": "Danger hover; $support-01 hover",
       "type": "color"
     },
@@ -1209,7 +1209,7 @@
       "type": "color"
     },
     "$active-danger": {
-      "value": "$Danger.40",
+      "value": "$Danger.10",
       "description": "Danger active; $support-01 active",
       "type": "color"
     },
@@ -1244,7 +1244,7 @@
       "type": "color"
     },
     "$inverse-active-ui": {
-      "value": "$Greys.30",
+      "value": "$Greys.10",
       "description": "$inverse-01 active; $inverse-02 active",
       "type": "color"
     }
