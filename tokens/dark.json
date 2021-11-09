@@ -85,7 +85,7 @@
     "type": "color"
   },
   "$text-04": {
-    "value": "#ffffff",
+    "value": "#101017",
     "description": "Text on interactive colors",
     "type": "color"
   },
@@ -265,7 +265,7 @@
     "type": "color"
   },
   "$disabled-01": {
-    "value": "#cccccc",
+    "value": "#4f4f64",
     "description": "Disabled fields; Disabled backgrounds; Disabled border",
     "type": "color"
   },
@@ -280,7 +280,7 @@
     "type": "color"
   },
   "$inverse-active-ui": {
-    "value": "#bab6cb",
+    "value": "#9d9ab2",
     "description": "$inverse-01 active; $inverse-02 active",
     "type": "color"
   }
