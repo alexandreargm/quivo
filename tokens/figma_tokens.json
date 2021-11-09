@@ -1049,7 +1049,7 @@
       "type": "color"
     },
     "$text-04": {
-      "value": "$White",
+      "value": "$Greys.90",
       "description": "Text on interactive colors",
       "type": "color"
     },
@@ -1229,7 +1229,7 @@
       "type": "color"
     },
     "$disabled-01": {
-      "value": "$Greys.disabled-light",
+      "value": "$Greys.60",
       "description": "Disabled fields; Disabled backgrounds; Disabled border",
       "type": "color"
     },
@@ -1244,7 +1244,7 @@
       "type": "color"
     },
     "$inverse-active-ui": {
-      "value": "$Greys.20",
+      "value": "$Greys.30",
       "description": "$inverse-01 active; $inverse-02 active",
       "type": "color"
     }
