@@ -974,7 +974,7 @@
       "description": "Primary interactive color; Primary buttons"
     },
     "$interactive-02": {
-      "value": "$Brand.30",
+      "value": "$Greys.80",
       "type": "color",
       "description": "Secondary interactive color; Secondary button"
     },
@@ -1111,6 +1111,141 @@
     "$support-04": {
       "value": "$Info.20",
       "description": "Information",
+      "type": "color"
+    },
+    "$inverse-01": {
+      "value": "$Greys.70",
+      "description": " Inverse text color; Inverse icon color",
+      "type": "color"
+    },
+    "$inverse-02": {
+      "value": "$Greys.10",
+      "description": "High contrast backgrounds; High contrast elements",
+      "type": "color"
+    },
+    "$focus": {
+      "value": "$White",
+      "description": "Focus border; Focus underline",
+      "type": "color"
+    },
+    "$inverse-focus-ui": {
+      "value": "$Brand.30",
+      "description": "Focus on high contrast moments",
+      "type": "color"
+    },
+    "$hover-primary": {
+      "value": "$Brand.hover-light",
+      "description": "$interactive-01 hover",
+      "type": "color"
+    },
+    "$hover-primary-text": {
+      "value": "$Brand.hover-light",
+      "description": "$interactive-01 text hover",
+      "type": "color"
+    },
+    "$hover-secondary": {
+      "value": "$Greys.70",
+      "description": "$interactive-02 hover",
+      "type": "color"
+    },
+    "$hover-tertiary": {
+      "value": "$Greys.10",
+      "description": "$interactive-03 hover; $inverse-01 hover",
+      "type": "color"
+    },
+    "$hover-ui": {
+      "value": "$Greys.80",
+      "description": "$ui-01 hover; $ui-02 hover; Transparent background hover",
+      "type": "color"
+    },
+    "$hover-light-ui": {
+      "value": "$Greys.70",
+      "description": "'Light' variant hover",
+      "type": "color"
+    },
+    "$hover-selected-ui": {
+      "value": "$Greys.70",
+      "description": "Selected row hover",
+      "type": "color"
+    },
+    "$hover-danger": {
+      "value": "$Danger.hover-light",
+      "description": "Danger hover; $support-01 hover",
+      "type": "color"
+    },
+    "$hover-row": {
+      "value": "$Greys.80",
+      "description": "Row hover",
+      "type": "color"
+    },
+    "$inverse-hover-ui": {
+      "value": "$Greys.20",
+      "description": "Hover for $inverse-02",
+      "type": "color"
+    },
+    "$active-primary": {
+      "value": "$Brand.20",
+      "description": "$interactive-01 active",
+      "type": "color"
+    },
+    "$active-secondary": {
+      "value": "$Greys.60",
+      "description": "$interactive-02 active; $inverse-01 active",
+      "type": "color"
+    },
+    "$active-tertiary": {
+      "value": "$Greys.20",
+      "description": "$interactive-03 active",
+      "type": "color"
+    },
+    "$active-ui": {
+      "value": "$Greys.70",
+      "description": "$ui-01 active; $ui-02 active",
+      "type": "color"
+    },
+    "$active-light-ui": {
+      "value": "$Greys.60",
+      "description": "'Light'variant active",
+      "type": "color"
+    },
+    "$active-danger": {
+      "value": "$Danger.40",
+      "description": "Danger active; $support-01 active",
+      "type": "color"
+    },
+    "$selected-ui": {
+      "value": "$Greys.80",
+      "description": "Selected UI elements",
+      "type": "color"
+    },
+    "$selected-ui-light": {
+      "value": "$Greys.70",
+      "description": "'Light' variant selected",
+      "type": "color"
+    },
+    "$highlight": {
+      "value": "$Brand.70",
+      "description": "$interactive-01 highlight",
+      "type": "color"
+    },
+    "$disabled-01": {
+      "value": "$Greys.disabled-light",
+      "description": "Disabled fields; Disabled backgrounds; Disabled border",
+      "type": "color"
+    },
+    "$disabled-02": {
+      "value": "$Greys.40",
+      "description": "Disabled elements on $disabled-01; Disabled label; Disabled text on $disabled-01; Disabled icons; Disabled border",
+      "type": "color"
+    },
+    "$disabled-03": {
+      "value": "$Greys.30",
+      "description": "Disabled text on $disabled-02; Disabled icons on $disabled-02",
+      "type": "color"
+    },
+    "$inverse-active-ui": {
+      "value": "$Greys.20",
+      "description": "$inverse-01 active; $inverse-02 active",
       "type": "color"
     }
   }
