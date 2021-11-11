@@ -45,7 +45,7 @@
     "type": "color"
   },
   "$ui-03": {
-    "value": "#39384b",
+    "value": "#4f4f64",
     "description": "Subtle border; Tertiary background",
     "type": "color"
   },
@@ -190,7 +190,7 @@
     "type": "color"
   },
   "$hover-ui": {
-    "value": "#39384b",
+    "value": "#4f4f64",
     "description": "$ui-01 hover; $ui-02 hover; Transparent background hover",
     "type": "color"
   },
@@ -235,7 +235,7 @@
     "type": "color"
   },
   "$active-ui": {
-    "value": "#39384b",
+    "value": "#68667e",
     "description": "$ui-01 active; $ui-02 active",
     "type": "color"
   },
