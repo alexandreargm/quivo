@@ -912,7 +912,7 @@
       "type": "color"
     },
     "$active-ui": {
-      "value": "$Greys.20",
+      "value": "$Greys.30",
       "description": "$ui-01 active; $ui-02 active",
       "type": "color"
     },
@@ -1009,7 +1009,7 @@
       "type": "color"
     },
     "$ui-03": {
-      "value": "$Greys.70",
+      "value": "$Greys.60",
       "description": "Subtle border; Tertiary background",
       "type": "color"
     },
@@ -1154,7 +1154,7 @@
       "type": "color"
     },
     "$hover-ui": {
-      "value": "$Greys.70",
+      "value": "$Greys.60",
       "description": "$ui-01 hover; $ui-02 hover; Transparent background hover",
       "type": "color"
     },
@@ -1199,7 +1199,7 @@
       "type": "color"
     },
     "$active-ui": {
-      "value": "$Greys.70",
+      "value": "$Greys.50",
       "description": "$ui-01 active; $ui-02 active",
       "type": "color"
     },
