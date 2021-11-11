@@ -190,12 +190,12 @@
     "type": "color"
   },
   "$hover-ui": {
-    "value": "#d8d3e5",
+    "value": "#bab6cb",
     "description": "$ui-01 hover; $ui-02 hover; Transparent background hover",
     "type": "color"
   },
   "$hover-light-ui": {
-    "value": "#d8d3e5",
+    "value": "#bab6cb",
     "description": "'Light' variant hover",
     "type": "color"
   },
@@ -210,7 +210,7 @@
     "type": "color"
   },
   "$hover-row": {
-    "value": "#d8d3e5",
+    "value": "#bab6cb",
     "description": "Row hover",
     "type": "color"
   },
