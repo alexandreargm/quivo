@@ -1,287 +1,1010 @@
 {
-  "$ui-background": {
-    "value": "#f7f2ff",
-    "type": "color",
-    "description": "Default page background"
-  },
-  "$interactive-01": {
-    "value": "#e64787",
-    "type": "color",
-    "description": "Primary interactive color; Primary buttons"
-  },
-  "$interactive-02": {
-    "value": "#d8d3e5",
-    "type": "color",
-    "description": "Secondary interactive color; Secondary button"
-  },
-  "$interactive-03": {
-    "value": "#d0097e",
-    "type": "color",
-    "description": "4.5:1 AA contrast; Tertiary button"
-  },
-  "$interactive-04": {
-    "value": "#e32f85",
-    "type": "color",
-    "description": "3:1 AA contrast; Selected elements; Active elements; Accent icons"
-  },
-  "$danger-01": {
-    "value": "#c73329",
-    "type": "color",
-    "description": "Danger button background; 3:1 AA contrast"
-  },
-  "$danger-02": {
-    "value": "#b12427",
-    "type": "color",
-    "description": "Danger button variant; Text; Icon; Border"
-  },
-  "$ui-01": {
-    "value": "#d8d3e5",
-    "description": "Container background on $ui-background; Secondary page background",
+  "$background": {
+    "value": "#f6f0ff",
     "type": "color"
   },
-  "$ui-02": {
-    "value": "#f7f2ff",
-    "description": "Container background on $ui-01; `Light` variant background",
+  "$background-secondary": {
+    "value": "#d7d2e5",
     "type": "color"
   },
-  "$ui-03": {
-    "value": "#bab6cb",
-    "description": "Subtle border; Tertiary background",
+  "$background-tertiary": {
+    "value": "#b8b4ca",
     "type": "color"
   },
-  "$ui-04": {
-    "value": "#68667e",
-    "description": "3:1 aa element contrast; Medium contrast border",
+  "$background-hover": {
+    "value": "#faf7ff",
     "type": "color"
   },
-  "$ui-05": {
-    "value": "#101017",
-    "description": "4.5:1 aa element contrast; High contrast border; Emphasis elements",
+  "$background-hover-secondary": {
+    "value": "#ddd9e7",
     "type": "color"
   },
-  "$button-separator": {
-    "value": "#bab6cb",
-    "description": "3:1 aa element contrast; Fluid button separator",
+  "$background-hover-tertiary": {
+    "value": "#c0bccf",
     "type": "color"
   },
-  "$decorative-01": {
-    "value": "#bab6cb",
-    "description": "'Light' variant elements",
+  "$background-active": {
+    "value": "#d7d2e5",
     "type": "color"
   },
-  "$text-01": {
-    "value": "#101017",
-    "description": "Primary text; Body copy; Headers; Hover text color for $text-02",
+  "$background-active-secondary": {
+    "value": "#b8b4ca",
     "type": "color"
   },
-  "$text-02": {
+  "$background-active-tertiary": {
+    "value": "#9d9ab1",
+    "type": "color"
+  },
+  "$text": {
+    "value": "#111118",
+    "type": "color"
+  },
+  "$text-secondary": {
+    "value": "#232230",
+    "type": "color"
+  },
+  "$text-tertiary": {
+    "value": "#39384c",
+    "type": "color"
+  },
+  "$text-hover": {
+    "value": "#1b1b26",
+    "type": "color"
+  },
+  "$text-hover-secondary": {
+    "value": "#2e2e3e",
+    "type": "color"
+  },
+  "$text-hover-tertiary": {
+    "value": "#424256",
+    "type": "color"
+  },
+  "$text-active": {
+    "value": "#232230",
+    "type": "color"
+  },
+  "$text-active-secondary": {
+    "value": "#39384c",
+    "type": "color"
+  },
+  "$text-active-tertiary": {
     "value": "#4f4f64",
-    "description": "Secondary text; Input labels",
     "type": "color"
   },
-  "$text-03": {
-    "value": "#827f98",
-    "description": "Placeholder text",
+  "$icon": {
+    "value": "#838099",
     "type": "color"
   },
-  "$text-04": {
-    "value": "#ffffff",
-    "description": "Text on interactive colors",
+  "$icon-secondary": {
+    "value": "#68667f",
     "type": "color"
   },
-  "$text-05": {
-    "value": "#68667e",
-    "description": " Tertiary text; Help text",
-    "type": "color"
-  },
-  "$text-error": {
-    "value": "#b12427",
-    "description": "Error message text",
-    "type": "color"
-  },
-  "$link-01": {
-    "value": "#b5007a",
-    "description": "Primary links; Ghost button",
-    "type": "color"
-  },
-  "$link-02": {
+  "$icon-tertiary": {
     "value": "#4f4f64",
-    "description": "Secondary link color for lower contrast backgrounds",
     "type": "color"
   },
-  "$inverse-link": {
-    "value": "#d0097e",
-    "description": "Links on $inverse-02 backgrounds",
+  "$icon-hover": {
+    "value": "#89879f",
     "type": "color"
   },
-  "$icon-01": {
-    "value": "#101017",
-    "description": "Primary icons",
+  "$icon-hover-secondary": {
+    "value": "#706e87",
     "type": "color"
   },
-  "$icon-02": {
+  "$icon-hover-tertiary": {
+    "value": "#58576f",
+    "type": "color"
+  },
+  "$icon-active": {
+    "value": "#68667f",
+    "type": "color"
+  },
+  "$icon-active-secondary": {
     "value": "#4f4f64",
-    "description": "Secondary icons",
     "type": "color"
   },
-  "$icon-03": {
-    "value": "#f7f2ff",
-    "description": "Icons on interactive colors; Icons on non-ui colors",
+  "$icon-active-tertiary": {
+    "value": "#39384c",
     "type": "color"
   },
-  "$support-01": {
+  "$border": {
+    "value": "#b8b4ca",
+    "type": "color"
+  },
+  "$border-secondary": {
+    "value": "#9d9ab1",
+    "type": "color"
+  },
+  "$border-tertiary": {
+    "value": "#838099",
+    "type": "color"
+  },
+  "$border-hover": {
+    "value": "#c0bccf",
+    "type": "color"
+  },
+  "$border-hover-secondary": {
+    "value": "#a4a1b7",
+    "type": "color"
+  },
+  "$border-hover-tertiary": {
+    "value": "#89879f",
+    "type": "color"
+  },
+  "$border-active": {
+    "value": "#9d9ab1",
+    "type": "color"
+  },
+  "$border-active-secondary": {
+    "value": "#838099",
+    "type": "color"
+  },
+  "$border-active-tertiary": {
+    "value": "#68667f",
+    "type": "color"
+  },
+  "$background-interactive": {
+    "value": "#ffe6e6",
+    "type": "color"
+  },
+  "$background-interactive-secondary": {
+    "value": "#faa3b3",
+    "type": "color"
+  },
+  "$background-interactive-tertiary": {
+    "value": "#f26493",
+    "type": "color"
+  },
+  "$background-interactive-hover": {
+    "value": "#ffebeb",
+    "type": "color"
+  },
+  "$background-interactive-hover-secondary": {
+    "value": "#fab2bf",
+    "type": "color"
+  },
+  "$background-interactive-hover-tertiary": {
+    "value": "#f27da6",
+    "type": "color"
+  },
+  "$background-interactive-active": {
+    "value": "#faa3b3",
+    "type": "color"
+  },
+  "$background-interactive-active-secondary": {
+    "value": "#f26493",
+    "type": "color"
+  },
+  "$background-interactive-active-tertiary": {
+    "value": "#e33187",
+    "type": "color"
+  },
+  "$text-interactive": {
+    "value": "#1a0015",
+    "type": "color"
+  },
+  "$text-interactive-secondary": {
+    "value": "#3d0031",
+    "type": "color"
+  },
+  "$text-interactive-tertiary": {
+    "value": "#6b0052",
+    "type": "color"
+  },
+  "$text-interactive-hover": {
+    "value": "#24001d",
+    "type": "color"
+  },
+  "$text-interactive-hover-secondary": {
+    "value": "#4d003d",
+    "type": "color"
+  },
+  "$text-interactive-hover-tertiary": {
+    "value": "#75005a",
+    "type": "color"
+  },
+  "$text-interactive-active": {
+    "value": "#3d0031",
+    "type": "color"
+  },
+  "$text-interactive-active-secondary": {
+    "value": "#6b0052",
+    "type": "color"
+  },
+  "$text-interactive-active-tertiary": {
+    "value": "#94006c",
+    "type": "color"
+  },
+  "$icon-interactive": {
+    "value": "#d3097e",
+    "type": "color"
+  },
+  "$icon-interactive-secondary": {
+    "value": "#b20077",
+    "type": "color"
+  },
+  "$icon-interactive-tertiary": {
+    "value": "#94006c",
+    "type": "color"
+  },
+  "$icon-interactive-hover": {
+    "value": "#d1298b",
+    "type": "color"
+  },
+  "$icon-interactive-hover-secondary": {
+    "value": "#bc1083",
+    "type": "color"
+  },
+  "$icon-interactive-hover-tertiary": {
+    "value": "#980170",
+    "type": "color"
+  },
+  "$icon-interactive-active": {
+    "value": "#b20077",
+    "type": "color"
+  },
+  "$icon-interactive-active-secondary": {
+    "value": "#94006c",
+    "type": "color"
+  },
+  "$icon-interactive-active-tertiary": {
+    "value": "#6b0052",
+    "type": "color"
+  },
+  "$border-interactive": {
+    "value": "#f26493",
+    "type": "color"
+  },
+  "$border-interactive-secondary": {
+    "value": "#e33187",
+    "type": "color"
+  },
+  "$border-interactive-tertiary": {
+    "value": "#d3097e",
+    "type": "color"
+  },
+  "$border-interactive-hover": {
+    "value": "#f27da6",
+    "type": "color"
+  },
+  "$border-interactive-hover-secondary": {
+    "value": "#e54d96",
+    "type": "color"
+  },
+  "$border-interactive-hover-tertiary": {
+    "value": "#d1298b",
+    "type": "color"
+  },
+  "$border-interactive-active": {
+    "value": "#e33187",
+    "type": "color"
+  },
+  "$border-interactive-active-secondary": {
+    "value": "#d3097e",
+    "type": "color"
+  },
+  "$border-interactive-active-tertiary": {
+    "value": "#b20077",
+    "type": "color"
+  },
+  "$background-danger": {
+    "value": "#ffe6e6",
+    "type": "color"
+  },
+  "$background-danger-secondary": {
+    "value": "#e59596",
+    "type": "color"
+  },
+  "$background-danger-tertiary": {
+    "value": "#cb5355",
+    "type": "color"
+  },
+  "$background-danger-hover": {
+    "value": "#ffeded",
+    "type": "color"
+  },
+  "$background-danger-hover-secondary": {
+    "value": "#e7a5a6",
+    "type": "color"
+  },
+  "$background-danger-hover-tertiary": {
+    "value": "#ce696b",
+    "type": "color"
+  },
+  "$background-danger-active": {
+    "value": "#e59596",
+    "type": "color"
+  },
+  "$background-danger-active-secondary": {
+    "value": "#cb5355",
+    "type": "color"
+  },
+  "$background-danger-active-tertiary": {
     "value": "#b12427",
-    "description": "Error",
     "type": "color"
   },
-  "$support-02": {
-    "value": "#33b135",
-    "description": "Success",
+  "$text-danger": {
+    "value": "#140000",
     "type": "color"
   },
-  "$support-03": {
-    "value": "#b18b24",
-    "description": "Warning",
+  "$text-danger-secondary": {
+    "value": "#2e0001",
     "type": "color"
   },
-  "$support-04": {
-    "value": "#24b0b1",
-    "description": "Information",
+  "$text-danger-tertiary": {
+    "value": "#490001",
     "type": "color"
   },
-  "$inverse-01": {
-    "value": "#ffffff",
-    "description": " Inverse text color; Inverse icon color",
+  "$text-danger-hover": {
+    "value": "#240001",
     "type": "color"
   },
-  "$inverse-02": {
-    "value": "#39384b",
-    "description": "High contrast backgrounds; High contrast elements",
+  "$text-danger-hover-secondary": {
+    "value": "#3c0001",
     "type": "color"
   },
-  "$focus": {
-    "value": "#e32f85",
-    "description": "Focus border; Focus underline",
+  "$text-danger-hover-tertiary": {
+    "value": "#540001",
     "type": "color"
   },
-  "$inverse-focus-ui": {
-    "value": "#ffffff",
-    "description": "Focus on high contrast moments",
+  "$text-danger-active": {
+    "value": "#2e0001",
     "type": "color"
   },
-  "$hover-primary": {
-    "value": "#e32f85",
-    "description": "$interactive-01 hover",
+  "$text-danger-active-secondary": {
+    "value": "#490001",
     "type": "color"
   },
-  "$hover-primary-text": {
-    "value": "#d0097e",
-    "description": "$interactive-01 text hover",
+  "$text-danger-active-tertiary": {
+    "value": "#630002",
     "type": "color"
   },
-  "$hover-secondary": {
-    "value": "#bab6cb",
-    "description": "$interactive-02 hover",
-    "type": "color"
-  },
-  "$hover-tertiary": {
-    "value": "#e64787",
-    "description": "$interactive-03 hover; $inverse-01 hover",
-    "type": "color"
-  },
-  "$hover-ui": {
-    "value": "#bab6cb",
-    "description": "$ui-01 hover; $ui-02 hover; Transparent background hover",
-    "type": "color"
-  },
-  "$hover-light-ui": {
-    "value": "#bab6cb",
-    "description": "'Light' variant hover",
-    "type": "color"
-  },
-  "$hover-selected-ui": {
-    "value": "#bab6cb",
-    "description": "Selected row hover",
-    "type": "color"
-  },
-  "$hover-danger": {
-    "value": "#b12427",
-    "description": "Danger hover; $support-01 hover",
-    "type": "color"
-  },
-  "$hover-row": {
-    "value": "#bab6cb",
-    "description": "Row hover",
-    "type": "color"
-  },
-  "$inverse-hover-ui": {
-    "value": "#242331",
-    "description": "Hover for $inverse-02",
-    "type": "color"
-  },
-  "$active-primary": {
-    "value": "#d0097e",
-    "description": "$interactive-01 active",
-    "type": "color"
-  },
-  "$active-secondary": {
-    "value": "#9d9ab2",
-    "description": "$interactive-02 active; $inverse-01 active",
-    "type": "color"
-  },
-  "$active-tertiary": {
-    "value": "#93006b",
-    "description": "$interactive-03 active",
-    "type": "color"
-  },
-  "$active-ui": {
-    "value": "#9d9ab2",
-    "description": "$ui-01 active; $ui-02 active",
-    "type": "color"
-  },
-  "$active-light-ui": {
-    "value": "#bab6cb",
-    "description": "'Light'variant active",
-    "type": "color"
-  },
-  "$active-danger": {
+  "$icon-danger": {
     "value": "#970609",
-    "description": "Danger active; $support-01 active",
     "type": "color"
   },
-  "$selected-ui": {
-    "value": "#bab6cb",
-    "description": "Selected UI elements",
+  "$icon-danger-secondary": {
+    "value": "#7d0002",
     "type": "color"
   },
-  "$selected-ui-light": {
-    "value": "#bab6cb",
-    "description": "'Light' variant selected",
+  "$icon-danger-tertiary": {
+    "value": "#630002",
     "type": "color"
   },
-  "$highlight": {
-    "value": "#faa2b2",
-    "description": "$interactive-01 highlight",
+  "$icon-danger-hover": {
+    "value": "#9e1e20",
     "type": "color"
   },
-  "$disabled-01": {
-    "value": "#cccccc",
-    "description": "Disabled fields; Disabled backgrounds; Disabled border",
+  "$icon-danger-hover-secondary": {
+    "value": "#850b0e",
     "type": "color"
   },
-  "$disabled-02": {
-    "value": "#827f98",
-    "description": "Disabled elements on $disabled-01; Disabled label; Disabled text on $disabled-01; Disabled icons; Disabled border",
+  "$icon-danger-hover-tertiary": {
+    "value": "#6d0103",
     "type": "color"
   },
-  "$disabled-03": {
-    "value": "#242331",
-    "description": "Disabled text on $disabled-02; Disabled icons on $disabled-02",
+  "$icon-danger-active": {
+    "value": "#7d0002",
     "type": "color"
   },
-  "$inverse-active-ui": {
-    "value": "#101017",
-    "description": "$inverse-01 active; $inverse-02 active",
+  "$icon-danger-active-secondary": {
+    "value": "#630002",
+    "type": "color"
+  },
+  "$icon-danger-active-tertiary": {
+    "value": "#490001",
+    "type": "color"
+  },
+  "$border-danger": {
+    "value": "#cb5355",
+    "type": "color"
+  },
+  "$border-danger-secondary": {
+    "value": "#b12427",
+    "type": "color"
+  },
+  "$border-danger-tertiary": {
+    "value": "#970609",
+    "type": "color"
+  },
+  "$border-danger-hover": {
+    "value": "#ce696b",
+    "type": "color"
+  },
+  "$border-danger-hover-secondary": {
+    "value": "#b63d3f",
+    "type": "color"
+  },
+  "$border-danger-hover-tertiary": {
+    "value": "#9e1e20",
+    "type": "color"
+  },
+  "$border-danger-active": {
+    "value": "#b12427",
+    "type": "color"
+  },
+  "$border-danger-active-secondary": {
+    "value": "#970609",
+    "type": "color"
+  },
+  "$border-danger-active-tertiary": {
+    "value": "#7d0002",
+    "type": "color"
+  },
+  "$background-success": {
+    "value": "#ebffe6",
+    "type": "color"
+  },
+  "$background-success-secondary": {
+    "value": "#aae5a0",
+    "type": "color"
+  },
+  "$background-success-tertiary": {
+    "value": "#69cb64",
+    "type": "color"
+  },
+  "$background-success-hover": {
+    "value": "#ebffe6",
+    "type": "color"
+  },
+  "$background-success-hover-secondary": {
+    "value": "#aae5a0",
+    "type": "color"
+  },
+  "$background-success-hover-tertiary": {
+    "value": "#69cb64",
+    "type": "color"
+  },
+  "$background-success-active": {
+    "value": "#aae5a0",
+    "type": "color"
+  },
+  "$background-success-active-secondary": {
+    "value": "#69cb64",
+    "type": "color"
+  },
+  "$background-success-active-tertiary": {
+    "value": "#33b135",
+    "type": "color"
+  },
+  "$text-success": {
+    "value": "#001404",
+    "type": "color"
+  },
+  "$text-success-secondary": {
+    "value": "#002e09",
+    "type": "color"
+  },
+  "$text-success-tertiary": {
+    "value": "#00490d",
+    "type": "color"
+  },
+  "$text-success-hover": {
+    "value": "#001404",
+    "type": "color"
+  },
+  "$text-success-hover-secondary": {
+    "value": "#002e09",
+    "type": "color"
+  },
+  "$text-success-hover-tertiary": {
+    "value": "#00490d",
+    "type": "color"
+  },
+  "$text-success-active": {
+    "value": "#002e09",
+    "type": "color"
+  },
+  "$text-success-active-secondary": {
+    "value": "#00490d",
+    "type": "color"
+  },
+  "$text-success-active-tertiary": {
+    "value": "#00630f",
+    "type": "color"
+  },
+  "$icon-success": {
+    "value": "#0f9719",
+    "type": "color"
+  },
+  "$icon-success-secondary": {
+    "value": "#007d0f",
+    "type": "color"
+  },
+  "$icon-success-tertiary": {
+    "value": "#00630f",
+    "type": "color"
+  },
+  "$icon-success-hover": {
+    "value": "#0f9719",
+    "type": "color"
+  },
+  "$icon-success-hover-secondary": {
+    "value": "#007d0f",
+    "type": "color"
+  },
+  "$icon-success-hover-tertiary": {
+    "value": "#00630f",
+    "type": "color"
+  },
+  "$icon-success-active": {
+    "value": "#007d0f",
+    "type": "color"
+  },
+  "$icon-success-active-secondary": {
+    "value": "#00630f",
+    "type": "color"
+  },
+  "$icon-success-active-tertiary": {
+    "value": "#00490d",
+    "type": "color"
+  },
+  "$border-success": {
+    "value": "#69cb64",
+    "type": "color"
+  },
+  "$border-success-secondary": {
+    "value": "#33b135",
+    "type": "color"
+  },
+  "$border-success-tertiary": {
+    "value": "#0f9719",
+    "type": "color"
+  },
+  "$border-success-hover": {
+    "value": "#69cb64",
+    "type": "color"
+  },
+  "$border-success-hover-secondary": {
+    "value": "#33b135",
+    "type": "color"
+  },
+  "$border-success-hover-tertiary": {
+    "value": "#0f9719",
+    "type": "color"
+  },
+  "$border-success-active": {
+    "value": "#33b135",
+    "type": "color"
+  },
+  "$border-success-active-secondary": {
+    "value": "#0f9719",
+    "type": "color"
+  },
+  "$border-success-active-tertiary": {
+    "value": "#007d0f",
+    "type": "color"
+  },
+  "$background-warning": {
+    "value": "#fff4e6",
+    "type": "color"
+  },
+  "$background-warning-secondary": {
+    "value": "#e5c895",
+    "type": "color"
+  },
+  "$background-warning-tertiary": {
+    "value": "#cba553",
+    "type": "color"
+  },
+  "$background-warning-hover": {
+    "value": "#fff4e6",
+    "type": "color"
+  },
+  "$background-warning-hover-secondary": {
+    "value": "#e5c895",
+    "type": "color"
+  },
+  "$background-warning-hover-tertiary": {
+    "value": "#cba553",
+    "type": "color"
+  },
+  "$background-warning-active": {
+    "value": "#e5c895",
+    "type": "color"
+  },
+  "$background-warning-active-secondary": {
+    "value": "#cba553",
+    "type": "color"
+  },
+  "$background-warning-active-tertiary": {
+    "value": "#b18b24",
+    "type": "color"
+  },
+  "$text-warning": {
+    "value": "#141100",
+    "type": "color"
+  },
+  "$text-warning-secondary": {
+    "value": "#2e2700",
+    "type": "color"
+  },
+  "$text-warning-tertiary": {
+    "value": "#493b00",
+    "type": "color"
+  },
+  "$text-warning-hover": {
+    "value": "#141100",
+    "type": "color"
+  },
+  "$text-warning-hover-secondary": {
+    "value": "#2e2700",
+    "type": "color"
+  },
+  "$text-warning-hover-tertiary": {
+    "value": "#493b00",
+    "type": "color"
+  },
+  "$text-warning-active": {
+    "value": "#2e2700",
+    "type": "color"
+  },
+  "$text-warning-active-secondary": {
+    "value": "#493b00",
+    "type": "color"
+  },
+  "$text-warning-active-tertiary": {
+    "value": "#635000",
+    "type": "color"
+  },
+  "$icon-warning": {
+    "value": "#977406",
+    "type": "color"
+  },
+  "$icon-warning-secondary": {
+    "value": "#7d6200",
+    "type": "color"
+  },
+  "$icon-warning-tertiary": {
+    "value": "#635000",
+    "type": "color"
+  },
+  "$icon-warning-hover": {
+    "value": "#977406",
+    "type": "color"
+  },
+  "$icon-warning-hover-secondary": {
+    "value": "#7d6200",
+    "type": "color"
+  },
+  "$icon-warning-hover-tertiary": {
+    "value": "#635000",
+    "type": "color"
+  },
+  "$icon-warning-active": {
+    "value": "#7d6200",
+    "type": "color"
+  },
+  "$icon-warning-active-secondary": {
+    "value": "#635000",
+    "type": "color"
+  },
+  "$icon-warning-active-tertiary": {
+    "value": "#493b00",
+    "type": "color"
+  },
+  "$border-warning": {
+    "value": "#cba553",
+    "type": "color"
+  },
+  "$border-warning-secondary": {
+    "value": "#b18b24",
+    "type": "color"
+  },
+  "$border-warning-tertiary": {
+    "value": "#977406",
+    "type": "color"
+  },
+  "$border-warning-hover": {
+    "value": "#cba553",
+    "type": "color"
+  },
+  "$border-warning-hover-secondary": {
+    "value": "#b18b24",
+    "type": "color"
+  },
+  "$border-warning-hover-tertiary": {
+    "value": "#977406",
+    "type": "color"
+  },
+  "$border-warning-active": {
+    "value": "#b18b24",
+    "type": "color"
+  },
+  "$border-warning-active-secondary": {
+    "value": "#977406",
+    "type": "color"
+  },
+  "$border-warning-active-tertiary": {
+    "value": "#7d6200",
+    "type": "color"
+  },
+  "$background-info": {
+    "value": "#e6f9ff",
+    "type": "color"
+  },
+  "$background-info-secondary": {
+    "value": "#95d8e5",
+    "type": "color"
+  },
+  "$background-info-tertiary": {
+    "value": "#53c1cb",
+    "type": "color"
+  },
+  "$background-info-hover": {
+    "value": "#e6f9ff",
+    "type": "color"
+  },
+  "$background-info-hover-secondary": {
+    "value": "#95d8e5",
+    "type": "color"
+  },
+  "$background-info-hover-tertiary": {
+    "value": "#53c1cb",
+    "type": "color"
+  },
+  "$background-info-active": {
+    "value": "#95d8e5",
+    "type": "color"
+  },
+  "$background-info-active-secondary": {
+    "value": "#53c1cb",
+    "type": "color"
+  },
+  "$background-info-active-tertiary": {
+    "value": "#24b0b1",
+    "type": "color"
+  },
+  "$text-info": {
+    "value": "#001411",
+    "type": "color"
+  },
+  "$text-info-secondary": {
+    "value": "#002e27",
+    "type": "color"
+  },
+  "$text-info-tertiary": {
+    "value": "#00493e",
+    "type": "color"
+  },
+  "$text-info-hover": {
+    "value": "#001411",
+    "type": "color"
+  },
+  "$text-info-hover-secondary": {
+    "value": "#002e27",
+    "type": "color"
+  },
+  "$text-info-hover-tertiary": {
+    "value": "#00493e",
+    "type": "color"
+  },
+  "$text-info-active": {
+    "value": "#002e27",
+    "type": "color"
+  },
+  "$text-info-active-secondary": {
+    "value": "#00493e",
+    "type": "color"
+  },
+  "$text-info-active-tertiary": {
+    "value": "#006356",
+    "type": "color"
+  },
+  "$icon-info": {
+    "value": "#069790",
+    "type": "color"
+  },
+  "$icon-info-secondary": {
+    "value": "#007d71",
+    "type": "color"
+  },
+  "$icon-info-tertiary": {
+    "value": "#006356",
+    "type": "color"
+  },
+  "$icon-info-hover": {
+    "value": "#069790",
+    "type": "color"
+  },
+  "$icon-info-hover-secondary": {
+    "value": "#007d71",
+    "type": "color"
+  },
+  "$icon-info-hover-tertiary": {
+    "value": "#006356",
+    "type": "color"
+  },
+  "$icon-info-active": {
+    "value": "#007d71",
+    "type": "color"
+  },
+  "$icon-info-active-secondary": {
+    "value": "#006356",
+    "type": "color"
+  },
+  "$icon-info-active-tertiary": {
+    "value": "#00493e",
+    "type": "color"
+  },
+  "$border-info": {
+    "value": "#53c1cb",
+    "type": "color"
+  },
+  "$border-info-secondary": {
+    "value": "#24b0b1",
+    "type": "color"
+  },
+  "$border-info-tertiary": {
+    "value": "#069790",
+    "type": "color"
+  },
+  "$border-info-hover": {
+    "value": "#53c1cb",
+    "type": "color"
+  },
+  "$border-info-hover-secondary": {
+    "value": "#24b0b1",
+    "type": "color"
+  },
+  "$border-info-hover-tertiary": {
+    "value": "#069790",
+    "type": "color"
+  },
+  "$border-info-active": {
+    "value": "#24b0b1",
+    "type": "color"
+  },
+  "$border-info-active-secondary": {
+    "value": "#069790",
+    "type": "color"
+  },
+  "$border-info-active-tertiary": {
+    "value": "#007d71",
+    "type": "color"
+  },
+  "$background-neutral": {
+    "value": "#ffffff",
+    "type": "color"
+  },
+  "$background-neutral-secondary": {
+    "value": "#e5e5e5",
+    "type": "color"
+  },
+  "$background-neutral-tertiary": {
+    "value": "#cbcbcb",
+    "type": "color"
+  },
+  "$background-neutral-hover": {
+    "value": "#ffffff",
+    "type": "color"
+  },
+  "$background-neutral-hover-secondary": {
+    "value": "#e5e5e5",
+    "type": "color"
+  },
+  "$background-neutral-hover-tertiary": {
+    "value": "#cbcbcb",
+    "type": "color"
+  },
+  "$background-neutral-active": {
+    "value": "#e5e5e5",
+    "type": "color"
+  },
+  "$background-neutral-active-secondary": {
+    "value": "#cbcbcb",
+    "type": "color"
+  },
+  "$background-neutral-active-tertiary": {
+    "value": "#b2b2b2",
+    "type": "color"
+  },
+  "$text-neutral": {
+    "value": "#171717",
+    "type": "color"
+  },
+  "$text-neutral-secondary": {
+    "value": "#313131",
+    "type": "color"
+  },
+  "$text-neutral-tertiary": {
+    "value": "#4b4b4b",
+    "type": "color"
+  },
+  "$text-neutral-hover": {
+    "value": "#171717",
+    "type": "color"
+  },
+  "$text-neutral-hover-secondary": {
+    "value": "#313131",
+    "type": "color"
+  },
+  "$text-neutral-hover-tertiary": {
+    "value": "#4b4b4b",
+    "type": "color"
+  },
+  "$text-neutral-active": {
+    "value": "#313131",
+    "type": "color"
+  },
+  "$text-neutral-active-secondary": {
+    "value": "#4b4b4b",
+    "type": "color"
+  },
+  "$text-neutral-active-tertiary": {
+    "value": "#646464",
+    "type": "color"
+  },
+  "$icon-neutral": {
+    "value": "#989898",
+    "type": "color"
+  },
+  "$icon-neutral-secondary": {
+    "value": "#7e7e7e",
+    "type": "color"
+  },
+  "$icon-neutral-tertiary": {
+    "value": "#646464",
+    "type": "color"
+  },
+  "$icon-neutral-hover": {
+    "value": "#989898",
+    "type": "color"
+  },
+  "$icon-neutral-hover-secondary": {
+    "value": "#7e7e7e",
+    "type": "color"
+  },
+  "$icon-neutral-hover-tertiary": {
+    "value": "#646464",
+    "type": "color"
+  },
+  "$icon-neutral-active": {
+    "value": "#7e7e7e",
+    "type": "color"
+  },
+  "$icon-neutral-active-secondary": {
+    "value": "#646464",
+    "type": "color"
+  },
+  "$icon-neutral-active-tertiary": {
+    "value": "#4b4b4b",
+    "type": "color"
+  },
+  "$border-neutral": {
+    "value": "#cbcbcb",
+    "type": "color"
+  },
+  "$border-neutral-secondary": {
+    "value": "#b2b2b2",
+    "type": "color"
+  },
+  "$border-neutral-tertiary": {
+    "value": "#989898",
+    "type": "color"
+  },
+  "$border-neutral-hover": {
+    "value": "#cbcbcb",
+    "type": "color"
+  },
+  "$border-neutral-hover-secondary": {
+    "value": "#b2b2b2",
+    "type": "color"
+  },
+  "$border-neutral-hover-tertiary": {
+    "value": "#989898",
+    "type": "color"
+  },
+  "$border-neutral-active": {
+    "value": "#b2b2b2",
+    "type": "color"
+  },
+  "$border-neutral-active-secondary": {
+    "value": "#989898",
+    "type": "color"
+  },
+  "$border-neutral-active-tertiary": {
+    "value": "#7e7e7e",
     "type": "color"
   }
 }
