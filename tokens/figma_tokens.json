@@ -1045,11 +1045,11 @@
       "type": "color"
     },
     "$color-secondary": {
-      "value": "$Grey.30",
+      "value": "$Grey.40",
       "type": "color"
     },
     "$color-tertiary": {
-      "value": "$Grey.60",
+      "value": "$Grey.50",
       "type": "color"
     },
     "$color-hover": {
@@ -1057,11 +1057,11 @@
       "type": "color"
     },
     "$color-hover-secondary": {
-      "value": "$GreyLighter.30",
+      "value": "$GreyLighter.40",
       "type": "color"
     },
     "$color-hover-tertiary": {
-      "value": "$GreyLighter.60",
+      "value": "$GreyLighter.50",
       "type": "color"
     },
     "$color-active": {
@@ -1069,11 +1069,11 @@
       "type": "color"
     },
     "$color-active-secondary": {
-      "value": "$Grey.40",
+      "value": "$Grey.50",
       "type": "color"
     },
     "$color-active-tertiary": {
-      "value": "$Grey.50",
+      "value": "$Grey.60",
       "type": "color"
     },
     "$background": {
@@ -1093,7 +1093,7 @@
       "type": "color"
     },
     "$background-hover-secondary": {
-      "value": "$GreyLighter.10",
+      "value": "$GreyDarker.10",
       "type": "color"
     },
     "$background-hover-tertiary": {
@@ -1225,11 +1225,11 @@
       "type": "color"
     },
     "$color-reverse-secondary": {
-      "value": "$ReverseGrey.30",
+      "value": "$ReverseGrey.40",
       "type": "color"
     },
     "$color-reverse-tertiary": {
-      "value": "$ReverseGrey.60",
+      "value": "$ReverseGrey.50",
       "type": "color"
     },
     "$color-reverse-hover": {
@@ -1237,11 +1237,11 @@
       "type": "color"
     },
     "$color-reverse-hover-secondary": {
-      "value": "$ReverseGreyLighter.30",
+      "value": "$ReverseGreyLighter.40",
       "type": "color"
     },
     "$color-reverse-hover-tertiary": {
-      "value": "$ReverseGreyLighter.60",
+      "value": "$ReverseGreyLighter.50",
       "type": "color"
     },
     "$color-reverse-active": {
@@ -1249,11 +1249,11 @@
       "type": "color"
     },
     "$color-reverse-active-secondary": {
-      "value": "$ReverseGrey.40",
+      "value": "$ReverseGrey.50",
       "type": "color"
     },
     "$color-reverse-active-tertiary": {
-      "value": "$ReverseGrey.50",
+      "value": "$ReverseGrey.60",
       "type": "color"
     },
     "$background-reverse": {
@@ -1405,11 +1405,11 @@
       "type": "color"
     },
     "$color-interactive-secondary": {
-      "value": "$Brand.30",
+      "value": "$Brand.40",
       "type": "color"
     },
     "$color-interactive-tertiary": {
-      "value": "$Brand.60",
+      "value": "$Brand.50",
       "type": "color"
     },
     "$color-interactive-hover": {
@@ -1417,11 +1417,11 @@
       "type": "color"
     },
     "$color-interactive-hover-secondary": {
-      "value": "$BrandLighter.30",
+      "value": "$BrandLighter.40",
       "type": "color"
     },
     "$color-interactive-hover-tertiary": {
-      "value": "$BrandLighter.60",
+      "value": "$BrandLighter.50",
       "type": "color"
     },
     "$color-interactive-active": {
@@ -1429,11 +1429,11 @@
       "type": "color"
     },
     "$color-interactive-active-secondary": {
-      "value": "$Brand.40",
+      "value": "$Brand.50",
       "type": "color"
     },
     "$color-interactive-active-tertiary": {
-      "value": "$Brand.50",
+      "value": "$Brand.60",
       "type": "color"
     },
     "$background-interactive": {
@@ -1585,23 +1585,23 @@
       "type": "color"
     },
     "$color-danger-secondary": {
-      "value": "$Danger.30",
+      "value": "$Danger.40",
       "type": "color"
     },
     "$color-danger-tertiary": {
-      "value": "$Danger.60",
+      "value": "$Danger.50",
       "type": "color"
     },
     "$color-danger-hover": {
-      "value": "$DangerLighter.30",
+      "value": "$DangerDarker.30",
       "type": "color"
     },
     "$color-danger-hover-secondary": {
-      "value": "$DangerLighter.30",
+      "value": "$DangerLighter.40",
       "type": "color"
     },
     "$color-danger-hover-tertiary": {
-      "value": "$DangerLighter.60",
+      "value": "$DangerLighter.50",
       "type": "color"
     },
     "$color-danger-active": {
@@ -1609,11 +1609,11 @@
       "type": "color"
     },
     "$color-danger-active-secondary": {
-      "value": "$Danger.40",
+      "value": "$Danger.50",
       "type": "color"
     },
     "$color-danger-active-tertiary": {
-      "value": "$Danger.50",
+      "value": "$Danger.60",
       "type": "color"
     },
     "$background-danger": {
@@ -1765,11 +1765,11 @@
       "type": "color"
     },
     "$color-success-secondary": {
-      "value": "$Success.30",
+      "value": "$Success.40",
       "type": "color"
     },
     "$color-success-tertiary": {
-      "value": "$Success.60",
+      "value": "$Success.50",
       "type": "color"
     },
     "$color-success-hover": {
@@ -1777,11 +1777,11 @@
       "type": "color"
     },
     "$color-success-hover-secondary": {
-      "value": "$Success.30",
+      "value": "$Success.40",
       "type": "color"
     },
     "$color-success-hover-tertiary": {
-      "value": "$Success.60",
+      "value": "$Success.50",
       "type": "color"
     },
     "$color-success-active": {
@@ -1789,11 +1789,11 @@
       "type": "color"
     },
     "$color-success-active-secondary": {
-      "value": "$Success.40",
+      "value": "$Success.50",
       "type": "color"
     },
     "$color-success-active-tertiary": {
-      "value": "$Success.50",
+      "value": "$Success.60",
       "type": "color"
     },
     "$background-success": {
@@ -1945,11 +1945,11 @@
       "type": "color"
     },
     "$color-warning-secondary": {
-      "value": "$Warning.30",
+      "value": "$Warning.40",
       "type": "color"
     },
     "$color-warning-tertiary": {
-      "value": "$Warning.60",
+      "value": "$Warning.50",
       "type": "color"
     },
     "$color-warning-hover": {
@@ -1957,11 +1957,11 @@
       "type": "color"
     },
     "$color-warning-hover-secondary": {
-      "value": "$Warning.30",
+      "value": "$Warning.40",
       "type": "color"
     },
     "$color-warning-hover-tertiary": {
-      "value": "$Warning.60",
+      "value": "$Warning.50",
       "type": "color"
     },
     "$color-warning-active": {
@@ -1969,11 +1969,11 @@
       "type": "color"
     },
     "$color-warning-active-secondary": {
-      "value": "$Warning.40",
+      "value": "$Warning.50",
       "type": "color"
     },
     "$color-warning-active-tertiary": {
-      "value": "$Warning.50",
+      "value": "$Warning.60",
       "type": "color"
     },
     "$background-warning": {
@@ -2125,11 +2125,11 @@
       "type": "color"
     },
     "$color-info-secondary": {
-      "value": "$Info.30",
+      "value": "$Info.40",
       "type": "color"
     },
     "$color-info-tertiary": {
-      "value": "$Info.60",
+      "value": "$Info.50",
       "type": "color"
     },
     "$color-info-hover": {
@@ -2137,11 +2137,11 @@
       "type": "color"
     },
     "$color-info-hover-secondary": {
-      "value": "$Info.30",
+      "value": "$Info.40",
       "type": "color"
     },
     "$color-info-hover-tertiary": {
-      "value": "$Info.60",
+      "value": "$Info.50",
       "type": "color"
     },
     "$color-info-active": {
@@ -2149,11 +2149,11 @@
       "type": "color"
     },
     "$color-info-active-secondary": {
-      "value": "$Info.40",
+      "value": "$Info.50",
       "type": "color"
     },
     "$color-info-active-tertiary": {
-      "value": "$Info.50",
+      "value": "$Info.60",
       "type": "color"
     },
     "$background-info": {
@@ -2305,11 +2305,11 @@
       "type": "color"
     },
     "$color-neutral-secondary": {
-      "value": "$Neutral.30",
+      "value": "$Neutral.40",
       "type": "color"
     },
     "$color-neutral-tertiary": {
-      "value": "$Neutral.60",
+      "value": "$Neutral.50",
       "type": "color"
     },
     "$color-neutral-hover": {
@@ -2317,11 +2317,11 @@
       "type": "color"
     },
     "$color-neutral-hover-secondary": {
-      "value": "$Neutral.30",
+      "value": "$Neutral.40",
       "type": "color"
     },
     "$color-neutral-hover-tertiary": {
-      "value": "$Neutral.60",
+      "value": "$Neutral.50",
       "type": "color"
     },
     "$color-neutral-active": {
@@ -2329,11 +2329,11 @@
       "type": "color"
     },
     "$color-neutral-active-secondary": {
-      "value": "$Neutral.40",
+      "value": "$Neutral.50",
       "type": "color"
     },
     "$color-neutral-active-tertiary": {
-      "value": "$Neutral.50",
+      "value": "$Neutral.60",
       "type": "color"
     },
     "$background-neutral": {
@@ -2485,11 +2485,11 @@
       "type": "color"
     },
     "$color-reverse-neutral-secondary": {
-      "value": "$ReverseNeutral.30",
+      "value": "$ReverseNeutral.40",
       "type": "color"
     },
     "$color-reverse-neutral-tertiary": {
-      "value": "$ReverseNeutral.60",
+      "value": "$ReverseNeutral.50",
       "type": "color"
     },
     "$color-reverse-neutral-hover": {
@@ -2497,11 +2497,11 @@
       "type": "color"
     },
     "$color-reverse-neutral-hover-secondary": {
-      "value": "$ReverseNeutral.30",
+      "value": "$ReverseNeutral.40",
       "type": "color"
     },
     "$color-reverse-neutral-hover-tertiary": {
-      "value": "$ReverseNeutral.60",
+      "value": "$ReverseNeutral.50",
       "type": "color"
     },
     "$color-reverse-neutral-active": {
@@ -2509,11 +2509,11 @@
       "type": "color"
     },
     "$color-reverse-neutral-active-secondary": {
-      "value": "$ReverseNeutral.40",
+      "value": "$ReverseNeutral.50",
       "type": "color"
     },
     "$color-reverse-neutral-active-tertiary": {
-      "value": "$ReverseNeutral.50",
+      "value": "$ReverseNeutral.60",
       "type": "color"
     },
     "$background-reverse-neutral": {
