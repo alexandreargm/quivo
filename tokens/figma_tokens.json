@@ -324,6 +324,132 @@
       "value": "#000000",
       "type": "color"
     },
+    "Success": {
+      "10": {
+        "value": "#aae5a0",
+        "type": "color"
+      },
+      "20": {
+        "value": "#69cb64",
+        "type": "color"
+      },
+      "30": {
+        "value": "#33b135",
+        "type": "color"
+      },
+      "40": {
+        "value": "#0f9719",
+        "type": "color"
+      },
+      "50": {
+        "value": "#007d0f",
+        "type": "color"
+      },
+      "60": {
+        "value": "#00630f",
+        "type": "color"
+      },
+      "70": {
+        "value": "#00490d",
+        "type": "color"
+      },
+      "80": {
+        "value": "#002e09",
+        "type": "color"
+      },
+      "90": {
+        "value": "#001404",
+        "type": "color"
+      },
+      "00": {
+        "value": "#ebffe6",
+        "type": "color"
+      }
+    },
+    "Warning": {
+      "10": {
+        "value": "#e5c895",
+        "type": "color"
+      },
+      "20": {
+        "value": "#cba553",
+        "type": "color"
+      },
+      "30": {
+        "value": "#b18b24",
+        "type": "color"
+      },
+      "40": {
+        "value": "#977406",
+        "type": "color"
+      },
+      "50": {
+        "value": "#7d6200",
+        "type": "color"
+      },
+      "60": {
+        "value": "#635000",
+        "type": "color"
+      },
+      "70": {
+        "value": "#493b00",
+        "type": "color"
+      },
+      "80": {
+        "value": "#2e2700",
+        "type": "color"
+      },
+      "90": {
+        "value": "#141100",
+        "type": "color"
+      },
+      "00": {
+        "value": "#fff4e6",
+        "type": "color"
+      }
+    },
+    "Info": {
+      "10": {
+        "value": "#95d8e5",
+        "type": "color"
+      },
+      "20": {
+        "value": "#53c1cb",
+        "type": "color"
+      },
+      "30": {
+        "value": "#24b0b1",
+        "type": "color"
+      },
+      "40": {
+        "value": "#069790",
+        "type": "color"
+      },
+      "50": {
+        "value": "#007d71",
+        "type": "color"
+      },
+      "60": {
+        "value": "#006356",
+        "type": "color"
+      },
+      "70": {
+        "value": "#00493e",
+        "type": "color"
+      },
+      "80": {
+        "value": "#002e27",
+        "type": "color"
+      },
+      "90": {
+        "value": "#001411",
+        "type": "color"
+      },
+      "00": {
+        "value": "#e6f9ff",
+        "type": "color"
+      }
+    },
     "GreyLighter": {
       "10": {
         "value": "#ddd9e7",
@@ -702,129 +828,129 @@
         "type": "color"
       }
     },
-    "Success": {
+    "ReverseGreyLighter": {
       "10": {
-        "value": "#aae5a0",
+        "value": "#2e2e3e",
         "type": "color"
       },
       "20": {
-        "value": "#69cb64",
+        "value": "#424256",
         "type": "color"
       },
       "30": {
-        "value": "#33b135",
+        "value": "#58576f",
         "type": "color"
       },
       "40": {
-        "value": "#0f9719",
+        "value": "#706e87",
         "type": "color"
       },
       "50": {
-        "value": "#007d0f",
+        "value": "#8a879f",
         "type": "color"
       },
       "60": {
-        "value": "#00630f",
+        "value": "#a4a1b7",
         "type": "color"
       },
       "70": {
-        "value": "#00490d",
+        "value": "#c0bccf",
         "type": "color"
       },
       "80": {
-        "value": "#002e09",
+        "value": "#ddd9e7",
         "type": "color"
       },
       "90": {
-        "value": "#001404",
+        "value": "#faf7ff",
         "type": "color"
       },
       "00": {
-        "value": "#ebffe6",
+        "value": "#1b1b26",
         "type": "color"
       }
     },
-    "Warning": {
+    "ReverseGrey": {
       "10": {
-        "value": "#e5c895",
+        "value": "#242331",
         "type": "color"
       },
       "20": {
-        "value": "#cba553",
+        "value": "#39384b",
         "type": "color"
       },
       "30": {
-        "value": "#b18b24",
+        "value": "#4f4f64",
         "type": "color"
       },
       "40": {
-        "value": "#977406",
+        "value": "#68667e",
         "type": "color"
       },
       "50": {
-        "value": "#7d6200",
+        "value": "#827f98",
         "type": "color"
       },
       "60": {
-        "value": "#635000",
+        "value": "#9e9ab2",
         "type": "color"
       },
       "70": {
-        "value": "#493b00",
+        "value": "#bbb6cb",
         "type": "color"
       },
       "80": {
-        "value": "#2e2700",
+        "value": "#d9d3e5",
         "type": "color"
       },
       "90": {
-        "value": "#141100",
+        "value": "#f7f2ff",
         "type": "color"
       },
       "00": {
-        "value": "#fff4e6",
+        "value": "#101017",
         "type": "color"
       }
     },
-    "Info": {
+    "ReverseGreyDarker": {
       "10": {
-        "value": "#95d8e5",
+        "value": "#1a1923",
         "type": "color"
       },
       "20": {
-        "value": "#53c1cb",
+        "value": "#2f2f3f",
         "type": "color"
       },
       "30": {
-        "value": "#24b0b1",
+        "value": "#47465a",
         "type": "color"
       },
       "40": {
-        "value": "#069790",
+        "value": "#605e76",
         "type": "color"
       },
       "50": {
-        "value": "#007d71",
+        "value": "#7b7891",
         "type": "color"
       },
       "60": {
-        "value": "#006356",
+        "value": "#9793ad",
         "type": "color"
       },
       "70": {
-        "value": "#00493e",
+        "value": "#b5b0c8",
         "type": "color"
       },
       "80": {
-        "value": "#002e27",
+        "value": "#d4cee4",
         "type": "color"
       },
       "90": {
-        "value": "#001411",
+        "value": "#f3edff",
         "type": "color"
       },
       "00": {
-        "value": "#e6f9ff",
+        "value": "#050508",
         "type": "color"
       }
     },
@@ -869,9 +995,87 @@
         "value": "#ffffff",
         "type": "color"
       }
+    },
+    "ReverseNeutral": {
+      "10": {
+        "value": "#313131",
+        "type": "color"
+      },
+      "20": {
+        "value": "#4b4b4b",
+        "type": "color"
+      },
+      "30": {
+        "value": "#646464",
+        "type": "color"
+      },
+      "40": {
+        "value": "#7e7e7e",
+        "type": "color"
+      },
+      "50": {
+        "value": "#989898",
+        "type": "color"
+      },
+      "60": {
+        "value": "#b2b2b2",
+        "type": "color"
+      },
+      "70": {
+        "value": "#cbcbcb",
+        "type": "color"
+      },
+      "80": {
+        "value": "#e5e5e5",
+        "type": "color"
+      },
+      "90": {
+        "value": "#ffffff",
+        "type": "color"
+      },
+      "00": {
+        "value": "#171717",
+        "type": "color"
+      }
     }
   },
   "light": {
+    "$color": {
+      "value": "$Grey.30",
+      "type": "color"
+    },
+    "$color-secondary": {
+      "value": "$Grey.30",
+      "type": "color"
+    },
+    "$color-tertiary": {
+      "value": "$Grey.60",
+      "type": "color"
+    },
+    "$color-hover": {
+      "value": "$GreyLighter.30",
+      "type": "color"
+    },
+    "$color-hover-secondary": {
+      "value": "$GreyLighter.30",
+      "type": "color"
+    },
+    "$color-hover-tertiary": {
+      "value": "$GreyLighter.60",
+      "type": "color"
+    },
+    "$color-active": {
+      "value": "$Grey.40",
+      "type": "color"
+    },
+    "$color-active-secondary": {
+      "value": "$Grey.40",
+      "type": "color"
+    },
+    "$color-active-tertiary": {
+      "value": "$Grey.50",
+      "type": "color"
+    },
     "$background": {
       "value": "$Grey.00",
       "type": "color"
@@ -1014,6 +1218,222 @@
     },
     "$border-active-tertiary": {
       "value": "$Grey.50",
+      "type": "color"
+    },
+    "$color-reverse": {
+      "value": "$ReverseGrey.30",
+      "type": "color"
+    },
+    "$color-reverse-secondary": {
+      "value": "$ReverseGrey.30",
+      "type": "color"
+    },
+    "$color-reverse-tertiary": {
+      "value": "$ReverseGrey.60",
+      "type": "color"
+    },
+    "$color-reverse-hover": {
+      "value": "$ReverseGreyLighter.30",
+      "type": "color"
+    },
+    "$color-reverse-hover-secondary": {
+      "value": "$ReverseGreyLighter.30",
+      "type": "color"
+    },
+    "$color-reverse-hover-tertiary": {
+      "value": "$ReverseGreyLighter.60",
+      "type": "color"
+    },
+    "$color-reverse-active": {
+      "value": "$ReverseGrey.40",
+      "type": "color"
+    },
+    "$color-reverse-active-secondary": {
+      "value": "$ReverseGrey.40",
+      "type": "color"
+    },
+    "$color-reverse-active-tertiary": {
+      "value": "$ReverseGrey.50",
+      "type": "color"
+    },
+    "$background-reverse": {
+      "value": "$ReverseGrey.00",
+      "type": "color"
+    },
+    "$background-reverse-secondary": {
+      "value": "$ReverseGrey.10",
+      "type": "color"
+    },
+    "$background-reverse-tertiary": {
+      "value": "$ReverseGrey.20",
+      "type": "color"
+    },
+    "$background-reverse-hover": {
+      "value": "$ReverseGreyLighter.00",
+      "type": "color"
+    },
+    "$background-reverse-hover-secondary": {
+      "value": "$ReverseGreyLighter.10",
+      "type": "color"
+    },
+    "$background-reverse-hover-tertiary": {
+      "value": "$ReverseGreyLighter.20",
+      "type": "color"
+    },
+    "$background-reverse-active": {
+      "value": "$ReverseGrey.10",
+      "type": "color"
+    },
+    "$background-reverse-active-secondary": {
+      "value": "$ReverseGrey.20",
+      "type": "color"
+    },
+    "$background-reverse-active-tertiary": {
+      "value": "$ReverseGrey.30",
+      "type": "color"
+    },
+    "$text-reverse": {
+      "value": "$ReverseGrey.90",
+      "type": "color"
+    },
+    "$text-reverse-secondary": {
+      "value": "$ReverseGrey.80",
+      "type": "color"
+    },
+    "$text-reverse-tertiary": {
+      "value": "$ReverseGrey.70",
+      "type": "color"
+    },
+    "$text-reverse-hover": {
+      "value": "$ReverseGreyLighter.90",
+      "type": "color"
+    },
+    "$text-reverse-hover-secondary": {
+      "value": "$ReverseGreyLighter.80",
+      "type": "color"
+    },
+    "$text-reverse-hover-tertiary": {
+      "value": "$ReverseGreyLighter.70",
+      "type": "color"
+    },
+    "$text-reverse-active": {
+      "value": "$ReverseGrey.80",
+      "type": "color"
+    },
+    "$text-reverse-active-secondary": {
+      "value": "$ReverseGrey.70",
+      "type": "color"
+    },
+    "$text-reverse-active-tertiary": {
+      "value": "$ReverseGrey.60",
+      "type": "color"
+    },
+    "$icon-reverse": {
+      "value": "$ReverseGrey.40",
+      "type": "color"
+    },
+    "$icon-reverse-secondary": {
+      "value": "$ReverseGrey.50",
+      "type": "color"
+    },
+    "$icon-reverse-tertiary": {
+      "value": "$ReverseGrey.60",
+      "type": "color"
+    },
+    "$icon-reverse-hover": {
+      "value": "$ReverseGreyLighter.40",
+      "type": "color"
+    },
+    "$icon-reverse-hover-secondary": {
+      "value": "$ReverseGreyLighter.50",
+      "type": "color"
+    },
+    "$icon-reverse-hover-tertiary": {
+      "value": "$ReverseGreyLighter.60",
+      "type": "color"
+    },
+    "$icon-reverse-active": {
+      "value": "$ReverseGrey.50",
+      "type": "color"
+    },
+    "$icon-reverse-active-secondary": {
+      "value": "$ReverseGrey.60",
+      "type": "color"
+    },
+    "$icon-reverse-active-tertiary": {
+      "value": "$ReverseGrey.70",
+      "type": "color"
+    },
+    "$border-reverse": {
+      "value": "$ReverseGrey.20",
+      "type": "color"
+    },
+    "$border-reverse-secondary": {
+      "value": "$ReverseGrey.30",
+      "type": "color"
+    },
+    "$border-reverse-tertiary": {
+      "value": "$ReverseGrey.40",
+      "type": "color"
+    },
+    "$border-reverse-hover": {
+      "value": "$ReverseGreyLighter.20",
+      "type": "color"
+    },
+    "$border-reverse-hover-secondary": {
+      "value": "$ReverseGreyLighter.30",
+      "type": "color"
+    },
+    "$border-reverse-hover-tertiary": {
+      "value": "$ReverseGreyLighter.40",
+      "type": "color"
+    },
+    "$border-reverse-active": {
+      "value": "$ReverseGrey.30",
+      "type": "color"
+    },
+    "$border-reverse-active-secondary": {
+      "value": "$ReverseGrey.40",
+      "type": "color"
+    },
+    "$border-reverse-active-tertiary": {
+      "value": "$ReverseGrey.50",
+      "type": "color"
+    },
+    "$color-interactive": {
+      "value": "$Brand.30",
+      "type": "color"
+    },
+    "$color-interactive-secondary": {
+      "value": "$Brand.30",
+      "type": "color"
+    },
+    "$color-interactive-tertiary": {
+      "value": "$Brand.60",
+      "type": "color"
+    },
+    "$color-interactive-hover": {
+      "value": "$BrandLighter.30",
+      "type": "color"
+    },
+    "$color-interactive-hover-secondary": {
+      "value": "$BrandLighter.30",
+      "type": "color"
+    },
+    "$color-interactive-hover-tertiary": {
+      "value": "$BrandLighter.60",
+      "type": "color"
+    },
+    "$color-interactive-active": {
+      "value": "$Brand.40",
+      "type": "color"
+    },
+    "$color-interactive-active-secondary": {
+      "value": "$Brand.40",
+      "type": "color"
+    },
+    "$color-interactive-active-tertiary": {
+      "value": "$Brand.50",
       "type": "color"
     },
     "$background-interactive": {
@@ -1160,6 +1580,42 @@
       "value": "$Brand.50",
       "type": "color"
     },
+    "$color-danger": {
+      "value": "$Danger.30",
+      "type": "color"
+    },
+    "$color-danger-secondary": {
+      "value": "$Danger.30",
+      "type": "color"
+    },
+    "$color-danger-tertiary": {
+      "value": "$Danger.60",
+      "type": "color"
+    },
+    "$color-danger-hover": {
+      "value": "$DangerLighter.30",
+      "type": "color"
+    },
+    "$color-danger-hover-secondary": {
+      "value": "$DangerLighter.30",
+      "type": "color"
+    },
+    "$color-danger-hover-tertiary": {
+      "value": "$DangerLighter.60",
+      "type": "color"
+    },
+    "$color-danger-active": {
+      "value": "$Danger.40",
+      "type": "color"
+    },
+    "$color-danger-active-secondary": {
+      "value": "$Danger.40",
+      "type": "color"
+    },
+    "$color-danger-active-tertiary": {
+      "value": "$Danger.50",
+      "type": "color"
+    },
     "$background-danger": {
       "value": "$Danger.00",
       "type": "color"
@@ -1304,6 +1760,42 @@
       "value": "$Danger.50",
       "type": "color"
     },
+    "$color-success": {
+      "value": "$Success.30",
+      "type": "color"
+    },
+    "$color-success-secondary": {
+      "value": "$Success.30",
+      "type": "color"
+    },
+    "$color-success-tertiary": {
+      "value": "$Success.60",
+      "type": "color"
+    },
+    "$color-success-hover": {
+      "value": "$Success.30",
+      "type": "color"
+    },
+    "$color-success-hover-secondary": {
+      "value": "$Success.30",
+      "type": "color"
+    },
+    "$color-success-hover-tertiary": {
+      "value": "$Success.60",
+      "type": "color"
+    },
+    "$color-success-active": {
+      "value": "$Success.40",
+      "type": "color"
+    },
+    "$color-success-active-secondary": {
+      "value": "$Success.40",
+      "type": "color"
+    },
+    "$color-success-active-tertiary": {
+      "value": "$Success.50",
+      "type": "color"
+    },
     "$background-success": {
       "value": "$Success.00",
       "type": "color"
@@ -1446,6 +1938,42 @@
     },
     "$border-success-active-tertiary": {
       "value": "$Success.50",
+      "type": "color"
+    },
+    "$color-warning": {
+      "value": "$Warning.30",
+      "type": "color"
+    },
+    "$color-warning-secondary": {
+      "value": "$Warning.30",
+      "type": "color"
+    },
+    "$color-warning-tertiary": {
+      "value": "$Warning.60",
+      "type": "color"
+    },
+    "$color-warning-hover": {
+      "value": "$Warning.30",
+      "type": "color"
+    },
+    "$color-warning-hover-secondary": {
+      "value": "$Warning.30",
+      "type": "color"
+    },
+    "$color-warning-hover-tertiary": {
+      "value": "$Warning.60",
+      "type": "color"
+    },
+    "$color-warning-active": {
+      "value": "$Warning.40",
+      "type": "color"
+    },
+    "$color-warning-active-secondary": {
+      "value": "$Warning.40",
+      "type": "color"
+    },
+    "$color-warning-active-tertiary": {
+      "value": "$Warning.50",
       "type": "color"
     },
     "$background-warning": {
@@ -1592,6 +2120,42 @@
       "value": "$Warning.50",
       "type": "color"
     },
+    "$color-info": {
+      "value": "$Info.30",
+      "type": "color"
+    },
+    "$color-info-secondary": {
+      "value": "$Info.30",
+      "type": "color"
+    },
+    "$color-info-tertiary": {
+      "value": "$Info.60",
+      "type": "color"
+    },
+    "$color-info-hover": {
+      "value": "$Info.30",
+      "type": "color"
+    },
+    "$color-info-hover-secondary": {
+      "value": "$Info.30",
+      "type": "color"
+    },
+    "$color-info-hover-tertiary": {
+      "value": "$Info.60",
+      "type": "color"
+    },
+    "$color-info-active": {
+      "value": "$Info.40",
+      "type": "color"
+    },
+    "$color-info-active-secondary": {
+      "value": "$Info.40",
+      "type": "color"
+    },
+    "$color-info-active-tertiary": {
+      "value": "$Info.50",
+      "type": "color"
+    },
     "$background-info": {
       "value": "$Info.00",
       "type": "color"
@@ -1734,6 +2298,42 @@
     },
     "$border-info-active-tertiary": {
       "value": "$Info.50",
+      "type": "color"
+    },
+    "$color-neutral": {
+      "value": "$Neutral.30",
+      "type": "color"
+    },
+    "$color-neutral-secondary": {
+      "value": "$Neutral.30",
+      "type": "color"
+    },
+    "$color-neutral-tertiary": {
+      "value": "$Neutral.60",
+      "type": "color"
+    },
+    "$color-neutral-hover": {
+      "value": "$Neutral.30",
+      "type": "color"
+    },
+    "$color-neutral-hover-secondary": {
+      "value": "$Neutral.30",
+      "type": "color"
+    },
+    "$color-neutral-hover-tertiary": {
+      "value": "$Neutral.60",
+      "type": "color"
+    },
+    "$color-neutral-active": {
+      "value": "$Neutral.40",
+      "type": "color"
+    },
+    "$color-neutral-active-secondary": {
+      "value": "$Neutral.40",
+      "type": "color"
+    },
+    "$color-neutral-active-tertiary": {
+      "value": "$Neutral.50",
       "type": "color"
     },
     "$background-neutral": {
@@ -1879,9 +2479,225 @@
     "$border-neutral-active-tertiary": {
       "value": "$Neutral.50",
       "type": "color"
+    },
+    "$color-reverse-neutral": {
+      "value": "$ReverseNeutral.30",
+      "type": "color"
+    },
+    "$color-reverse-neutral-secondary": {
+      "value": "$ReverseNeutral.30",
+      "type": "color"
+    },
+    "$color-reverse-neutral-tertiary": {
+      "value": "$ReverseNeutral.60",
+      "type": "color"
+    },
+    "$color-reverse-neutral-hover": {
+      "value": "$ReverseNeutral.30",
+      "type": "color"
+    },
+    "$color-reverse-neutral-hover-secondary": {
+      "value": "$ReverseNeutral.30",
+      "type": "color"
+    },
+    "$color-reverse-neutral-hover-tertiary": {
+      "value": "$ReverseNeutral.60",
+      "type": "color"
+    },
+    "$color-reverse-neutral-active": {
+      "value": "$ReverseNeutral.40",
+      "type": "color"
+    },
+    "$color-reverse-neutral-active-secondary": {
+      "value": "$ReverseNeutral.40",
+      "type": "color"
+    },
+    "$color-reverse-neutral-active-tertiary": {
+      "value": "$ReverseNeutral.50",
+      "type": "color"
+    },
+    "$background-reverse-neutral": {
+      "value": "$ReverseNeutral.00",
+      "type": "color"
+    },
+    "$background-reverse-neutral-secondary": {
+      "value": "$ReverseNeutral.10",
+      "type": "color"
+    },
+    "$background-reverse-neutral-tertiary": {
+      "value": "$ReverseNeutral.20",
+      "type": "color"
+    },
+    "$background-reverse-neutral-hover": {
+      "value": "$ReverseNeutral.00",
+      "type": "color"
+    },
+    "$background-reverse-neutral-hover-secondary": {
+      "value": "$ReverseNeutral.10",
+      "type": "color"
+    },
+    "$background-reverse-neutral-hover-tertiary": {
+      "value": "$ReverseNeutral.20",
+      "type": "color"
+    },
+    "$background-reverse-neutral-active": {
+      "value": "$ReverseNeutral.10",
+      "type": "color"
+    },
+    "$background-reverse-neutral-active-secondary": {
+      "value": "$ReverseNeutral.20",
+      "type": "color"
+    },
+    "$background-reverse-neutral-active-tertiary": {
+      "value": "$ReverseNeutral.30",
+      "type": "color"
+    },
+    "$text-reverse-neutral": {
+      "value": "$ReverseNeutral.90",
+      "type": "color"
+    },
+    "$text-reverse-neutral-secondary": {
+      "value": "$ReverseNeutral.80",
+      "type": "color"
+    },
+    "$text-reverse-neutral-tertiary": {
+      "value": "$ReverseNeutral.70",
+      "type": "color"
+    },
+    "$text-reverse-neutral-hover": {
+      "value": "$ReverseNeutral.90",
+      "type": "color"
+    },
+    "$text-reverse-neutral-hover-secondary": {
+      "value": "$ReverseNeutral.80",
+      "type": "color"
+    },
+    "$text-reverse-neutral-hover-tertiary": {
+      "value": "$ReverseNeutral.70",
+      "type": "color"
+    },
+    "$text-reverse-neutral-active": {
+      "value": "$ReverseNeutral.80",
+      "type": "color"
+    },
+    "$text-reverse-neutral-active-secondary": {
+      "value": "$ReverseNeutral.70",
+      "type": "color"
+    },
+    "$text-reverse-neutral-active-tertiary": {
+      "value": "$ReverseNeutral.60",
+      "type": "color"
+    },
+    "$icon-reverse-neutral": {
+      "value": "$ReverseNeutral.40",
+      "type": "color"
+    },
+    "$icon-reverse-neutral-secondary": {
+      "value": "$ReverseNeutral.50",
+      "type": "color"
+    },
+    "$icon-reverse-neutral-tertiary": {
+      "value": "$ReverseNeutral.60",
+      "type": "color"
+    },
+    "$icon-reverse-neutral-hover": {
+      "value": "$ReverseNeutral.40",
+      "type": "color"
+    },
+    "$icon-reverse-neutral-hover-secondary": {
+      "value": "$ReverseNeutral.50",
+      "type": "color"
+    },
+    "$icon-reverse-neutral-hover-tertiary": {
+      "value": "$ReverseNeutral.60",
+      "type": "color"
+    },
+    "$icon-reverse-neutral-active": {
+      "value": "$ReverseNeutral.50",
+      "type": "color"
+    },
+    "$icon-reverse-neutral-active-secondary": {
+      "value": "$ReverseNeutral.60",
+      "type": "color"
+    },
+    "$icon-reverse-neutral-active-tertiary": {
+      "value": "$ReverseNeutral.70",
+      "type": "color"
+    },
+    "$border-reverse-neutral": {
+      "value": "$ReverseNeutral.20",
+      "type": "color"
+    },
+    "$border-reverse-neutral-secondary": {
+      "value": "$ReverseNeutral.30",
+      "type": "color"
+    },
+    "$border-reverse-neutral-tertiary": {
+      "value": "$ReverseNeutral.40",
+      "type": "color"
+    },
+    "$border-reverse-neutral-hover": {
+      "value": "$ReverseNeutral.20",
+      "type": "color"
+    },
+    "$border-reverse-neutral-hover-secondary": {
+      "value": "$ReverseNeutral.30",
+      "type": "color"
+    },
+    "$border-reverse-neutral-hover-tertiary": {
+      "value": "$ReverseNeutral.40",
+      "type": "color"
+    },
+    "$border-reverse-neutral-active": {
+      "value": "$ReverseNeutral.30",
+      "type": "color"
+    },
+    "$border-reverse-neutral-active-secondary": {
+      "value": "$ReverseNeutral.40",
+      "type": "color"
+    },
+    "$border-reverse-neutral-active-tertiary": {
+      "value": "$ReverseNeutral.50",
+      "type": "color"
     }
   },
   "dark": {
+    "$color": {
+      "value": "$Grey.40",
+      "type": "color"
+    },
+    "$color-secondary": {
+      "value": "$Grey.40",
+      "type": "color"
+    },
+    "$color-tertiary": {
+      "value": "$Grey.50",
+      "type": "color"
+    },
+    "$color-hover": {
+      "value": "$GreyDarker.40",
+      "type": "color"
+    },
+    "$color-hover-secondary": {
+      "value": "$GreyDarker.40",
+      "type": "color"
+    },
+    "$color-hover-tertiary": {
+      "value": "$GreyDarker.50",
+      "type": "color"
+    },
+    "$color-active": {
+      "value": "$Grey.50",
+      "type": "color"
+    },
+    "$color-active-secondary": {
+      "value": "$Grey.50",
+      "type": "color"
+    },
+    "$color-active-tertiary": {
+      "value": "$Grey.60",
+      "type": "color"
+    },
     "$background": {
       "value": "$Grey.90",
       "type": "color"
@@ -1955,39 +2771,39 @@
       "type": "color"
     },
     "$icon": {
-      "value": "$Grey.40",
+      "value": "$Grey.50",
       "type": "color"
     },
     "$icon-secondary": {
-      "value": "$Grey.50",
+      "value": "$Grey.60",
       "type": "color"
     },
     "$icon-tertiary": {
-      "value": "$Grey.60",
+      "value": "$Grey.70",
       "type": "color"
     },
     "$icon-hover": {
-      "value": "$GreyDarker.40",
-      "type": "color"
-    },
-    "$icon-hover-secondary": {
       "value": "$GreyDarker.50",
       "type": "color"
     },
-    "$icon-hover-tertiary": {
+    "$icon-hover-secondary": {
       "value": "$GreyDarker.60",
       "type": "color"
     },
-    "$icon-active": {
-      "value": "$Grey.50",
+    "$icon-hover-tertiary": {
+      "value": "$GreyDarker.70",
       "type": "color"
     },
-    "$icon-active-secondary": {
+    "$icon-active": {
       "value": "$Grey.60",
       "type": "color"
     },
-    "$icon-active-tertiary": {
+    "$icon-active-secondary": {
       "value": "$Grey.70",
+      "type": "color"
+    },
+    "$icon-active-tertiary": {
+      "value": "$Grey.80",
       "type": "color"
     },
     "$border": {
@@ -2024,6 +2840,222 @@
     },
     "$border-active-tertiary": {
       "value": "$Grey.80",
+      "type": "color"
+    },
+    "$color-reverse": {
+      "value": "$ReverseGrey.40",
+      "type": "color"
+    },
+    "$color-reverse-secondary": {
+      "value": "$ReverseGrey.40",
+      "type": "color"
+    },
+    "$color-reverse-tertiary": {
+      "value": "$ReverseGrey.50",
+      "type": "color"
+    },
+    "$color-reverse-hover": {
+      "value": "$ReverseGreyDarker.40",
+      "type": "color"
+    },
+    "$color-reverse-hover-secondary": {
+      "value": "$ReverseGreyDarker.40",
+      "type": "color"
+    },
+    "$color-reverse-hover-tertiary": {
+      "value": "$ReverseGreyDarker.50",
+      "type": "color"
+    },
+    "$color-reverse-active": {
+      "value": "$ReverseGrey.50",
+      "type": "color"
+    },
+    "$color-reverse-active-secondary": {
+      "value": "$ReverseGrey.50",
+      "type": "color"
+    },
+    "$color-reverse-active-tertiary": {
+      "value": "$ReverseGrey.60",
+      "type": "color"
+    },
+    "$background-reverse": {
+      "value": "$ReverseGrey.90",
+      "type": "color"
+    },
+    "$background-reverse-secondary": {
+      "value": "$ReverseGrey.80",
+      "type": "color"
+    },
+    "$background-reverse-tertiary": {
+      "value": "$ReverseGrey.70",
+      "type": "color"
+    },
+    "$background-reverse-hover": {
+      "value": "$ReverseGreyDarker.90",
+      "type": "color"
+    },
+    "$background-reverse-hover-secondary": {
+      "value": "$ReverseGreyDarker.80",
+      "type": "color"
+    },
+    "$background-reverse-hover-tertiary": {
+      "value": "$ReverseGreyDarker.70",
+      "type": "color"
+    },
+    "$background-reverse-active": {
+      "value": "$ReverseGrey.80",
+      "type": "color"
+    },
+    "$background-reverse-active-secondary": {
+      "value": "$ReverseGrey.70",
+      "type": "color"
+    },
+    "$background-reverse-active-tertiary": {
+      "value": "$ReverseGrey.60",
+      "type": "color"
+    },
+    "$text-reverse": {
+      "value": "$ReverseGrey.00",
+      "type": "color"
+    },
+    "$text-reverse-secondary": {
+      "value": "$ReverseGrey.10",
+      "type": "color"
+    },
+    "$text-reverse-tertiary": {
+      "value": "$ReverseGrey.20",
+      "type": "color"
+    },
+    "$text-reverse-hover": {
+      "value": "$ReverseGreyDarker.00",
+      "type": "color"
+    },
+    "$text-reverse-hover-secondary": {
+      "value": "$ReverseGreyDarker.10",
+      "type": "color"
+    },
+    "$text-reverse-hover-tertiary": {
+      "value": "$ReverseGreyDarker.20",
+      "type": "color"
+    },
+    "$text-reverse-active": {
+      "value": "$ReverseGrey.10",
+      "type": "color"
+    },
+    "$text-reverse-active-secondary": {
+      "value": "$ReverseGrey.20",
+      "type": "color"
+    },
+    "$text-reverse-active-tertiary": {
+      "value": "$ReverseGrey.30",
+      "type": "color"
+    },
+    "$icon-reverse": {
+      "value": "$ReverseGrey.50",
+      "type": "color"
+    },
+    "$icon-reverse-secondary": {
+      "value": "$ReverseGrey.60",
+      "type": "color"
+    },
+    "$icon-reverse-tertiary": {
+      "value": "$ReverseGrey.70",
+      "type": "color"
+    },
+    "$icon-reverse-hover": {
+      "value": "$ReverseGreyDarker.50",
+      "type": "color"
+    },
+    "$icon-reverse-hover-secondary": {
+      "value": "$ReverseGreyDarker.60",
+      "type": "color"
+    },
+    "$icon-reverse-hover-tertiary": {
+      "value": "$ReverseGreyDarker.70",
+      "type": "color"
+    },
+    "$icon-reverse-active": {
+      "value": "$ReverseGrey.60",
+      "type": "color"
+    },
+    "$icon-reverse-active-secondary": {
+      "value": "$ReverseGrey.70",
+      "type": "color"
+    },
+    "$icon-reverse-active-tertiary": {
+      "value": "$ReverseGrey.80",
+      "type": "color"
+    },
+    "$border-reverse": {
+      "value": "$ReverseGrey.70",
+      "type": "color"
+    },
+    "$border-reverse-secondary": {
+      "value": "$ReverseGrey.70",
+      "type": "color"
+    },
+    "$border-reverse-tertiary": {
+      "value": "$ReverseGrey.80",
+      "type": "color"
+    },
+    "$border-reverse-hover": {
+      "value": "$ReverseGreyDarker.70",
+      "type": "color"
+    },
+    "$border-reverse-hover-secondary": {
+      "value": "$ReverseGreyDarker.70",
+      "type": "color"
+    },
+    "$border-reverse-hover-tertiary": {
+      "value": "$ReverseGreyDarker.80",
+      "type": "color"
+    },
+    "$border-reverse-active": {
+      "value": "$ReverseGrey.70",
+      "type": "color"
+    },
+    "$border-reverse-active-secondary": {
+      "value": "$ReverseGrey.70",
+      "type": "color"
+    },
+    "$border-reverse-active-tertiary": {
+      "value": "$ReverseGrey.80",
+      "type": "color"
+    },
+    "$color-interactive": {
+      "value": "$Brand.40",
+      "type": "color"
+    },
+    "$color-interactive-secondary": {
+      "value": "$Brand.40",
+      "type": "color"
+    },
+    "$color-interactive-tertiary": {
+      "value": "$Brand.50",
+      "type": "color"
+    },
+    "$color-interactive-hover": {
+      "value": "$BrandDarker.40",
+      "type": "color"
+    },
+    "$color-interactive-hover-secondary": {
+      "value": "$BrandDarker.40",
+      "type": "color"
+    },
+    "$color-interactive-hover-tertiary": {
+      "value": "$BrandDarker.50",
+      "type": "color"
+    },
+    "$color-interactive-active": {
+      "value": "$Brand.50",
+      "type": "color"
+    },
+    "$color-interactive-active-secondary": {
+      "value": "$Brand.50",
+      "type": "color"
+    },
+    "$color-interactive-active-tertiary": {
+      "value": "$Brand.60",
       "type": "color"
     },
     "$background-interactive": {
@@ -2099,39 +3131,39 @@
       "type": "color"
     },
     "$icon-interactive": {
-      "value": "$Brand.40",
+      "value": "$Brand.50",
       "type": "color"
     },
     "$icon-interactive-secondary": {
-      "value": "$Brand.50",
+      "value": "$Brand.60",
       "type": "color"
     },
     "$icon-interactive-tertiary": {
-      "value": "$Brand.60",
+      "value": "$Brand.70",
       "type": "color"
     },
     "$icon-interactive-hover": {
-      "value": "$BrandDarker.40",
-      "type": "color"
-    },
-    "$icon-interactive-hover-secondary": {
       "value": "$BrandDarker.50",
       "type": "color"
     },
-    "$icon-interactive-hover-tertiary": {
+    "$icon-interactive-hover-secondary": {
       "value": "$BrandDarker.60",
       "type": "color"
     },
-    "$icon-interactive-active": {
-      "value": "$Brand.50",
+    "$icon-interactive-hover-tertiary": {
+      "value": "$BrandDarker.70",
       "type": "color"
     },
-    "$icon-interactive-active-secondary": {
+    "$icon-interactive-active": {
       "value": "$Brand.60",
       "type": "color"
     },
-    "$icon-interactive-active-tertiary": {
+    "$icon-interactive-active-secondary": {
       "value": "$Brand.70",
+      "type": "color"
+    },
+    "$icon-interactive-active-tertiary": {
+      "value": "$Brand.80",
       "type": "color"
     },
     "$border-interactive": {
@@ -2168,6 +3200,42 @@
     },
     "$border-interactive-active-tertiary": {
       "value": "$Brand.80",
+      "type": "color"
+    },
+    "$color-danger": {
+      "value": "$Danger.40",
+      "type": "color"
+    },
+    "$color-danger-secondary": {
+      "value": "$Danger.40",
+      "type": "color"
+    },
+    "$color-danger-tertiary": {
+      "value": "$Danger.50",
+      "type": "color"
+    },
+    "$color-danger-hover": {
+      "value": "$DangerDarker.40",
+      "type": "color"
+    },
+    "$color-danger-hover-secondary": {
+      "value": "$DangerDarker.40",
+      "type": "color"
+    },
+    "$color-danger-hover-tertiary": {
+      "value": "$DangerDarker.50",
+      "type": "color"
+    },
+    "$color-danger-active": {
+      "value": "$Danger.50",
+      "type": "color"
+    },
+    "$color-danger-active-secondary": {
+      "value": "$Danger.50",
+      "type": "color"
+    },
+    "$color-danger-active-tertiary": {
+      "value": "$Danger.60",
       "type": "color"
     },
     "$background-danger": {
@@ -2243,39 +3311,39 @@
       "type": "color"
     },
     "$icon-danger": {
-      "value": "$Danger.40",
+      "value": "$Danger.50",
       "type": "color"
     },
     "$icon-danger-secondary": {
-      "value": "$Danger.50",
+      "value": "$Danger.60",
       "type": "color"
     },
     "$icon-danger-tertiary": {
-      "value": "$Danger.60",
+      "value": "$Danger.70",
       "type": "color"
     },
     "$icon-danger-hover": {
-      "value": "$DangerDarker.40",
-      "type": "color"
-    },
-    "$icon-danger-hover-secondary": {
       "value": "$DangerDarker.50",
       "type": "color"
     },
-    "$icon-danger-hover-tertiary": {
+    "$icon-danger-hover-secondary": {
       "value": "$DangerDarker.60",
       "type": "color"
     },
-    "$icon-danger-active": {
-      "value": "$Danger.50",
+    "$icon-danger-hover-tertiary": {
+      "value": "$DangerDarker.70",
       "type": "color"
     },
-    "$icon-danger-active-secondary": {
+    "$icon-danger-active": {
       "value": "$Danger.60",
       "type": "color"
     },
-    "$icon-danger-active-tertiary": {
+    "$icon-danger-active-secondary": {
       "value": "$Danger.70",
+      "type": "color"
+    },
+    "$icon-danger-active-tertiary": {
+      "value": "$Danger.80",
       "type": "color"
     },
     "$border-danger": {
@@ -2312,6 +3380,42 @@
     },
     "$border-danger-active-tertiary": {
       "value": "$Danger.80",
+      "type": "color"
+    },
+    "$color-success": {
+      "value": "$Success.40",
+      "type": "color"
+    },
+    "$color-success-secondary": {
+      "value": "$Success.40",
+      "type": "color"
+    },
+    "$color-success-tertiary": {
+      "value": "$Success.50",
+      "type": "color"
+    },
+    "$color-success-hover": {
+      "value": "$Success.40",
+      "type": "color"
+    },
+    "$color-success-hover-secondary": {
+      "value": "$Success.40",
+      "type": "color"
+    },
+    "$color-success-hover-tertiary": {
+      "value": "$Success.50",
+      "type": "color"
+    },
+    "$color-success-active": {
+      "value": "$Success.50",
+      "type": "color"
+    },
+    "$color-success-active-secondary": {
+      "value": "$Success.50",
+      "type": "color"
+    },
+    "$color-success-active-tertiary": {
+      "value": "$Success.60",
       "type": "color"
     },
     "$background-success": {
@@ -2387,39 +3491,39 @@
       "type": "color"
     },
     "$icon-success": {
-      "value": "$Success.40",
+      "value": "$Success.50",
       "type": "color"
     },
     "$icon-success-secondary": {
-      "value": "$Success.50",
+      "value": "$Success.60",
       "type": "color"
     },
     "$icon-success-tertiary": {
-      "value": "$Success.60",
+      "value": "$Success.70",
       "type": "color"
     },
     "$icon-success-hover": {
-      "value": "$Success.40",
+      "value": "$Success.50",
       "type": "color"
     },
     "$icon-success-hover-secondary": {
-      "value": "$Success.50",
+      "value": "$Success.60",
       "type": "color"
     },
     "$icon-success-hover-tertiary": {
-      "value": "$Success.60",
+      "value": "$Success.70",
       "type": "color"
     },
     "$icon-success-active": {
-      "value": "$Success.50",
-      "type": "color"
-    },
-    "$icon-success-active-secondary": {
       "value": "$Success.60",
       "type": "color"
     },
-    "$icon-success-active-tertiary": {
+    "$icon-success-active-secondary": {
       "value": "$Success.70",
+      "type": "color"
+    },
+    "$icon-success-active-tertiary": {
+      "value": "$Success.80",
       "type": "color"
     },
     "$border-success": {
@@ -2456,6 +3560,42 @@
     },
     "$border-success-active-tertiary": {
       "value": "$Success.80",
+      "type": "color"
+    },
+    "$color-warning": {
+      "value": "$Warning.40",
+      "type": "color"
+    },
+    "$color-warning-secondary": {
+      "value": "$Warning.40",
+      "type": "color"
+    },
+    "$color-warning-tertiary": {
+      "value": "$Warning.50",
+      "type": "color"
+    },
+    "$color-warning-hover": {
+      "value": "$Warning.40",
+      "type": "color"
+    },
+    "$color-warning-hover-secondary": {
+      "value": "$Warning.40",
+      "type": "color"
+    },
+    "$color-warning-hover-tertiary": {
+      "value": "$Warning.50",
+      "type": "color"
+    },
+    "$color-warning-active": {
+      "value": "$Warning.50",
+      "type": "color"
+    },
+    "$color-warning-active-secondary": {
+      "value": "$Warning.50",
+      "type": "color"
+    },
+    "$color-warning-active-tertiary": {
+      "value": "$Warning.60",
       "type": "color"
     },
     "$background-warning": {
@@ -2531,39 +3671,39 @@
       "type": "color"
     },
     "$icon-warning": {
-      "value": "$Warning.40",
+      "value": "$Warning.50",
       "type": "color"
     },
     "$icon-warning-secondary": {
-      "value": "$Warning.50",
+      "value": "$Warning.60",
       "type": "color"
     },
     "$icon-warning-tertiary": {
-      "value": "$Warning.60",
+      "value": "$Warning.70",
       "type": "color"
     },
     "$icon-warning-hover": {
-      "value": "$Warning.40",
+      "value": "$Warning.50",
       "type": "color"
     },
     "$icon-warning-hover-secondary": {
-      "value": "$Warning.50",
+      "value": "$Warning.60",
       "type": "color"
     },
     "$icon-warning-hover-tertiary": {
-      "value": "$Warning.60",
+      "value": "$Warning.70",
       "type": "color"
     },
     "$icon-warning-active": {
-      "value": "$Warning.50",
-      "type": "color"
-    },
-    "$icon-warning-active-secondary": {
       "value": "$Warning.60",
       "type": "color"
     },
-    "$icon-warning-active-tertiary": {
+    "$icon-warning-active-secondary": {
       "value": "$Warning.70",
+      "type": "color"
+    },
+    "$icon-warning-active-tertiary": {
+      "value": "$Warning.80",
       "type": "color"
     },
     "$border-warning": {
@@ -2600,6 +3740,42 @@
     },
     "$border-warning-active-tertiary": {
       "value": "$Warning.80",
+      "type": "color"
+    },
+    "$color-info": {
+      "value": "$Info.40",
+      "type": "color"
+    },
+    "$color-info-secondary": {
+      "value": "$Info.40",
+      "type": "color"
+    },
+    "$color-info-tertiary": {
+      "value": "$Info.50",
+      "type": "color"
+    },
+    "$color-info-hover": {
+      "value": "$Info.40",
+      "type": "color"
+    },
+    "$color-info-hover-secondary": {
+      "value": "$Info.40",
+      "type": "color"
+    },
+    "$color-info-hover-tertiary": {
+      "value": "$Info.50",
+      "type": "color"
+    },
+    "$color-info-active": {
+      "value": "$Info.50",
+      "type": "color"
+    },
+    "$color-info-active-secondary": {
+      "value": "$Info.50",
+      "type": "color"
+    },
+    "$color-info-active-tertiary": {
+      "value": "$Info.60",
       "type": "color"
     },
     "$background-info": {
@@ -2675,39 +3851,39 @@
       "type": "color"
     },
     "$icon-info": {
-      "value": "$Info.40",
+      "value": "$Info.50",
       "type": "color"
     },
     "$icon-info-secondary": {
-      "value": "$Info.50",
+      "value": "$Info.60",
       "type": "color"
     },
     "$icon-info-tertiary": {
-      "value": "$Info.60",
+      "value": "$Info.70",
       "type": "color"
     },
     "$icon-info-hover": {
-      "value": "$Info.40",
+      "value": "$Info.50",
       "type": "color"
     },
     "$icon-info-hover-secondary": {
-      "value": "$Info.50",
+      "value": "$Info.60",
       "type": "color"
     },
     "$icon-info-hover-tertiary": {
-      "value": "$Info.60",
+      "value": "$Info.70",
       "type": "color"
     },
     "$icon-info-active": {
-      "value": "$Info.50",
-      "type": "color"
-    },
-    "$icon-info-active-secondary": {
       "value": "$Info.60",
       "type": "color"
     },
-    "$icon-info-active-tertiary": {
+    "$icon-info-active-secondary": {
       "value": "$Info.70",
+      "type": "color"
+    },
+    "$icon-info-active-tertiary": {
+      "value": "$Info.80",
       "type": "color"
     },
     "$border-info": {
@@ -2744,6 +3920,42 @@
     },
     "$border-info-active-tertiary": {
       "value": "$Info.80",
+      "type": "color"
+    },
+    "$color-neutral": {
+      "value": "$Neutral.40",
+      "type": "color"
+    },
+    "$color-neutral-secondary": {
+      "value": "$Neutral.40",
+      "type": "color"
+    },
+    "$color-neutral-tertiary": {
+      "value": "$Neutral.50",
+      "type": "color"
+    },
+    "$color-neutral-hover": {
+      "value": "$Neutral.40",
+      "type": "color"
+    },
+    "$color-neutral-hover-secondary": {
+      "value": "$Neutral.40",
+      "type": "color"
+    },
+    "$color-neutral-hover-tertiary": {
+      "value": "$Neutral.50",
+      "type": "color"
+    },
+    "$color-neutral-active": {
+      "value": "$Neutral.50",
+      "type": "color"
+    },
+    "$color-neutral-active-secondary": {
+      "value": "$Neutral.50",
+      "type": "color"
+    },
+    "$color-neutral-active-tertiary": {
+      "value": "$Neutral.60",
       "type": "color"
     },
     "$background-neutral": {
@@ -2819,39 +4031,39 @@
       "type": "color"
     },
     "$icon-neutral": {
-      "value": "$Neutral.40",
+      "value": "$Neutral.50",
       "type": "color"
     },
     "$icon-neutral-secondary": {
-      "value": "$Neutral.50",
+      "value": "$Neutral.60",
       "type": "color"
     },
     "$icon-neutral-tertiary": {
-      "value": "$Neutral.60",
+      "value": "$Neutral.70",
       "type": "color"
     },
     "$icon-neutral-hover": {
-      "value": "$Neutral.40",
+      "value": "$Neutral.50",
       "type": "color"
     },
     "$icon-neutral-hover-secondary": {
-      "value": "$Neutral.50",
+      "value": "$Neutral.60",
       "type": "color"
     },
     "$icon-neutral-hover-tertiary": {
-      "value": "$Neutral.60",
+      "value": "$Neutral.70",
       "type": "color"
     },
     "$icon-neutral-active": {
-      "value": "$Neutral.50",
-      "type": "color"
-    },
-    "$icon-neutral-active-secondary": {
       "value": "$Neutral.60",
       "type": "color"
     },
-    "$icon-neutral-active-tertiary": {
+    "$icon-neutral-active-secondary": {
       "value": "$Neutral.70",
+      "type": "color"
+    },
+    "$icon-neutral-active-tertiary": {
+      "value": "$Neutral.80",
       "type": "color"
     },
     "$border-neutral": {
@@ -2888,6 +4100,186 @@
     },
     "$border-neutral-active-tertiary": {
       "value": "$Neutral.80",
+      "type": "color"
+    },
+    "$color-reverse-neutral": {
+      "value": "$ReverseNeutral.40",
+      "type": "color"
+    },
+    "$color-reverse-neutral-secondary": {
+      "value": "$ReverseNeutral.40",
+      "type": "color"
+    },
+    "$color-reverse-neutral-tertiary": {
+      "value": "$ReverseNeutral.50",
+      "type": "color"
+    },
+    "$color-reverse-neutral-hover": {
+      "value": "$ReverseNeutral.40",
+      "type": "color"
+    },
+    "$color-reverse-neutral-hover-secondary": {
+      "value": "$ReverseNeutral.40",
+      "type": "color"
+    },
+    "$color-reverse-neutral-hover-tertiary": {
+      "value": "$ReverseNeutral.50",
+      "type": "color"
+    },
+    "$color-reverse-neutral-active": {
+      "value": "$ReverseNeutral.50",
+      "type": "color"
+    },
+    "$color-reverse-neutral-active-secondary": {
+      "value": "$ReverseNeutral.50",
+      "type": "color"
+    },
+    "$color-reverse-neutral-active-tertiary": {
+      "value": "$ReverseNeutral.60",
+      "type": "color"
+    },
+    "$background-reverse-neutral": {
+      "value": "$ReverseNeutral.90",
+      "type": "color"
+    },
+    "$background-reverse-neutral-secondary": {
+      "value": "$ReverseNeutral.80",
+      "type": "color"
+    },
+    "$background-reverse-neutral-tertiary": {
+      "value": "$ReverseNeutral.70",
+      "type": "color"
+    },
+    "$background-reverse-neutral-hover": {
+      "value": "$ReverseNeutral.90",
+      "type": "color"
+    },
+    "$background-reverse-neutral-hover-secondary": {
+      "value": "$ReverseNeutral.80",
+      "type": "color"
+    },
+    "$background-reverse-neutral-hover-tertiary": {
+      "value": "$ReverseNeutral.70",
+      "type": "color"
+    },
+    "$background-reverse-neutral-active": {
+      "value": "$ReverseNeutral.80",
+      "type": "color"
+    },
+    "$background-reverse-neutral-active-secondary": {
+      "value": "$ReverseNeutral.70",
+      "type": "color"
+    },
+    "$background-reverse-neutral-active-tertiary": {
+      "value": "$ReverseNeutral.60",
+      "type": "color"
+    },
+    "$text-reverse-neutral": {
+      "value": "$ReverseNeutral.00",
+      "type": "color"
+    },
+    "$text-reverse-neutral-secondary": {
+      "value": "$ReverseNeutral.10",
+      "type": "color"
+    },
+    "$text-reverse-neutral-tertiary": {
+      "value": "$ReverseNeutral.20",
+      "type": "color"
+    },
+    "$text-reverse-neutral-hover": {
+      "value": "$ReverseNeutral.00",
+      "type": "color"
+    },
+    "$text-reverse-neutral-hover-secondary": {
+      "value": "$ReverseNeutral.10",
+      "type": "color"
+    },
+    "$text-reverse-neutral-hover-tertiary": {
+      "value": "$ReverseNeutral.20",
+      "type": "color"
+    },
+    "$text-reverse-neutral-active": {
+      "value": "$ReverseNeutral.10",
+      "type": "color"
+    },
+    "$text-reverse-neutral-active-secondary": {
+      "value": "$ReverseNeutral.20",
+      "type": "color"
+    },
+    "$text-reverse-neutral-active-tertiary": {
+      "value": "$ReverseNeutral.30",
+      "type": "color"
+    },
+    "$icon-reverse-neutral": {
+      "value": "$ReverseNeutral.50",
+      "type": "color"
+    },
+    "$icon-reverse-neutral-secondary": {
+      "value": "$ReverseNeutral.60",
+      "type": "color"
+    },
+    "$icon-reverse-neutral-tertiary": {
+      "value": "$ReverseNeutral.70",
+      "type": "color"
+    },
+    "$icon-reverse-neutral-hover": {
+      "value": "$ReverseNeutral.50",
+      "type": "color"
+    },
+    "$icon-reverse-neutral-hover-secondary": {
+      "value": "$ReverseNeutral.60",
+      "type": "color"
+    },
+    "$icon-reverse-neutral-hover-tertiary": {
+      "value": "$ReverseNeutral.70",
+      "type": "color"
+    },
+    "$icon-reverse-neutral-active": {
+      "value": "$ReverseNeutral.60",
+      "type": "color"
+    },
+    "$icon-reverse-neutral-active-secondary": {
+      "value": "$ReverseNeutral.70",
+      "type": "color"
+    },
+    "$icon-reverse-neutral-active-tertiary": {
+      "value": "$ReverseNeutral.80",
+      "type": "color"
+    },
+    "$border-reverse-neutral": {
+      "value": "$ReverseNeutral.70",
+      "type": "color"
+    },
+    "$border-reverse-neutral-secondary": {
+      "value": "$ReverseNeutral.70",
+      "type": "color"
+    },
+    "$border-reverse-neutral-tertiary": {
+      "value": "$ReverseNeutral.80",
+      "type": "color"
+    },
+    "$border-reverse-neutral-hover": {
+      "value": "$ReverseNeutral.70",
+      "type": "color"
+    },
+    "$border-reverse-neutral-hover-secondary": {
+      "value": "$ReverseNeutral.70",
+      "type": "color"
+    },
+    "$border-reverse-neutral-hover-tertiary": {
+      "value": "$ReverseNeutral.80",
+      "type": "color"
+    },
+    "$border-reverse-neutral-active": {
+      "value": "$ReverseNeutral.70",
+      "type": "color"
+    },
+    "$border-reverse-neutral-active-secondary": {
+      "value": "$ReverseNeutral.70",
+      "type": "color"
+    },
+    "$border-reverse-neutral-active-tertiary": {
+      "value": "$ReverseNeutral.80",
       "type": "color"
     }
   }
