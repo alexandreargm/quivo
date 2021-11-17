@@ -1117,11 +1117,11 @@
       "type": "color"
     },
     "$text-secondary": {
-      "value": "$Grey.80",
+      "value": "$Grey.60",
       "type": "color"
     },
     "$text-tertiary": {
-      "value": "$Grey.70",
+      "value": "$Grey.40",
       "type": "color"
     },
     "$text-hover": {
