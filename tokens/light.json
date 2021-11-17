@@ -76,11 +76,11 @@
     "type": "color"
   },
   "$text-secondary": {
-    "value": "#232230",
+    "value": "#4f4f64",
     "type": "color"
   },
   "$text-tertiary": {
-    "value": "#39384c",
+    "value": "#838099",
     "type": "color"
   },
   "$text-hover": {
