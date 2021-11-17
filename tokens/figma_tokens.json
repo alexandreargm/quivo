@@ -1233,7 +1233,7 @@
       "type": "color"
     },
     "$color-reverse-hover": {
-      "value": "$ReverseGreyLighter.30",
+      "value": "$ReverseGreyDarker.30",
       "type": "color"
     },
     "$color-reverse-hover-secondary": {
@@ -2711,15 +2711,15 @@
       "type": "color"
     },
     "$background-hover": {
-      "value": "$GreyDarker.90",
+      "value": "$GreyLighter.90",
       "type": "color"
     },
     "$background-hover-secondary": {
-      "value": "$GreyDarker.80",
+      "value": "$GreyLighter.80",
       "type": "color"
     },
     "$background-hover-tertiary": {
-      "value": "$GreyDarker.70",
+      "value": "$GreyLighter.70",
       "type": "color"
     },
     "$background-active": {
@@ -3023,7 +3023,7 @@
       "type": "color"
     },
     "$color-interactive": {
-      "value": "$Brand.40",
+      "value": "$Brand.30",
       "type": "color"
     },
     "$color-interactive-secondary": {
@@ -3035,7 +3035,7 @@
       "type": "color"
     },
     "$color-interactive-hover": {
-      "value": "$BrandDarker.40",
+      "value": "$BrandDarker.30",
       "type": "color"
     },
     "$color-interactive-hover-secondary": {
@@ -3047,7 +3047,7 @@
       "type": "color"
     },
     "$color-interactive-active": {
-      "value": "$Brand.50",
+      "value": "$Brand.40",
       "type": "color"
     },
     "$color-interactive-active-secondary": {
@@ -3203,7 +3203,7 @@
       "type": "color"
     },
     "$color-danger": {
-      "value": "$Danger.40",
+      "value": "$Danger.30",
       "type": "color"
     },
     "$color-danger-secondary": {
@@ -3215,7 +3215,7 @@
       "type": "color"
     },
     "$color-danger-hover": {
-      "value": "$DangerDarker.40",
+      "value": "$DangerDarker.30",
       "type": "color"
     },
     "$color-danger-hover-secondary": {
@@ -3227,7 +3227,7 @@
       "type": "color"
     },
     "$color-danger-active": {
-      "value": "$Danger.50",
+      "value": "$Danger.40",
       "type": "color"
     },
     "$color-danger-active-secondary": {
