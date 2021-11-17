@@ -192,7 +192,7 @@
     "type": "color"
   },
   "$color-reverse-hover": {
-    "value": "#58576f",
+    "value": "#47465a",
     "type": "color"
   },
   "$color-reverse-hover-secondary": {

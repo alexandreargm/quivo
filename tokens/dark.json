@@ -48,15 +48,15 @@
     "type": "color"
   },
   "$background-hover": {
-    "value": "#060609",
+    "value": "#1b1b26",
     "type": "color"
   },
   "$background-hover-secondary": {
-    "value": "#1a1924",
+    "value": "#2e2e3e",
     "type": "color"
   },
   "$background-hover-tertiary": {
-    "value": "#303041",
+    "value": "#424256",
     "type": "color"
   },
   "$background-active": {
@@ -360,7 +360,7 @@
     "type": "color"
   },
   "$color-interactive": {
-    "value": "#d3097e",
+    "value": "#e33187",
     "type": "color"
   },
   "$color-interactive-secondary": {
@@ -372,7 +372,7 @@
     "type": "color"
   },
   "$color-interactive-hover": {
-    "value": "#cc0077",
+    "value": "#df1174",
     "type": "color"
   },
   "$color-interactive-hover-secondary": {
@@ -384,7 +384,7 @@
     "type": "color"
   },
   "$color-interactive-active": {
-    "value": "#b20077",
+    "value": "#d3097e",
     "type": "color"
   },
   "$color-interactive-active-secondary": {
@@ -540,7 +540,7 @@
     "type": "color"
   },
   "$color-danger": {
-    "value": "#970609",
+    "value": "#b12427",
     "type": "color"
   },
   "$color-danger-secondary": {
@@ -552,7 +552,7 @@
     "type": "color"
   },
   "$color-danger-hover": {
-    "value": "#900002",
+    "value": "#ac0d10",
     "type": "color"
   },
   "$color-danger-hover-secondary": {
@@ -564,7 +564,7 @@
     "type": "color"
   },
   "$color-danger-active": {
-    "value": "#7d0002",
+    "value": "#970609",
     "type": "color"
   },
   "$color-danger-active-secondary": {
