@@ -1129,11 +1129,11 @@
       "type": "color"
     },
     "$text-hover-secondary": {
-      "value": "$GreyLighter.80",
+      "value": "$GreyLighter.60",
       "type": "color"
     },
     "$text-hover-tertiary": {
-      "value": "$GreyLighter.70",
+      "value": "$GreyLighter.40",
       "type": "color"
     },
     "$text-active": {
@@ -1141,11 +1141,11 @@
       "type": "color"
     },
     "$text-active-secondary": {
-      "value": "$Grey.70",
+      "value": "$Grey.50",
       "type": "color"
     },
     "$text-active-tertiary": {
-      "value": "$Grey.60",
+      "value": "$Grey.30",
       "type": "color"
     },
     "$icon": {
