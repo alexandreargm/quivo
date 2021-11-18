@@ -88,11 +88,11 @@
     "type": "color"
   },
   "$text-hover-secondary": {
-    "value": "#2e2e3e",
+    "value": "#58576f",
     "type": "color"
   },
   "$text-hover-tertiary": {
-    "value": "#424256",
+    "value": "#89879f",
     "type": "color"
   },
   "$text-active": {
@@ -100,11 +100,11 @@
     "type": "color"
   },
   "$text-active-secondary": {
-    "value": "#39384c",
+    "value": "#68667f",
     "type": "color"
   },
   "$text-active-tertiary": {
-    "value": "#4f4f64",
+    "value": "#9d9ab1",
     "type": "color"
   },
   "$icon": {
