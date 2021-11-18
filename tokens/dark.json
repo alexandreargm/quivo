@@ -76,11 +76,11 @@
     "type": "color"
   },
   "$text-secondary": {
-    "value": "#d7d2e5",
+    "value": "#b8b4ca",
     "type": "color"
   },
   "$text-tertiary": {
-    "value": "#b8b4ca",
+    "value": "#838099",
     "type": "color"
   },
   "$text-hover": {
@@ -88,11 +88,11 @@
     "type": "color"
   },
   "$text-hover-secondary": {
-    "value": "#d4cee4",
+    "value": "#b6b1c9",
     "type": "color"
   },
   "$text-hover-tertiary": {
-    "value": "#b6b1c9",
+    "value": "#9793ae",
     "type": "color"
   },
   "$text-active": {
@@ -100,11 +100,11 @@
     "type": "color"
   },
   "$text-active-secondary": {
-    "value": "#b8b4ca",
+    "value": "#9d9ab1",
     "type": "color"
   },
   "$text-active-tertiary": {
-    "value": "#9d9ab1",
+    "value": "#68667f",
     "type": "color"
   },
   "$icon": {
