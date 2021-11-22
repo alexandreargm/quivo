@@ -1413,7 +1413,7 @@
       "type": "color"
     },
     "$color-interactive-hover": {
-      "value": "$BrandLighter.30",
+      "value": "$BrandDarker.30",
       "type": "color"
     },
     "$color-interactive-hover-secondary": {
