@@ -1245,15 +1245,15 @@
       "type": "color"
     },
     "$color-reverse-active": {
-      "value": "$ReverseGrey.40",
+      "value": "$ReverseGrey.20",
       "type": "color"
     },
     "$color-reverse-active-secondary": {
-      "value": "$ReverseGrey.50",
+      "value": "$ReverseGrey.10",
       "type": "color"
     },
     "$color-reverse-active-tertiary": {
-      "value": "$ReverseGrey.60",
+      "value": "$ReverseGrey.00",
       "type": "color"
     },
     "$background-reverse": {
