@@ -50,16 +50,20 @@
   @each $name, $value in $indexes {
     --z-#{$name}: #{$value};
   }
+}
 
-  /*
+/*
 
-    Dark theme
+  Dark theme
 
-  */
-  color-scheme: dark;
+*/
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
 
-  @each $name, $value in $dark {
-    --#{$name}: #{$value};
+    @each $name, $value in $dark {
+      --#{$name}: #{$value};
+    }
   }
 }
 
@@ -70,6 +74,8 @@
 */
 @media (prefers-color-scheme: light) {
   :root {
+    color-scheme: light;
+
     @each $name, $value in $light {
       --#{$name}: #{$value};
     }
