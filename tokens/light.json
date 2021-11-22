@@ -204,15 +204,15 @@
     "type": "color"
   },
   "$color-reverse-active": {
-    "value": "#68667e",
+    "value": "#39384b",
     "type": "color"
   },
   "$color-reverse-active-secondary": {
-    "value": "#827f98",
+    "value": "#242331",
     "type": "color"
   },
   "$color-reverse-active-tertiary": {
-    "value": "#9e9ab2",
+    "value": "#101017",
     "type": "color"
   },
   "$background-reverse": {
