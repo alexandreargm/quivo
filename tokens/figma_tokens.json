@@ -149,18 +149,22 @@
       "type": "sizing"
     },
     "size30": {
-      "value": "48px",
+      "value": "40px",
       "type": "sizing"
     },
     "size40": {
-      "value": "64px",
+      "value": "48px",
       "type": "sizing"
     },
     "size50": {
-      "value": "96px",
+      "value": "64px",
       "type": "sizing"
     },
     "size60": {
+      "value": "96px",
+      "type": "sizing"
+    },
+    "size70": {
       "value": "128px",
       "type": "sizing"
     },
