@@ -61,22 +61,26 @@
       "type": "spacing"
     },
     "space10": {
-      "value": "24px",
+      "value": "20px",
       "type": "spacing"
     },
     "space20": {
-      "value": "32px",
+      "value": "24px",
       "type": "spacing"
     },
     "space30": {
-      "value": "48px",
+      "value": "32px",
       "type": "spacing"
     },
     "space40": {
-      "value": "64px",
+      "value": "48px",
       "type": "spacing"
     },
     "space50": {
+      "value": "64px",
+      "type": "spacing"
+    },
+    "space60": {
       "value": "80px",
       "type": "spacing"
     },
@@ -306,10 +310,6 @@
     },
     "tracking60": {
       "value": "25%",
-      "type": "letterSpacing"
-    },
-    "trackingToken": {
-      "value": "$tracking30",
       "type": "letterSpacing"
     },
     "sans-serif": {
