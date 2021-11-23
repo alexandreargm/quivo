@@ -1040,5 +1040,9 @@
       "value": "#171717",
       "type": "color"
     }
+  },
+  "extrabold": {
+    "value": 800,
+    "type": "fontWeights"
   }
 }
