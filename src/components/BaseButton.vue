@@ -3,7 +3,7 @@
     class="base-button"
     :class="[size, color, variant, isIconClass]"
     v-bind="$attrs"
-    @click="onClick"
+    @click="handleClick"
   >
     <span
       v-if="$slots.left"
@@ -35,21 +35,21 @@ export default {
       type: String,
       default: 'brand',
       validator: function (value) {
-        return ['brand', 'accent', 'danger', 'success', 'warning', 'info', 'white', 'black'].indexOf(value) !== -1
+        return ['brand', 'reverse', 'danger'].includes(value)
       }
     },
     variant: {
       type: String,
       default: 'primary',
       validator: function (value) {
-        return ['primary', 'secondary', 'tertiary', 'link'].indexOf(value) !== -1
+        return ['primary', 'secondary', 'tertiary'].includes(value)
       }
     },
     size: {
       type: String,
       default: 'base',
       validator: function (value) {
-        return ['base', 'sm', 'lg', 'xl'].indexOf(value) !== -1
+        return ['base', 'sm', 'lg'].includes(value)
       }
     },
     isIcon: {
@@ -63,7 +63,7 @@ export default {
   setup (props, { emit }) {
     return {
       isIconClass: computed(() => props.isIcon ? 'icon' : ''),
-      onClick () {
+      handleClick () {
         emit('click')
       }
     }
@@ -73,89 +73,89 @@ export default {
 
 <style lang='scss' scoped>
 .base-button {
-  --height: 40px;
-
   align-items: center;
   appearance: none;
-  background-color: var(--bg-color);
-  border: 2px solid var(--border-color);
-  color: var(--color);
+  border: 2px solid transparent;
+  border-radius: var(--rounded20);
   display: flex;
   font-family: inherit;
-  font-size: var(--font-base);
+  font-size: var(--font00);
   height: var(--height);
   justify-content: center;
   line-height: 1;
-  padding: 0 var(--spacing-xl);
   vertical-align: middle;
   white-space: nowrap;
 
   > * + * {
-    margin-left: var(--spacing-sm);
+    margin-left: var(--space-20);
   }
 
   &__right-slot {
-    margin-right: calc(var(--spacing-sm) * -1);
+    margin-right: calc(var(--space-20) * -1);
   }
 
   &__left-slot {
-    margin-left: calc(var(--spacing-sm) * -1);
+    margin-left: calc(var(--space-20) * -1);
   }
 }
 
 // Colors
 
 .base-button.brand {
-  --bg-color: var(--brand);
-  --border-color: transparent;
-  --color: var(--gray2);
-}
+  --bg-color: var(--color-interactive);
+  --color: var(--text-reverse-neutral);
+  --color-hover: var(--color-interactive-hover);
+  --color-active: var(--color-interactive-active);
 
-.base-button.accent {
-  --bg-color: var(--accent);
-  --border-color: transparent;
-  --color: var(--gray12);
+  &:hover {
+    --bg-color: var(--color-interactive-hover);
+  }
+
+  &:active {
+    --bg-color: var(--color-interactive-active);
+  }
 }
 
 .base-button.danger {
-  --bg-color: var(--danger);
-  --border-color: transparent;
-  --color: var(--gray2);
+  --bg-color: var(--color-danger);
+  --color: var(--text-reverse-neutral);
+  --color-hover: var(--color-danger-hover);
+  --color-active: var(--color-danger-active);
+
+  &:hover {
+    --bg-color: var(--color-danger-hover);
+  }
+
+  &:active {
+    --bg-color: var(--color-danger-active);
+  }
 }
 
-.base-button.success {
-  --bg-color: var(--success);
-  --border-color: transparent;
-  --color: var(--gray2);
-}
+.base-button.reverse {
+  --bg-color: var(--color-reverse);
+  --color: var(--text-reverse-neutral);
+  --color-hover: var(--color-reverse-hover);
+  --color-active: var(--color-reverse-active);
 
-.base-button.warning {
-  --bg-color: var(--warning);
-  --border-color: transparent;
-  --color: var(--gray2);
-}
+  &:hover {
+    --bg-color: var(--color-reverse-hover);
+  }
 
-.base-button.info {
-  --bg-color: var(--info);
-  --border-color: transparent;
-  --color: var(--gray2);
-}
-
-.base-button.white {
-  --bg-color: var(--gray1);
-  --border-color: transparent;
-  --color: var(--gray12);
-}
-
-.base-button.black {
-  --bg-color: var(--gray12);
-  --border-color: transparent;
-  --color: var(--gray1);
+  &:active {
+    --bg-color: var(--color-reverse-active);
+  }
 }
 
 // States
-.base-button:hover {
-  //
+.base-button:disabled {
+  &,
+  &:hover,
+  :active {
+    background-color: var(--color-neutral) !important;
+    border-color: transparent !important;
+    color: var(--text-neutral) !important;
+    cursor: not-allowed;
+  }
 }
 
 // Variant
@@ -167,43 +167,54 @@ export default {
 }
 
 .base-button.secondary {
-  background-color: var(--gray12);
-  border-color: var(--gray11);
-  color: var(--gray2);
+  background-color: var(--background-secondary);
+  border-color: transparent;
+  color: var(--text-neutral);
+
+  &:hover {
+    background-color: var(--background-hover-secondary);
+  }
+
+  &:active {
+    background-color: var(--background-active-secondary);
+  }
 }
 
 .base-button.tertiary {
   background-color: transparent;
-  border-color: var(--bg-color);
   color: var(--bg-color);
-}
 
-.base-button.link {
-  background-color: transparent;
-  border-color: transparent;
-  color: var(--bg-color);
+  &:hover {
+    color: var(--color-hover);
+  }
+
+  &:active {
+    color: var(--color-active);
+  }
+
+  &:focus {
+    border-color: var(--bg-color);
+  }
 }
 
 // Sizes
 
-.base-button.sm {
-  --height: 32px;
+.base-button.base {
+  --height: var(--size30);
 
-  font-size: var(--font-md);
-  padding: 0 var(--spacing-lg);
+  padding: 0 var(--space20);
+}
+
+.base-button.sm {
+  --height: var(--size20);
+
+  padding: 0 var(--space10);
 }
 
 .base-button.lg {
-  --height: 48px;
+  --height: var(--size40);
 
-  padding: 0 var(--spacing-2xl);
-}
-
-.base-button.xl {
-  --height: 54px;
-
-  font-size: var(--font-lg);
-  padding: 0 var(--spacing-3xl);
+  padding: 0 var(--space30);
 }
 
 // Icon

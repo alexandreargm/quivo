@@ -6,18 +6,21 @@ export default {
   component: { BaseButton, BaseIcon },
   argTypes: {
     color: {
-      options: ['brand', 'accent', 'danger', 'success', 'warning', 'info', 'white', 'black'],
+      options: ['brand', 'danger', 'reverse'],
       control: { type: 'select' }
     },
     variant: {
-      options: ['primary', 'secondary', 'tertiary', 'link'],
+      options: ['primary', 'secondary', 'tertiary'],
       control: { type: 'select' }
     },
     size: {
-      options: ['base', 'sm', 'lg', 'xl'],
+      options: ['base', 'sm', 'lg'],
       control: { type: 'select' }
     },
     isIcon: {
+      control: { type: 'boolean' }
+    },
+    disabled: {
       control: { type: 'boolean' }
     },
     onClick: {}
@@ -26,7 +29,8 @@ export default {
     color: 'brand',
     variant: 'primary',
     size: 'base',
-    isIcon: false
+    isIcon: false,
+    disabled: false
   }
 }
 

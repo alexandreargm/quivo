@@ -4,7 +4,7 @@ export default {
   title: 'Components/BaseIcon',
   argTypes: {
     color: {
-      options: ['inherit', 'brand', 'accent', 'danger', 'success', 'warning', 'info'],
+      options: ['brand', 'danger', 'reverse', 'inherit'],
       control: { type: 'select' },
       table: { defaultValue: 'brand' }
     },
@@ -13,7 +13,7 @@ export default {
       control: { type: 'select' }
     },
     size: {
-      options: ['base', 'xs', 'sm', 'md', 'lg', 'xl', 'xl2', 'xl3', 'xl4', 'xl5', 'xl6', 'h-full'],
+      options: ['base', 'xs', 'sm', 'md', 'lg', 'xl', 'xl2', 'xl3', 'xl4', 'h-full'],
       control: { type: 'select' }
     }
   },
