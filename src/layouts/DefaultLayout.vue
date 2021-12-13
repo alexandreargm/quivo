@@ -1,7 +1,7 @@
 <template>
   <div class="default-layout">
     <the-header />
-    <slot></slot>
+    <slot />
   </div>
 </template>
 
@@ -9,7 +9,14 @@
 import TheHeader from '@/components/TheHeader'
 
 export default {
-  name: 'defaultLayout',
+  name: 'DefaultLayout',
   components: { TheHeader }
 }
 </script>
+
+<style lang="scss" scoped>
+.default-layout {
+  background: var(--background);
+  min-height: 100vh;
+}
+</style>

@@ -7,21 +7,22 @@
 </template>
 
 <script>
-import defaultLayout from '@/layouts/default'
+import DefaultLayout from '@/layouts/DefaultLayout'
 import BaseIcon from '@/components/BaseIcon'
 
 export default {
   name: 'Home',
   components: {
-    defaultLayout,
+    DefaultLayout,
     BaseIcon
   },
   created () {
     this.$http('configuration')
+    this.$http('/genre/movie/list')
   }
 }
 </script>
 
 <style lang="scss" scoped>
-  //
+//
 </style>
