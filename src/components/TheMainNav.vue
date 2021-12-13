@@ -1,53 +1,59 @@
 <template>
   <div class="the-main-nav">
-    <router-link to="/" class="the-main-nav__brand">
+    <router-link
+      to="/"
+      class="the-main-nav__brand"
+    >
       QUIVO
     </router-link>
 
-    <nav class="the-main-nav__nav">
-      <ul class="the-main-nav__list">
-        <li class="the-main-nav__item">
-          <router-link to="/" >
-            Movies
-          </router-link>
-        </li>
+    <the-header-navigation>
+      <the-header-navigation-link
+        name="Movies"
+        to="/"
+      />
 
-        <li class="the-main-nav__item">
-          <router-link to="/" >
-            TV series
-          </router-link>
-        </li>
+      <the-header-navigation-link
+        name="TV series"
+        to="/tv-series"
+      />
 
-        <li class="the-main-nav__item">
-          <router-link to="/" >
-            Upcoming
-          </router-link>
-        </li>
+      <the-header-navigation-link
+        name="Upcoming"
+        to="/upcoming"
+      />
 
-        <li class="the-main-nav__item">
-          <router-link to="/" >
-            New releases
-          </router-link>
-        </li>
+      <the-header-navigation-link
+        name="New releases"
+        to="/new-releases"
+      />
 
-        <li class="the-main-nav__item">
-          <router-link to="/" >
-            Watch finder
-          </router-link>
-        </li>
+      <the-header-navigation-link
+        name="Watch finder"
+        to="/watch-finder"
+      />
 
-        <li class="the-main-nav__item">
-          <router-link to="/" >
-            My lists
-          </router-link>
-        </li>
-      </ul>
-    </nav>
-
+      <the-header-navigation-link
+        name="My lists"
+        to="/my-lists"
+      />
+    </the-header-navigation>
   </div>
 </template>
 
 <script>
+import TheHeaderNavigation from '@/components/TheHeaderNavigation.vue'
+import TheHeaderNavigationLink from '@/components/TheHeaderNavigationLink.vue'
+export default {
+  components: {
+    TheHeaderNavigation,
+    TheHeaderNavigationLink
+  },
+
+  setup () {
+
+  }
+}
 </script>
 
 <style lang='scss' scoped>
@@ -55,26 +61,17 @@
     align-items: center;
     display: flex;
     height: 75px;
-    padding: 0 var(--spacing-3xl);
+    padding: 0 var(--space30);
     width: 100%;
 
     &__brand {
-      color: var(--brand);
-      font-size: var(--font-3xl);
-      font-weight: var(--weight-extrabold);
+      color: var(--color-interactive);
+      font-size: var(--font40);
+      font-weight: var(--extrabold, 800);
     }
 
-    &__list,
-    &__item {
-      list-style: none;
-    }
-
-    &__list {
-      display: flex;
-    }
-
-    &__list > * + * {
-      margin-left: var(--spacing-lg);
+    > * + * {
+      margin-left: var(--space40);
     }
   }
 </style>
