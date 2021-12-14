@@ -2671,7 +2671,7 @@
   },
   "dark": {
     "$color": {
-      "value": "$Grey.40",
+      "value": "$Grey.50",
       "type": "color"
     },
     "$color-secondary": {
