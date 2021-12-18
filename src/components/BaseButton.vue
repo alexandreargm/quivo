@@ -93,10 +93,6 @@ export default {
   vertical-align: middle;
   white-space: nowrap;
 
-  > * + * {
-    margin-left: var(--space-20);
-  }
-
   &__icon {
     align-items: center;
     display: flex;
@@ -235,12 +231,16 @@ export default {
 
 .base-button.icon-before {
   .base-button__icon {
+    margin-left: calc(-1 * var(--space-20));
+    margin-right: var(--space-20);
     order: -1;
   }
 }
 
 .base-button.icon-after {
   .base-button__icon {
+    margin-left: var(--space-20);
+    margin-right: calc(-1 * var(--space-20));
     order: 9999;
   }
 }
