@@ -1,6 +1,6 @@
 {
   "$color": {
-    "value": "#838099",
+    "value": "#68667f",
     "type": "color"
   },
   "$color-secondary": {
@@ -44,7 +44,7 @@
     "type": "color"
   },
   "$background-tertiary": {
-    "value": "#39384c",
+    "value": "#4f4f64",
     "type": "color"
   },
   "$background-hover": {
@@ -56,7 +56,7 @@
     "type": "color"
   },
   "$background-hover-tertiary": {
-    "value": "#424256",
+    "value": "#58576f",
     "type": "color"
   },
   "$background-active": {
@@ -68,7 +68,7 @@
     "type": "color"
   },
   "$background-active-tertiary": {
-    "value": "#4f4f64",
+    "value": "#68667f",
     "type": "color"
   },
   "$text": {
