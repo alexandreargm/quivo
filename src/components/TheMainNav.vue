@@ -9,8 +9,13 @@
 
     <the-header-navigation>
       <the-header-navigation-link
-        name="Movies"
+        name="Home"
         to="/"
+      />
+
+      <the-header-navigation-link
+        name="Movies"
+        to="/movies"
       />
 
       <the-header-navigation-link
@@ -18,36 +23,40 @@
         to="/tv-series"
       />
 
-      <the-header-navigation-link
+      <!-- <the-header-navigation-link
         name="Upcoming"
         to="/upcoming"
       />
 
       <the-header-navigation-link
-        name="New releases"
-        to="/new-releases"
-      />
-
-      <the-header-navigation-link
-        name="Watch finder"
-        to="/watch-finder"
-      />
-
-      <the-header-navigation-link
         name="My lists"
         to="/my-lists"
-      />
+      /> -->
     </the-header-navigation>
+
+    <div class="the-main-nav__actions">
+      <base-button size="sm">
+        <template #icon>
+          <base-icon name="LightningBoltIcon" />
+        </template>
+
+        Finder
+      </base-button>
+    </div>
   </div>
 </template>
 
 <script>
 import TheHeaderNavigation from '@/components/TheHeaderNavigation.vue'
 import TheHeaderNavigationLink from '@/components/TheHeaderNavigationLink.vue'
+import BaseButton from './BaseButton.vue'
+import BaseIcon from './BaseIcon.vue'
 export default {
   components: {
     TheHeaderNavigation,
-    TheHeaderNavigationLink
+    TheHeaderNavigationLink,
+    BaseButton,
+    BaseIcon
   },
 
   setup () {
@@ -72,6 +81,10 @@ export default {
 
     > * + * {
       margin-left: var(--space40);
+    }
+
+    &__actions {
+      margin-left: auto;
     }
   }
 </style>

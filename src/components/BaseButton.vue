@@ -1,26 +1,19 @@
 <template>
   <button
     class="base-button"
-    :class="[size, color, variant, isIconClass]"
+    :class="[size, color, variant, iconClass]"
     v-bind="$attrs"
     @click="handleClick"
   >
     <span
-      v-if="$slots.left"
-      class="base-button__left-slot"
+      v-if="$slots.icon"
+      class="base-button__icon"
     >
-      <slot name="left" />
+      <slot name="icon" />
     </span>
 
     <span class="base-button__main">
       <slot />
-    </span>
-
-    <span
-      v-if="$slots.right"
-      class="base-button__right-slot"
-    >
-      <slot name="right" />
     </span>
   </button>
 </template>
@@ -52,6 +45,13 @@ export default {
         return ['base', 'sm', 'lg'].includes(value)
       }
     },
+    icon: {
+      type: String,
+      default: 'before',
+      validator: function (value) {
+        return ['only', 'before', 'after'].includes(value)
+      }
+    },
     isIcon: {
       type: Boolean,
       default: false
@@ -61,8 +61,14 @@ export default {
   emits: ['click'],
 
   setup (props, { emit }) {
+    const buttonIconClases = {
+      only: 'icon-only',
+      before: 'icon-before',
+      after: 'icon-after'
+    }
+
     return {
-      isIconClass: computed(() => props.isIcon ? 'icon' : ''),
+      iconClass: computed(() => buttonIconClases[props.icon]),
       handleClick () {
         emit('click')
       }
@@ -80,6 +86,7 @@ export default {
   display: flex;
   font-family: inherit;
   font-size: var(--font00);
+  font-weight: var(--semibold);
   height: var(--height);
   justify-content: center;
   line-height: 1;
@@ -90,12 +97,10 @@ export default {
     margin-left: var(--space-20);
   }
 
-  &__right-slot {
-    margin-right: calc(var(--space-20) * -1);
-  }
-
-  &__left-slot {
-    margin-left: calc(var(--space-20) * -1);
+  &__icon {
+    align-items: center;
+    display: flex;
+    justify-content: center;
   }
 }
 
@@ -219,9 +224,25 @@ export default {
 
 // Icon
 
-.base-button.icon {
+.base-button.icon-only {
   padding: 0;
   width: var(--height);
+
+  .base-button__main {
+    display: none;
+  }
+}
+
+.base-button.icon-before {
+  .base-button__icon {
+    order: -1;
+  }
+}
+
+.base-button.icon-after {
+  .base-button__icon {
+    order: 9999;
+  }
 }
 
 </style>

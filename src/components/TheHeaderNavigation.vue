@@ -22,6 +22,7 @@ export default {
   }
 
   &__list {
+    align-items: center;
     display: flex;
     padding: 0;
   }
