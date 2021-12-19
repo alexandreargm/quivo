@@ -2679,7 +2679,7 @@
       "type": "color"
     },
     "$color-tertiary": {
-      "value": "$Grey.50",
+      "value": "$Grey.30",
       "type": "color"
     },
     "$color-hover": {
@@ -2687,23 +2687,23 @@
       "type": "color"
     },
     "$color-hover-secondary": {
-      "value": "$GreyDarker.40",
+      "value": "$GreyDarker.30",
       "type": "color"
     },
     "$color-hover-tertiary": {
-      "value": "$GreyDarker.50",
+      "value": "$GreyDarker.20",
       "type": "color"
     },
     "$color-active": {
-      "value": "$Grey.50",
+      "value": "$Grey.30",
       "type": "color"
     },
     "$color-active-secondary": {
-      "value": "$Grey.50",
+      "value": "$Grey.20",
       "type": "color"
     },
     "$color-active-tertiary": {
-      "value": "$Grey.60",
+      "value": "$Grey.10",
       "type": "color"
     },
     "$background": {
