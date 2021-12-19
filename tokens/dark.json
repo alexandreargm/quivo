@@ -8,7 +8,7 @@
     "type": "color"
   },
   "$color-tertiary": {
-    "value": "#68667f",
+    "value": "#9d9ab1",
     "type": "color"
   },
   "$color-hover": {
@@ -16,23 +16,23 @@
     "type": "color"
   },
   "$color-hover-secondary": {
-    "value": "#7b7891",
+    "value": "#9793ae",
     "type": "color"
   },
   "$color-hover-tertiary": {
-    "value": "#615f77",
+    "value": "#b6b1c9",
     "type": "color"
   },
   "$color-active": {
-    "value": "#68667f",
+    "value": "#9d9ab1",
     "type": "color"
   },
   "$color-active-secondary": {
-    "value": "#68667f",
+    "value": "#b8b4ca",
     "type": "color"
   },
   "$color-active-tertiary": {
-    "value": "#4f4f64",
+    "value": "#d7d2e5",
     "type": "color"
   },
   "$background": {
