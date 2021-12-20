@@ -2815,7 +2815,7 @@
       "type": "color"
     },
     "$border": {
-      "value": "$Grey.70",
+      "value": "$Grey.60",
       "type": "color"
     },
     "$border-secondary": {
@@ -2855,11 +2855,11 @@
       "type": "color"
     },
     "$color-reverse-secondary": {
-      "value": "$ReverseGrey.40",
+      "value": "$ReverseGrey.30",
       "type": "color"
     },
     "$color-reverse-tertiary": {
-      "value": "$ReverseGrey.50",
+      "value": "$ReverseGrey.20",
       "type": "color"
     },
     "$color-reverse-hover": {
@@ -2995,7 +2995,7 @@
       "type": "color"
     },
     "$border-reverse": {
-      "value": "$ReverseGrey.70",
+      "value": "$ReverseGrey.80",
       "type": "color"
     },
     "$border-reverse-secondary": {
@@ -3003,7 +3003,7 @@
       "type": "color"
     },
     "$border-reverse-tertiary": {
-      "value": "$ReverseGrey.80",
+      "value": "$ReverseGrey.60",
       "type": "color"
     },
     "$border-reverse-hover": {
