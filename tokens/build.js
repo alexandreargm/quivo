@@ -60,7 +60,7 @@ console.log('Build started...');
 
   const StyleDictionary = StyleDictionaryPackage.extend(getStyleDictionaryConfig(theme))
 
-  StyleDictionary.buildPlatform('scss')
+  StyleDictionary.buildPlatform('scss', 'js')
 
   console.log('\nEnd processing')
 })
