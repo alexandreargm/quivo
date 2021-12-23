@@ -7,7 +7,7 @@
       QUIVO
     </router-link>
 
-    <the-header-navigation>
+    <the-header-navigation class="the-main-nav__nav">
       <the-header-navigation-link
         name="Home"
         to="/"
@@ -85,6 +85,14 @@ export default {
 
     &__actions {
       margin-left: auto;
+    }
+
+    &__nav {
+      display: none;
+
+      @include breakpoint('tablet') {
+        display: initial;
+      }
     }
   }
 </style>
