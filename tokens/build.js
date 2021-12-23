@@ -13,7 +13,7 @@ StyleDictionaryPackage.registerFormat({
 StyleDictionaryPackage.registerFormat({
   name: 'custom-js-es6',
   formatter: function (dictionary) {
-    const getMapValuesString = dictionary.allProperties.map(prop => `export const ${prop.name}' = ${prop.value};`).join('\n')
+    const getMapValuesString = dictionary.allProperties.map(prop => `export const ${prop.name} = ${prop.value};`).join('\n')
 
     return `${getMapValuesString}\n`
   }
