@@ -6,7 +6,16 @@ StyleDictionaryPackage.registerFormat({
   name: 'custom-scss-map',
   formatter: function (dictionary) {
     const getMapValuesString = dictionary.allProperties.map(prop => `  '${prop.name}': ${prop.value}`).join(',\n')
-    return `$${this.selector}: (\n${getMapValuesString}\n)`
+    return `$${this.selector}: (\n${getMapValuesString}\n);\n`
+  }
+})
+
+StyleDictionaryPackage.registerFormat({
+  name: 'custom-js-es6',
+  formatter: function (dictionary) {
+    const getMapValuesString = dictionary.allProperties.map(prop => `export const ${prop.name}' = ${prop.value};`).join('\n')
+
+    return `${getMapValuesString}\n`
   }
 })
 
@@ -39,11 +48,11 @@ function getStyleDictionaryConfig (theme) {
         }]
       },
       js: {
-        transforms: ['attribute/cti', 'name/ti/camel', 'sizes/px', 'color/hex'],
+        transforms: ['attribute/cti', 'name/ti/camel', 'sizes/px'],
         buildPath: 'src/assets/js/tokens/',
         files: [{
           destination: `${theme}.js`,
-          format: 'javascript/es6',
+          format: 'custom-js-es6',
           selector: theme
         }]
       }
