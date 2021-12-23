@@ -5,7 +5,7 @@ const StyleDictionaryPackage = require('style-dictionary')
 StyleDictionaryPackage.registerFormat({
   name: 'custom-scss-map',
   formatter: function (dictionary) {
-    const getMapValuesString = dictionary.allProperties.map(prop => `  '${prop.name}': ${prop.value}`).joint(',\n')
+    const getMapValuesString = dictionary.allProperties.map(prop => `  '${prop.name}': ${prop.value}`).join(',\n')
     return `$${this.selector}: (\n${getMapValuesString}\n)`
   }
 })
