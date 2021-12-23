@@ -32,6 +32,7 @@ img {
   height: auto;
   max-width: 100%;
   -webkit-user-drag: none; // Prevent accidental image drag
+  vertical-align: bottom; // Prevent space underneath images
 }
 
 /*
