@@ -48,7 +48,7 @@ function getStyleDictionaryConfig (theme) {
         }]
       },
       js: {
-        transforms: ['attribute/cti', 'name/ti/camel', 'sizes/px'],
+        transforms: ['attribute/cti', 'name/cti/camel', 'sizes/px'],
         buildPath: 'src/assets/js/tokens/',
         files: [{
           destination: `${theme}.js`,
