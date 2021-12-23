@@ -1,28 +1,30 @@
 <template>
   <default-layout>
     <main class="home-page">
-      <base-icon name="BeakerIcon" />
+      <home-popular-now />
     </main>
   </default-layout>
 </template>
 
 <script>
 import DefaultLayout from '@/layouts/DefaultLayout'
-import BaseIcon from '@/components/BaseIcon'
+import HomePopularNow from '../components/HomePopularNow.vue'
 
 export default {
   name: 'Home',
   components: {
     DefaultLayout,
-    BaseIcon
+    HomePopularNow
   },
   created () {
-    this.$http('configuration')
-    this.$http('/genre/movie/list')
+    // this.$http('configuration')
+    // this.$http('/genre/movie/list')
   }
 }
 </script>
 
 <style lang="scss" scoped>
-//
+.home-page {
+  //
+}
 </style>
