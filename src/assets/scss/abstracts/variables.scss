@@ -1,60 +1,64 @@
+
+$breakpoints: (
+  'mobile': 375px,
+  'mobile2': 480px,
+  'tablet': 760px,
+  'tablet2': 1024px,
+  'desktop': 1200px,
+  'desktop2': 1400px
+);
+
+$indexes: (
+  'bottom': -9999,
+  'base': 0,
+  'dropdown': 1000,
+  'sticky': 1100,
+  'overlay': 1200,
+  'fixed': 1300,
+  'modal-overlay': 1400,
+  'modal': 1450,
+  'popover': 1500,
+  'tooltip': 1600,
+  'top': 9999,
+);
+
+/*
+
+  Base css properties
+
+*/
+
 :root {
-  /*
-
-    Base tokens
-
-  */
+  /* Base tokens */
   @each $name, $value in $base {
     --#{$name}: #{$value};
   }
 
-  /*
-
-    Breakpoints
-
-  */
-  $breakpoints: (
-    'mobile': 375px,
-    'mobile2': 480px,
-    'tablet': 760px,
-    'tablet2': 1024px,
-    'desktop': 1200px,
-    'desktop2': 1400px
-  );
-
+  /* Breakpoints */
   @each $name, $value in $breakpoints {
     --#{$name}: #{$value};
   }
 
-  /*
-
-    Layout helpers
-
-  */
+  /* Layout helpers */
 
   // z-indexes
-  $indexes: (
-    'bottom': -9999,
-    'base': 0,
-    'dropdown': 1000,
-    'sticky': 1100,
-    'overlay': 1200,
-    'fixed': 1300,
-    'modal-overlay': 1400,
-    'modal': 1450,
-    'popover': 1500,
-    'tooltip': 1600,
-    'top': 9999,
-  );
-
   @each $name, $value in $indexes {
     --z-#{$name}: #{$value};
+  }
+
+  /*
+
+    Default theme css properties
+
+  */
+  @each $name, $value in $dark {
+    --#{$name}: #{$value};
   }
 }
 
 /*
 
-  Dark theme
+  Dark theme css properties
 
 */
 @media (prefers-color-scheme: dark) {
@@ -69,7 +73,7 @@
 
 /*
 
-  Light theme
+  Light theme css properties
 
 */
 @media (prefers-color-scheme: light) {
