@@ -3,11 +3,9 @@ const StyleDictionaryPackage = require('style-dictionary')
 // HAVE THE STYLE DICTIONARY CONFIG DYNAMICALLY GENERATED
 
 StyleDictionaryPackage.registerFormat({
-  name: 'scss-map',
-  formatter: function (dictionary, config) {
-    return `$${this.selector}: (
-      ${dictionary.allProperties.map(prop => ` '${prop.name}': ${prop.value}`).join(',\n')}
-    )`
+  name: 'custom-scss-map',
+  formatter: function (dictionary) {
+    return `$${this.selector}: (\n${dictionary.allProperties.map(prop => `  '${prop.name}': ${prop.value},\n`)})`
   }
 })
 
@@ -30,12 +28,21 @@ function getStyleDictionaryConfig (theme) {
       `tokens/${theme}.json`
     ],
     platforms: {
-      'scss-map': {
+      scss: {
         transforms: ['attribute/cti', 'name/cti/kebab', 'sizes/px'],
         buildPath: 'src/assets/scss/abstracts/tokens/',
         files: [{
           destination: `${theme}.scss`,
-          format: 'scss-map', // 'scss/map-flat',
+          format: 'custom-scss-map',
+          selector: theme
+        }]
+      },
+      js: {
+        transforms: ['attribute/cti', 'name/ti/camel', 'sizes/px', 'color/hex'],
+        buildPath: 'src/assets/js/tokens/',
+        files: [{
+          destination: `${theme}.js`,
+          format: 'javascript/es6',
           selector: theme
         }]
       }
@@ -53,7 +60,7 @@ console.log('Build started...');
 
   const StyleDictionary = StyleDictionaryPackage.extend(getStyleDictionaryConfig(theme))
 
-  StyleDictionary.buildPlatform('scss-map')
+  StyleDictionary.buildPlatform('scss')
 
   console.log('\nEnd processing')
 })
