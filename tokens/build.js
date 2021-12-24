@@ -48,7 +48,7 @@ function getStyleDictionaryConfig (theme) {
         }]
       },
       js: {
-        transforms: ['attribute/cti', 'name/cti/snake', 'sizes/px'],
+        transforms: ['attribute/cti', 'name/cti/constant', 'sizes/px'],
         buildPath: 'src/assets/js/tokens/',
         files: [{
           destination: `${theme}.js`,
