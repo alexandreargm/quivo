@@ -13,7 +13,7 @@ StyleDictionaryPackage.registerFormat({
 StyleDictionaryPackage.registerFormat({
   name: 'custom-js-es6',
   formatter: function (dictionary) {
-    const getMapValuesString = dictionary.allProperties.map(prop => `export const ${prop.name} = '${prop.value}';`).join('\n')
+    const getMapValuesString = dictionary.allProperties.map(prop => `export const ${prop.name} = '${prop.value}'`).join('\n')
 
     return `${getMapValuesString}\n`
   }
@@ -48,7 +48,7 @@ function getStyleDictionaryConfig (theme) {
         }]
       },
       js: {
-        transforms: ['attribute/cti', 'name/cti/constant', 'sizes/px'],
+        transforms: ['attribute/cti', 'name/cti/snake', 'sizes/px'],
         buildPath: 'src/assets/js/tokens/',
         files: [{
           destination: `${theme}.js`,
