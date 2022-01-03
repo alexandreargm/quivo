@@ -5,10 +5,7 @@
     </h2>
 
     <div class="base-feed-row__feed">
-      <base-slider
-        class="base-feed-row__slider"
-        :gaps="sliderGaps"
-      >
+      <base-slider class="base-feed-row__slider">
         <slot />
       </base-slider>
     </div>
@@ -17,7 +14,6 @@
 
 <script>
 import BaseSlider from './BaseSlider.vue'
-import baseTokens from '../../tokens/base.json'
 
 export default {
   components: { BaseSlider },
@@ -26,15 +22,6 @@ export default {
     title: {
       type: String,
       default: ''
-    }
-  },
-
-  setup () {
-    return {
-      sliderGaps: {
-        tablet: baseTokens['space-10'].value,
-        laptop: '20px' // TODO: variables css en js
-      }
     }
   }
 }
@@ -51,6 +38,20 @@ export default {
     line-height: var(--line-20);
     margin-bottom: var(--space00);
     white-space: nowrap;
+  }
+
+  :deep(.base-feed-row__slider) {
+    @include breakpoint('mobile') {
+      gap: var(--space-10);
+    }
+
+    @include breakpoint('tablet') {
+      gap: var(--space00);
+    }
+
+    @include breakpoint('desktop') {
+      gap: var(--space30);
+    }
   }
 }
 </style>

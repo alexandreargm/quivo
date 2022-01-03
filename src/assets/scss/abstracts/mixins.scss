@@ -77,3 +77,9 @@
     width: 100%;
   }
 }
+
+@mixin add-gap($selector, $direction, $gap) {
+  #{$selector} + #{$selector} {
+    margin-left: $gap;
+  }
+}

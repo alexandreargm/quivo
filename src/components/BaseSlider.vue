@@ -2,11 +2,11 @@
   <div
     class="base-slider"
     :class="[directionClass]"
-    :style="[cssProps, cssGapProps]"
+    :style="cssProps"
   >
     <div
       class="base-slider__inner"
-      :class="$attrs['class']"
+      v-bind="$attrs"
     >
       <slot />
     </div>
@@ -44,21 +44,14 @@ export default {
     gap: {
       type: String,
       default: '8px'
-    },
-    gaps: {
-      type: Object,
-      default: null
     }
   },
 
-  setup (props) {
+  setup (props, { attrs }) {
+    console.log(attrs)
     const directionClasses = {
       x: 'horizontal',
       y: 'vertical'
-    }
-
-    const getGapProps = () => {
-      return Object.fromEntries(Object.entries(props.gaps).map(([key, value]) => [`--${key}-gap`, value]))
     }
 
     onMounted(() => {
@@ -69,10 +62,9 @@ export default {
       directionClass: directionClasses[props.direction],
       cssProps: {
         '--scroll-snap-type': `${props.direction} ${props.type}`,
-        // '--gap': props.gap,
+        '--gap': props.gap,
         '--scroll-snap-align': props.align
-      },
-      cssGapProps: getGapProps()
+      }
     }
   }
 }
@@ -81,9 +73,9 @@ export default {
 <style lang='scss' scoped>
 .base-slider {
   &__inner {
-    display: flex;
+    display: grid;
     padding-bottom: var(--space00);
-    scroll-snap-type: var(--scroll-snap-type, none);
+    scroll-snap-type: var(--scroll-snap-type);
     user-select: none;
   }
 
@@ -128,40 +120,16 @@ export default {
 }
 
 .base-slider.horizontal {
-  @include breakpoint('mobile') {
-    --gap: var(var(--mobile-gap));
-  }
-
-  @include breakpoint('tablet') {
-    --gap: var(--tablet-gap);
-  }
-
-  @include breakpoint('laptop') {
-    --gap: var(var(--tablet-gap));
-  }
-
   .base-slider__inner {
-    flex-direction: row;
-    overflow-x: auto;
-  }
-
-  :slotted(.base-slider__inner > *) {
-    flex-shrink: 0;
-  }
-
-  :slotted(.base-slider__inner > * + *) {
-    margin-left: var(--gap, 8px);
+    grid-auto-flow: column;
+    overflow: auto hidden;
   }
 }
 
 .base-slider.vertical {
   .base-slider__inner {
-    flex-direction: column;
-    overflow-y: auto;
-  }
-
-  :slotted(.base-slider__inner > * + *) {
-    margin-top: var(--gap, 8px);
+    grid-auto-flow: row;
+    overflow: hidden auto;
   }
 }
 </style>

@@ -1,6 +1,10 @@
 <template>
-  <base-feed-row title="Popular right now">
+  <base-feed-row
+    title="Popular right now"
+    class="home-popular-now"
+  >
     <base-poster
+      class="home-popular-now__poster"
       v-for="{id, poster_path} in trendingResponse.results"
       :key="id"
       :src="'http://image.tmdb.org/t/p/w154/' + poster_path"
@@ -39,5 +43,19 @@ export default {
 </script>
 
 <style lang='scss' scoped>
-  //
+.home-popular-now {
+  // &__poster:not(:first-child) {
+  //   @include breakpoint('mobile') {
+  //     margin-left: var(--space00);
+  //   }
+
+  //   @include breakpoint('tablet') {
+  //     margin-left: var(--space10);
+  //   }
+
+  //   @include breakpoint('desktop') {
+  //     margin-left: var(--space30);
+  //   }
+  // }
+}
 </style>
