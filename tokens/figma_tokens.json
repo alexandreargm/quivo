@@ -1045,6 +1045,10 @@
     "extrabold": {
       "value": "800",
       "type": "fontWeights"
+    },
+    "medium": {
+      "value": "500",
+      "type": "fontWeights"
     }
   },
   "light": {
