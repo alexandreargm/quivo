@@ -5,7 +5,10 @@
     </h2>
 
     <div class="base-feed-row__feed">
-      <base-slider class="base-feed-row__slider">
+      <base-slider
+        :width="width"
+        class="base-feed-row__slider"
+      >
         <slot />
       </base-slider>
     </div>
@@ -22,6 +25,10 @@ export default {
     title: {
       type: String,
       default: ''
+    },
+    width: {
+      type: String,
+      default: '150px'
     }
   }
 }
@@ -29,29 +36,15 @@ export default {
 
 <style lang='scss' scoped>
 .base-feed-row {
-  padding: var(--space00) var(--space20);
+  padding: var(--container-gap) 0;
 
   &__title {
     color: var(--text-secondary);
-    font-size: var(--font30);
-    font-weight: var(--semibold);
+    font-size: clamp(var(--font10), 5vw, var(--font30));
+    font-weight: var(--medium);
     line-height: var(--line-20);
-    margin-bottom: var(--space00);
+    padding: 0 var(--container-gap);
     white-space: nowrap;
-  }
-
-  :deep(.base-feed-row__slider) {
-    @include breakpoint('mobile') {
-      gap: var(--space-10);
-    }
-
-    @include breakpoint('tablet') {
-      gap: var(--space00);
-    }
-
-    @include breakpoint('desktop') {
-      gap: var(--space30);
-    }
   }
 }
 </style>

@@ -37,7 +37,7 @@ export default {
       type: String,
       default: 'inherit',
       validator: function (value) {
-        return ['inherit', 'brand', 'warning', 'black', 'white'].includes(value)
+        return ['inherit', 'brand', 'danger', 'reverse', 'black', 'white'].includes(value)
       }
     }
   },
@@ -85,6 +85,14 @@ export default {
 
 .base-icon.reverse {
   --color: var(--color-reverse);
+}
+
+.base-icon.white {
+  --color: var(--text-neutral);
+}
+
+.base-icon.black {
+  --color: var(--text-neutral-reverse);
 }
 
 // Sizes

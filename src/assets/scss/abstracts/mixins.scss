@@ -52,6 +52,19 @@
   }
 }
 
+@mixin breakpoint-max($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (max-width: #{map-get($breakpoints, $breakpoint)}) {
+      @content;
+    }
+  }
+
+  @else {
+    @warn 'Unfortunately, no value could be retrieved from `#{$breakpoint}`. '
+      + 'Please make sure it is defined in `$breakpoints` map.';
+  }
+}
+
 // Aspect ratio mixin for images and background images.
 // img elements require a parent element, figure for example,
 // with this mixin applied.
@@ -78,8 +91,9 @@
   }
 }
 
-@mixin add-gap($selector, $direction, $gap) {
-  #{$selector} + #{$selector} {
-    margin-left: $gap;
+@mixin chrome-only() {
+  // stylelint-disable-next-line
+  @media screen and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) {
+    @content;
   }
 }

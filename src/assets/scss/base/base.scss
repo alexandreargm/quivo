@@ -5,9 +5,10 @@
  * See: https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
  */
 html {
-  background-color: var(--ui-background);
+  background-color: var(--background-secondary);
   box-sizing: border-box;
   color: var(--text-01);
+  line-height: 1;
 }
 
 *,

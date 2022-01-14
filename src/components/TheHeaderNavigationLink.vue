@@ -40,7 +40,7 @@ export default {
 .the-header-navigation-link {
   &__link {
     color: var(--text-secondary);
-    font-weight: var(--semibold);
+    font-weight: var(--medium);
   }
 
   .active {

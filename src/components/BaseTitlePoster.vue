@@ -1,18 +1,19 @@
 <template>
   <figure
-    class="base-poster"
+    class="base-title-poster"
     :style="cssProps"
   >
-    <div class="base-poster__image-wrapper">
+    <div class="base-title-poster__image-wrapper">
       <img
-        class="base-poster__image"
+        v-if="src"
+        class="base-title-poster__image"
         :src="src"
         :alt="alt"
       >
     </div>
 
     <figcaption
-      class="base-poster__caption"
+      class="base-title-poster__caption"
       v-if="caption"
     >
       {{ caption }}
@@ -57,12 +58,11 @@ export default {
 </script>
 
 <style lang='scss' scoped>
-  .base-poster {
+  .base-title-poster {
     margin: 0;
 
     &__image-wrapper {
       position: relative;
-      width: 150px;
     }
 
     &__image-wrapper::before {

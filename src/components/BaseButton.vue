@@ -86,7 +86,7 @@ export default {
   display: flex;
   font-family: inherit;
   font-size: var(--font00);
-  font-weight: var(--semibold);
+  font-weight: var(--medium);
   height: var(--height);
   justify-content: center;
   line-height: 1;

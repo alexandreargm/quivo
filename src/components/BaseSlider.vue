@@ -4,12 +4,7 @@
     :class="[directionClass]"
     :style="cssProps"
   >
-    <div
-      class="base-slider__inner"
-      v-bind="$attrs"
-    >
-      <slot />
-    </div>
+    <slot />
   </div>
 </template>
 
@@ -43,12 +38,15 @@ export default {
     },
     gap: {
       type: String,
-      default: '8px'
+      default: '4px'
+    },
+    width: {
+      type: String,
+      default: '150px'
     }
   },
 
-  setup (props, { attrs }) {
-    console.log(attrs)
+  setup (props) {
     const directionClasses = {
       x: 'horizontal',
       y: 'vertical'
@@ -63,6 +61,7 @@ export default {
       cssProps: {
         '--scroll-snap-type': `${props.direction} ${props.type}`,
         '--gap': props.gap,
+        '--width': props.width,
         '--scroll-snap-align': props.align
       }
     }
@@ -72,64 +71,62 @@ export default {
 
 <style lang='scss' scoped>
 .base-slider {
-  &__inner {
-    display: grid;
-    padding-bottom: var(--space00);
-    scroll-snap-type: var(--scroll-snap-type);
-    user-select: none;
-  }
+  display: grid;
+  gap: var(--gap);
+  padding: calc(var(--container-gap) / 2) var(--container-gap) var(--space00);
+  scroll-snap-type: var(--scroll-snap-type);
+  user-select: none;
 
-  :slotted(.base-slider__inner > *) {
-    background-color: var(--background-tertiary);
-    scroll-snap-align: var(--scroll-snap-align);
-  }
-
-  &__inner::-webkit-scrollbar {
-    height: var(--space-30);
-    width: var(--space-30);
-
-    @include breakpoint('tablet') {
+  @include chrome-only() {
+    &::-webkit-scrollbar {
       height: var(--space-30);
       width: var(--space-30);
+
+      @include breakpoint('desktop') {
+        height: var(--space-30);
+        width: var(--space-30);
+      }
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: var(--color-reverse-secondary);
+      border-radius: var(--rounded100);
+    }
+
+    &::-webkit-scrollbar-track {
+      background: var(--border-tertiary);
+      border-radius: var(--rounded100);
     }
   }
 
-  &__inner::-webkit-scrollbar-thumb {
-    background: var(--color-reverse-secondary);
-    border-radius: var(--rounded100);
+  &:hover {
+    @include breakpoint('desktop') {
+      @include chrome-only() {
+        padding-bottom: var(--space-30);
+
+        &::-webkit-scrollbar {
+          display: initial;
+          height: var(--space00);
+          width: var(--space00);
+        }
+      }
+    }
   }
 
-  &__inner::-webkit-scrollbar-track {
-    background: var(--border-tertiary);
-    border-radius: var(--rounded100);
-  }
-}
-
-.base-slider:hover {
-  @include breakpoint('tablet') {
-    .base-slider__inner {
-      padding-bottom: var(--space-30);
-    }
-
-    .base-slider__inner::-webkit-scrollbar {
-      display: initial;
-      height: var(--space00);
-      width: var(--space00);
-    }
+  :slotted(> *) {
+    background-color: var(--background-tertiary);
+    scroll-snap-align: var(--scroll-snap-align);
+    width: var(--width);
   }
 }
 
 .base-slider.horizontal {
-  .base-slider__inner {
-    grid-auto-flow: column;
-    overflow: auto hidden;
-  }
+  grid-auto-flow: column;
+  overflow: auto hidden;
 }
 
 .base-slider.vertical {
-  .base-slider__inner {
-    grid-auto-flow: row;
-    overflow: hidden auto;
-  }
+  grid-auto-flow: row;
+  overflow: hidden auto;
 }
 </style>

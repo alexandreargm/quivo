@@ -29,6 +29,9 @@ $indexes: (
 */
 
 :root {
+  /* Global variables */
+  --container-gap: var(--space20);
+
   /* Base tokens */
   @each $name, $value in $base {
     --#{$name}: #{$value};
