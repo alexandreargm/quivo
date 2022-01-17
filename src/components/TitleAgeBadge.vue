@@ -1,5 +1,8 @@
 <template>
-  <base-badge class="title-age-badge">
+  <base-badge
+    v-if="age"
+    class="title-age-badge"
+  >
     <span class="title-age-badge__age">
       {{ age }}
     </span>
@@ -27,7 +30,11 @@ export default {
   setup (props) {
     const getAgeCertification = () => {
       if (props.releaseDates.length > 0) {
-        return props.releaseDates.find(iso => iso.iso_3166_1 === 'DE').release_dates[0].certification
+        const getReleaseDates = props.releaseDates.find(iso => iso.iso_3166_1 === 'DE')
+
+        if (getReleaseDates) {
+          return getReleaseDates.release_dates[0].certification
+        }
       }
     }
 

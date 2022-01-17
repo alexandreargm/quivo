@@ -1,7 +1,7 @@
 <template>
   <button
     class="base-button"
-    :class="[size, color, variant, iconClass]"
+    :class="[size, color, variant, iconClass, round]"
     v-bind="$attrs"
     @click="handleClick"
   >
@@ -23,6 +23,8 @@ import { computed } from 'vue'
 
 export default {
   name: 'BaseButton',
+  emits: ['click'],
+
   props: {
     color: {
       type: String,
@@ -52,13 +54,11 @@ export default {
         return ['only', 'before', 'after'].includes(value)
       }
     },
-    isIcon: {
+    isRound: {
       type: Boolean,
       default: false
     }
   },
-
-  emits: ['click'],
 
   setup (props, { emit }) {
     const buttonIconClases = {
@@ -69,6 +69,7 @@ export default {
 
     return {
       iconClass: computed(() => buttonIconClases[props.icon]),
+      round: props.isRound ? 'round' : '',
       handleClick () {
         emit('click')
       }
@@ -168,9 +169,10 @@ export default {
 }
 
 .base-button.secondary {
+  --color: var(--text-neutral);
+
   background-color: var(--background-secondary);
   border-color: transparent;
-  color: var(--text-neutral);
 
   &:hover {
     background-color: var(--background-hover-secondary);
@@ -243,6 +245,11 @@ export default {
     margin-right: calc(-1 * var(--space-20));
     order: 9999;
   }
+}
+
+// Round
+.base-button.round {
+  border-radius: var(--rounded100);
 }
 
 </style>

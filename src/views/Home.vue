@@ -4,41 +4,48 @@
       <the-main-nav />
     </header>
 
-    <div class="home__preview-container">
+    <title-preview-layout
+      :title-id="selectedTitle"
+      v-slot="{ togglePreview }"
+    >
       <main>
-        <popular-feed class="home__body" />
+        <popular-feed
+          @click="handleSelect($event, togglePreview)"
+          class="home__body"
+        />
       </main>
-
-      <aside class="home__preview">
-        <div class="home__preview-inner">
-          <div class="home__preview-close">
-            <base-close />
-          </div>
-          <base-title-preview :id="12" />
-        </div>
-      </aside>
-    </div>
+    </title-preview-layout>
   </div>
 </template>
 
 <script>
+import { ref } from 'vue'
 import TheMainNav from '../components/TheMainNav.vue'
 import PopularFeed from '../components/PopularFeed.vue'
-// import TitlePreviewDrawer from '../components/TitlePreviewDrawer.vue'
-import BaseTitlePreview from '../components/BaseTitlePreview.vue'
-import BaseClose from '../components/BaseClose.vue'
-// import BaseDrawerContainer from '../components/BaseDrawerContainer.vue'
+import TitlePreviewLayout from '../components/TitlePreviewLayout.vue'
 
 export default {
   name: 'Home',
   components: {
     TheMainNav,
     PopularFeed,
-    BaseTitlePreview,
-    BaseClose
-    // TitlePreviewDrawer,
-    // BaseDrawerContainer
+    TitlePreviewLayout
   },
+
+  setup () {
+    const selectedTitle = ref(0)
+
+    const handleSelect = (id, toggleDrawer) => {
+      selectedTitle.value = id
+      toggleDrawer(true)
+    }
+
+    return {
+      handleSelect,
+      selectedTitle
+    }
+  },
+
   created () {
     this.$http('configuration')
     this.$http('/watch/providers/movie?language=es')
@@ -51,60 +58,6 @@ export default {
 
 <style lang="scss" scoped>
 .home {
-  @include breakpoint-max('desktop') {
-    &__preview::before {
-      background-color: var(--background);
-      content: ' ';
-      height: 100%;
-      opacity: 0.5;
-      position: fixed;
-      width: 100%;
-    }
-  }
-
-  &__preview-container {
-    position: relative;
-
-    @include breakpoint('desktop') {
-      display: grid;
-      grid-template-columns: minmax(0%, 100%)  auto;
-      padding: var(--spacing20);
-    }
-  }
-
-  &__preview {
-    bottom: 0;
-    display: flex;
-    justify-content: flex-end;
-    left: 0;
-    right: 0;
-    top: 0;
-
-    @include breakpoint-max('desktop') {
-      position: fixed;
-    }
-  }
-
-  &__preview-inner {
-    background-color: var(--background);
-    overflow: auto;
-    position: relative;
-
-    @include breakpoint-max('tablet') {
-      max-width: 400px;
-    }
-
-    @include breakpoint('desktop') {
-      padding: var(--space20);
-    }
-  }
-
-  &__preview-close {
-    opacity: 0.75;
-    position: absolute;
-    right: var(--space00);
-    top: var(--space00);
-    z-index: var(--z-fixed);
-  }
+  //
 }
 </style>

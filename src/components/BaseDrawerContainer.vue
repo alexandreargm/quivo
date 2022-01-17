@@ -14,8 +14,11 @@ export default {
 
 <style lang='scss' scoped>
 .base-drawer-container {
-  display: grid;
-  grid-template-columns: calc(100% - 500px) 500px;
   position: relative;
+
+  @include breakpoint('desktop') {
+    display: grid;
+    grid-template-columns: minmax(0%, 100%) min-content;
+  }
 }
 </style>

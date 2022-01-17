@@ -9,7 +9,7 @@
         :width="width"
         class="base-feed-row__slider"
       >
-        <slot />
+        <slot :handleTitleClick="handleTitleClick" />
       </base-slider>
     </div>
   </section>
@@ -19,6 +19,7 @@
 import BaseSlider from './BaseSlider.vue'
 
 export default {
+  emits: ['select'],
   components: { BaseSlider },
 
   props: {
@@ -29,6 +30,14 @@ export default {
     width: {
       type: String,
       default: '150px'
+    }
+  },
+
+  setup (props, { emit }) {
+    return {
+      handleTitleClick (id) {
+        emit('select', id)
+      }
     }
   }
 }

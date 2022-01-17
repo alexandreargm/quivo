@@ -1,33 +1,72 @@
 <template>
-  <aside
+  <div
     class="base-drawer"
-    :class="[mode, size]"
+    :class="[size]"
   >
-    <header class="base-drawer__header">
-      <slot name="header" />
-    </header>
+    <div class="base-drawer__inner">
+      <div
+        v-if="showClose"
+        class="base-drawer__close"
+      >
+        <base-close @pepe="log" />
+      </div>
 
-    <div class="base-drawer__body">
-      <slot />
+      <div class="base-drawer__background" />
+
+      <div class="base-drawer__content">
+        <header
+          v-if="title"
+          class="base-drawer__header"
+        >
+          {{ title }}
+        </header>
+
+        <div class="base-drawer__body">
+          <slot />
+        </div>
+      </div>
     </div>
-  </aside>
+  </div>
 </template>
 
 <script>
+import BaseClose from '../components/BaseClose.vue'
+
 export default {
+  emits: ['close'],
+
+  components: { BaseClose },
+
   props: {
-    mode: {
+    title: {
       type: String,
-      default: 'absolute',
-      validator: function (value) {
-        return ['absolute', 'block', 'fixed'].includes(value)
-      }
+      default: ''
+    },
+    showClose: {
+      type: Boolean,
+      default: false
+    },
+    useContainer: {
+      type: Boolean,
+      default: false
     },
     size: {
       type: String,
-      default: 'base',
+      default: '',
       validator: function (value) {
-        return ['base', 'sm', 'lg', 'full'].includes(value)
+        return ['', 'full', 'auto'].includes(value)
+      }
+    }
+  },
+
+  setup (props, { emit }) {
+    return {
+      log () {
+        debugger
+        emit('close')
+      },
+      handleClose () {
+        emit('close')
       }
     }
   }
@@ -36,15 +75,71 @@ export default {
 
 <style lang='scss' scoped>
 .base-drawer {
-  background-color: var(--background-secondary);
+  --background-color: var(--background);
+
+  max-width: 600px;
+
+  @include breakpoint-max('desktop') {
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: var(--z-overlay);
+
+    &__inner {
+      bottom: 0;
+      display: flex;
+      left: 0;
+      right: 0;
+      top: 0;
+    }
+  }
+
+  &__close {
+    opacity: 0.75;
+    position: absolute;
+    right: var(--space00);
+    top: var(--space00);
+    z-index: var(--z-fixed);
+  }
+
+  &__content {
+    background-color: var(--background-color);
+  }
+
+  &__background {
+    background-color: var(--background-color);
+    height: 100%;
+    min-height: 100vh;
+    opacity: 0.7;
+    width: 100%;
+
+    @include breakpoint('desktop') {
+      display: none;
+    }
+  }
+
+  &__body {
+    @include breakpoint-max('desktop') {
+      height: 100vh;
+      overflow-y: auto;
+    }
+  }
 }
 
 // Mode
 .base-drawer.absolute {
   bottom: 0;
-  position: absolute;
+  display: flex;
+  justify-content: flex-end;
+  left: 0;
   right: 0;
   top: 0;
+
+  @include breakpoint-max('desktop') {
+    position: fixed;
+  }
 }
 
 .base-drawer.block {
@@ -60,11 +155,12 @@ export default {
 }
 
 // Size
-.base-drawer.base {
-  max-width: 600px;
-}
 
 .base-drawer.full {
   max-width: 100%;
+}
+
+.base-drawer.auto {
+  max-width: unset;
 }
 </style>

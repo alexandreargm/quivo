@@ -3,19 +3,31 @@
     class="base-close"
     :class="[size]"
   >
-    <base-icon
-      name="XIcon"
-      size="xs"
-      color="white"
-    />
+    <base-button
+      icon="only"
+      variant="secondary"
+      :is-round="true"
+      @click="handleClick"
+    >
+      <template #icon>
+        <base-icon name="XIcon" />
+      </template>
+    </base-button>
   </div>
 </template>
 
 <script>
+import BaseButton from './BaseButton.vue'
 import BaseIcon from './BaseIcon.vue'
 
 export default {
-  components: { BaseIcon },
+  name: 'BaseClose',
+  emits: ['click'],
+
+  components: {
+    BaseButton,
+    BaseIcon
+  },
 
   props: {
     size: {
@@ -27,8 +39,12 @@ export default {
     }
   },
 
-  setup () {
-
+  setup (props, { emit }) {
+    return {
+      handleClick () {
+        emit('click')
+      }
+    }
   }
 }
 </script>

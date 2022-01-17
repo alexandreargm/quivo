@@ -1,6 +1,22 @@
 <template>
   <article class="base-title-preview">
     <header class="base-title-preview__header">
+      <div class="base-title-preview__header-toolbar">
+        <base-button
+          icon="only"
+          variant="secondary"
+          :is-round="true"
+        >
+          <template #icon>
+            <base-icon name="ChevronDownIcon" />
+          </template>
+        </base-button>
+
+        <div class="base-title-preview__header-toolbar-fixed">
+          <base-close @click="handleClose" />
+        </div>
+      </div>
+
       <base-title-poster :src="titleResponse.poster_path ? 'http://image.tmdb.org/t/p/w500/' + titleResponse.poster_path : ''" />
     </header>
 
@@ -35,7 +51,8 @@
 
     <footer class="base-title-preview__footer">
       <title-related-titles
-        :title-id="120"
+        @select="updateId"
+        :id="titleId"
         media-type="movie"
       />
     </footer>
@@ -43,7 +60,7 @@
 </template>
 
 <script>
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 import repositoryFactory from '@/api/repository-factory'
 import { handleRequest } from '@/api/request-handlers'
 import BaseTitlePoster from '../components/BaseTitlePoster.vue'
@@ -52,6 +69,8 @@ import BaseButton from '@/components/BaseButton.vue'
 import BaseTagCloud from './BaseTagCloud.vue'
 import TitleRelatedTitles from './TitleRelatedTitles.vue'
 import TitleAgeBadge from './TitleAgeBadge.vue'
+import BaseClose from '../components/BaseClose.vue'
+import BaseIcon from '../components/BaseIcon.vue'
 const titlesRepository = repositoryFactory.get('titles')
 
 export default {
@@ -60,8 +79,12 @@ export default {
     BaseButton,
     BaseTagCloud,
     TitleRelatedTitles,
-    TitleAgeBadge
+    TitleAgeBadge,
+    BaseClose,
+    BaseIcon
   },
+
+  emits: ['close'],
 
   props: {
     id: {
@@ -70,15 +93,22 @@ export default {
     }
   },
 
-  setup (props) {
+  setup (props, { emit }) {
+    const titleId = ref(0)
     const titleResponse = ref([])
     const titleReleaseDate = ref('')
     const titleRuntime = ref('')
     const titleKeywords = ref([])
     const titleReleaseDates = ref([])
 
-    const findTitle = () => {
-      handleRequest(titlesRepository.find({ mediaType: 'movie', id: '120' }), {
+    const handleClose = () => emit('close')
+    const updateId = (id) => { titleId.value = id }
+    const loadTitle = (id) => {
+      findTitle(id)
+      fetchKeywords(id)
+    }
+    const findTitle = (id) => {
+      handleRequest(titlesRepository.find({ mediaType: 'movie', id }), {
         onSuccess: ({ data }) => {
           const { hours, minutes } = Duration.fromObject({ minutes: data.runtime }).shiftTo('hours', 'minutes')
 
@@ -89,25 +119,29 @@ export default {
         }
       })
     }
-
-    const fetchTitleKeywords = () => {
-      handleRequest(titlesRepository.keywords({ mediaType: 'movie', id: '120' }), {
+    const fetchKeywords = (id) => {
+      handleRequest(titlesRepository.keywords({ mediaType: 'movie', id }), {
         onSuccess: ({ data }) => {
           titleKeywords.value = data.keywords
         }
       })
     }
-
-    const handleKeywordClick = (args) => {
-      console.log(args)
-    }
+    const handleKeywordClick = (args) => { console.log(args) }
 
     onMounted(() => {
-      findTitle()
-      fetchTitleKeywords()
+      titleId.value = props.id
+
+      loadTitle(titleId.value)
     })
 
+    watch(() => props.id, () => { titleId.value = props.id })
+
+    watch(titleId, () => { loadTitle(titleId.value) })
+
     return {
+      titleId,
+      updateId,
+      handleClose,
       titleResponse,
       titleReleaseDate,
       titleRuntime,
@@ -122,23 +156,42 @@ export default {
 <style lang='scss' scoped>
 .base-title-preview {
   // TODO: Add container query polifyll to simplify queries
-  @include breakpoint('tablet') {
-    display: grid;
-    grid-template-columns: calc(400px - var(--space20)) calc(300px - var(--space20));
-    grid-template-rows: auto auto;
+  @include breakpoint-max('tablet') {
+    max-width: 500px;
   }
 
-  @include breakpoint('desktop') {
-    grid-template-columns: calc(300px - var(--space20)) calc(300px - var(--space20));
+  @include breakpoint('tablet') {
+    display: grid;
+    grid-template-columns: 300px 300px;
   }
 
   @include breakpoint('desktop2') {
-    grid-template-columns: calc(400px - var(--space20)) calc(300px - var(--space20));
+    grid-template-columns: 350px 375px;
+  }
+
+  @include breakpoint('desktop3') {
+    grid-template-columns: 400px 375px;
+  }
+
+  &__header-toolbar {
+    display: flex;
+    justify-content: space-between;
+    opacity: 0.75;
+    padding: var(--space00);
+    position: absolute;
+    width: 100%;
+    z-index: var(--z-fixed);
+  }
+
+  &__header-toolbar-fixed > * {
+    position: fixed;
+    transform: translateX(-100%);
   }
 
   &__header {
     height: 250px;
     overflow: hidden;
+    position: relative;
 
     @include breakpoint('tablet') {
       grid-area: 1/2;
@@ -163,7 +216,10 @@ export default {
   }
 
   &__metadata {
+    align-items: center;
     color: var(--text-secondary);
+    display: flex;
+    height: var(--size00);
     margin-top: var(--space-20);
   }
 

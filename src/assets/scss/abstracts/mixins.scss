@@ -54,7 +54,7 @@
 
 @mixin breakpoint-max($breakpoint) {
   @if map-has-key($breakpoints, $breakpoint) {
-    @media (max-width: #{map-get($breakpoints, $breakpoint)}) {
+    @media (max-width: #{map-get($breakpoints, $breakpoint) - 1px}) {
       @content;
     }
   }

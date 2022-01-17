@@ -97,11 +97,9 @@ export default {
       background: var(--border-tertiary);
       border-radius: var(--rounded100);
     }
-  }
 
-  &:hover {
-    @include breakpoint('desktop') {
-      @include chrome-only() {
+    &:hover {
+      @include breakpoint('desktop') {
         padding-bottom: var(--space-30);
 
         &::-webkit-scrollbar {
