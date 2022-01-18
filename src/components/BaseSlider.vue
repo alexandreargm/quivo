@@ -79,13 +79,8 @@ export default {
 
   @include chrome-only() {
     &::-webkit-scrollbar {
-      height: var(--space-30);
-      width: var(--space-30);
-
-      @include breakpoint('desktop') {
-        height: var(--space-30);
-        width: var(--space-30);
-      }
+      height: var(--space-10);
+      width: var(--space-10);
     }
 
     &::-webkit-scrollbar-thumb {
@@ -96,18 +91,6 @@ export default {
     &::-webkit-scrollbar-track {
       background: var(--border-tertiary);
       border-radius: var(--rounded100);
-    }
-
-    &:hover {
-      @include breakpoint('desktop') {
-        padding-bottom: var(--space-30);
-
-        &::-webkit-scrollbar {
-          display: initial;
-          height: var(--space00);
-          width: var(--space00);
-        }
-      }
     }
   }
 
@@ -124,7 +107,11 @@ export default {
 }
 
 .base-slider.vertical {
-  grid-auto-flow: row;
+  grid-template-columns: repeat(auto-fit, minmax(var(--width), auto));
   overflow: hidden auto;
+
+  :slotted(> *) {
+    width: unset;
+  }
 }
 </style>

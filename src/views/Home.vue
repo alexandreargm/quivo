@@ -9,10 +9,13 @@
       v-slot="{ togglePreview }"
     >
       <main>
-        <popular-feed
-          @click="handleSelect($event, togglePreview)"
-          class="home__body"
-        />
+        <popular-feed @click="handleSelect($event, togglePreview)" />
+
+        <popular-feed @click="handleSelect($event, togglePreview)" />
+
+        <popular-feed @click="handleSelect($event, togglePreview)" />
+
+        <popular-feed @click="handleSelect($event, togglePreview)" />
       </main>
     </title-preview-layout>
   </div>

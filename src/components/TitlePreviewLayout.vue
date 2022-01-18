@@ -1,17 +1,29 @@
 <template>
-  <base-drawer-container class="title-preview-layout">
-    <slot :togglePreview="togglePreview" />
+  <base-drawer-container
+    ref="rootEl"
+    class="title-preview-layout"
+  >
+    <div class="title-preview-layout__main">
+      <slot :togglePreview="togglePreview" />
+    </div>
 
     <transition>
       <aside
         v-if="isPreviewOpen"
+        id="title-preview-drawer"
         class="title-preview-layout__drawer"
       >
-        <base-drawer size="full">
-          <base-title-preview
-            :id="titleId"
-            @close="handleClose"
-          />
+        <base-drawer
+          size="full"
+          @close="handleClose"
+        >
+          <div class="title-preview-layout__drawer-inner">
+            <base-title-preview
+              :id="titleId"
+              @close="handleClose"
+              @update="handleUpdate"
+            />
+          </div>
         </base-drawer>
       </aside>
     </transition>
@@ -38,21 +50,28 @@ export default {
     }
   },
 
-  setup (props, { emit }) {
+  setup () {
+    const rootEl = ref(null)
     const isPreviewOpen = ref(false)
 
     const togglePreview = (isOpen) => {
       isPreviewOpen.value = isOpen
     }
-
     const handleClose = () => {
       togglePreview(false)
     }
+    const handleUpdate = () => {
+      const getDrawerEl = rootEl.value.$el.querySelector('#title-preview-drawer')
+
+      getDrawerEl.scrollTo({ top: 0, behavior: 'auto' })
+    }
 
     return {
+      rootEl,
       isPreviewOpen,
       handleClose,
-      togglePreview
+      togglePreview,
+      handleUpdate
     }
   }
 
@@ -61,12 +80,24 @@ export default {
 
 <style lang='scss' scoped>
 .title-preview-layout {
+  &__main {
+    height: calc(100vh - var(--the-main-nav-height));
+    overflow-y: scroll;
+  }
+
   &__drawer {
     background-color: var(--background);
+    height: calc(100vh - var(--the-main-nav-height));
     overflow: auto;
 
     @include breakpoint('desktop') {
       padding: var(--space20);
+    }
+  }
+
+  &__drawer-inner {
+    @include breakpoint-max('tablet') {
+      width: min(450px, 100vw);
     }
   }
 }

@@ -69,7 +69,7 @@ export default {
   .the-main-nav {
     align-items: center;
     display: flex;
-    height: 75px;
+    height: var(--the-main-nav-height);
     padding: 0 var(--space30);
     width: 100%;
 

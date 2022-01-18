@@ -6,7 +6,7 @@
 
     <div class="base-feed-row__feed">
       <base-slider
-        :width="width"
+        direction="y"
         class="base-feed-row__slider"
       >
         <slot :handleTitleClick="handleTitleClick" />

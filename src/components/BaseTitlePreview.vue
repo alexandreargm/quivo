@@ -51,7 +51,7 @@
 
     <footer class="base-title-preview__footer">
       <title-related-titles
-        @select="updateId"
+        @select="handleRelatedSelect"
         :id="titleId"
         media-type="movie"
       />
@@ -84,7 +84,7 @@ export default {
     BaseIcon
   },
 
-  emits: ['close'],
+  emits: ['close', 'update'],
 
   props: {
     id: {
@@ -116,6 +116,8 @@ export default {
           titleReleaseDate.value = DateTime.fromISO(data.release_date).toFormat('yyyy')
           titleRuntime.value = `${hours}h ${minutes}min`
           titleReleaseDates.value = data.release_dates.results
+
+          emit('update')
         }
       })
     }
@@ -127,6 +129,9 @@ export default {
       })
     }
     const handleKeywordClick = (args) => { console.log(args) }
+    const handleRelatedSelect = (id) => {
+      updateId(id)
+    }
 
     onMounted(() => {
       titleId.value = props.id
@@ -147,7 +152,8 @@ export default {
       titleRuntime,
       titleKeywords,
       titleReleaseDates,
-      handleKeywordClick
+      handleKeywordClick,
+      handleRelatedSelect
     }
   }
 }
@@ -156,10 +162,6 @@ export default {
 <style lang='scss' scoped>
 .base-title-preview {
   // TODO: Add container query polifyll to simplify queries
-  @include breakpoint-max('tablet') {
-    max-width: 500px;
-  }
-
   @include breakpoint('tablet') {
     display: grid;
     grid-template-columns: 300px 300px;
@@ -175,6 +177,7 @@ export default {
 
   &__header-toolbar {
     display: flex;
+    flex-direction: row-reverse;
     justify-content: space-between;
     opacity: 0.75;
     padding: var(--space00);
@@ -185,7 +188,7 @@ export default {
 
   &__header-toolbar-fixed > * {
     position: fixed;
-    transform: translateX(-100%);
+    // transform: translateX(-100%);
   }
 
   &__header {
@@ -194,7 +197,7 @@ export default {
     position: relative;
 
     @include breakpoint('tablet') {
-      grid-area: 1/2;
+      // grid-area: 1/2;
       height: auto;
     }
   }
@@ -209,8 +212,8 @@ export default {
 
   &__title {
     color: var(--text);
-    font-weight: var(--base);
-    font-weight: var(--medium, 500);
+    font-size: clamp(var(--font00), 4vw, var(--font20));
+    font-weight: var(--medium);
     line-height: var(--line00);
     margin: 0;
   }

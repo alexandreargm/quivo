@@ -8,10 +8,13 @@
         v-if="showClose"
         class="base-drawer__close"
       >
-        <base-close @pepe="log" />
+        <base-close @click="handleClose" />
       </div>
 
-      <div class="base-drawer__background" />
+      <div
+        class="base-drawer__background"
+        @click="handleClose"
+      />
 
       <div class="base-drawer__content">
         <header
@@ -61,10 +64,6 @@ export default {
 
   setup (props, { emit }) {
     return {
-      log () {
-        debugger
-        emit('close')
-      },
       handleClose () {
         emit('close')
       }
@@ -77,8 +76,6 @@ export default {
 .base-drawer {
   --background-color: var(--background);
 
-  max-width: 600px;
-
   @include breakpoint-max('desktop') {
     bottom: 0;
     left: 0;
@@ -89,7 +86,8 @@ export default {
 
     &__inner {
       bottom: 0;
-      display: flex;
+      display: grid;
+      grid-template-columns: minmax(0%, 100%) auto;
       left: 0;
       right: 0;
       top: 0;
