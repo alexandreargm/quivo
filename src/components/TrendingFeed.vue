@@ -3,7 +3,7 @@
     title="Popular right now"
     class="trending-feed"
   >
-    <base-title-poster
+    <title-poster
       class="trending-feed__poster"
       v-for="{id, poster_path} in searchResponse.results"
       :key="id"
@@ -15,7 +15,7 @@
 <script>
 import { onMounted, ref } from 'vue'
 import BaseFeedRow from './BaseFeedRow.vue'
-import BaseTitlePoster from './BaseTitlePoster.vue'
+import TitlePoster from './TitlePoster.vue'
 import repositoryFactory from '@/api/repository-factory'
 import { handleRequest } from '@/api/request-handlers'
 const trendingRepository = repositoryFactory.get('trending')
@@ -23,7 +23,7 @@ const trendingRepository = repositoryFactory.get('trending')
 export default {
   components: {
     BaseFeedRow,
-    BaseTitlePoster
+    TitlePoster
   },
   setup () {
     const searchResponse = ref([])

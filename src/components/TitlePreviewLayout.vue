@@ -17,9 +17,13 @@
           size="full"
           @close="handleClose"
         >
-          <div class="title-preview-layout__drawer-inner">
-            <base-title-preview
-              :id="titleId"
+          <div
+            class="title-preview-layout__drawer-inner"
+          >
+            <title-preview
+              class="title-preview"
+              :id="selectedTitle.id || 0"
+              :media-type="selectedTitle.mediaType || ''"
               @close="handleClose"
               @update="handleUpdate"
             />
@@ -32,20 +36,22 @@
 
 <script>
 import { ref } from 'vue'
+import TitlePreview from './TitlePreview.vue'
 import BaseDrawer from './BaseDrawer.vue'
-import BaseTitlePreview from './BaseTitlePreview.vue'
 import BaseDrawerContainer from './BaseDrawerContainer.vue'
+import nextRender from '@/composables/useNextRender'
+import getStyleProperty from '@/composables/useGetStyleProperty'
 
 export default {
   components: {
+    TitlePreview,
     BaseDrawer,
-    BaseTitlePreview,
     BaseDrawerContainer
   },
 
   props: {
-    titleId: {
-      type: Number,
+    selectedTitle: {
+      type: Object,
       required: true
     }
   },
@@ -62,8 +68,19 @@ export default {
     }
     const handleUpdate = () => {
       const getDrawerEl = rootEl.value.$el.querySelector('#title-preview-drawer')
+      const getTitlePreviewEl = rootEl.value.$el.querySelector('.title-preview')
 
-      getDrawerEl.scrollTo({ top: 0, behavior: 'auto' })
+      // Cheap mobile "scroll to top" trick. Hide content and show it again inmediatly.
+      const tabletBreakpoint = getStyleProperty('--desktop')
+      if (window.matchMedia('(max-width: ' + tabletBreakpoint + ')').matches) {
+        getTitlePreviewEl.style.display = 'none'
+
+        nextRender(() => {
+          getTitlePreviewEl.style.display = ''
+        })
+      } else {
+        getDrawerEl.scrollTo(0, 0)
+      }
     }
 
     return {
@@ -88,7 +105,7 @@ export default {
   &__drawer {
     background-color: var(--background);
     height: calc(100vh - var(--the-main-nav-height));
-    overflow: auto;
+    overflow-y: scroll;
 
     @include breakpoint('desktop') {
       padding: var(--space20);

@@ -1,32 +1,36 @@
 <template>
-  <article class="base-title-preview">
-    <header class="base-title-preview__header">
-      <div class="base-title-preview__header-toolbar">
+  <article class="title-preview">
+    <header class="title-preview__header">
+      <div class="title-preview__header-toolbar">
         <base-button
+          @click="toggleTitleImageModal(true)"
           icon="only"
           variant="secondary"
           :is-round="true"
         >
           <template #icon>
-            <base-icon name="ChevronDownIcon" />
+            <base-icon
+              name="ArrowsExpandIcon"
+              type="outline"
+            />
           </template>
         </base-button>
 
-        <div class="base-title-preview__header-toolbar-fixed">
+        <div class="title-preview__header-toolbar-fixed">
           <base-close @click="handleClose" />
         </div>
       </div>
 
-      <base-title-poster :src="titleResponse.poster_path ? 'http://image.tmdb.org/t/p/w500/' + titleResponse.poster_path : ''" />
+      <title-poster :src="titleResponse.poster_path ? 'http://image.tmdb.org/t/p/w500/' + titleResponse.poster_path : ''" />
     </header>
 
-    <main class="base-title-preview__body">
+    <main class="title-preview__body">
       <div>
-        <p class="base-title-preview__title">
+        <p class="title-preview__title">
           {{ titleResponse.title }}
         </p>
 
-        <div class="base-title-preview__metadata">
+        <div class="title-preview__metadata">
           <span>
             {{ titleRuntime }}
           </span>
@@ -47,15 +51,29 @@
         :words="titleKeywords"
         @click="handleKeywordClick"
       />
+
+      <div class="title-preview__synopsis">
+        <base-text-collapse>
+          {{ titleResponse.overview }}
+        </base-text-collapse>
+      </div>
     </main>
 
-    <footer class="base-title-preview__footer">
+    <footer class="title-preview__footer">
       <title-related-titles
         @select="handleRelatedSelect"
         :id="titleId"
         media-type="movie"
       />
     </footer>
+
+    <transition>
+      <title-image-modal
+        v-if="isTitleImageModalOpen"
+        :poster-path="titleResponse.poster_path ? titleResponse.poster_path : ''"
+        @close="toggleTitleImageModal(false)"
+      />
+    </transition>
   </article>
 </template>
 
@@ -63,25 +81,29 @@
 import { onMounted, ref, watch } from 'vue'
 import repositoryFactory from '@/api/repository-factory'
 import { handleRequest } from '@/api/request-handlers'
-import BaseTitlePoster from '../components/BaseTitlePoster.vue'
+import TitlePoster from './TitlePoster.vue'
 import { DateTime, Duration } from 'luxon'
 import BaseButton from '@/components/BaseButton.vue'
 import BaseTagCloud from './BaseTagCloud.vue'
 import TitleRelatedTitles from './TitleRelatedTitles.vue'
 import TitleAgeBadge from './TitleAgeBadge.vue'
-import BaseClose from '../components/BaseClose.vue'
-import BaseIcon from '../components/BaseIcon.vue'
+import BaseClose from './BaseClose.vue'
+import BaseIcon from './BaseIcon.vue'
+import TitleImageModal from './TitleImageModal.vue'
+import BaseTextCollapse from './BaseTextCollapse.vue'
 const titlesRepository = repositoryFactory.get('titles')
 
 export default {
   components: {
-    BaseTitlePoster,
+    TitlePoster,
     BaseButton,
     BaseTagCloud,
     TitleRelatedTitles,
     TitleAgeBadge,
     BaseClose,
-    BaseIcon
+    BaseIcon,
+    TitleImageModal,
+    BaseTextCollapse
   },
 
   emits: ['close', 'update'],
@@ -90,6 +112,13 @@ export default {
     id: {
       type: Number,
       required: true
+    },
+    mediaType: {
+      type: String,
+      required: true,
+      validator: function (value) {
+        return ['movie', 'tv'].includes(value)
+      }
     }
   },
 
@@ -100,6 +129,7 @@ export default {
     const titleRuntime = ref('')
     const titleKeywords = ref([])
     const titleReleaseDates = ref([])
+    const isTitleImageModalOpen = ref(false)
 
     const handleClose = () => emit('close')
     const updateId = (id) => { titleId.value = id }
@@ -108,7 +138,7 @@ export default {
       fetchKeywords(id)
     }
     const findTitle = (id) => {
-      handleRequest(titlesRepository.find({ mediaType: 'movie', id }), {
+      handleRequest(titlesRepository.find({ mediaType: props.mediaType, id }), {
         onSuccess: ({ data }) => {
           const { hours, minutes } = Duration.fromObject({ minutes: data.runtime }).shiftTo('hours', 'minutes')
 
@@ -122,7 +152,7 @@ export default {
       })
     }
     const fetchKeywords = (id) => {
-      handleRequest(titlesRepository.keywords({ mediaType: 'movie', id }), {
+      handleRequest(titlesRepository.keywords({ mediaType: props.mediaType, id }), {
         onSuccess: ({ data }) => {
           titleKeywords.value = data.keywords
         }
@@ -132,6 +162,8 @@ export default {
     const handleRelatedSelect = (id) => {
       updateId(id)
     }
+
+    const toggleTitleImageModal = (isOpen) => { isTitleImageModalOpen.value = isOpen }
 
     onMounted(() => {
       titleId.value = props.id
@@ -153,26 +185,31 @@ export default {
       titleKeywords,
       titleReleaseDates,
       handleKeywordClick,
-      handleRelatedSelect
+      handleRelatedSelect,
+      isTitleImageModalOpen,
+      toggleTitleImageModal
     }
   }
 }
 </script>
 
 <style lang='scss' scoped>
-.base-title-preview {
+.title-preview {
   // TODO: Add container query polifyll to simplify queries
   @include breakpoint('tablet') {
     display: grid;
     grid-template-columns: 300px 300px;
+    // width: calc(300px + 300px);
   }
 
   @include breakpoint('desktop2') {
     grid-template-columns: 350px 375px;
+    // width: calc(350px + 375px);
   }
 
   @include breakpoint('desktop3') {
     grid-template-columns: 400px 375px;
+    // width: calc(400px + 375px);
   }
 
   &__header-toolbar {
@@ -188,7 +225,6 @@ export default {
 
   &__header-toolbar-fixed > * {
     position: fixed;
-    // transform: translateX(-100%);
   }
 
   &__header {
@@ -197,7 +233,6 @@ export default {
     position: relative;
 
     @include breakpoint('tablet') {
-      // grid-area: 1/2;
       height: auto;
     }
   }
@@ -216,6 +251,12 @@ export default {
     font-weight: var(--medium);
     line-height: var(--line00);
     margin: 0;
+  }
+
+  &__synopsis {
+    color: var(--text-secondary);
+    margin: 0;
+    margin-top: var(--space20);
   }
 
   &__metadata {

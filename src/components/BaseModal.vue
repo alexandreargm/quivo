@@ -1,6 +1,11 @@
 <template>
-  <div class="base-modal-overlay">
-    <div class="base-modal">
+  <div
+    class="base-modal"
+    aria-modal="true"
+    role="dialog"
+    @click.prevent.self="handleClose"
+  >
+    <div class="base-modal__dialog">
       <header
         v-if="$slots.header"
         class="base-modal__header"
@@ -24,27 +29,47 @@
 
 <script>
 export default {
-  setup () {
+  emits: ['close'],
 
+  setup (_, { emit }) {
+    const handleClose = () => {
+      emit('close')
+    }
+
+    return {
+      handleClose
+    }
   }
 }
 </script>
 
 <style lang='scss' scoped>
-.base-modal-overlay {
-  align-items: flex-end;
-  background-color: var(--background) 80;
+.base-modal {
+  align-items: center;
   bottom: 0;
   display: flex;
+  height: 100vh;
   justify-content: center;
   left: 0;
-  min-height: 100vh;
   position: fixed;
   right: 0;
   top: 0;
-}
+  z-index: var(--z-modal-overlay);
 
-.base-modal {
-  width: 100%;
+  &::before {
+    background-color: var(--background);
+    bottom: 0;
+    content: '';
+    left: 0;
+    opacity: 0.9;
+    pointer-events: none;
+    position: fixed;
+    right: 0;
+    top: 0;
+  }
+
+  &__dialog {
+    z-index: var(--z-modal);
+  }
 }
 </style>

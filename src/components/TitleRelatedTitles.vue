@@ -5,9 +5,10 @@
     v-slot="{handleTitleClick}"
     @select="handleSelect"
   >
-    <base-title-poster
-      class="title-related-titles__poster"
+    <title-card
       v-for="{id: titleId, poster_path} in relatedResponse.results"
+      :id="titleId"
+      :media-type="mediaType"
       :key="titleId"
       :src="'http://image.tmdb.org/t/p/w154/' + poster_path"
       @click="handleTitleClick(titleId)"
@@ -17,7 +18,7 @@
 
 <script>
 import { ref, watch } from 'vue'
-import BaseTitlePoster from './BaseTitlePoster.vue'
+import TitleCard from './TitleCard.vue'
 import repositoryFactory from '@/api/repository-factory'
 import { handleRequest } from '@/api/request-handlers'
 import BaseFeedGallery from './BaseFeedGallery.vue'
@@ -26,7 +27,7 @@ const titlesRepository = repositoryFactory.get('titles')
 export default {
   emits: ['select'],
   components: {
-    BaseTitlePoster,
+    TitleCard,
     BaseFeedGallery
   },
 

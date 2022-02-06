@@ -5,17 +5,21 @@
     </header>
 
     <title-preview-layout
-      :title-id="selectedTitle"
+      :selected-title="selectedTitle"
       v-slot="{ togglePreview }"
     >
       <main>
-        <popular-feed @click="handleSelect($event, togglePreview)" />
+        <popular-feed @select="handleSelect($event, togglePreview)" />
 
-        <popular-feed @click="handleSelect($event, togglePreview)" />
+        <popular-feed @select="handleSelect($event, togglePreview)" />
 
-        <popular-feed @click="handleSelect($event, togglePreview)" />
+        <popular-feed @select="handleSelect($event, togglePreview)" />
 
-        <popular-feed @click="handleSelect($event, togglePreview)" />
+        <popular-feed @select="handleSelect($event, togglePreview)" />
+
+        <popular-feed @select="handleSelect($event, togglePreview)" />
+
+        <popular-feed @select="handleSelect($event, togglePreview)" />
       </main>
     </title-preview-layout>
   </div>
@@ -36,10 +40,11 @@ export default {
   },
 
   setup () {
-    const selectedTitle = ref(0)
+    const selectedTitle = ref({ id: 0, mediaType: '' })
 
-    const handleSelect = (id, toggleDrawer) => {
-      selectedTitle.value = id
+    const handleSelect = (title, toggleDrawer) => {
+      selectedTitle.value = title
+
       toggleDrawer(true)
     }
 

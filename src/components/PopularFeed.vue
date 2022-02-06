@@ -2,15 +2,14 @@
   <base-feed-row
     title="Popular right now"
     class="popular-feed"
-    v-slot="{handleTitleClick}"
-    @select="handleSelect"
   >
-    <base-title-poster
-      class="popular-feed__poster"
+    <title-card
       v-for="{id, poster_path} in searchResponse.results"
+      :id="id"
+      :media-type="mediaType"
       :key="id"
       :src="'http://image.tmdb.org/t/p/w154/' + poster_path"
-      @click="handleTitleClick(id)"
+      @select="handleTitleSelect({id, mediaType})"
     />
   </base-feed-row>
 </template>
@@ -18,34 +17,36 @@
 <script>
 import { onMounted, ref } from 'vue'
 import BaseFeedRow from './BaseFeedRow.vue'
-import BaseTitlePoster from './BaseTitlePoster.vue'
 import repositoryFactory from '@/api/repository-factory'
 import { handleRequest } from '@/api/request-handlers'
+import TitleCard from './TitleCard.vue'
 const discoverRepository = repositoryFactory.get('discover')
 
 export default {
-  emits: ['click'],
+  emits: ['select'],
   components: {
     BaseFeedRow,
-    BaseTitlePoster
+    TitleCard
   },
 
-  setup (props, { emit }) {
+  setup (_, { emit }) {
+    const mediaType = 'movie'
     const searchResponse = ref([])
     const searchTrending = async () => {
-      const { data } = await handleRequest(discoverRepository.discover())
-      searchResponse.value = data
+      const { data } = await handleRequest(discoverRepository.discover({ mediaType }))
+      searchResponse.value = { mediaType, ...data }
     }
 
-    const handleSelect = (id) => {
-      emit('click', id)
+    const handleTitleSelect = (selectedTitle) => {
+      emit('select', selectedTitle)
     }
 
     onMounted(() => searchTrending())
 
     return {
-      handleSelect,
-      searchResponse
+      handleTitleSelect,
+      searchResponse,
+      mediaType
     }
   }
 }

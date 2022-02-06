@@ -1,10 +1,7 @@
 <template>
-  <base-badge
-    v-if="age"
-    class="title-age-badge"
-  >
+  <base-badge class="title-age-badge">
     <span class="title-age-badge__age">
-      {{ age }}
+      {{ age ? age : '?' }}
     </span>
 
     <span class="title-age-badge__symbol">

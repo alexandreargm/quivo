@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import { ref, computed } from 'vue'
+import { ref, computed, watch } from 'vue'
 import BaseTag from './BaseTag.vue'
 import BaseIcon from './BaseIcon.vue'
 
@@ -60,8 +60,15 @@ export default {
       emit('click', args)
     }
 
+    const resetMaxWords = () => {
+      currentMaxWords.value = props.wordsPerLoad
+    }
+
+    watch(wordsPool, resetMaxWords)
+
     return {
       currentlyLoadedWords,
+      currentMaxWords,
       handleLoadMore,
       hasMoreWords,
       handleTagClick

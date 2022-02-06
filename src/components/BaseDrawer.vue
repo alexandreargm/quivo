@@ -1,5 +1,6 @@
 <template>
   <div
+    ref="rootEl"
     class="base-drawer"
     :class="[size]"
   >
@@ -33,7 +34,9 @@
 </template>
 
 <script>
+import { onMounted, ref } from 'vue'
 import BaseClose from '../components/BaseClose.vue'
+import useScrollLock from '../composables/useScrollLock'
 
 export default {
   emits: ['close'],
@@ -62,10 +65,19 @@ export default {
     }
   },
 
-  setup (props, { emit }) {
+  setup (_, { emit }) {
+    const rootEl = ref(null)
+    const { enableBodyScroll, disableBodyScroll } = useScrollLock
+
+    onMounted(() => {
+      disableBodyScroll(rootEl.value)
+    })
+
     return {
+      rootEl,
       handleClose () {
         emit('close')
+        enableBodyScroll(rootEl.value)
       }
     }
   }
@@ -85,12 +97,8 @@ export default {
     z-index: var(--z-overlay);
 
     &__inner {
-      bottom: 0;
-      display: grid;
-      grid-template-columns: minmax(0%, 100%) auto;
-      left: 0;
-      right: 0;
-      top: 0;
+      display: flex;
+      height: 100vh;
     }
   }
 
@@ -104,14 +112,16 @@ export default {
 
   &__content {
     background-color: var(--background-color);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
   }
 
   &__background {
     background-color: var(--background-color);
+    flex: 1;
     height: 100%;
-    min-height: 100vh;
     opacity: 0.7;
-    width: 100%;
 
     @include breakpoint('desktop') {
       display: none;
@@ -120,8 +130,7 @@ export default {
 
   &__body {
     @include breakpoint-max('desktop') {
-      height: 100vh;
-      overflow-y: auto;
+      overflow: auto;
     }
   }
 }
