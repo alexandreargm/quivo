@@ -125,7 +125,7 @@ export default {
 
   setup (props, { emit }) {
     const titleId = ref(0)
-    const titleResponse = ref([])
+    const titleResponse = ref({})
     const titleReleaseDate = ref('')
     const titleRuntime = ref('')
     const titleKeywords = ref([])
@@ -135,7 +135,17 @@ export default {
 
     const handleClose = () => emit('close')
     const updateId = (id) => { titleId.value = id }
-    const loadTitle = (id) => {
+    const resetPreview = () => {
+      titleResponse.value = {}
+      titleReleaseDate.value = ''
+      titleRuntime.value = ''
+      titleKeywords.value = []
+      titleReleaseDates.value = []
+      isTitleImageModalOpen.value = false
+      isSynopsisExpanded.value = false
+    }
+    const loadNewTitle = (id) => {
+      resetPreview()
       findTitle(id)
       fetchKeywords(id)
     }
@@ -161,21 +171,17 @@ export default {
       })
     }
     const handleKeywordClick = (args) => { console.log(args) }
-    const handleRelatedSelect = (id) => {
-      updateId(id)
-    }
-
+    const handleRelatedSelect = (id) => { updateId(id) }
     const toggleTitleImageModal = (isOpen) => { isTitleImageModalOpen.value = isOpen }
 
     onMounted(() => {
       titleId.value = props.id
 
-      loadTitle(titleId.value)
+      loadNewTitle(titleId.value)
     })
 
     watch(() => props.id, () => { titleId.value = props.id })
-
-    watch(titleId, () => { loadTitle(titleId.value) })
+    watch(titleId, () => { loadNewTitle(titleId.value) })
 
     return {
       titleId,
@@ -202,17 +208,14 @@ export default {
   @include breakpoint('tablet') {
     display: grid;
     grid-template-columns: 300px 300px;
-    // width: calc(300px + 300px);
   }
 
   @include breakpoint('desktop2') {
     grid-template-columns: 350px 375px;
-    // width: calc(350px + 375px);
   }
 
   @include breakpoint('desktop3') {
     grid-template-columns: 400px 375px;
-    // width: calc(400px + 375px);
   }
 
   &__header-toolbar {
