@@ -53,9 +53,10 @@
       />
 
       <div class="title-preview__synopsis">
-        <base-text-collapse>
-          {{ titleResponse.overview }}
-        </base-text-collapse>
+        <base-text-collapse
+          :text="titleResponse.overview || ''"
+          v-model:is-open="isSynopsisExpanded"
+        />
       </div>
     </main>
 
@@ -130,6 +131,7 @@ export default {
     const titleKeywords = ref([])
     const titleReleaseDates = ref([])
     const isTitleImageModalOpen = ref(false)
+    const isSynopsisExpanded = ref(false)
 
     const handleClose = () => emit('close')
     const updateId = (id) => { titleId.value = id }
@@ -187,7 +189,8 @@ export default {
       handleKeywordClick,
       handleRelatedSelect,
       isTitleImageModalOpen,
-      toggleTitleImageModal
+      toggleTitleImageModal,
+      isSynopsisExpanded
     }
   }
 }
