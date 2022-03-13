@@ -2,51 +2,100 @@
   <div
     class="base-text-collapse"
     :style="styleProps"
-    :class="[getTextClass]"
+    :class="[getIsToggleableClass, getIsOpenClass]"
   >
-    <p class="base-text-collapse__text">
-      <slot />
+    <p
+      :style="getVisibilityStyle"
+      ref="textEl"
+      class="base-text-collapse__text"
+    >
+      {{ text }}
     </p>
 
     <p
-      @click="handleToggleContent"
+      v-if="isToggleable"
+      @click="toggleText(!isOpen)"
       class="base-text-collapse__show-more"
     >
-      {{ toggleText }}
+      {{ buttonToggleText }}
     </p>
   </div>
 </template>
 
 <script>
-import { ref, computed } from 'vue'
+import { ref, computed, watch, onMounted } from 'vue'
+import { nextRender } from '../composables/useNextRender'
 
 export default {
+  emits: ['update:isOpen'],
+
   props: {
+    text: {
+      type: String,
+      required: true
+    },
+    isOpen: {
+      type: Boolean,
+      required: true
+    },
     previewLines: {
       type: Number,
       default: 4
     }
   },
 
-  setup (props) {
-    const isShowingContent = ref(false)
-    const toggleText = computed(() => isShowingContent.value ? 'SHOW LESS' : 'SHOW MORE')
-    const styleProps = ref({
-      '--preview-lines': props.previewLines
-    })
+  setup (props, { emit }) {
+    const textEl = ref()
+    const isToggleable = ref(false)
+    const isToggleChecked = ref(false)
+    const styleProps = ref({ '--preview-lines': props.previewLines })
+    const buttonToggleText = computed(() => props.isOpen ? 'SHOW LESS' : 'SHOW MORE')
+    const getIsToggleableClass = computed(() => isToggleable.value ? 'is-toggleable' : '')
+    const getIsOpenClass = computed(() => props.isOpen ? 'is-open' : 'is-closed')
+    const getVisibilityStyle = computed(() => ({ visibility: isToggleChecked.value ? '' : 'hidden' }))
 
-    const handleToggleContent = () => {
-      isShowingContent.value = !isShowingContent.value
+    function resetInstance () {
+      isToggleable.value = false
+      isToggleChecked.value = false
     }
 
-    const getTextClass = computed(() => isShowingContent.value ? 'is-visible' : 'is-hidden')
+    function checkIsToggleable (text) {
+      if (text) {
+        nextRender(() => {
+          const lineHeight = getComputedStyle(textEl.value).lineHeight
+
+          const getPreviewHeight = lineHeight.replace('px', '') * props.previewLines
+
+          isToggleable.value = textEl.value.clientHeight > getPreviewHeight
+          isToggleChecked.value = true
+        })
+      }
+    }
+
+    const toggleText = (isOpen) => {
+      emit('update:isOpen', isOpen)
+    }
+
+    onMounted(() => {
+      checkIsToggleable(props.text)
+    })
+
+    watch(() => props.text, (newText) => {
+      resetInstance()
+
+      checkIsToggleable(newText)
+    }, { inmediate: true, flush: 'post' })
 
     return {
       styleProps,
-      isShowingContent,
+      buttonToggleText,
       toggleText,
-      handleToggleContent,
-      getTextClass
+      getIsToggleableClass,
+      getIsOpenClass,
+      textEl,
+      isToggleable,
+      isToggleChecked,
+      getVisibilityStyle
     }
   }
 }
@@ -63,7 +112,7 @@ export default {
     // stylelint-disable-next-line
     display: -webkit-box;
     line-height: var(--line00);
-    overflow: hidden;
+    overflow: auto;
     text-overflow: ellipsis;
   }
 
@@ -77,17 +126,17 @@ export default {
   }
 }
 
-.base-text-collapse.is-hidden {
+// isOpen prop
+.base-text-collapse.is-toggleable.is-closed {
   .base-text-collapse__text {
-    height: calc(var(--preview-lines) * (var(--font-10) * var(--line00)));
     // stylelint-disable-next-line
     -webkit-line-clamp: var(--preview-lines);
+    overflow: hidden;
   }
 }
 
-.base-text-collapse.is-visible {
+.base-text-collapse.is-toggleable.is-open {
   .base-text-collapse__text {
-    height: unset;
     // stylelint-disable-next-line
     -webkit-line-clamp: unset;
   }
