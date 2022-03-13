@@ -33,15 +33,14 @@ StyleDictionaryPackage.registerTransform({
 })
 
 StyleDictionaryPackage.registerTransform({
-  name: 'line-height/number',
+  name: 'lineheights/number',
   type: 'value',
   matcher: function (prop) {
-    return prop.attributes.category === 'lineHeights'
+    return prop.type === 'lineHeights'
   },
   transformer: function (prop) {
-    const getNumber = prop.original.value.replace('%', '')
-
-    return Number(getNumber) * 100
+    // Replace % based values to decimal numbers. (125% -> 1.25)
+    return prop.value.replace('%', '') * 0.01
   }
 })
 
@@ -52,7 +51,7 @@ function getStyleDictionaryConfig (theme) {
     ],
     platforms: {
       scss: {
-        transforms: ['attribute/cti', 'name/cti/kebab', 'sizes/px', 'line-height/number'],
+        transforms: ['attribute/cti', 'name/cti/kebab', 'sizes/px', 'lineheights/number'],
         buildPath: 'src/assets/scss/abstracts/tokens/',
         files: [{
           destination: `${theme}.scss`,
@@ -61,7 +60,7 @@ function getStyleDictionaryConfig (theme) {
         }]
       },
       js: {
-        transforms: ['attribute/cti', 'name/cti/constant', 'sizes/px', 'line-height/number'],
+        transforms: ['attribute/cti', 'name/cti/constant', 'sizes/px', 'lineheights/number'],
         buildPath: 'src/assets/js/tokens/',
         files: [{
           destination: `${theme}.js`,
