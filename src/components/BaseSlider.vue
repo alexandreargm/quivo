@@ -73,7 +73,6 @@ export default {
 .base-slider {
   display: grid;
   gap: var(--gap);
-  padding: calc(var(--container-gap) / 2) var(--container-gap) var(--space00);
   scroll-snap-type: var(--scroll-snap-type);
   user-select: none;
 
@@ -104,6 +103,7 @@ export default {
 .base-slider.horizontal {
   grid-auto-flow: column;
   overflow: auto hidden;
+  padding: 0 0 var(--space00) var(--container-gap);
 }
 
 .base-slider.vertical {

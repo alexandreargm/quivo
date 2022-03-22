@@ -1,59 +1,23 @@
 <template>
-  <section class="base-feed-row">
-    <h2 class="base-feed-row__title">
-      {{ title }}
-    </h2>
-
-    <div class="base-feed-row__feed">
-      <base-slider
-        direction="y"
-        class="base-feed-row__slider"
-      >
-        <slot :handleTitleClick="handleTitleClick" />
-      </base-slider>
-    </div>
-  </section>
+  <div class="base-feed-gallery">
+    <base-slider
+      :width="props.width"
+      direction="y"
+      class="base-feed-gallery__slider"
+    >
+      <slot />
+    </base-slider>
+  </div>
 </template>
 
-<script>
+<script setup>
+import { defineProps } from 'vue'
 import BaseSlider from './BaseSlider.vue'
 
-export default {
-  emits: ['select'],
-  components: { BaseSlider },
-
-  props: {
-    title: {
-      type: String,
-      default: ''
-    },
-    width: {
-      type: String,
-      default: '150px'
-    }
-  },
-
-  setup (props, { emit }) {
-    return {
-      handleTitleClick (id) {
-        emit('select', id)
-      }
-    }
+const props = defineProps({
+  width: {
+    type: String,
+    default: '150px'
   }
-}
+})
 </script>
-
-<style lang='scss' scoped>
-.base-feed-row {
-  padding: var(--container-gap) 0;
-
-  &__title {
-    color: var(--text-secondary);
-    font-size: clamp(var(--font10), 4vw, var(--font30));
-    font-weight: var(--medium);
-    line-height: var(--line-20);
-    padding: 0 var(--container-gap);
-    white-space: nowrap;
-  }
-}
-</style>
