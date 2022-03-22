@@ -3,17 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "dev": "vue-cli-service serve",
+    "prod": "serve -s dist",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
     "lint": "vue-cli-service lint",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "build-tokens": "node tokens/build.js"
+    "build-tokens": "node tokens/build.js",
+    "deploy": "sh gh-deploy.sh"
   },
   "dependencies": {
-    "@heroicons/vue": "^1.0.4",
+    "@heroicons/vue": "^1.0.6",
     "axios": "^0.21.4",
     "body-scroll-lock": "^4.0.0-beta.0",
     "core-js": "^3.6.5",
@@ -51,7 +53,6 @@
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^7.0.0",
     "luxon": "^2.3.0",
-    "normalize.css": "^8.0.1",
     "postcss-preset-env": "^6.7.0",
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
@@ -64,6 +65,7 @@
     "typescript": "~3.9.3",
     "vue-content-loader": "^2.0.1",
     "vue-jest": "^5.0.0-0",
-    "vue-loader": "^16.5.0"
+    "vue-loader": "^16.5.0",
+    "webpack-bundle-analyzer": "^4.5.0"
   }
 }
