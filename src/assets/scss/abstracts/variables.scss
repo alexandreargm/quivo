@@ -32,7 +32,7 @@ $indexes: (
 :root {
   /* Global variables */
   --container-gap: var(--space20);
-  --the-main-nav-height: 75px;
+  --the-main-nav-height: 70px;
 
   /* Base tokens */
   @each $name, $value in $base {
@@ -49,15 +49,6 @@ $indexes: (
   // z-indexes
   @each $name, $value in $indexes {
     --z-#{$name}: #{$value};
-  }
-
-  /*
-
-    Default theme css properties
-
-  */
-  @each $name, $value in $dark {
-    --#{$name}: #{$value};
   }
 }
 
