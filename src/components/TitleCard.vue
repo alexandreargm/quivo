@@ -1,51 +1,35 @@
 <template>
-  <article
-    class="title-card"
-    @click="handleClick"
-  >
-    <title-poster
-      :src="src"
-    />
+  <article class="title-card">
+    <router-link :to="titleLink">
+      <title-poster :src="props.src" />
+    </router-link>
   </article>
 </template>
 
-<script>
+<script setup>
+import { defineProps } from 'vue'
 import TitlePoster from './TitlePoster.vue'
 
-export default {
-  emits: ['select'],
-  components: { TitlePoster },
-
-  props: {
-    id: {
-      type: Number,
-      required: true
-    },
-    src: {
-      type: String,
-      required: true
-    },
-    mediaType: {
-      type: String,
-      required: true
+const props = defineProps({
+  id: {
+    type: Number,
+    required: true
+  },
+  type: {
+    type: String,
+    required: true,
+    validator: function (value) {
+      return ['movie', 'tv'].includes(value)
     }
   },
-
-  setup (props, { emit }) {
-    const handleClick = () => {
-      emit('select', {
-        id: props.id,
-        mediaType: props.mediaType
-      })
-    }
-
-    return {
-      handleClick
-    }
+  src: {
+    type: String,
+    required: true
   }
+})
+
+const titleLink = {
+  name: 'feed-preview',
+  params: { id: props.id, type: props.type }
 }
 </script>
-
-<style lang='scss' scoped>
-  //
-</style>

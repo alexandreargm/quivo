@@ -3,10 +3,10 @@
     <header class="title-preview__header">
       <div class="title-preview__header-toolbar">
         <base-button
-          @click="toggleTitleImageModal(true)"
           icon="only"
           variant="secondary"
           :is-round="true"
+          @click="toggleTitleImageModal(true)"
         >
           <template #icon>
             <base-icon
@@ -31,13 +31,9 @@
         </p>
 
         <div class="title-preview__metadata">
-          <span>
-            {{ titleRuntime }}
-          </span>
+          <span>{{ titleRuntime }}</span>
 
-          <span>
-            {{ titleReleaseDate }}
-          </span>
+          <span>{{ titleReleaseDate }}</span>
 
           <title-age-badge :release-dates="titleReleaseDates" />
         </div>
@@ -54,19 +50,11 @@
 
       <div class="title-preview__synopsis">
         <base-text-collapse
-          :text="titleResponse.overview || ''"
           v-model:is-open="isSynopsisExpanded"
+          :text="titleResponse.overview || ''"
         />
       </div>
     </main>
-
-    <footer class="title-preview__footer">
-      <title-related-titles
-        @select="handleRelatedSelect"
-        :id="titleId"
-        media-type="movie"
-      />
-    </footer>
 
     <transition>
       <title-image-modal
@@ -78,128 +66,74 @@
   </article>
 </template>
 
-<script>
-import { onMounted, ref, watch } from 'vue'
+<script setup>
+import { defineEmits, onMounted, ref, watch } from 'vue'
+import { useRoute } from 'vue-router'
 import repositoryFactory from '@/api/repository-factory'
 import { handleRequest } from '@/api/request-handlers'
 import TitlePoster from './TitlePoster.vue'
 import { DateTime, Duration } from 'luxon'
 import BaseButton from '@/components/BaseButton.vue'
 import BaseTagCloud from './BaseTagCloud.vue'
-import TitleRelatedTitles from './TitleRelatedTitles.vue'
 import TitleAgeBadge from './TitleAgeBadge.vue'
 import BaseClose from './BaseClose.vue'
 import BaseIcon from './BaseIcon.vue'
 import TitleImageModal from './TitleImageModal.vue'
 import BaseTextCollapse from './BaseTextCollapse.vue'
+
+const emit = defineEmits(['close', 'change'])
+
+const route = useRoute()
+
 const titlesRepository = repositoryFactory.get('titles')
 
-export default {
-  components: {
-    TitlePoster,
-    BaseButton,
-    BaseTagCloud,
-    TitleRelatedTitles,
-    TitleAgeBadge,
-    BaseClose,
-    BaseIcon,
-    TitleImageModal,
-    BaseTextCollapse
-  },
+const titleResponse = ref({})
+const titleReleaseDate = ref('')
+const titleRuntime = ref('')
+const titleKeywords = ref([])
+const titleReleaseDates = ref([])
+const isTitleImageModalOpen = ref(false)
+const isSynopsisExpanded = ref(false)
 
-  emits: ['close', 'update'],
-
-  props: {
-    id: {
-      type: Number,
-      required: true
-    },
-    mediaType: {
-      type: String,
-      required: true,
-      validator: function (value) {
-        return ['movie', 'tv'].includes(value)
-      }
-    }
-  },
-
-  setup (props, { emit }) {
-    const titleId = ref(0)
-    const titleResponse = ref({})
-    const titleReleaseDate = ref('')
-    const titleRuntime = ref('')
-    const titleKeywords = ref([])
-    const titleReleaseDates = ref([])
-    const isTitleImageModalOpen = ref(false)
-    const isSynopsisExpanded = ref(false)
-
-    const handleClose = () => emit('close')
-    const updateId = (id) => { titleId.value = id }
-    const resetPreview = () => {
-      titleResponse.value = {}
-      titleReleaseDate.value = ''
-      titleRuntime.value = ''
-      titleKeywords.value = []
-      titleReleaseDates.value = []
-      isTitleImageModalOpen.value = false
-      isSynopsisExpanded.value = false
-    }
-    const loadNewTitle = (id) => {
-      resetPreview()
-      findTitle(id)
-      fetchKeywords(id)
-    }
-    const findTitle = (id) => {
-      handleRequest(titlesRepository.find({ mediaType: props.mediaType, id }), {
-        onSuccess: ({ data }) => {
-          const { hours, minutes } = Duration.fromObject({ minutes: data.runtime }).shiftTo('hours', 'minutes')
-
-          titleResponse.value = data
-          titleReleaseDate.value = DateTime.fromISO(data.release_date).toFormat('yyyy')
-          titleRuntime.value = `${hours}h ${minutes}min`
-          titleReleaseDates.value = data.release_dates.results
-
-          emit('update')
-        }
-      })
-    }
-    const fetchKeywords = (id) => {
-      handleRequest(titlesRepository.keywords({ mediaType: props.mediaType, id }), {
-        onSuccess: ({ data }) => {
-          titleKeywords.value = data.keywords
-        }
-      })
-    }
-    const handleKeywordClick = (args) => { console.log(args) }
-    const handleRelatedSelect = (id) => { updateId(id) }
-    const toggleTitleImageModal = (isOpen) => { isTitleImageModalOpen.value = isOpen }
-
-    onMounted(() => {
-      titleId.value = props.id
-
-      loadNewTitle(titleId.value)
-    })
-
-    watch(() => props.id, () => { titleId.value = props.id })
-    watch(titleId, () => { loadNewTitle(titleId.value) })
-
-    return {
-      titleId,
-      updateId,
-      handleClose,
-      titleResponse,
-      titleReleaseDate,
-      titleRuntime,
-      titleKeywords,
-      titleReleaseDates,
-      handleKeywordClick,
-      handleRelatedSelect,
-      isTitleImageModalOpen,
-      toggleTitleImageModal,
-      isSynopsisExpanded
-    }
-  }
+const handleClose = () => emit('close')
+const resetPreview = () => {
+  isTitleImageModalOpen.value = false
+  isSynopsisExpanded.value = false
 }
+const loadNewTitle = async () => {
+  resetPreview()
+
+  return Promise.all([findTitle(), fetchKeywords()])
+}
+const findTitle = () => {
+  return handleRequest(titlesRepository.find({ mediaType: route.params.type, id: route.params.id }), {
+    onSuccess: async ({ data }) => {
+      const { hours, minutes } = Duration.fromObject({ minutes: data.runtime }).shiftTo('hours', 'minutes')
+
+      titleResponse.value = data
+      titleReleaseDate.value = DateTime.fromISO(data.release_date).toFormat('yyyy')
+      titleRuntime.value = `${hours}h ${minutes}min`
+      titleReleaseDates.value = data.release_dates.results
+
+      emit('change')
+    }
+  })
+}
+const fetchKeywords = () => {
+  return handleRequest(titlesRepository.keywords({ mediaType: route.params.type, id: route.params.id }), {
+    onSuccess: async ({ data }) => {
+      titleKeywords.value = data.keywords
+    }
+  })
+}
+const handleKeywordClick = (args) => { console.log(args) }
+const toggleTitleImageModal = (isOpen) => { isTitleImageModalOpen.value = isOpen }
+
+onMounted(async () => { await loadNewTitle() })
+
+watch(() => route.params.id, () => {
+  if (route.params.id) { loadNewTitle() }
+})
 </script>
 
 <style lang='scss' scoped>
@@ -244,7 +178,7 @@ export default {
   }
 
   &__body {
-    padding: calc(var(--container-gap) / 2) var(--container-gap);
+    padding: var(--container-gap);
   }
 
   &__body > * + * {
@@ -275,12 +209,6 @@ export default {
 
   &__metadata > * + * {
     margin-left: var(--space10);
-  }
-
-  &__footer {
-    @include breakpoint('tablet') {
-      grid-area: 2/span 2;
-    }
   }
 }
 </style>

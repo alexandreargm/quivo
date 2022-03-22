@@ -84,7 +84,9 @@ export default {
     }
 
     &__actions {
-      margin-left: auto;
+      @include breakpoint-max('tablet') {
+        margin-left: auto;
+      }
     }
 
     &__nav {

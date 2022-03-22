@@ -100,7 +100,6 @@ export default {
   width: 100%;
 
   img {
-    height: auto;
     width: 100%;
   }
 }
@@ -110,7 +109,6 @@ export default {
   width: auto;
 
   img {
-    height: auto;
     max-height: 100%;
     width: auto;
   }

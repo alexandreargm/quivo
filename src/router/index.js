@@ -1,25 +1,32 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../views/Home.vue'
+import Home from '../views/Home'
 
-const routes = [
-  {
-    path: '/',
-    name: 'Home',
-    component: Home
-  },
-  {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
-]
+const HomeFeed = () => import('../components/HomeFeed')
+const TitlePreviewDrawer = () => import('../components/TitlePreviewDrawer')
 
-const router = createRouter({
+export default createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes
+  routes: [
+    {
+      path: '/',
+      name: 'Home',
+      component: Home,
+      children: [
+        {
+          path: '',
+          alias: '',
+          name: 'feed',
+          component: HomeFeed
+        },
+        {
+          path: 'preview/:type/:id',
+          name: 'feed-preview',
+          components: {
+            default: HomeFeed,
+            preview: TitlePreviewDrawer
+          }
+        }
+      ]
+    }
+  ]
 })
-
-export default router
