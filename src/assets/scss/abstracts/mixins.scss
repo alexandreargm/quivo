@@ -65,6 +65,19 @@
   }
 }
 
+@mixin breakpoint-between($minBreakpoint, $maxBreakpoint) {
+  @if map-has-key($breakpoints) {
+    @media (min-width: #{map-get($breakpoints, $minBreakpoint)}) and (max-width: #{map-get($breakpoints, $maxBreakpoint) - 1px}) {
+      @content;
+    }
+  }
+
+  @else {
+    @warn 'Unfortunately, no value could be retrieved from `#{$minBreakpoint}` and/or `#{$maxBreakpoint}`. '
+      + 'Please make sure it is defined in `$breakpoints` map.';
+  }
+}
+
 // Aspect ratio mixin for images and background images.
 // img elements require a parent element, figure for example,
 // with this mixin applied.
