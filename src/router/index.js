@@ -1,11 +1,11 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import Home from '../views/Home'
 
 const HomeFeed = () => import('../components/HomeFeed')
 const TitlePreviewDrawer = () => import('../components/TitlePreviewDrawer')
 
 export default createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHashHistory(process.env.BASE_URL),
   routes: [
     {
       path: '/',
