@@ -64,12 +64,13 @@ export default {
 
 <style lang='scss' scoped>
   .title-image-modal {
+    --close-height: 64px;
+
     &__inner {
       align-items: center;
       display: flex;
       flex-direction: column;
       height: 100vh;
-      justify-content: space-between;
       width: 100vw;
     }
 
@@ -77,11 +78,14 @@ export default {
       aspect-ratio: 2/3;
       display: flex;
       justify-content: center;
-      max-height: 90%;
+      max-height: calc(100vh - var(--close-height));
     }
 
     &__close {
-      margin: var(--space30) auto;
+      align-items: center;
+      display: flex;
+      height: var(--close-height);
+      justify-content: center;
     }
   }
 </style>
