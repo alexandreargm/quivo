@@ -2,7 +2,7 @@
 
 module.exports = {
   // Set route for gh-pages. Ref.: https://cli.vuejs.org/config/#publicpath
-  // publicPath: process.env.NODE_ENV === 'production' ? '/quivo/' : '/',
+  publicPath: process.env.NODE_ENV === 'production' ? '/quivo/' : '/',
   css: {
     // ref: https://cli.vuejs.org/guide/css.html#passing-options-to-pre-processor-loaders
     loaderOptions: {
