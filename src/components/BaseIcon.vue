@@ -1,7 +1,7 @@
 <template>
   <component
     v-if="isLoaded"
-    :is="getIcon"
+    :is="getIcon()"
     class="base-icon"
     :class="[size, color]"
   />
@@ -47,7 +47,9 @@ export default {
     const outlineIcons = ref(outlineHeroicons)
 
     const getIcon = computed(() => {
-      return props.type === 'solid' ? solidIcons.value[props.name] : outlineIcons.value[props.name]
+      return props.type === 'solid'
+        ? () => solidIcons.value[props.name]
+        : () => outlineIcons.value[props.name]
     })
 
     onMounted(() => {
@@ -63,6 +65,10 @@ export default {
 </script>
 
 <style lang='scss' scoped>
+path, svg {
+  color: inherit !important;
+}
+
 .base-icon {
   color: var(--color);
   height: auto;
