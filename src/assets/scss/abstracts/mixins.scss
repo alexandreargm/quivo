@@ -78,6 +78,18 @@
   }
 }
 
+@mixin dark-theme() {
+  @media (prefers-color-scheme: dark) {
+    @content;
+  }
+}
+
+@mixin light-theme() {
+  @media (prefers-color-scheme: light) {
+    @content;
+  }
+}
+
 // Aspect ratio mixin for images and background images.
 // img elements require a parent element, figure for example,
 // with this mixin applied.
