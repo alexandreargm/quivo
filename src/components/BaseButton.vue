@@ -2,6 +2,7 @@
   <button
     class="base-button"
     :class="[size, color, variant, iconClass, round]"
+    :type="type"
     v-bind="$attrs"
     @click="handleClick"
   >
@@ -57,6 +58,13 @@ export default {
     isRound: {
       type: Boolean,
       default: false
+    },
+    type: {
+      type: String,
+      validator: function (value) {
+        return ['submit', 'button'].includes(value)
+      },
+      default: 'button'
     }
   },
 
@@ -234,14 +242,14 @@ export default {
 .base-button.icon-before {
   .base-button__icon {
     margin-left: calc(-1 * var(--space-20));
-    margin-right: var(--space-20);
+    margin-right: var(--space-30);
     order: -1;
   }
 }
 
 .base-button.icon-after {
   .base-button__icon {
-    margin-left: var(--space-20);
+    margin-left: var(--space-30);
     margin-right: calc(-1 * var(--space-20));
     order: 9999;
   }
