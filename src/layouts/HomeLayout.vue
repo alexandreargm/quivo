@@ -27,7 +27,7 @@ export default {
 
 <style lang="scss" scoped>
 .home-layout {
-  margin-top: var(--the-main-nav-height);
+  padding-top: var(--the-main-nav-height);
 
   &__header {
     position: absolute;
