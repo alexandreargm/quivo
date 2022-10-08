@@ -35,13 +35,15 @@
     </the-header-navigation>
 
     <div class="the-main-nav__actions">
-      <base-button size="sm">
-        <template #icon>
-          <base-icon name="LightningBoltIcon" />
-        </template>
+      <router-link to="/finder">
+        <base-button size="sm">
+          <template #icon>
+            <base-icon name="LightningBoltIcon" />
+          </template>
 
-        Finder
-      </base-button>
+          Finder
+        </base-button>
+      </router-link>
     </div>
   </div>
 </template>
