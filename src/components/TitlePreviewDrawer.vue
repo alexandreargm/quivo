@@ -31,12 +31,14 @@ import getStyleProperty from '@/composables/useGetStyleProperty'
 import nextRender from '@/composables/useNextRender'
 import AsyncTitleRelatedTitles from './AsyncTitleRelatedTitles'
 import AsyncTitlePreview from './AsyncTitlePreview'
+import appendRouteName from '../composables/useAppendRouteName.js'
 
 const root = ref()
 const router = useRouter()
 
 const handleClose = () => {
-  router.push({ name: 'feed' })
+  const routeName = appendRouteName('feed', router)
+  router.push({ name: routeName })
 }
 
 const handleChange = () => {
