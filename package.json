@@ -3,16 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "vue-cli-service serve",
-    "prod": "serve -s dist",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
     "lint": "vue-cli-service lint",
-    "storybook": "start-storybook -p 6006",
+    "deploy": "sh gh-deploy.sh",
     "build-storybook": "build-storybook",
     "build-tokens": "node tokens/build.js",
-    "deploy": "sh gh-deploy.sh"
+    "dev": "vue-cli-service serve",
+    "prod": "serve -s dist",
+    "storybook": "start-storybook -p 6006"
   },
   "dependencies": {
     "@heroicons/vue": "^1.0.6",
@@ -20,6 +20,7 @@
     "body-scroll-lock": "^4.0.0-beta.0",
     "core-js": "^3.6.5",
     "css-scroll-snap-polyfill": "^0.1.2",
+    "pinia": "^2.0.21",
     "register-service-worker": "^1.7.1",
     "token-transformer": "0.0.13",
     "vue": "^3.0.0",
@@ -62,6 +63,7 @@
     "stylelint-config-standard": "^22.0.0",
     "stylelint-order": "^4.1.0",
     "typescript": "~3.9.3",
+    "vue-cli-plugin-pinia": "~0.1.5",
     "vue-content-loader": "^2.0.1",
     "vue-jest": "^5.0.0-0",
     "vue-loader": "^16.5.0",
