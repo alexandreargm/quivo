@@ -15,8 +15,8 @@ module.exports = {
     'at-rule-no-unknown': null,
     'scss/at-rule-no-unknown': true,
     'selector-class-pattern': null,
-    "selector-pseudo-class-no-unknown": [true, {
-      ignorePseudoClasses: ["deep"]
+    'selector-pseudo-class-no-unknown': [true, {
+      ignorePseudoClasses: ['deep']
     }]
   }
 }
