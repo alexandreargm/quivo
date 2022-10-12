@@ -1,13 +1,13 @@
 <template>
   <div
     class="base-close"
-    :class="[size]"
+    :class="[props.size]"
   >
     <base-button
       icon="only"
       variant="secondary"
       :is-round="true"
-      @click="handleClick"
+      @click="emits('click')"
     >
       <template #icon>
         <base-icon name="XIcon" />
@@ -16,37 +16,22 @@
   </div>
 </template>
 
-<script>
+<script setup>
+import { defineEmits, defineProps } from 'vue'
 import BaseButton from './BaseButton.vue'
 import BaseIcon from './BaseIcon.vue'
 
-export default {
-  name: 'BaseClose',
-  emits: ['click'],
+const emits = defineEmits(['click'])
 
-  components: {
-    BaseButton,
-    BaseIcon
-  },
-
-  props: {
-    size: {
-      type: String,
-      default: 'base',
-      validator: function (value) {
-        return ['base'].includes(value)
-      }
-    }
-  },
-
-  setup (props, { emit }) {
-    return {
-      handleClick () {
-        emit('click')
-      }
+const props = defineProps({
+  size: {
+    type: String,
+    default: 'base',
+    validator: function (value) {
+      return ['base'].includes(value)
     }
   }
-}
+})
 </script>
 
 <style lang='scss' scoped>
