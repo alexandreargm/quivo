@@ -65,6 +65,10 @@ export default {
         return ['submit', 'button'].includes(value)
       },
       default: 'button'
+    },
+    width: {
+      type: String,
+      default: 'auto'
     }
   },
 
@@ -101,6 +105,7 @@ export default {
   line-height: 1;
   vertical-align: middle;
   white-space: nowrap;
+  width: v-bind(width);
 
   &__icon {
     align-items: center;
