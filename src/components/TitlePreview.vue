@@ -21,7 +21,14 @@
         </div>
       </div>
 
-      <title-poster :src="titleResponse.poster_path ? 'http://image.tmdb.org/t/p/w500/' + titleResponse.poster_path : ''" />
+      <div
+        class="title-preview__poster"
+        @click="toggleTitleImageModal(true)"
+      >
+        <title-poster
+          :src="titleResponse.poster_path ? 'http://image.tmdb.org/t/p/w500/' + titleResponse.poster_path : ''"
+        />
+      </div>
     </header>
 
     <main class="title-preview__body">
@@ -191,6 +198,10 @@ watch(() => route.params.id, () => {
     font-weight: var(--medium);
     line-height: var(--line00);
     margin: 0;
+  }
+
+  &__poster {
+    cursor: pointer;
   }
 
   &__synopsis {
