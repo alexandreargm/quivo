@@ -1,47 +1,80 @@
 <template>
   <aside class="finder-search">
-    <form @submit.prevent="handleSubmit">
-      <searchbar v-model="titleString" />
+    <form
+      class="finder-search__form"
+      @submit.prevent="handleSubmit"
+    >
+      <searchbar
+        v-model="searchString"
+        placeholder="Keyword in title or description"
+      />
+
+      <finder-search-cloud
+        title="Genre"
+        :tags="genres"
+        :is-multiple="true"
+        :has-excludes="true"
+        v-model="selectedGenres"
+      />
+
+      <finder-search-cloud
+        title="Release"
+        :tags="releaseDates"
+        v-model="selectedReleaseDateRanges"
+      />
+
+      <finder-search-cloud
+        title="Keywords"
+        :tags="keywords"
+        :is-multiple="true"
+        :has-excludes="true"
+        v-model="selectedKeywords"
+      />
+
+      <base-button
+        size="lg"
+        width="100%"
+        type="submit"
+        :disabled="!hasSearchParams"
+      >
+        <template #icon>
+          <base-icon name="SearchIcon" />
+        </template>
+
+        Find titles
+      </base-button>
     </form>
-
-    <finder-search-cloud
-      title="Genre"
-      :tags="genres"
-      :is-multiple="true"
-      :has-excludes="true"
-      v-model="selectedGenres"
-    />
-
-    <finder-search-cloud
-      title="Release"
-      :tags="releaseDates"
-      v-model="selectedReleaseDateRanges"
-    />
-
-    <finder-search-cloud
-      title="Keywords"
-      :tags="keywords"
-      :is-multiple="true"
-      :has-excludes="true"
-      v-model="selectedKeywords"
-    />
   </aside>
 </template>
 
 <script setup>
-import { ref, onBeforeMount, markRaw } from 'vue'
+import { ref, onBeforeMount, markRaw, defineEmits, computed } from 'vue'
 import FinderSearchCloud from './FinderSearchCloud.vue'
 import repositoryFactory from '@/api/repository-factory.js'
 import { handleRequest } from '../api/request-handlers'
 import Searchbar from './Searchbar.vue'
+import BaseButton from './BaseButton.vue'
+import BaseIcon from './BaseIcon.vue'
 const genresRepositories = repositoryFactory.get('genres')
-const titlesRepository = repositoryFactory.get('titles')
+
+const emits = defineEmits(['submit'])
 
 const genres = ref([])
 const selectedGenres = ref([])
 const selectedKeywords = ref([])
 const selectedReleaseDateRanges = ref({})
-const titleString = ref('')
+const searchString = ref('')
+const hasSearchParams = computed(() => {
+  if (searchString.value.trim() !== '') return true
+
+  if (selectedGenres.value.length > 0) return true
+
+  if (selectedKeywords.value.length > 0) return true
+
+  if (Object.keys(selectedReleaseDateRanges.value).length > 0) return true
+
+  return false
+})
 
 const releaseDates = [
   { value: [2020, new Date().getFullYear()], title: '2020s · Recent' },
@@ -72,15 +105,6 @@ const keywords = [
   { value: 11479, title: 'social commentary' }
 ]
 
-const searchTitles = () => {
-  handleRequest(titlesRepository.search({
-    mediaType: 'movie',
-    title: titleString.value,
-    keywords: selectedKeywords.value,
-    genres: selectedGenres.value,
-    dateRange: selectedReleaseDateRanges.value
-  }))
-}
 const fetchGenres = () => {
   handleRequest(genresRepositories.fetch('movie'), {
     onSuccess: ({ data }) => {
@@ -89,8 +113,17 @@ const fetchGenres = () => {
   })
 }
 const handleSubmit = () => {
-  searchTitles()
+  if (!hasSearchParams.value) return
+
+  emits('submit', {
+    mediaType: 'movie',
+    title: searchString.value,
+    keywords: selectedKeywords.value,
+    genres: selectedGenres.value,
+    dateRange: selectedReleaseDateRanges.value
+  })
 }
+
 onBeforeMount(() => {
   fetchGenres()
 })
@@ -101,7 +134,7 @@ onBeforeMount(() => {
   background-color: var(--background);
   padding: var(--container-gap);
 
-  > * + * {
+  &__form > :not(:first-child) {
     margin-top: var(--space20);
   }
 }
