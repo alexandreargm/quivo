@@ -61,7 +61,7 @@ const props = defineProps({
 <style lang='scss' scoped>
 .base-input {
   align-items: center;
-  background-color: var(--background-tertiary);
+  background-color: var(--background-secondary);
   border-radius: var(--rounded00);
   display: flex;
   font-size: var(--font00);
