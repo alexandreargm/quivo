@@ -2,7 +2,7 @@
   <div class="searchbar">
     <base-input
       v-model="computedValue"
-      placeholder="Search movies and TV series"
+      :placeholder="placeholder"
       width="100%"
     >
       <template #before>
@@ -25,6 +25,10 @@ const props = defineProps({
   modelValue: {
     type: String,
     required: true
+  },
+  placeholder: {
+    type: String,
+    default: 'Search movies and TV series'
   }
 })
 
