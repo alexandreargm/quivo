@@ -1,37 +1,37 @@
 <template>
   <span
     class="base-tag"
-    :class="[color, variant]"
+    :class="[props.color, props.variant]"
   >
     <slot>
-      {{ title }}
+      {{ props.title }}
     </slot>
   </span>
 </template>
 
-<script>
-export default {
-  props: {
-    color: {
-      type: String,
-      default: '',
-      validator: function (value) {
-        return ['', 'interactive', 'danger'].includes(value)
-      }
-    },
-    variant: {
-      type: String,
-      default: 'primary',
-      validator: function (value) {
-        return ['primary', 'secondary'].includes(value)
-      }
-    },
-    title: {
-      type: String,
-      default: ''
+<script setup>
+import { defineProps } from 'vue'
+
+const props = defineProps({
+  color: {
+    type: String,
+    default: '',
+    validator: function (value) {
+      return ['', 'interactive', 'danger'].includes(value)
     }
+  },
+  variant: {
+    type: String,
+    default: 'primary',
+    validator: function (value) {
+      return ['primary', 'secondary'].includes(value)
+    }
+  },
+  title: {
+    type: String,
+    default: ''
   }
-}
+})
 </script>
 
 <style lang='scss' scoped>
