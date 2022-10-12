@@ -103,7 +103,7 @@ export default {
 .base-slider.horizontal {
   grid-auto-flow: column;
   overflow: auto hidden;
-  padding: 0 0 var(--space00) var(--container-gap);
+  padding: 0 0 var(--space00) 0;
 }
 
 .base-slider.vertical {
