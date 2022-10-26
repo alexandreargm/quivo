@@ -3,7 +3,6 @@
     class="base-button"
     :class="[size, color, variant, iconClass, round]"
     :type="type"
-    v-bind="$attrs"
     @click="handleClick"
   >
     <span
@@ -29,9 +28,9 @@ export default {
   props: {
     color: {
       type: String,
-      default: 'brand',
+      default: '',
       validator: function (value) {
-        return ['brand', 'reverse', 'danger'].includes(value)
+        return ['', 'brand', 'reverse', 'danger'].includes(value)
       }
     },
     variant: {
@@ -43,9 +42,9 @@ export default {
     },
     size: {
       type: String,
-      default: 'base',
+      default: '',
       validator: function (value) {
-        return ['base', 'sm', 'lg'].includes(value)
+        return ['', 'sm', 'lg'].includes(value)
       }
     },
     icon: {
@@ -82,8 +81,9 @@ export default {
     return {
       iconClass: computed(() => buttonIconClases[props.icon]),
       round: props.isRound ? 'round' : '',
-      handleClick () {
-        emit('click')
+      handleClick (event) {
+        console.log(event)
+        emit('click', event)
       }
     }
   }
@@ -92,72 +92,87 @@ export default {
 
 <style lang='scss' scoped>
 .base-button {
+  --_height: var(--size30);
+  --_padding: var(--space20);
+  --_bg-color: var(--color);
+  --_color: var(--text);
+  --_color-hover: var(--text-hover);
+  --_color-active: var(--text-active);
+
   align-items: center;
   appearance: none;
   border: 2px solid transparent;
   border-radius: var(--rounded20);
+  color: var(--_color);
   display: flex;
   font-family: inherit;
   font-size: var(--font00);
   font-weight: var(--medium);
-  height: var(--height);
+  height: var(--_height);
   justify-content: center;
   line-height: 1;
+  padding: 0 var(--_padding);
   vertical-align: middle;
   white-space: nowrap;
   width: v-bind(width);
 
   &__icon {
     align-items: center;
+    color: inherit;
     display: flex;
+    flex-shrink: 0;
     justify-content: center;
+  }
+
+  &__main {
+    color: var(--_color);
   }
 }
 
 // Colors
 
 .base-button.brand {
-  --bg-color: var(--color-interactive);
-  --color: var(--text-reverse-neutral);
-  --color-hover: var(--color-interactive-hover);
-  --color-active: var(--color-interactive-active);
+  --_bg-color: var(--color-interactive);
+  --_color: var(--text-reverse-neutral);
+  --_color-hover: var(--color-interactive-hover);
+  --_color-active: var(--color-interactive-active);
 
   &:hover {
-    --bg-color: var(--color-interactive-hover);
+    --_bg-color: var(--color-interactive-hover);
   }
 
   &:active {
-    --bg-color: var(--color-interactive-active);
+    --_bg-color: var(--color-interactive-active);
   }
 }
 
 .base-button.danger {
-  --bg-color: var(--color-danger);
-  --color: var(--text-reverse-neutral);
-  --color-hover: var(--color-danger-hover);
-  --color-active: var(--color-danger-active);
+  --_bg-color: var(--color-danger);
+  --_color: var(--text-reverse-neutral);
+  --_color-hover: var(--color-danger-hover);
+  --_color-active: var(--color-danger-active);
 
   &:hover {
-    --bg-color: var(--color-danger-hover);
+    --_bg-color: var(--color-danger-hover);
   }
 
   &:active {
-    --bg-color: var(--color-danger-active);
+    --_bg-color: var(--color-danger-active);
   }
 }
 
 .base-button.reverse {
-  --bg-color: var(--color-reverse);
-  --color: var(--text-reverse-neutral);
-  --color-hover: var(--color-reverse-hover);
-  --color-active: var(--color-reverse-active);
+  --_bg-color: var(--color-reverse);
+  --_color: var(--text-reverse-neutral);
+  --_color-hover: var(--color-reverse-hover);
+  --_color-active: var(--color-reverse-active);
 
   &:hover {
-    --bg-color: var(--color-reverse-hover);
+    --_bg-color: var(--color-reverse-hover);
   }
 
   &:active {
-    --bg-color: var(--color-reverse-active);
+    --_bg-color: var(--color-reverse-active);
   }
 }
 
@@ -176,68 +191,52 @@ export default {
 // Variant
 
 .base-button.primary {
-  background-color: var(--bg-color);
+  background-color: var(--_bg-color);
   border-color: transparent;
-  color: var(--color);
 }
 
 .base-button.secondary {
-  --color: var(--text-neutral);
-
-  background-color: var(--background-secondary);
-  border-color: transparent;
+  background-color: transparent;
+  border-color: var(--_bg-color);
 
   &:hover {
-    background-color: var(--background-hover-secondary);
+    border-color: var(--_color-hover);
   }
 
   &:active {
-    background-color: var(--background-active-secondary);
+    border-color: var(--_color-active);
   }
 }
 
 .base-button.tertiary {
   background-color: transparent;
-  color: var(--bg-color);
+  color: var(--_bg-color);
 
   &:hover {
-    color: var(--color-hover);
+    color: var(--_color-hover);
   }
 
   &:active {
-    color: var(--color-active);
-  }
-
-  &:focus {
-    border-color: var(--bg-color);
+    color: var(--_color-active);
   }
 }
 
 // Sizes
-
-.base-button.base {
-  --height: var(--size30);
-
-  padding: 0 var(--space20);
-}
-
 .base-button.sm {
-  --height: var(--size20);
-
-  padding: 0 var(--space10);
+  --_height: var(--size20);
+  --_padding: var(--space10);
 }
 
 .base-button.lg {
-  --height: var(--size40);
-
-  padding: 0 var(--space30);
+  --_height: var(--size40);
+  --_padding: var(--space30);
 }
 
 // Icon
 
 .base-button.icon-only {
   padding: 0;
-  width: var(--height);
+  width: var(--_height);
 
   .base-button__main {
     display: none;
