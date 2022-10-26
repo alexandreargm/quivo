@@ -8,13 +8,13 @@
     </div>
 
     <div class="popular-feed__titles">
-      <base-feed-row>
+      <base-feed-row width="220px">
         <title-card
           v-for="{id, poster_path} in searchResponse.results"
           :key="id"
           :id="id"
           :type="mediaType"
-          :src="'http://image.tmdb.org/t/p/w154/' + poster_path"
+          :src="'http://image.tmdb.org/t/p/w220_and_h330_face/' + poster_path"
         />
       </base-feed-row>
     </div>
