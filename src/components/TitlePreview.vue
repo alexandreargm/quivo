@@ -4,7 +4,6 @@
       <div class="title-preview__header-toolbar">
         <base-button
           icon="only"
-          variant="secondary"
           :is-round="true"
           @click="toggleTitleImageModal(true)"
         >
@@ -46,7 +45,10 @@
         </div>
       </div>
 
-      <base-button size="sm">
+      <base-button
+        color="brand"
+        size="sm"
+      >
         More info
       </base-button>
 
@@ -148,15 +150,7 @@ watch(() => route.params.id, () => {
   // TODO: Add container query polifyll to simplify queries
   @include breakpoint('tablet') {
     display: grid;
-    grid-template-columns: 300px 300px;
-  }
-
-  @include breakpoint('desktop2') {
-    grid-template-columns: 350px 375px;
-  }
-
-  @include breakpoint('desktop3') {
-    grid-template-columns: 400px 375px;
+    grid-template-columns: 400px 1fr;
   }
 
   &__header-toolbar {
