@@ -15,10 +15,13 @@
         <div class="title-image-modal__close">
           <base-button
             @click="handleClose"
-            color="reverse"
+            variant="tertiary"
           >
             <template #icon>
-              <base-icon name="XIcon" />
+              <base-icon
+                name="XIcon"
+                size="lg"
+              />
             </template>
 
             Close
@@ -68,6 +71,7 @@ export default {
 
     &__inner {
       align-items: center;
+      cursor: pointer;
       display: flex;
       flex-direction: column;
       height: 100vh;
@@ -76,6 +80,7 @@ export default {
 
     &__poster-wrapper {
       aspect-ratio: 2/3;
+      cursor: initial;
       display: flex;
       justify-content: center;
       max-height: calc(100vh - var(--close-height));
