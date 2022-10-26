@@ -36,7 +36,10 @@
 
     <div class="the-main-nav__actions">
       <router-link to="/finder">
-        <base-button size="sm">
+        <base-button
+          size="sm"
+          color="brand"
+        >
           <template #icon>
             <base-icon name="LightningBoltIcon" />
           </template>
