@@ -71,20 +71,14 @@ const handleChange = () => {
   }
 
   &__inner {
+    max-width: 100vw;
+
     @include breakpoint-max('tablet') {
       width: min(450px, 100vw);
     }
 
     @include breakpoint('tablet') {
-      width: 600px;
-    }
-
-    @include breakpoint('desktop2') {
-      width: 725px;
-    }
-
-    @include breakpoint('desktop3') {
-      width: 775px;
+      width: 850px;
     }
   }
 
