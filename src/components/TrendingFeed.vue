@@ -7,7 +7,7 @@
       class="trending-feed__poster"
       v-for="{id, poster_path} in searchResponse.results"
       :key="id"
-      :src="'http://image.tmdb.org/t/p/w154/' + poster_path"
+      :src="'http://image.tmdb.org/t/p/w220/' + poster_path"
     />
   </base-feed-row>
 </template>
