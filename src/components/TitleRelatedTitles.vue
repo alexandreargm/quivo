@@ -4,7 +4,7 @@
       Related titles
     </h2>
 
-    <base-feed-gallery
+    <base-gallery
 
       title="Related results"
     >
@@ -15,7 +15,7 @@
         :key="titleId"
         :src="'http://image.tmdb.org/t/p/w154/' + poster_path"
       />
-    </base-feed-gallery>
+    </base-gallery>
 
     <p
       v-if="hasNoResults"
@@ -32,7 +32,7 @@ import { useRoute } from 'vue-router'
 import TitleCard from './TitleCard.vue'
 import repositoryFactory from '@/api/repository-factory'
 import { handleRequest } from '@/api/request-handlers'
-import BaseFeedGallery from './BaseFeedGallery.vue'
+import BaseGallery from './BaseGallery.vue'
 const titlesRepository = repositoryFactory.get('titles')
 
 const route = useRoute()
