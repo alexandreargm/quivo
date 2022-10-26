@@ -3,7 +3,7 @@
     v-if="isLoaded"
     :is="getIcon()"
     class="base-icon"
-    :class="[size, color]"
+    :class="[size, color, getIsFluidClass()]"
   />
 </template>
 
@@ -28,9 +28,9 @@ export default {
     },
     size: {
       type: String,
-      default: 'base',
+      default: '',
       validator: function (value) {
-        return ['base', 'xs', 'sm', 'md', 'lg', 'xl', 'xl2', 'xl3', 'xl4', 'xl5', 'xl6', 'h-full'].includes(value)
+        return ['', 'xs', 'sm', 'md', 'lg', 'xl', 'xl2', 'xl3', 'xl4', 'xl5', 'xl6', 'h-full'].includes(value)
       }
     },
     color: {
@@ -39,6 +39,10 @@ export default {
       validator: function (value) {
         return ['inherit', 'brand', 'danger', 'reverse', 'black', 'white'].includes(value)
       }
+    },
+    isFluid: {
+      type: Boolean,
+      default: false
     }
   },
   setup (props) {
@@ -51,12 +55,16 @@ export default {
         ? () => solidIcons.value[props.name]
         : () => outlineIcons.value[props.name]
     })
+    const getIsFluidClass = () => {
+      return props.isFluid ? 'is-fluid' : ''
+    }
 
     onMounted(() => {
       isLoaded.value = true
     })
 
     return {
+      getIsFluidClass,
       isLoaded,
       getIcon
     }
@@ -65,18 +73,26 @@ export default {
 </script>
 
 <style lang='scss' scoped>
-path, svg {
+path,
+svg {
   color: inherit !important;
 }
 
 .base-icon {
+  --width: var(--size00);
+
   color: var(--color);
   height: auto;
   width: var(--width);
 }
 
-// Colors
+// IsFluid
+.base-icon.is-fluid {
+  max-height: 100%;
+  max-width: 100%;
+}
 
+// Colors
 .base-icon.inherit {
   --color: inherit;
 }
@@ -102,11 +118,6 @@ path, svg {
 }
 
 // Sizes
-
-.base-icon.base {
-  --width: var(--size00);
-}
-
 .base-icon.xs {
   --width: var(--size-30);
 }
