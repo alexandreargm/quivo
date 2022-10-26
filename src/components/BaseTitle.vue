@@ -14,6 +14,7 @@ const props = defineProps({
   level: {
     type: String,
     required: true,
+    default: '1',
     validator: function (value) {
       return ['1', '2', '3', '4', '5', '6'].includes(value)
     }
