@@ -1,24 +1,16 @@
 <template>
-  <div
+  <button
     class="base-close"
-    :class="[props.size]"
+    @click="emits('click')"
+    type="button"
+    :class="[props.size, getIsRoundClass()]"
   >
-    <base-button
-      icon="only"
-      variant="secondary"
-      :is-round="true"
-      @click="emits('click')"
-    >
-      <template #icon>
-        <base-icon name="XIcon" />
-      </template>
-    </base-button>
-  </div>
+    <base-icon name="XIcon" />
+  </button>
 </template>
 
 <script setup>
 import { defineEmits, defineProps } from 'vue'
-import BaseButton from './BaseButton.vue'
 import BaseIcon from './BaseIcon.vue'
 
 const emits = defineEmits(['click'])
@@ -26,26 +18,49 @@ const emits = defineEmits(['click'])
 const props = defineProps({
   size: {
     type: String,
-    default: 'base',
+    default: '',
     validator: function (value) {
-      return ['base'].includes(value)
+      return ['', 'fluid', 'sm', 'lg'].includes(value)
     }
+  },
+  isRound: {
+    type: Boolean,
+    default: true
   }
 })
+
+const getIsRoundClass = () => {
+  return props.isRound ? 'is-round' : ''
+}
 </script>
 
 <style lang='scss' scoped>
 .base-close {
+  --_height: var(--size30);
+  --_width: var(--_height);
+  --_color: var(--text);
+  --_bg-color: var(--color);
+
   align-items: center;
-  background-color: var(--icon-tertiary);
-  border-radius: var(--rounded100);
-  color: var(--text-neutral);
+  appearance: none;
+  background-color: var(--_bg-color);
+  border: 2px solid transparent;
+  color: var(--_color);
   display: flex;
+  height: var(--_height);
   justify-content: center;
+  vertical-align: middle;
+  width: var(--_width);
 }
 
-.base-close.base {
-  height: var(--size30);
-  width: var(--size30);
+// Size
+.base-close.fluid {
+  height: 100%;
+  width: fit-content;
+}
+
+// IsRound
+.base-close.is-round {
+  border-radius: var(--rounded100);
 }
 </style>
