@@ -1,6 +1,46 @@
 <template>
   <aside class="finder-search">
+    <div class="finder-search__toolbar">
+      <div class="finder-search__actions">
+        <base-button
+          icon="only"
+          color="brand"
+          variant="tertiary"
+          @click.stop="toggleIsOpenFilters(!isOpenFilters)"
+        >
+          <template #icon>
+            <base-icon
+              size="xl2"
+              :name="getDrawerIconState"
+            />
+          </template>
+        </base-button>
+      </div>
+
+      <div
+        v-if="hasActiveFilters"
+        class="finder-search__summary"
+      >
+        <base-filter-category-tag
+          v-for="({category, amount, singleItemLabel, clearCallback}, index) in getActiveFilters"
+          :key="index"
+          :category="category"
+          :amount="amount"
+          :single-item-label="String(singleItemLabel)"
+          @close="clearCallback()"
+        />
+      </div>
+
+      <base-title
+        level="2"
+        v-else
+      >
+        Filters
+      </base-title>
+    </div>
+
     <form
+      v-show="isOpenFilters"
       class="finder-search__form"
       @submit.prevent="handleSubmit"
     >
@@ -31,18 +71,21 @@
         v-model="selectedKeywords"
       />
 
-      <base-button
-        size="lg"
-        width="100%"
-        type="submit"
-        :disabled="!hasSearchParams"
-      >
-        <template #icon>
-          <base-icon name="SearchIcon" />
-        </template>
+      <div class="finder-search__submit-button">
+        <base-button
+          size="lg"
+          width="100%"
+          type="submit"
+          color="brand"
+          :disabled="!hasSearchParams"
+        >
+          <template #icon>
+            <base-icon name="SearchIcon" />
+          </template>
 
-        Find titles
-      </base-button>
+          Find titles
+        </base-button>
+      </div>
     </form>
   </aside>
 </template>
@@ -55,15 +98,38 @@ import { handleRequest } from '../api/request-handlers'
 import Searchbar from './Searchbar.vue'
 import BaseButton from './BaseButton.vue'
 import BaseIcon from './BaseIcon.vue'
+import BaseFilterCategoryTag from './BaseFilterCategoryTag.vue'
+import BaseTitle from './BaseTitle.vue'
 const genresRepositories = repositoryFactory.get('genres')
 
 const emits = defineEmits(['submit'])
 
+const isOpenFilters = ref(true)
 const genres = ref([])
 const selectedGenres = ref([])
 const selectedKeywords = ref([])
 const selectedReleaseDateRanges = ref({})
 const searchString = ref('')
+const getActiveFilters = computed(() => {
+  const getActiveFilter = (category, amount, isShowing, singleItemLabel, clearCallback) => {
+    return { category, amount, isShowing, singleItemLabel, clearCallback }
+  }
+
+  const getGenreSingleItemLabel = genres.value.find(genre => genre.value === selectedGenres.value?.[0]?.value)?.title
+  const getKeywordsSingleItemLabel = keywords.find(keyword => keyword.value === selectedKeywords.value?.[0]?.value)?.title
+  const getDateRangeSingleItemLabel = releaseDates?.[selectedReleaseDateRanges.value?.id]?.title
+
+  const genreClearCallback = () => { selectedGenres.value = [] }
+  const keywordsClearCallback = () => { selectedKeywords.value = [] }
+  const dateRangeClearCallback = () => { selectedReleaseDateRanges.value = {} }
+
+  return [
+    getActiveFilter('genres', selectedGenres.value.length, selectedGenres.value.length > 0, getGenreSingleItemLabel, genreClearCallback),
+    getActiveFilter('keywords', selectedKeywords.value.length, selectedKeywords.value.length > 0, getKeywordsSingleItemLabel, keywordsClearCallback),
+    getActiveFilter('date', 1, selectedReleaseDateRanges.value?.id !== undefined, getDateRangeSingleItemLabel, dateRangeClearCallback)
+  ].filter(filter => filter.isShowing)
+})
+const hasActiveFilters = computed(() => getActiveFilters.value.length > 0)
 const hasSearchParams = computed(() => {
   if (searchString.value.trim() !== '') return true
 
@@ -75,14 +141,15 @@ const hasSearchParams = computed(() => {
 
   return false
 })
+const getDrawerIconState = computed(() => isOpenFilters.value ? 'ChevronDownIcon' : 'ChevronUpIcon')
 
 const releaseDates = [
-  { value: [2020, new Date().getFullYear()], title: '2020s · Recent' },
-  { value: [2000, 2010], title: '2010s · Golden Age of Streaming' },
-  { value: [1990, 2000], title: '90s-2000s · Modern Classics' },
-  { value: [1970, 1980], title: '70s-80s · Influential Movies' },
-  { value: [1920, 1960], title: '20s-60s · Classic Hollywood' },
-  { value: [1890, 1920], title: '1890s-20s · Silent Films' }
+  { id: 0, value: [2020, new Date().getFullYear()], title: '2020s · Recent' },
+  { id: 1, value: [2000, 2010], title: '2010s · Golden Age of Streaming' },
+  { id: 2, value: [1990, 2000], title: '90s-2000s · Modern Classics' },
+  { id: 3, value: [1970, 1980], title: '70s-80s · Influential Movies' },
+  { id: 4, value: [1920, 1960], title: '20s-60s · Classic Hollywood' },
+  { id: 5, value: [1890, 1920], title: '1890s-20s · Silent Films' }
 ]
 const keywords = [
   { value: 818, title: 'based on novel or book' },
@@ -115,6 +182,8 @@ const fetchGenres = () => {
 const handleSubmit = () => {
   if (!hasSearchParams.value) return
 
+  toggleIsOpenFilters(false)
+
   emits('submit', {
     mediaType: 'movie',
     title: searchString.value,
@@ -122,6 +191,9 @@ const handleSubmit = () => {
     genres: selectedGenres.value,
     dateRange: selectedReleaseDateRanges.value
   })
+}
+const toggleIsOpenFilters = (isOpen = !isOpenFilters.value) => {
+  isOpenFilters.value = isOpen
 }
 
 onBeforeMount(() => {
@@ -131,11 +203,43 @@ onBeforeMount(() => {
 
 <style lang='scss' scoped>
 .finder-search {
-  background-color: var(--background);
-  padding: var(--container-gap);
+  display: grid;
+  grid-template-rows: auto 1fr;
+  max-height: calc(100vh - var(--the-main-nav-height));
+  width: 100%;
+
+  &__toolbar {
+    align-items: center;
+    background: var(--background-secondary);
+    border-radius: var(--rounded50) var(--rounded50) 0 0;
+    display: flex;
+    gap: var(--space20);
+    padding: var(--space00);
+    position: sticky;
+    top: 0;
+  }
+
+  &__summary {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  &__form {
+    background-color: var(--background);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: var(--space10) var(--container-gap) var(--container-gap);
+  }
 
   &__form > :not(:first-child) {
     margin-top: var(--space20);
+  }
+
+  &__submit-button {
+    bottom: var(--container-gap);
+    margin-top: var(--space30) !important;
+    position: sticky;
   }
 }
 </style>

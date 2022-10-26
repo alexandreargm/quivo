@@ -8,7 +8,7 @@
     </div>
 
     <div class="finder-search-cloud__tags">
-      <base-filter-tag
+      <base-filter-switch
         v-for="({value, title: tagTitle}, index) in props.tags"
         :key="index"
         :id="index"
@@ -25,7 +25,7 @@
 <script setup>
 import { defineProps, computed, defineEmits, markRaw } from 'vue'
 import BaseTitle from './BaseTitle.vue'
-import BaseFilterTag from './BaseFilterTag.vue'
+import BaseFilterSwitch from './BaseFilterSwitch.vue'
 
 const emit = defineEmits(['update:modelValue'])
 
@@ -102,7 +102,7 @@ const getTagState = (id) => {
 <style lang='scss' scoped>
 .finder-search-cloud {
   &__title {
-    margin-bottom: var(--space00);
+    margin-bottom: var(--space-10);
   }
 
   &__tags {

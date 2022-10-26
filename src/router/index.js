@@ -5,7 +5,6 @@ const HomeFeed = () => import('../components/HomeFeed')
 const TitlePreviewDrawer = () => import('../components/TitlePreviewDrawer')
 
 const FinderView = () => import('../views/Finder')
-const FinderFeed = () => import('../components/FinderFeed')
 const FinderSearch = () => import('../components/FinderSearch')
 
 export default createRouter({
@@ -40,8 +39,7 @@ export default createRouter({
           path: '',
           name: 'finder-feed',
           components: {
-            search: FinderSearch,
-            default: FinderFeed
+            search: FinderSearch
           }
         },
         {
@@ -49,7 +47,6 @@ export default createRouter({
           name: 'finder-feed-preview',
           components: {
             search: FinderSearch,
-            default: FinderFeed,
             preview: TitlePreviewDrawer
           }
         }
