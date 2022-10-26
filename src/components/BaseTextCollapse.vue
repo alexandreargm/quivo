@@ -40,7 +40,7 @@ export default {
     },
     previewLines: {
       type: Number,
-      default: 4
+      default: 5
     }
   },
 
