@@ -74,7 +74,7 @@ const searchTitles = (params) => {
 
 .finder.is-finder-open {
   .finder__gallery {
-    filter: grayscale(0.3) opacity(0.5);
+    filter: grayscale(0.7) brightness(0.5);
   }
 }
 </style>
