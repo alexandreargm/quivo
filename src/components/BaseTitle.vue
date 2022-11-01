@@ -43,7 +43,7 @@ const getLevelClass = () => {
 
   &.is-level-1 {
     --min-size: var(--font30);
-    --max-size: var(--font50);
+    --max-size: var(--font40);
   }
 
   &.is-level-2 {
