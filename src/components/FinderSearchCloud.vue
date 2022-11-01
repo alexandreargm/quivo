@@ -1,30 +1,20 @@
 <template>
   <section class="finder-search-cloud">
-    <div class="finder-search-cloud__title">
-      <base-title
-        level="2"
-        :title="props.title"
-      />
-    </div>
-
-    <div class="finder-search-cloud__tags">
-      <base-filter-switch
-        v-for="({value, title: tagTitle}, index) in props.tags"
-        :key="index"
-        :id="index"
-        :value="value"
-        :title="tagTitle"
-        :has-excludes="hasExcludes"
-        :state="getTagState(index)"
-        @select="handleSelect"
-      />
-    </div>
+    <base-filter-switch
+      v-for="({value, title: tagTitle}, index) in props.tags"
+      :key="index"
+      :id="index"
+      :value="value"
+      :title="tagTitle"
+      :has-excludes="hasExcludes"
+      :state="getTagState(index)"
+      @select="handleSelect"
+    />
   </section>
 </template>
 
 <script setup>
 import { defineProps, computed, defineEmits, markRaw } from 'vue'
-import BaseTitle from './BaseTitle.vue'
 import BaseFilterSwitch from './BaseFilterSwitch.vue'
 
 const emit = defineEmits(['update:modelValue'])
@@ -39,10 +29,6 @@ const computedValue = computed({
 })
 
 const props = defineProps({
-  title: {
-    type: String,
-    required: true
-  },
   isMultiple: {
     type: Boolean,
     default: false
@@ -101,14 +87,8 @@ const getTagState = (id) => {
 
 <style lang='scss' scoped>
 .finder-search-cloud {
-  &__title {
-    margin-bottom: var(--space-10);
-  }
-
-  &__tags {
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-20);
-  }
 }
 </style>
