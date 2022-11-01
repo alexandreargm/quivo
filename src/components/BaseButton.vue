@@ -82,7 +82,6 @@ export default {
       iconClass: computed(() => buttonIconClases[props.icon]),
       round: props.isRound ? 'round' : '',
       handleClick (event) {
-        console.log(event)
         emit('click', event)
       }
     }
@@ -209,8 +208,13 @@ export default {
 }
 
 .base-button.tertiary {
+  --_color: var(--text-neutral);
+
   background-color: transparent;
-  color: var(--_bg-color);
+
+  .base-button__icon {
+    color: var(--_bg-color);
+  }
 
   &:hover {
     color: var(--_color-hover);
