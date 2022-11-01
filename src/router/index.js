@@ -1,7 +1,6 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 
 const HomeView = () => import('../views/Home')
-const HomeFeed = () => import('../components/HomeFeed')
 const TitlePreviewDrawer = () => import('../components/TitlePreviewDrawer')
 
 const FinderView = () => import('../views/Finder')
@@ -16,15 +15,10 @@ export default createRouter({
       component: HomeView,
       children: [
         {
-          path: '',
-          name: 'home-feed',
-          component: HomeFeed
-        },
-        {
           path: 'preview/:type/:id',
           name: 'home-feed-preview',
           components: {
-            default: HomeFeed,
+            default: HomeView,
             preview: TitlePreviewDrawer
           }
         }

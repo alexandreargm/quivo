@@ -1,6 +1,14 @@
 <template>
   <home-layout>
-    <router-view />
+    <main class="home-feed">
+      <popular-feed />
+      <popular-feed />
+      <popular-feed />
+      <popular-feed />
+      <popular-feed />
+      <popular-feed />
+      <popular-feed />
+    </main>
 
     <template #preview>
       <router-view name="preview" />
@@ -10,6 +18,7 @@
 <script setup>
 import { onMounted } from 'vue'
 import HomeLayout from '../layouts/HomeLayout.vue'
+import PopularFeed from '../components/PopularFeed.vue'
 
 onMounted(() => {
   // this.$http('configuration')
