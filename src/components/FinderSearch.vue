@@ -121,7 +121,7 @@
 </template>
 
 <script setup>
-import { ref, onBeforeMount, markRaw, defineEmits, computed } from 'vue'
+import { ref, onBeforeMount, markRaw, defineEmits, computed, defineProps } from 'vue'
 import FinderSearchCloud from './FinderSearchCloud.vue'
 import repositoryFactory from '@/api/repository-factory.js'
 import { handleRequest } from '../api/request-handlers'
@@ -132,9 +132,23 @@ import BaseFilterCategoryTag from './BaseFilterCategoryTag.vue'
 import BaseTitle from './BaseTitle.vue'
 const genresRepositories = repositoryFactory.get('genres')
 
-const emits = defineEmits(['submit'])
+const emits = defineEmits(['submit', 'update:modelValue'])
 
-const isOpenFilters = ref(true)
+const props = defineProps({
+  modelValue: {
+    type: Boolean,
+    required: true
+  }
+})
+
+const isOpenFilters = computed({
+  get () {
+    return props.modelValue
+  },
+  set (newValue) {
+    emits('update:modelValue', newValue)
+  }
+})
 const genres = ref([])
 const selectedGenres = ref([])
 const selectedKeywords = ref([])

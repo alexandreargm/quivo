@@ -1,8 +1,12 @@
 <template>
   <finder-layout>
-    <div class="finder">
+    <div
+      class="finder"
+      :class="[getIsFinderOpenClass]"
+    >
       <div class="finder__search">
         <finder-search
+          v-model="isFinderOpen"
           @submit="searchTitles"
         />
       </div>
@@ -26,7 +30,7 @@
   </finder-layout>
 </template>
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import FinderLayout from '../layouts/FinderLayout'
 import FinderSearch from '../components/FinderSearch.vue'
 import repositoryFactory from '@/api/repository-factory.js'
@@ -37,6 +41,8 @@ const titlesRepository = repositoryFactory.get('titles')
 
 const mediaType = 'movie'
 const searchedTitles = ref([])
+const isFinderOpen = ref(false)
+const getIsFinderOpenClass = computed(() => isFinderOpen.value && 'is-finder-open')
 
 const searchTitles = (params) => {
   handleRequest(titlesRepository.search(params), {
@@ -63,6 +69,12 @@ const searchTitles = (params) => {
     top: 0;
     width: 100%;
     z-index: var(--z-sticky);
+  }
+}
+
+.finder.is-finder-open {
+  .finder__gallery {
+    filter: grayscale(0.3) opacity(0.5);
   }
 }
 </style>
