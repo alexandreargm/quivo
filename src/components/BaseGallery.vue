@@ -15,7 +15,7 @@ import 'container-query-polyfill'
 .base-gallery {
   display: grid;
   gap: var(--space-30);
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
 
   @container (min-width: 450px) {
     grid-template-columns: repeat(4, 1fr);
