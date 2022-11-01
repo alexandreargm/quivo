@@ -1,42 +1,47 @@
 <template>
   <aside class="finder-search">
     <div class="finder-search__toolbar">
-      <div class="finder-search__actions">
-        <base-button
-          icon="only"
-          color="brand"
-          variant="tertiary"
-          @click.stop="toggleIsOpenFilters(!isOpenFilters)"
+      <div class="finder-search__toolbar-inner">
+        <div class="finder-search__actions">
+          <base-button
+            color="brand"
+            variant="tertiary"
+            @click.stop="toggleIsOpenFilters(!isOpenFilters)"
+          >
+            <template #icon>
+              <base-icon
+                size="lg"
+                name="FilterIcon"
+              />
+            </template>
+
+            <div class="finder-search__toggle-inner">
+              Filters
+
+              <div class="finder-search__toggle-icon">
+                <base-icon
+                  size="lg"
+                  :name="getDrawerIconState"
+                />
+              </div>
+            </div>
+          </base-button>
+        </div>
+
+        <div
+          v-if="hasActiveFilters"
+          class="finder-search__summary"
         >
-          <template #icon>
-            <base-icon
-              size="xl2"
-              :name="getDrawerIconState"
-            />
-          </template>
-        </base-button>
+          <base-filter-category-tag
+            v-for="({category, amount, singleItemLabel, clearCallback}, index) in getActiveFilters"
+            :key="index"
+            :category="category"
+            :amount="amount"
+            :single-item-label="String(singleItemLabel)"
+            @close="clearCallback()"
+          />
+        </div>
       </div>
-
-      <div
-        v-if="hasActiveFilters"
-        class="finder-search__summary"
-      >
-        <base-filter-category-tag
-          v-for="({category, amount, singleItemLabel, clearCallback}, index) in getActiveFilters"
-          :key="index"
-          :category="category"
-          :amount="amount"
-          :single-item-label="String(singleItemLabel)"
-          @close="clearCallback()"
-        />
-      </div>
-
-      <base-title
-        level="2"
-        v-else
-      >
-        Filters
-      </base-title>
     </div>
 
     <form
@@ -44,47 +49,72 @@
       class="finder-search__form"
       @submit.prevent="handleSubmit"
     >
-      <searchbar
-        v-model="searchString"
-        placeholder="Keyword in title or description"
-      />
+      <div class="finder-search__form-inner">
+        <div class="finder-search__filters">
+          <div class="finder-search__filter">
+            <base-title level="2">
+              Title or description
+            </base-title>
 
-      <finder-search-cloud
-        title="Genre"
-        :tags="genres"
-        :is-multiple="true"
-        :has-excludes="true"
-        v-model="selectedGenres"
-      />
+            <searchbar
+              v-model="searchString"
+              placeholder="Keyword in title or description"
+            />
+          </div>
 
-      <finder-search-cloud
-        title="Release"
-        :tags="releaseDates"
-        v-model="selectedReleaseDateRanges"
-      />
+          <div class="finder-search__filter">
+            <base-title level="2">
+              Release
+            </base-title>
 
-      <finder-search-cloud
-        title="Keywords"
-        :tags="keywords"
-        :is-multiple="true"
-        :has-excludes="true"
-        v-model="selectedKeywords"
-      />
+            <finder-search-cloud
+              :tags="releaseDates"
+              v-model="selectedReleaseDateRanges"
+            />
+          </div>
 
-      <div class="finder-search__submit-button">
-        <base-button
-          size="lg"
-          width="100%"
-          type="submit"
-          color="brand"
-          :disabled="!hasSearchParams"
-        >
-          <template #icon>
-            <base-icon name="SearchIcon" />
-          </template>
+          <div class="finder-search__filter">
+            <base-title level="2">
+              Genre
+            </base-title>
 
-          Find titles
-        </base-button>
+            <finder-search-cloud
+              :tags="genres"
+              :is-multiple="true"
+              :has-excludes="true"
+              v-model="selectedGenres"
+            />
+          </div>
+
+          <div class="finder-search__filter">
+            <base-title level="2">
+              Tag
+            </base-title>
+
+            <finder-search-cloud
+              :tags="keywords"
+              :is-multiple="true"
+              :has-excludes="true"
+              v-model="selectedKeywords"
+            />
+          </div>
+        </div>
+
+        <div class="finder-search__submit-button">
+          <base-button
+            size="lg"
+            width="100%"
+            type="submit"
+            color="brand"
+            :disabled="!hasSearchParams"
+          >
+            <template #icon>
+              <base-icon name="SearchIcon" />
+            </template>
+
+            Find titles
+          </base-button>
+        </div>
       </div>
     </form>
   </aside>
@@ -119,13 +149,15 @@ const getActiveFilters = computed(() => {
   const getKeywordsSingleItemLabel = keywords.find(keyword => keyword.value === selectedKeywords.value?.[0]?.value)?.title
   const getDateRangeSingleItemLabel = releaseDates?.[selectedReleaseDateRanges.value?.id]?.title
 
-  const genreClearCallback = () => { selectedGenres.value = [] }
-  const keywordsClearCallback = () => { selectedKeywords.value = [] }
-  const dateRangeClearCallback = () => { selectedReleaseDateRanges.value = {} }
+  const searchStringClearCallback = clearCallbackComposer(() => { searchString.value = '' })
+  const genreClearCallback = clearCallbackComposer(() => { selectedGenres.value = [] })
+  const keywordsClearCallback = clearCallbackComposer(() => { selectedKeywords.value = [] })
+  const dateRangeClearCallback = clearCallbackComposer(() => { selectedReleaseDateRanges.value = {} })
 
   return [
+    getActiveFilter('search', 1, searchString.value.trim() !== '', searchString.value, searchStringClearCallback),
     getActiveFilter('genres', selectedGenres.value.length, selectedGenres.value.length > 0, getGenreSingleItemLabel, genreClearCallback),
-    getActiveFilter('keywords', selectedKeywords.value.length, selectedKeywords.value.length > 0, getKeywordsSingleItemLabel, keywordsClearCallback),
+    getActiveFilter('tags', selectedKeywords.value.length, selectedKeywords.value.length > 0, getKeywordsSingleItemLabel, keywordsClearCallback),
     getActiveFilter('date', 1, selectedReleaseDateRanges.value?.id !== undefined, getDateRangeSingleItemLabel, dateRangeClearCallback)
   ].filter(filter => filter.isShowing)
 })
@@ -141,7 +173,7 @@ const hasSearchParams = computed(() => {
 
   return false
 })
-const getDrawerIconState = computed(() => isOpenFilters.value ? 'ChevronDownIcon' : 'ChevronUpIcon')
+const getDrawerIconState = computed(() => isOpenFilters.value ? 'ChevronUpIcon' : 'ChevronDownIcon')
 
 const releaseDates = [
   { id: 0, value: [2020, new Date().getFullYear()], title: '2020s · Recent' },
@@ -195,6 +227,12 @@ const handleSubmit = () => {
 const toggleIsOpenFilters = (isOpen = !isOpenFilters.value) => {
   isOpenFilters.value = isOpen
 }
+const clearCallbackComposer = (callback) => {
+  return () => {
+    callback()
+    handleSubmit()
+  }
+}
 
 onBeforeMount(() => {
   fetchGenres()
@@ -207,39 +245,81 @@ onBeforeMount(() => {
   grid-template-rows: auto 1fr;
   max-height: calc(100vh - var(--the-main-nav-height));
   width: 100%;
+  container-type: inline-size;
+  background: var(--background-secondary);
 
   &__toolbar {
-    align-items: center;
-    background: var(--background-secondary);
-    border-radius: var(--rounded50) var(--rounded50) 0 0;
-    display: flex;
-    gap: var(--space20);
-    padding: var(--space00);
+    padding: var(--space-10) var(--space00);
     position: sticky;
     top: 0;
+  }
+
+  &__toolbar-inner {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: var(--space-20);
+
+    @container (min-width: 500px) {
+      flex-direction: row;
+      gap: var(--space00);
+      @include container('tablet2');
+    }
   }
 
   &__summary {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
+    justify-content: center;
+
+    @container (min-width: 500px) {
+      justify-content: flex-start;
+    }
   }
 
   &__form {
-    background-color: var(--background);
     overflow-y: auto;
+    top: 100%;
     overscroll-behavior: contain;
     padding: var(--space10) var(--container-gap) var(--container-gap);
+    border-top: 2px solid var(--background-tertiary);
   }
 
-  &__form > :not(:first-child) {
-    margin-top: var(--space20);
+  &__form-inner {
+    @include container('tablet2');
+  }
+
+  &__filters {
+    display: grid;
+    gap: var(--space30);
+    grid-template-columns: 1fr;
+
+    @container (min-width: 760px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__filter {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space10);
   }
 
   &__submit-button {
-    bottom: var(--container-gap);
-    margin-top: var(--space30) !important;
+    bottom: 0;
     position: sticky;
+    margin-top: var(--space30);
+  }
+
+  &__toggle-inner {
+    align-items: center;
+    display: flex;
+    flex-shrink: 0;
+  }
+
+  &__toggle-icon {
+    flex-shrink: 0;
   }
 }
 </style>
