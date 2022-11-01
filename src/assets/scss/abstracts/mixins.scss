@@ -122,3 +122,11 @@
     @content;
   }
 }
+
+@mixin container($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    max-width: #{map-get($breakpoints, $breakpoint)};
+    width: 100%;
+    margin: 0 auto;
+  }
+}
