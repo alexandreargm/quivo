@@ -130,6 +130,7 @@ import BaseButton from './BaseButton.vue'
 import BaseIcon from './BaseIcon.vue'
 import BaseFilterCategoryTag from './BaseFilterCategoryTag.vue'
 import BaseTitle from './BaseTitle.vue'
+import { useDebounceFn } from '../composables/useDebounceFn'
 const genresRepositories = repositoryFactory.get('genres')
 
 const emits = defineEmits(['submit', 'update:modelValue'])
@@ -238,13 +239,14 @@ const handleSubmit = () => {
     dateRange: selectedReleaseDateRanges.value
   })
 }
+const debouncedHandleSubmit = useDebounceFn(() => handleSubmit(), 1000)
 const toggleIsOpenFilters = (isOpen = !isOpenFilters.value) => {
   isOpenFilters.value = isOpen
 }
 const clearCallbackComposer = (callback) => {
   return () => {
     callback()
-    handleSubmit()
+    debouncedHandleSubmit()
   }
 }
 
