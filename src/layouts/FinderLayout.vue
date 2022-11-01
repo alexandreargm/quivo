@@ -1,7 +1,23 @@
 <template>
   <div class="finder-layout">
     <header class="finder-layout__header">
-      <the-main-nav />
+      <BaseButton
+        icon="only"
+        color="brand"
+        variant="tertiary"
+        @click="router.push({ name: 'home' })"
+      >
+        <template #icon>
+          <BaseIcon
+            name="ArrowLeftIcon"
+            size="lg"
+          />
+        </template>
+      </BaseButton>
+
+      <BaseTitle level="1">
+        Finder
+      </BaseTitle>
     </header>
 
     <div class="finder-layout__page">
@@ -17,17 +33,25 @@
 </template>
 
 <script setup>
-import TheMainNav from '../components/TheMainNav.vue'
+import { useRouter } from 'vue-router'
+import BaseButton from '../components/BaseButton.vue'
+import BaseIcon from '../components/BaseIcon.vue'
+import BaseTitle from '../components/BaseTitle.vue'
+
+const router = useRouter()
 </script>
 
 <style lang="scss" scoped>
 .finder-layout {
-  padding-top: var(--the-main-nav-height);
-
   &__header {
-    position: absolute;
+    height: var(--the-main-nav-height);
     top: 0;
     width: 100%;
+    display: flex;
+    align-items: center;
+    gap: var(--space-20);
+    padding: 0 var(--container-gap);
+    background-color: var(--background-secondary);
   }
 
   &__page {

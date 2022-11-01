@@ -1,6 +1,12 @@
 <template>
   <finder-layout>
     <div class="finder">
+      <div class="finder__search">
+        <finder-search
+          @submit="searchTitles"
+        />
+      </div>
+
       <div class="finder__gallery">
         <base-gallery>
           <title-card
@@ -11,12 +17,6 @@
             :src="'http://image.tmdb.org/t/p/w220_and_h330_face/' + poster_path"
           />
         </base-gallery>
-      </div>
-
-      <div class="finder__search">
-        <finder-search
-          @submit="searchTitles"
-        />
       </div>
     </div>
 
@@ -49,25 +49,20 @@ const searchTitles = (params) => {
 
 <style lang="scss" scoped>
 .finder {
-  align-content: space-between;
+  align-content: flex-start;
   display: grid;
-  height: 100%;
   position: relative;
 
   &__gallery {
-    padding-bottom: var(--container-gap);
+    padding: var(--container-gap) 0;
   }
 
   &__search {
-    bottom: 0;
     height: fit-content;
     position: sticky;
+    top: 0;
     width: 100%;
     z-index: var(--z-sticky);
-
-    @include breakpoint('tablet2') {
-      display: none;
-    }
   }
 }
 </style>
