@@ -4,6 +4,7 @@
       v-model="computedValue"
       :placeholder="placeholder"
       width="100%"
+      theme="primary"
     >
       <template #before>
         <div class="searchbar__icon">
