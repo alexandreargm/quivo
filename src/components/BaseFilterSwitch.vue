@@ -1,7 +1,7 @@
 <template>
   <span
     class="base-filter-switch"
-    :class="[getStateClass]"
+    :class="[getStateClass, getThemeClass]"
     role="switch"
     :aria-checked="isActive"
     @click="handleClick"
@@ -24,6 +24,7 @@ const STATE_FLAGS = ref({
 const emit = defineEmits(['select', 'update:state'])
 
 const isActive = computed(() => props.state > 0)
+const getThemeClass = computed(() => `${props.theme}-theme`)
 const getStateClass = computed(() => {
   const STYLE = {
     0: '',
@@ -58,6 +59,13 @@ const props = defineProps({
   hasExcludes: {
     type: Boolean,
     default: false
+  },
+  theme: {
+    type: String,
+    default: 'primary',
+    validator: function (value) {
+      return ['primary', 'secondary', 'tertiary'].includes(value)
+    }
   }
 })
 
@@ -85,37 +93,44 @@ if (props.hasExcludes === false) {
 </script>
 
 <style lang="scss">
-.base-filter-switch {
-  --bg-color: var(--background-secondary);
-  --color: var(--text-neutral);
-  --border-color: transparent;
+@layer base, state;
 
-  align-items: center;
-  background-color: var(--bg-color);
-  border-radius: var(--rounded40);
-  color: var(--color);
-  cursor: pointer;
-  display: flex;
-  font-size: var(--font-20);
-  height: var(--size10);
-  justify-content: center;
-  padding: 0 var(--space-20);
-  text-decoration-color: var(--text-neutral);
-  user-select: none;
+@layer base {
+  .base-filter-switch {
+    --_bg-color: transparent;
+    --_color: var(--text-neutral);
+    --_border-color: var(--border);
+
+    align-items: center;
+    background-color: var(--_bg-color);
+    border-radius: var(--rounded40);
+    color: var(--_color);
+    cursor: pointer;
+    display: flex;
+    font-size: var(--font-20);
+    height: var(--size10);
+    justify-content: center;
+    padding: 0 var(--space-20);
+    text-decoration-color: var(--text-neutral);
+    user-select: none;
+    border: 1px solid var(--_border-color);
+  }
 }
 
-// State
-.base-filter-switch.is-including {
-  --bg-color: var(--icon-interactive);
-  --color: var(--white);
-  --border-color: var(--text-neutral);
+@layer state {
+  // State
+  .base-filter-switch.is-including {
+    --_bg-color: var(--icon-interactive);
+    --_color: var(--white);
+    --_border-color: transparent;
+  }
+
+  .base-filter-switch.is-excluding {
+    --_bg-color: var(--icon-danger-secondary);
+    --_color: var(--white);
+    --_border-color: transparent;
+
+    text-decoration: line-through;
 }
-
-.base-filter-switch.is-excluding {
-  --bg-color: var(--icon-danger-secondary);
-  --color: var(--white);
-  --border-color: var(--text-neutral);
-
-  text-decoration: line-through;
 }
 </style>
