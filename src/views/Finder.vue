@@ -41,7 +41,7 @@ const titlesRepository = repositoryFactory.get('titles')
 
 const mediaType = 'movie'
 const searchedTitles = ref([])
-const isFinderOpen = ref(false)
+const isFinderOpen = ref(true)
 const getIsFinderOpenClass = computed(() => isFinderOpen.value && 'is-finder-open')
 
 const searchTitles = (params) => {
