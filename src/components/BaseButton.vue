@@ -122,10 +122,6 @@ export default {
     flex-shrink: 0;
     justify-content: center;
   }
-
-  &__main {
-    color: var(--_color);
-  }
 }
 
 // Colors
