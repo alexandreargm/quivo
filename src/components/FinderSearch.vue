@@ -195,12 +195,12 @@ const hasSearchParams = computed(() => {
 const getDrawerIconState = computed(() => isOpenFilters.value ? 'ChevronUpIcon' : 'ChevronDownIcon')
 
 const releaseDates = [
-  { id: 0, value: [2020, new Date().getFullYear()], title: '2020s · Recent' },
-  { id: 1, value: [2000, 2010], title: '2010s · Golden Age of Streaming' },
-  { id: 2, value: [1990, 2000], title: '90s-2000s · Modern Classics' },
-  { id: 3, value: [1970, 1980], title: '70s-80s · Influential Movies' },
-  { id: 4, value: [1920, 1960], title: '20s-60s · Classic Hollywood' },
-  { id: 5, value: [1890, 1920], title: '1890s-20s · Silent Films' }
+  { id: 0, value: [2020, new Date().getFullYear()], title: 'Recent, 2020s' },
+  { id: 1, value: [2000, 2010], title: 'The Rise of Streaming, 2010s' },
+  { id: 2, value: [1990, 2000], title: 'Modern Classics, 90s-2000s' },
+  { id: 3, value: [1970, 1980], title: 'Influential Movies, 70s-80s' },
+  { id: 4, value: [1920, 1960], title: 'Classic Hollywood, 20s-60s' },
+  { id: 5, value: [1890, 1920], title: 'Silent Films, 1890s-1920s' }
 ]
 const keywords = [
   { value: 818, title: 'based on novel or book' },
