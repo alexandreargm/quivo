@@ -184,7 +184,6 @@ export default {
 }
 
 // Variant
-
 .base-button.primary {
   background-color: var(--_bg-color);
   border-color: transparent;
@@ -204,13 +203,8 @@ export default {
 }
 
 .base-button.tertiary {
-  --_color: var(--text-neutral);
-
+  color: var(--_bg-color);
   background-color: transparent;
-
-  .base-button__icon {
-    color: var(--_bg-color);
-  }
 
   &:hover {
     color: var(--_color-hover);
@@ -233,7 +227,6 @@ export default {
 }
 
 // Icon
-
 .base-button.icon-only {
   padding: 0;
   width: var(--_height);
