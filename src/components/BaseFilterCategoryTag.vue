@@ -1,11 +1,17 @@
 <template>
-  <base-tag
-    :title="getLabel"
-    variant="secondary"
-    size="lg"
-    has-close
-    @close="emits('close', $event)"
-  />
+  <div
+    class="base-filter-category-tag"
+    :class="getIsExcludedClass"
+  >
+    <base-tag
+      :title="getLabel"
+      variant="secondary"
+      color="brand"
+      size="lg"
+      has-close
+      @close="emits('close', $event)"
+    />
+  </div>
 </template>
 
 <script setup>
@@ -26,6 +32,10 @@ const props = defineProps({
   singleItemLabel: {
     type: String,
     required: true
+  },
+  isExcluding: {
+    type: Boolean,
+    default: false
   }
 })
 
@@ -34,9 +44,16 @@ const getLabel = computed(() => {
 
   return `${props.category} · ${props.amount}`
 })
+const getIsExcluded = computed(() => {
+  if (props.amount === 1) return props.isExcluding
 
+  return false
+})
+const getIsExcludedClass = computed(() => getIsExcluded.value ? 'is-excluded' : '')
 </script>
 
 <style lang='scss' scoped>
-  //
+.base-filter-category-tag.is-excluded {
+  text-decoration: line-through;
+}
 </style>
