@@ -33,11 +33,12 @@
           class="finder-search__summary"
         >
           <base-filter-category-tag
-            v-for="({category, amount, singleItemLabel, clearCallback}, index) in getActiveFilters"
+            v-for="({category, amount, singleItemLabel, singleItemIsExcluded, clearCallback}, index) in getActiveFilters"
             :key="index"
             :category="category"
             :amount="amount"
             :single-item-label="String(singleItemLabel)"
+            :is-excluding="singleItemIsExcluded"
             @close="clearCallback()"
           />
         </div>
@@ -53,23 +54,23 @@
         <div class="finder-search__filters">
           <div class="finder-search__filter">
             <base-title level="2">
-              Title or description
-            </base-title>
-
-            <searchbar
-              v-model="searchString"
-              placeholder="Keyword in title or description"
-            />
-          </div>
-
-          <div class="finder-search__filter">
-            <base-title level="2">
               Release
             </base-title>
 
             <finder-search-cloud
               :tags="releaseDates"
               v-model="selectedReleaseDateRanges"
+            />
+          </div>
+
+          <div class="finder-search__filter">
+            <base-title level="2">
+              Title or description
+            </base-title>
+
+            <searchbar
+              v-model="searchString"
+              placeholder="Keyword in title or description"
             />
           </div>
 
@@ -156,9 +157,12 @@ const selectedKeywords = ref([])
 const selectedReleaseDateRanges = ref({})
 const searchString = ref('')
 const getActiveFilters = computed(() => {
-  const getActiveFilter = (category, amount, isShowing, singleItemLabel, clearCallback) => {
-    return { category, amount, isShowing, singleItemLabel, clearCallback }
+  const getActiveFilter = (category, amount, isShowing, singleItemLabel, singleItemIsExcluded, clearCallback) => {
+    return { category, amount, isShowing, singleItemLabel, singleItemIsExcluded, clearCallback }
   }
+
+  const getGenreIsExcluded = selectedGenres.value?.[0]?.state === 2
+  const getKeywordIsExcluded = selectedKeywords.value?.[0]?.state === 2
 
   const getGenreSingleItemLabel = genres.value.find(genre => genre.value === selectedGenres.value?.[0]?.value)?.title
   const getKeywordsSingleItemLabel = keywords.find(keyword => keyword.value === selectedKeywords.value?.[0]?.value)?.title
@@ -170,10 +174,10 @@ const getActiveFilters = computed(() => {
   const dateRangeClearCallback = clearCallbackComposer(() => { selectedReleaseDateRanges.value = {} })
 
   return [
-    getActiveFilter('search', 1, searchString.value.trim() !== '', searchString.value, searchStringClearCallback),
-    getActiveFilter('genres', selectedGenres.value.length, selectedGenres.value.length > 0, getGenreSingleItemLabel, genreClearCallback),
-    getActiveFilter('tags', selectedKeywords.value.length, selectedKeywords.value.length > 0, getKeywordsSingleItemLabel, keywordsClearCallback),
-    getActiveFilter('date', 1, selectedReleaseDateRanges.value?.id !== undefined, getDateRangeSingleItemLabel, dateRangeClearCallback)
+    getActiveFilter('search', 1, searchString.value.trim() !== '', searchString.value, false, searchStringClearCallback),
+    getActiveFilter('genres', selectedGenres.value.length, selectedGenres.value.length > 0, getGenreSingleItemLabel, getGenreIsExcluded, genreClearCallback),
+    getActiveFilter('tags', selectedKeywords.value.length, selectedKeywords.value.length > 0, getKeywordsSingleItemLabel, getKeywordIsExcluded, keywordsClearCallback),
+    getActiveFilter('date', 1, selectedReleaseDateRanges.value?.id !== undefined, getDateRangeSingleItemLabel, false, dateRangeClearCallback)
   ].filter(filter => filter.isShowing)
 })
 const hasActiveFilters = computed(() => getActiveFilters.value.length > 0)
@@ -299,7 +303,7 @@ onBeforeMount(() => {
     top: 100%;
     overscroll-behavior: contain;
     padding: var(--space10) var(--container-gap) var(--container-gap);
-    border-top: 2px solid var(--background-tertiary);
+    border-top: 2px solid var(--border);
   }
 
   &__form-inner {
