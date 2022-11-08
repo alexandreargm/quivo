@@ -1,5 +1,8 @@
 <template>
-  <div class="base-input">
+  <div
+    class="base-input"
+    :class="getThemeClass"
+  >
     <div
       v-if="$slots.before"
       class="base-input__before"
@@ -33,6 +36,7 @@ const computedValue = computed({
     emit('update:modelValue', newValue)
   }
 })
+const getThemeClass = computed(() => `${props.theme}-theme`)
 
 const props = defineProps({
   modelValue: {
@@ -54,6 +58,13 @@ const props = defineProps({
   width: {
     type: String,
     default: 'fit-content'
+  },
+  theme: {
+    type: String,
+    default: 'primary',
+    validator: function (value) {
+      return ['primary', 'secondary', 'tertiary'].includes(value)
+    }
   }
 })
 </script>
@@ -61,7 +72,7 @@ const props = defineProps({
 <style lang='scss' scoped>
 .base-input {
   align-items: center;
-  background-color: var(--background-secondary);
+  background-color: var(--_theme-bg);
   border-radius: var(--rounded00);
   display: flex;
   font-size: var(--font00);
@@ -83,5 +94,16 @@ const props = defineProps({
     padding: 0 var(--space-10);
     width: 100%;
   }
+}
+
+// Theme prop
+.base-input.primary-theme {
+  --_theme-bg: var(--background);
+}
+.base-input.secondary-theme {
+  --_theme-bg: var(--background-secondary);
+}
+.base-input.tertiary-theme {
+  --_theme-bg: var(--background-tertiary);
 }
 </style>
