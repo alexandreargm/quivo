@@ -11,6 +11,7 @@
 
     <button
       v-if="hasClose"
+      type="button"
       class="base-tag__close-button"
       @click="emits('close', $event)"
     >
@@ -34,7 +35,7 @@ const props = defineProps({
     type: String,
     default: '',
     validator: function (value) {
-      return ['', 'interactive', 'danger'].includes(value)
+      return ['', 'brand', 'danger'].includes(value)
     }
   },
   variant: {
@@ -67,90 +68,100 @@ const getHasCloseClass = () => {
 </script>
 
 <style lang='scss' scoped>
-.base-tag {
-  --_bg-color: var(--color);
-  --_color: var(--text);
-  --_font-size: var(--font-20);
-  --_padding-size: var(--space-20);
-  --_height-size: var(--size10);
+@layer base, size, color, variant;
 
-  align-items: center;
-  border-radius: var(--rounded30);
-  color: var(--_color);
-  display: flex;
-  font-size: var(--_font-size);
-  height: var(--_height-size);
-  justify-content: center;
-  overflow: hidden;
-  user-select: none;
-  width: fit-content;
+@layer base {
+  .base-tag {
+    --_bg-color: var(--border);
+    --_color: var(--text);
+    --_font-size: var(--font-20);
+    --_padding-size: var(--space-20);
+    --_height-size: var(--size10);
 
-  &__title {
-    padding: 0 var(--_padding-size);
-    white-space: nowrap;
+    align-items: center;
+    border-radius: var(--rounded30);
+    color: var(--_color);
+    display: flex;
+    font-size: var(--_font-size);
+    height: var(--_height-size);
+    justify-content: center;
+    overflow: hidden;
+    user-select: none;
+    width: fit-content;
+
+    &__title {
+      padding: 0 var(--_padding-size);
+      white-space: nowrap;
+    }
+
+    &__close-button {
+      appearance: none;
+      background: none;
+      border: 2px solid transparent;
+      font-size: inherit;
+      height: 100%;
+      padding: var(--space-40);
+      width: var(--size10);
+    }
   }
 
-  &__close-button {
-    appearance: none;
-    background: none;
-    border: 2px solid transparent;
-    font-size: inherit;
-    height: 100%;
-    padding: var(--space-40);
-    width: var(--size10);
-  }
-}
-
-// HasClose
-.base-tag.has-close {
-  .base-tag__title {
-    padding-right: var(--space-30);
-  }
-}
-
-// Color
-.base-tag.interactive {
-  --_bg-color: var(--icon-interactive);
-  --_color: var(--text-neutral);
-}
-
-.base-tag.danger {
-  --_bg-color: var(--icon-danger);
-  --_color: var(--text-neutral);
-}
-
-// Variant
-.base-tag.primary {
-  background-color: var(--_bg-color);
-  border: 1px solid var(--_bg-color);
-
-  .base-tag__close-button {
-    background: var(--_bg-color);
+  // HasClose
+  .base-tag.has-close {
+    .base-tag__title {
+      padding-right: var(--space-30);
+    }
   }
 }
 
-.base-tag.secondary {
-  border: 1px solid var(--_bg-color);
-}
+@layer color {
+  // Color
+  .base-tag.brand {
+    --_bg-color: var(--icon-interactive);
+    --_color: var(--text-neutral);
+  }
 
-// Size
-.base-tag.sm {
-  --_font-size: var(--font-20);
-  --_padding-size: var(--space-30);
-  --_height-size: var(--size00);
-
-  .base-tag__close-button {
-    width: var(--size10);
+  .base-tag.danger {
+    --_bg-color: var(--icon-danger);
+    --_color: var(--text-neutral);
   }
 }
 
-.base-tag.lg {
-  --_font-size: var(--font-10);
-  --_padding-size: var(--space-20);
-  --_height-size: var(--size20);
+@layer variant {
+  // Variant
+  .base-tag.primary {
+    background-color: var(--_bg-color);
+    border: 1px solid var(--_bg-color);
 
-  .base-tag__close-button {
-    width: var(--size20);
+    .base-tag__close-button {
+      background: var(--_bg-color);
+    }
+  }
+
+  .base-tag.secondary {
+    border: 1px solid var(--_bg-color);
+  }
+}
+
+@layer size {
+  // Size
+  .base-tag.sm {
+    --_font-size: var(--font-20);
+    --_padding-size: var(--space-30);
+    --_height-size: var(--size00);
+
+    .base-tag__close-button {
+      width: var(--size10);
+    }
+  }
+
+  .base-tag.lg {
+    --_font-size: var(--font-10);
+    --_padding-size: var(--space-20);
+    --_height-size: var(--size20);
+
+    .base-tag__close-button {
+      width: var(--size20);
+    }
   }
 }
 </style>
