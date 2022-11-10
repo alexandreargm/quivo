@@ -42,6 +42,15 @@
             @close="clearCallback()"
           />
         </div>
+
+        <base-tag
+          v-else
+          class="finder-search__no-filters"
+          size="lg"
+          variant="tertiary"
+        >
+          No filters selected
+        </base-tag>
       </div>
     </div>
 
@@ -131,6 +140,7 @@ import BaseButton from './BaseButton.vue'
 import BaseIcon from './BaseIcon.vue'
 import BaseFilterCategoryTag from './BaseFilterCategoryTag.vue'
 import BaseTitle from './BaseTitle.vue'
+import BaseTag from './BaseTag.vue'
 import { useDebounceFn } from '../composables/useDebounceFn'
 const genresRepositories = repositoryFactory.get('genres')
 
@@ -340,6 +350,10 @@ onBeforeMount(() => {
 
   &__toggle-icon {
     flex-shrink: 0;
+  }
+
+  &__no-filters {
+    color: var(--text-secondary);
   }
 }
 </style>
