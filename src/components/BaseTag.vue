@@ -88,6 +88,8 @@ const getHasCloseClass = () => {
     overflow: hidden;
     user-select: none;
     width: fit-content;
+    font-weight: 300;
+    border: 1px solid;
 
     &__title {
       padding: 0 var(--_padding-size);
@@ -130,7 +132,7 @@ const getHasCloseClass = () => {
   // Variant
   .base-tag.primary {
     background-color: var(--_bg-color);
-    border: 1px solid var(--_bg-color);
+    border-color: var(--_bg-color);
 
     .base-tag__close-button {
       background: var(--_bg-color);
@@ -138,7 +140,11 @@ const getHasCloseClass = () => {
   }
 
   .base-tag.secondary {
-    border: 1px solid var(--_bg-color);
+    border-color: var(--_bg-color);
+  }
+
+  .base-tag.tertiary {
+    border-color: transparent;
   }
 }
 
