@@ -108,6 +108,7 @@ if (props.hasExcludes === false) {
     cursor: pointer;
     display: flex;
     font-size: var(--font-20);
+    font-weight: 300;
     height: var(--size10);
     justify-content: center;
     padding: 0 var(--space-20);
