@@ -82,6 +82,7 @@ export default {
     height: 100%;
     position: relative;
     width: 100%;
+    background-color: var(--background-tertiary);
   }
 
   &__image {
