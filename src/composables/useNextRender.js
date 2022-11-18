@@ -1,9 +1,19 @@
-export default function nextRender (fn) {
+export function nextRender (fn) {
   window.requestAnimationFrame(() => {
     window.requestAnimationFrame(fn)
   })
 }
 
-export {
-  nextRender
+export function nextRenderPromise (fn = () => {}) {
+  return new Promise(resolve => {
+    window.requestAnimationFrame(() => {
+      return resolve(
+        new Promise(resolve => {
+          window.requestAnimationFrame(() => {
+            return resolve(fn())
+          })
+        })
+      )
+    })
+  })
 }
