@@ -27,8 +27,8 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import BaseDrawer from './BaseDrawer.vue'
-import getStyleProperty from '@/composables/useGetStyleProperty'
-import nextRender from '@/composables/useNextRender'
+// import getStyleProperty from '@/composables/useGetStyleProperty'
+// import nextRender from '@/composables/useNextRender'
 import AsyncTitleRelatedTitles from './AsyncTitleRelatedTitles'
 import AsyncTitlePreview from './AsyncTitlePreview'
 import appendRouteName from '../composables/useAppendRouteName.js'
@@ -46,16 +46,17 @@ const handleChange = () => {
     const getTitlePreviewEl = root.value.querySelector('.title-preview')
 
     root.value.scrollTo(0, 0)
+    console.log(getTitlePreviewEl.value)
 
     // Cheap mobile "scroll to top" trick. Hide content and show it again inmediatly.
-    const tabletBreakpoint = getStyleProperty('--desktop')
-    if (getTitlePreviewEl && window.matchMedia('(max-width: ' + tabletBreakpoint + ')').matches) {
-      getTitlePreviewEl.style.display = 'none'
+    // const tabletBreakpoint = getStyleProperty('--desktop')
+    // if (getTitlePreviewEl && window.matchMedia('(max-width: ' + tabletBreakpoint + ')').matches) {
+    //   getTitlePreviewEl.style.display = 'none'
 
-      nextRender(() => {
-        getTitlePreviewEl.style.display = ''
-      })
-    }
+    //   nextRender(() => {
+    //     getTitlePreviewEl.style.display = ''
+    //   })
+    // }
   }
 }
 </script>

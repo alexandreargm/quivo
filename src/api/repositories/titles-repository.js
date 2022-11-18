@@ -16,13 +16,14 @@ export default {
     return client.get(`/${mediaType}/${id}?append_to_response=release_dates`)
   },
 
-  search ({ mediaType, title = '', keywords = [], genres = [], dateRange = ['', ''] }) {
+  search ({ mediaType, page = 1, title = '', keywords = [], genres = [], dateRange = ['', ''] }) {
     checkIsValidMediaType(mediaType)
     const { includes: includedKeywords, excludes: excludedKeywords } = getIncludedExcludedValues(keywords)
     const { includes: includedGenres, excludes: excludedGenres } = getIncludedExcludedValues(genres)
     const [startDate, endDate] = getDateRangeValues(dateRange)
 
     const queryParameters = [
+      ['page=', page],
       ['with_text_query=', title],
       ['with_keywords=', encodeValues(includedKeywords, 'AND')],
       ['with_keywords=', encodeValues(excludedKeywords, 'AND')],

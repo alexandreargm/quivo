@@ -21,7 +21,10 @@
     </header>
 
     <div class="finder-layout__page">
-      <div class="finder-layout__main">
+      <div
+        class="finder-layout__main"
+        ref="mainEl"
+      >
         <slot />
       </div>
 
@@ -33,12 +36,19 @@
 </template>
 
 <script setup>
-import { useRouter } from 'vue-router'
+import { useRouter, defineExpose } from 'vue-router'
+import { ref } from 'vue'
 import BaseButton from '../components/BaseButton.vue'
 import BaseIcon from '../components/BaseIcon.vue'
 import BaseTitle from '../components/BaseTitle.vue'
 
 const router = useRouter()
+
+const mainEl = ref()
+
+defineExpose({
+  mainEl
+})
 </script>
 
 <style lang="scss" scoped>

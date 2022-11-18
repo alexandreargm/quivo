@@ -144,11 +144,15 @@ import BaseTag from './BaseTag.vue'
 import { useDebounceFn } from '../composables/useDebounceFn'
 const genresRepositories = repositoryFactory.get('genres')
 
-const emits = defineEmits(['submit', 'update:modelValue'])
+const emits = defineEmits(['submit', 'update:modelValue', 'update:filters'])
 
 const props = defineProps({
   modelValue: {
     type: Boolean,
+    required: true
+  },
+  filters: {
+    type: Object,
     required: true
   }
 })
@@ -245,13 +249,15 @@ const handleSubmit = () => {
 
   toggleIsOpenFilters(false)
 
-  emits('submit', {
+  emits('update:filters', {
     mediaType: 'movie',
     title: searchString.value,
     keywords: selectedKeywords.value,
     genres: selectedGenres.value,
     dateRange: selectedReleaseDateRanges.value
   })
+
+  emits('submit')
 }
 const debouncedHandleSubmit = useDebounceFn(() => handleSubmit(), 1000)
 const toggleIsOpenFilters = (isOpen = !isOpenFilters.value) => {
