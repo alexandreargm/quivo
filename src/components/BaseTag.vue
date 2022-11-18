@@ -42,7 +42,7 @@ const props = defineProps({
     type: String,
     default: 'primary',
     validator: function (value) {
-      return ['primary', 'secondary'].includes(value)
+      return ['primary', 'secondary', 'tertiary'].includes(value)
     }
   },
   title: {
