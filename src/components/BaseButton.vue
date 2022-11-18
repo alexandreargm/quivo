@@ -203,6 +203,8 @@ export default {
 }
 
 .base-button.tertiary {
+  --_padding: var(--space-20);
+
   color: var(--_bg-color);
   background-color: transparent;
 
