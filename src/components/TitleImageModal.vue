@@ -1,10 +1,7 @@
 <template>
   <div class="title-image-modal">
-    <base-modal>
-      <div
-        class="title-image-modal__inner"
-        @click.prevent.self="handleClose"
-      >
+    <base-modal @click.capture="handleClose">
+      <div class="title-image-modal__inner">
         <div class="title-image-modal__poster-wrapper">
           <img
             class="title-image-modal__poster"
@@ -13,10 +10,7 @@
         </div>
 
         <div class="title-image-modal__close">
-          <base-button
-            @click="handleClose"
-            variant="tertiary"
-          >
+          <base-button variant="tertiary">
             <template #icon>
               <base-icon
                 name="XIcon"
@@ -70,8 +64,8 @@ export default {
     --close-height: 64px;
 
     &__inner {
-      align-items: center;
       cursor: pointer;
+      align-items: center;
       display: flex;
       flex-direction: column;
       height: 100vh;
@@ -80,7 +74,6 @@ export default {
 
     &__poster-wrapper {
       aspect-ratio: 2/3;
-      cursor: initial;
       display: flex;
       justify-content: center;
       max-height: calc(100vh - var(--close-height));
