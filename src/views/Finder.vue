@@ -14,6 +14,7 @@
         </div>
 
         <div
+          v-show="searchedTitles.length > 0"
           class="finder__gallery"
         >
           <base-gallery>

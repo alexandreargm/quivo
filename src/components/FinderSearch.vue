@@ -279,7 +279,6 @@ onBeforeMount(() => {
 .finder-search {
   display: grid;
   grid-template-rows: auto 1fr;
-  max-height: calc(100vh - var(--the-main-nav-height));
   width: 100%;
   container-type: inline-size;
   background: var(--background-secondary);
@@ -288,6 +287,7 @@ onBeforeMount(() => {
     padding: var(--space-10) var(--space00);
     position: sticky;
     top: 0;
+    background: var(--background-secondary);
   }
 
   &__toolbar-inner {
@@ -320,6 +320,7 @@ onBeforeMount(() => {
     overscroll-behavior: contain;
     padding: var(--space10) var(--container-gap) var(--container-gap);
     border-top: 2px solid var(--border);
+    background: var(--background-secondary);
   }
 
   &__form-inner {

@@ -1,23 +1,22 @@
 <template>
   <div class="finder-layout">
     <header class="finder-layout__header">
+      <BaseTitle level="1">
+        Finder
+      </BaseTitle>
+
       <BaseButton
         icon="only"
-        color="brand"
         variant="tertiary"
         @click="router.push({ name: 'home' })"
       >
         <template #icon>
           <BaseIcon
-            name="ArrowLeftIcon"
-            size="lg"
+            name="XIcon"
+            size="xl"
           />
         </template>
       </BaseButton>
-
-      <BaseTitle level="1">
-        Finder
-      </BaseTitle>
     </header>
 
     <div class="finder-layout__page">
@@ -53,6 +52,10 @@ defineExpose({
 
 <style lang="scss" scoped>
 .finder-layout {
+  display: grid;
+  grid-template-rows: auto minmax(0, 100%);
+  height: 100vh;
+
   &__header {
     height: var(--the-main-nav-height);
     top: 0;
@@ -62,9 +65,16 @@ defineExpose({
     gap: var(--space-20);
     padding: 0 var(--container-gap);
     background-color: var(--background-secondary);
+    justify-content: space-between;
+
+    @include breakpoint('tablet') {
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+    }
   }
 
   &__page {
+    height: 100%;
     position: relative;
 
     @include breakpoint('desktop') {
@@ -74,7 +84,7 @@ defineExpose({
   }
 
   &__main {
-    height: calc(100vh - var(--the-main-nav-height));
+    height: 100%;
     overflow-y: scroll;
   }
 }
