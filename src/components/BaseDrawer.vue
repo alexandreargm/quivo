@@ -103,7 +103,7 @@ export default {
   }
 
   &__close {
-    opacity: 0.75;
+    opacity: 0.85;
     position: absolute;
     right: var(--space00);
     top: var(--space00);
@@ -121,7 +121,7 @@ export default {
     background-color: var(--background-color);
     flex: 1;
     height: 100%;
-    opacity: 0.7;
+    opacity: 0.85;
 
     @include breakpoint('desktop') {
       display: none;
