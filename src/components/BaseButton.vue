@@ -90,173 +90,185 @@ export default {
 </script>
 
 <style lang='scss' scoped>
-.base-button {
-  --_height: var(--size30);
-  --_padding: var(--space20);
-  --_bg-color: var(--color);
-  --_color: var(--text);
-  --_color-hover: var(--text-hover);
-  --_color-active: var(--text-active);
+@layer base, icon, size, color, variant, state;
 
-  align-items: center;
-  appearance: none;
-  border: 2px solid transparent;
-  border-radius: var(--rounded20);
-  color: var(--_color);
-  display: flex;
-  font-family: inherit;
-  font-size: var(--font00);
-  font-weight: var(--medium);
-  height: var(--_height);
-  justify-content: center;
-  line-height: 1;
-  padding: 0 var(--_padding);
-  vertical-align: middle;
-  white-space: nowrap;
-  width: v-bind(width);
+@layer base {
+  .base-button {
+    --_height: var(--size30);
+    --_padding: var(--space20);
+    --_bg-color: var(--color);
+    --_color: var(--text);
+    --_color-hover: var(--text-hover);
+    --_color-active: var(--text-active);
 
-  &__icon {
     align-items: center;
-    color: inherit;
+    appearance: none;
+    border: 2px solid transparent;
+    border-radius: var(--rounded20);
+    color: var(--_color);
     display: flex;
-    flex-shrink: 0;
+    font-family: inherit;
+    font-size: var(--font00);
+    font-weight: var(--medium);
+    height: var(--_height);
     justify-content: center;
+    line-height: 1;
+    padding: 0 var(--_padding);
+    vertical-align: middle;
+    white-space: nowrap;
+    width: v-bind(width);
+    gap: var(--space-30);
+
+    &__icon {
+      flex-shrink: 0;
+      align-items: center;
+      color: inherit;
+      display: flex;
+      flex-shrink: 0;
+      justify-content: center;
+    }
   }
 }
 
-// Colors
-
-.base-button.brand {
-  --_bg-color: var(--color-interactive);
-  --_color: var(--text-reverse-neutral);
-  --_color-hover: var(--color-interactive-hover);
-  --_color-active: var(--color-interactive-active);
-
-  &:hover {
-    --_bg-color: var(--color-interactive-hover);
-  }
-
-  &:active {
-    --_bg-color: var(--color-interactive-active);
+@layer state {
+  .base-button:disabled {
+    &,
+    &:hover,
+    :active {
+      background-color: var(--color-neutral) !important;
+      border-color: transparent !important;
+      color: var(--text-neutral) !important;
+      cursor: not-allowed;
+    }
   }
 }
 
-.base-button.danger {
-  --_bg-color: var(--color-danger);
-  --_color: var(--text-reverse-neutral);
-  --_color-hover: var(--color-danger-hover);
-  --_color-active: var(--color-danger-active);
+@layer color {
+  .base-button.brand {
+    --_bg-color: var(--color-interactive);
+    --_color: var(--text-reverse-neutral);
+    --_color-hover: var(--color-interactive-hover);
+    --_color-active: var(--color-interactive-active);
 
-  &:hover {
-    --_bg-color: var(--color-danger-hover);
+    &:hover {
+      --_bg-color: var(--color-interactive-hover);
+    }
+
+    &:active {
+      --_bg-color: var(--color-interactive-active);
+    }
   }
 
-  &:active {
-    --_bg-color: var(--color-danger-active);
-  }
-}
+  .base-button.danger {
+    --_bg-color: var(--color-danger);
+    --_color: var(--text-reverse-neutral);
+    --_color-hover: var(--color-danger-hover);
+    --_color-active: var(--color-danger-active);
 
-.base-button.reverse {
-  --_bg-color: var(--color-reverse);
-  --_color: var(--text-reverse-neutral);
-  --_color-hover: var(--color-reverse-hover);
-  --_color-active: var(--color-reverse-active);
+    &:hover {
+      --_bg-color: var(--color-danger-hover);
+    }
 
-  &:hover {
-    --_bg-color: var(--color-reverse-hover);
-  }
-
-  &:active {
-    --_bg-color: var(--color-reverse-active);
-  }
-}
-
-// States
-.base-button:disabled {
-  &,
-  &:hover,
-  :active {
-    background-color: var(--color-neutral) !important;
-    border-color: transparent !important;
-    color: var(--text-neutral) !important;
-    cursor: not-allowed;
-  }
-}
-
-// Variant
-.base-button.primary {
-  background-color: var(--_bg-color);
-  border-color: transparent;
-}
-
-.base-button.secondary {
-  background-color: transparent;
-  border-color: var(--_bg-color);
-
-  &:hover {
-    border-color: var(--_color-hover);
+    &:active {
+      --_bg-color: var(--color-danger-active);
+    }
   }
 
-  &:active {
-    border-color: var(--_color-active);
+  .base-button.reverse {
+    --_bg-color: var(--color-reverse);
+    --_color: var(--text-reverse-neutral);
+    --_color-hover: var(--color-reverse-hover);
+    --_color-active: var(--color-reverse-active);
+
+    &:hover {
+      --_bg-color: var(--color-reverse-hover);
+    }
+
+    &:active {
+      --_bg-color: var(--color-reverse-active);
+    }
   }
 }
 
-.base-button.tertiary {
-  --_padding: var(--space-20);
-
-  color: var(--_bg-color);
-  background-color: transparent;
-
-  &:hover {
-    color: var(--_color-hover);
+@layer variant {
+  .base-button.primary {
+    background-color: var(--_bg-color);
+    border-color: transparent;
   }
 
-  &:active {
-    color: var(--_color-active);
+  .base-button.secondary {
+    background-color: transparent;
+    border-color: var(--_bg-color);
+
+    &:hover {
+      border-color: var(--_color-hover);
+    }
+
+    &:active {
+      border-color: var(--_color-active);
+    }
   }
-}
 
-// Sizes
-.base-button.sm {
-  --_height: var(--size20);
-  --_padding: var(--space10);
-}
+  .base-button.tertiary {
+    --_padding: 0;
 
-.base-button.lg {
-  --_height: var(--size40);
-  --_padding: var(--space30);
-}
+    color: var(--_bg-color);
+    background-color: transparent;
 
-// Icon
-.base-button.icon-only {
-  padding: 0;
-  width: var(--_height);
+    &:hover {
+      color: var(--_color-hover);
+    }
 
-  .base-button__main {
-    display: none;
-  }
-}
+    &:active {
+      color: var(--_color-active);
+    }
 
-.base-button.icon-before {
-  .base-button__icon {
-    margin-left: calc(-1 * var(--space-20));
-    margin-right: var(--space-30);
-    order: -1;
+    .base-button__icon {
+      margin-right: 0;
+      margin-left: 0;
+    }
   }
 }
 
-.base-button.icon-after {
-  .base-button__icon {
-    margin-left: var(--space-30);
-    margin-right: calc(-1 * var(--space-20));
-    order: 9999;
+@layer sizes {
+  .base-button.sm {
+    --_height: var(--size20);
+    --_padding: var(--space10);
+  }
+
+  .base-button.lg {
+    --_height: var(--size40);
+    --_padding: var(--space30);
   }
 }
 
-// Round
-.base-button.round {
-  border-radius: var(--rounded100);
-}
+@layer icon {
+  .base-button.icon-only {
+    padding: 0;
+    width: var(--_height);
 
+    .base-button__main {
+      display: none;
+    }
+  }
+
+  .base-button.icon-before {
+    .base-button__icon {
+      margin-left: calc(-1 * var(--space-20));
+      order: -1;
+    }
+  }
+
+  .base-button.icon-after {
+    .base-button__icon {
+      margin-right: calc(-1 * var(--space-20));
+      order: 9999;
+    }
+  }
+
+  // Round
+  .base-button.round {
+    border-radius: var(--rounded100);
+  }
+}
 </style>
