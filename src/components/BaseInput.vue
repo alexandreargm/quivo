@@ -78,6 +78,7 @@ const props = defineProps({
   font-size: var(--font00);
   overflow: hidden;
   width: v-bind(width);
+  padding: 0 var(--space-10);
 
   &:focus-within {
     outline: 2px solid var(--border-reverse);
@@ -91,8 +92,6 @@ const props = defineProps({
     height: 100%;
     height: var(--size30);
     outline: 0;
-    padding: 0 var(--space-10);
-    width: 100%;
   }
 }
 
