@@ -75,7 +75,7 @@ export default {
     align-items: center;
     display: flex;
     height: var(--the-main-nav-height);
-    padding: 0 var(--space30);
+    padding: 0 var(--container-gap);
     width: 100%;
 
     &__brand {
