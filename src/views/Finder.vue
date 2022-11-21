@@ -6,7 +6,7 @@
         :class="[getIsFinderOpenClass]"
       >
         <div class="finder__search">
-          <finder-search
+          <advanced-search
             v-model="isFinderOpen"
             v-model:filters="filters"
             @submit="handleSubmitSearch"
@@ -43,13 +43,13 @@
 <script setup>
 import { ref, computed, watch, onMounted, nextTick } from 'vue'
 import FinderLayout from '../layouts/FinderLayout'
-import FinderSearch from '../components/FinderSearch.vue'
 import repositoryFactory from '@/api/repository-factory.js'
 import { handleRequest } from '../api/request-handlers'
 import BaseGallery from '../components/BaseGallery.vue'
 import TitleCard from '../components/TitleCard.vue'
 import useIntersectionObserver from '../composables/useIntersectionObserver'
 import { nextRenderPromise } from '../composables/useNextRender'
+import AdvancedSearch from '../components/AdvancedSearch.vue'
 const titlesRepository = repositoryFactory.get('titles')
 
 const mediaType = 'movie'
