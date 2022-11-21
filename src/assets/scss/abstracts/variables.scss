@@ -23,34 +23,6 @@ $indexes: (
   'top': 9999,
 );
 
-/*
-
-  Base css properties
-
-*/
-
-:root {
-  /* Global variables */
-  --container-gap: var(--space20);
-  --the-main-nav-height: 70px;
-
-  /* Base tokens */
-  @each $name, $value in $base {
-    --#{$name}: #{$value};
-  }
-
-  /* Breakpoints */
-  @each $name, $value in $breakpoints {
-    --#{$name}: #{$value};
-  }
-
-  /* Layout helpers */
-
-  // z-indexes
-  @each $name, $value in $indexes {
-    --z-#{$name}: #{$value};
-  }
-}
 
 /*
 
@@ -79,5 +51,40 @@ $indexes: (
     @each $name, $value in $light {
       --#{$name}: #{$value};
     }
+  }
+}
+
+
+/*
+
+  Base css properties
+
+*/
+
+:root {
+  /* Base tokens */
+  @each $name, $value in $base {
+    --#{$name}: #{$value};
+  }
+
+  /* Breakpoints */
+  @each $name, $value in $breakpoints {
+    --#{$name}: #{$value};
+  }
+
+  /* Layout helpers */
+
+  // z-indexes
+  @each $name, $value in $indexes {
+    --z-#{$name}: #{$value};
+  }
+
+  /* Global variables */
+  --container-gap: var(--space00);
+  --the-main-nav-height: 60px;
+
+  @media (min-width: var(--tablet)) {
+    --container-gap: var(--space20);
+    --the-main-nav-height: 70px;
   }
 }
