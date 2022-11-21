@@ -7,9 +7,15 @@
       theme="primary"
     >
       <template #before>
-        <div class="searchbar__icon">
-          <base-icon name="SearchIcon" />
-        </div>
+        <slot name="before">
+          <div class="searchbar__icon">
+            <base-icon name="SearchIcon" />
+          </div>
+        </slot>
+      </template>
+
+      <template #after>
+        <slot name="after" />
       </template>
     </base-input>
   </div>
