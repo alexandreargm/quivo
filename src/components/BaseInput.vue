@@ -92,6 +92,7 @@ const props = defineProps({
     height: 100%;
     height: var(--size30);
     outline: 0;
+    flex-grow: 1;
   }
 }
 
