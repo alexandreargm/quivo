@@ -19,7 +19,12 @@
       :autocorrect="autocorrect"
     >
 
-    <slot name="after" />
+    <div
+      v-if="$slots.after"
+      class="base-input__after"
+    >
+      <slot name="after" />
+    </div>
   </div>
 </template>
 
@@ -59,6 +64,10 @@ const props = defineProps({
     type: String,
     default: 'fit-content'
   },
+  maxWidth: {
+    type: String,
+    default: '100%'
+  },
   theme: {
     type: String,
     default: 'primary',
@@ -71,13 +80,15 @@ const props = defineProps({
 
 <style lang='scss' scoped>
 .base-input {
-  align-items: center;
+  align-items: stretch;
   background-color: var(--_theme-bg);
   border-radius: var(--rounded00);
-  display: flex;
+  display: grid;
+  grid-template-columns: max-content minmax(0, 100%) max-content;;
+  grid-template-rows: var(--size30);
   font-size: var(--font00);
-  overflow: hidden;
   width: v-bind(width);
+  max-width: v-bind(maxWidth);
   padding: 0 var(--space-10);
 
   &:focus-within {
@@ -89,10 +100,8 @@ const props = defineProps({
     border: 0;
     cursor: text;
     font-size: inherit;
-    height: 100%;
-    height: var(--size30);
     outline: 0;
-    flex-grow: 1;
+    text-overflow: ellipsis;
   }
 }
 
