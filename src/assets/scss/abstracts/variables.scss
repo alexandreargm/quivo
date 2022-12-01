@@ -83,7 +83,7 @@ $indexes: (
   --container-gap: var(--space00);
   --the-main-nav-height: 60px;
 
-  @media (min-width: var(--tablet)) {
+  @media (min-width: map-get($breakpoints, 'tablet')) {
     --container-gap: var(--space20);
     --the-main-nav-height: 70px;
   }
