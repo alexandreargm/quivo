@@ -1,7 +1,7 @@
 <template>
   <div
     class="base-input"
-    :class="getThemeClass"
+    :class="[getThemeClass, getSizeClass]"
   >
     <div
       v-if="$slots.before"
@@ -32,16 +32,6 @@
 import { computed, defineProps, defineEmits } from 'vue'
 
 const emit = defineEmits(['update:modelValue'])
-
-const computedValue = computed({
-  get () {
-    return props.modelValue
-  },
-  set (newValue) {
-    emit('update:modelValue', newValue)
-  }
-})
-const getThemeClass = computed(() => `${props.theme}-theme`)
 
 const props = defineProps({
   modelValue: {
@@ -74,45 +64,81 @@ const props = defineProps({
     validator: function (value) {
       return ['primary', 'secondary', 'tertiary'].includes(value)
     }
+  },
+  size: {
+    type: String,
+    default: 'md',
+    validator: function (value) {
+      return ['sm', 'md', 'lg'].includes(value)
+    }
   }
 })
+
+const computedValue = computed({
+  get () {
+    return props.modelValue
+  },
+  set (newValue) {
+    emit('update:modelValue', newValue)
+  }
+})
+const getThemeClass = computed(() => `${props.theme}-theme`)
+const getSizeClass = computed(() => props.size)
 </script>
 
 <style lang='scss' scoped>
-.base-input {
-  align-items: stretch;
-  background-color: var(--_theme-bg);
-  border-radius: var(--rounded00);
-  display: grid;
-  grid-template-columns: max-content minmax(0, 100%) max-content;;
-  grid-template-rows: var(--size30);
-  font-size: var(--font00);
-  width: v-bind(width);
-  max-width: v-bind(maxWidth);
-  padding: 0 var(--space-10);
+@layer base, theme, size;
 
-  &:focus-within {
-    outline: 2px solid var(--border-reverse);
+@layer base {
+  .base-input {
+    align-items: stretch;
+    background-color: var(--_theme-bg);
+    border-radius: var(--rounded00);
+    display: grid;
+    grid-template-columns: max-content minmax(0, 100%) max-content;;
+    grid-template-rows: var(--_size, --size30);
+    font-size: var(--font00);
+    width: v-bind(width);
+    max-width: v-bind(maxWidth);
+    padding: 0 var(--space-10);
+
+    &:focus-within {
+      outline: 2px solid var(--border-reverse);
+    }
+
+    &__input {
+      background: none;
+      border: 0;
+      cursor: text !important;
+      font-size: inherit;
+      outline: 0;
+      text-overflow: ellipsis;
+    }
   }
+}
 
-  &__input {
-    background: none;
-    border: 0;
-    cursor: text;
-    font-size: inherit;
-    outline: 0;
-    text-overflow: ellipsis;
+@layer theme {
+  // Theme prop
+  .base-input.primary-theme {
+    --_theme-bg: var(--background);
+  }
+  .base-input.secondary-theme {
+    --_theme-bg: var(--background-secondary);
+  }
+  .base-input.tertiary-theme {
+    --_theme-bg: var(--background-tertiary);
   }
 }
 
-// Theme prop
-.base-input.primary-theme {
-  --_theme-bg: var(--background);
-}
-.base-input.secondary-theme {
-  --_theme-bg: var(--background-secondary);
-}
-.base-input.tertiary-theme {
-  --_theme-bg: var(--background-tertiary);
+@layer size {
+  .base-input.sm {
+    --_size: var(--size20);
+  }
+  .base-input.md {
+    --_size: var(--size30);
+  }
+  .base-input.lg {
+    --_size: var(--size40);
+  }
 }
 </style>
