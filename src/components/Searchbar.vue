@@ -3,7 +3,9 @@
     <base-input
       v-model="computedValue"
       :placeholder="placeholder"
-      width="100%"
+      :width="width"
+      :max-width="maxWidth"
+      :size="size"
       theme="primary"
     >
       <template #before>
@@ -36,6 +38,18 @@ const props = defineProps({
   placeholder: {
     type: String,
     default: 'Search movies and TV series'
+  },
+  width: {
+    type: String,
+    default: 'auto'
+  },
+  maxWidth: {
+    type: String,
+    default: '100%'
+  },
+  size: {
+    type: String,
+    default: 'md'
   }
 })
 
@@ -54,6 +68,7 @@ const computedValue = computed({
   &__icon {
     color: var(--text-secondary) !important;
     padding: var(--space-20) 0 var(--space-20) var(--space00);
+    margin-right: var(--space-20);
   }
 }
 </style>
