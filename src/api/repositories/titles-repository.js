@@ -26,7 +26,7 @@ export default {
       ['page=', page],
       ['with_text_query=', title],
       ['with_keywords=', encodeValues(includedKeywords, 'AND')],
-      ['with_keywords=', encodeValues(excludedKeywords, 'AND')],
+      ['without_keywords=', encodeValues(excludedKeywords, 'AND')],
       ['with_genres=', encodeValues(includedGenres, 'AND')],
       ['without_genres=', encodeValues(excludedGenres, 'AND')],
       ['release_date.gte=', startDate],
