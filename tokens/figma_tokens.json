@@ -328,6 +328,16 @@
       "value": "#000000",
       "type": "color"
     },
+    "extrabold": {
+      "value": "800",
+      "type": "fontWeights"
+    },
+    "medium": {
+      "value": "500",
+      "type": "fontWeights"
+    }
+  },
+  "colors": {
     "Success": {
       "10": {
         "value": "#aae5a0",
@@ -1041,14 +1051,6 @@
         "value": "#171717",
         "type": "color"
       }
-    },
-    "extrabold": {
-      "value": "800",
-      "type": "fontWeights"
-    },
-    "medium": {
-      "value": "500",
-      "type": "fontWeights"
     }
   },
   "light": {
@@ -4294,5 +4296,14 @@
       "value": "$ReverseNeutral.80",
       "type": "color"
     }
+  },
+  "$themes": [],
+  "$metadata": {
+    "tokenSetOrder": [
+      "base",
+      "colors",
+      "light",
+      "dark"
+    ]
   }
 }
