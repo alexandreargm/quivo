@@ -13,6 +13,8 @@ jobs:
       - run: npm install
       # Transform Figma Tokens JSON to something Style Dictionary can read
       - run: npx token-transformer tokens/figma_tokens.json tokens/base.json base
+      # Create a base color palette, exclude the global tokens
+      - run: npx token-transformer tokens/figma_tokens.json tokens/colors.json base,colors,theme base
       # Create a light theme, exclude the global tokens
       - run: npx token-transformer tokens/figma_tokens.json tokens/light.json base,light,theme base
       # Create a dark theme, exclude the global tokens
