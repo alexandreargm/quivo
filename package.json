@@ -63,7 +63,6 @@
     "stylelint-config-sass-guidelines": "^8.0.0",
     "stylelint-config-standard": "^22.0.0",
     "stylelint-order": "^4.1.0",
-    "typescript": "~3.9.3",
     "vue-cli-plugin-pinia": "~0.1.5",
     "vue-content-loader": "^2.0.1",
     "vue-jest": "^5.0.0-0",
