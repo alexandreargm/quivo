@@ -14,11 +14,11 @@ jobs:
       # Transform Figma Tokens JSON to something Style Dictionary can read
       - run: npx token-transformer tokens/figma_tokens.json tokens/base.json base
       # Create a base color palette, exclude the global tokens
-      - run: npx token-transformer tokens/figma_tokens.json tokens/colors.json base,colors,theme base
+      - run: npx token-transformer tokens/figma_tokens.json tokens/colors.json base,colors base
       # Create a light theme, exclude the global tokens
-      - run: npx token-transformer tokens/figma_tokens.json tokens/light.json base,light,theme base
+      - run: npx token-transformer tokens/figma_tokens.json tokens/light.json base,colors,light base,colors
       # Create a dark theme, exclude the global tokens
-      - run: npx token-transformer tokens/figma_tokens.json tokens/dark.json base,dark,theme base
+      - run: npx token-transformer tokens/figma_tokens.json tokens/dark.json base,colors,dark base,colors
       # Convert tokens according to Style Dictionary config
       - run: node tokens/build.js
       # Add files that were created during a run, e.g. created files from style dictionary or token-transformer.
