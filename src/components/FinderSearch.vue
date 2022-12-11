@@ -67,8 +67,8 @@
             </base-title>
 
             <finder-search-cloud
-              :tags="releaseDates"
               v-model="selectedReleaseDateRanges"
+              :tags="releaseDates"
             />
           </div>
 
@@ -89,10 +89,10 @@
             </base-title>
 
             <finder-search-cloud
+              v-model="selectedGenres"
               :tags="genres"
               :is-multiple="true"
               :has-excludes="true"
-              v-model="selectedGenres"
             />
           </div>
 
@@ -102,10 +102,10 @@
             </base-title>
 
             <finder-search-cloud
+              v-model="selectedKeywords"
               :tags="keywords"
               :is-multiple="true"
               :has-excludes="true"
-              v-model="selectedKeywords"
             />
           </div>
         </div>

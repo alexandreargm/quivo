@@ -1,9 +1,9 @@
 <template>
   <button
     class="base-close"
-    @click="emits('click')"
     type="button"
     :class="[props.size, getIsRoundClass()]"
+    @click="emits('click')"
   >
     <base-icon name="XIcon" />
   </button>

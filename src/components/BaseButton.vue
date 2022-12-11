@@ -23,7 +23,6 @@ import { computed } from 'vue'
 
 export default {
   name: 'BaseButton',
-  emits: ['click'],
 
   props: {
     color: {
@@ -70,6 +69,7 @@ export default {
       default: 'auto'
     }
   },
+  emits: ['click'],
 
   setup (props, { emit }) {
     const buttonIconClases = {

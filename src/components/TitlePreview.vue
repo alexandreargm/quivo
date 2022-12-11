@@ -162,10 +162,11 @@ watch(() => route.params.id, () => {
     position: absolute;
     width: 100%;
     z-index: var(--z-fixed);
+    pointer-events: none;
   }
 
-  &__header-toolbar-fixed > * {
-    position: fixed;
+  &__header-toolbar > * {
+    pointer-events: all;
   }
 
   &__header {

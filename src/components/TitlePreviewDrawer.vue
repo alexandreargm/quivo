@@ -31,14 +31,12 @@ import BaseDrawer from './BaseDrawer.vue'
 // import nextRender from '@/composables/useNextRender'
 import AsyncTitleRelatedTitles from './AsyncTitleRelatedTitles'
 import AsyncTitlePreview from './AsyncTitlePreview'
-import appendRouteName from '../composables/useAppendRouteName.js'
 
 const root = ref()
 const router = useRouter()
 
 const handleClose = () => {
-  const routeName = appendRouteName('feed', router)
-  router.push({ name: routeName })
+  router.go(-1)
 }
 
 const handleChange = () => {
@@ -64,8 +62,8 @@ const handleChange = () => {
 <style lang='scss' scoped>
 .title-preview-drawer {
   background-color: var(--background);
-  height: calc(100vh - var(--the-main-nav-height));
-  overflow-y: scroll;
+  // height: calc(100vh - var(--the-main-nav-height));
+  // overflow-y: scroll;
 
   @include breakpoint('desktop') {
     padding: var(--space20);

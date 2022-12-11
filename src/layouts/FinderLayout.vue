@@ -1,28 +1,40 @@
 <template>
   <div class="finder-layout">
     <header class="finder-layout__header">
-      <BaseTitle level="1">
-        Finder
-      </BaseTitle>
+      <div class="finder-layout__header-inner">
+        <div class="finder-layout__header-main">
+          <h1 class="finder-layout__title">
+            Finder
+          </h1>
 
-      <BaseButton
-        icon="only"
-        variant="tertiary"
-        @click="router.push({ name: 'home' })"
-      >
-        <template #icon>
-          <BaseIcon
-            name="XIcon"
-            size="xl"
-          />
-        </template>
-      </BaseButton>
+          <BaseButton
+            icon="only"
+            variant="tertiary"
+            size="sm"
+            @click="router.push({ name: 'home' })"
+          >
+            <template #icon>
+              <BaseIcon
+                name="XIcon"
+                size="lg"
+              />
+            </template>
+          </BaseButton>
+        </div>
+
+        <div
+          v-if="$slots.headerAfter"
+          class="finder-layout__after"
+        >
+          <slot name="headerAfter" />
+        </div>
+      </div>
     </header>
 
     <div class="finder-layout__page">
       <div
-        class="finder-layout__main"
         ref="mainEl"
+        class="finder-layout__main"
       >
         <slot />
       </div>
@@ -35,11 +47,10 @@
 </template>
 
 <script setup>
-import { useRouter, defineExpose } from 'vue-router'
-import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+import { ref, defineExpose } from 'vue'
 import BaseButton from '../components/BaseButton.vue'
 import BaseIcon from '../components/BaseIcon.vue'
-import BaseTitle from '../components/BaseTitle.vue'
 
 const router = useRouter()
 
@@ -52,25 +63,35 @@ defineExpose({
 
 <style lang="scss" scoped>
 .finder-layout {
+  --_header-height: 50px;
+
   display: grid;
   grid-template-rows: auto minmax(0, 100%);
   height: 100vh;
 
   &__header {
-    height: var(--the-main-nav-height);
-    top: 0;
+    padding: 0 var(--container-gap);
+    background-color: var(--background-secondary);
+  }
+
+  &__header-main {
+    height: var(--_header-height);
     width: 100%;
     display: flex;
     align-items: center;
     gap: var(--space-20);
-    padding: 0 var(--container-gap);
-    background-color: var(--background-secondary);
     justify-content: space-between;
+    // @include container('desktop');
 
     @include breakpoint('tablet') {
       flex-direction: row-reverse;
       justify-content: flex-end;
     }
+  }
+
+  &__title {
+    font-size: var(--font30);
+    font-weight: var(--medium);
   }
 
   &__page {

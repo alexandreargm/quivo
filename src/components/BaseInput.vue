@@ -11,9 +11,9 @@
     </div>
 
     <input
+      v-model="computedValue"
       class="base-input__input"
       v-bind="$attrs"
-      v-model="computedValue"
       :type="type"
       :autocomplete="autocomplete"
       :autocorrect="autocorrect"
@@ -93,7 +93,7 @@ const getSizeClass = computed(() => props.size)
   .base-input {
     align-items: stretch;
     background-color: var(--_theme-bg);
-    border-radius: var(--rounded00);
+    border-radius: var(--rounded20);
     display: grid;
     grid-template-columns: max-content minmax(0, 100%) max-content;;
     grid-template-rows: var(--_size, --size30);
@@ -113,6 +113,7 @@ const getSizeClass = computed(() => props.size)
       font-size: inherit;
       outline: 0;
       text-overflow: ellipsis;
+      padding: 0;
     }
   }
 }

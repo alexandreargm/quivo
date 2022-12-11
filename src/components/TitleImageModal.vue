@@ -32,7 +32,6 @@ import BaseButton from './BaseButton.vue'
 import BaseIcon from './BaseIcon.vue'
 
 export default {
-  emits: ['close'],
 
   components: {
     BaseModal,
@@ -46,6 +45,7 @@ export default {
       required: true
     }
   },
+  emits: ['close'],
 
   setup (_, { emit }) {
     const handleClose = () => {

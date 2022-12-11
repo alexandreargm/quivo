@@ -1,39 +1,41 @@
 <template>
   <form
-    @submit.prevent="handleSubmit"
     class="advanced-search"
+    :class="getIsOpenFiltersClass"
+    @submit.prevent="handleSubmit"
   >
     <div class="advanced-search__toolbar">
-      <searchbar
-        v-model="searchString"
-        placeholder="Find something to watch"
-      >
-        <template #before>
-          <div class="advanced-search__searchbar-before">
-            <base-button
-              @click.stop="toggleIsOpenFilters(!isOpenFilters)"
-              @mousedown.stop
-              color="brand"
-              variant="tertiary"
-            >
-              <template #icon>
-                <base-icon
-                  size="lg"
-                  name="AdjustmentsIcon"
-                />
-              </template>
-              Filters
-            </base-button>
+      <div class="advanced-search__search">
+        <slot name="before" />
 
-            <base-icon name="SearchIcon" />
-          </div>
-        </template>
-      </searchbar>
+        <searchbar
+          v-model="searchString"
+          width="100%"
+          max-width="600px"
+          placeholder="Find something to watch"
+        >
+          <template #after>
+            <div class="advanced-search__searchbar-after">
+              <base-button
+                color="brand"
+                variant="tertiary"
+                @click.stop="toggleIsOpenFilters(!isOpenFilters)"
+                @mousedown.stop
+              >
+                <template #icon>
+                  <base-icon
+                    size="md"
+                    name="AdjustmentsIcon"
+                  />
+                </template>
+                Filters
+              </base-button>
+            </div>
+          </template>
+        </searchbar>
+      </div>
 
-      <div
-        v-if="hasActiveFilters"
-        class="advanced-search__filter-summary"
-      >
+      <div class="advanced-search__filter-summary">
         <base-filter-category-tag
           v-for="({category, amount, singleItemLabel, singleItemIsExcluded, clearCallback}, index) in getActiveFilters"
           :key="index"
@@ -43,23 +45,27 @@
           :is-excluding="singleItemIsExcluded"
           @close="clearCallback()"
         />
-      </div>
 
-      <base-tag
-        v-else
-        class="advanced-search__no-filters"
-        size="lg"
-        variant="tertiary"
-      >
-        No filters selected
-      </base-tag>
+        <div
+          v-if="!hasActiveFilters"
+          class="advanced-search__no-filters-container"
+        >
+          <base-tag
+            class="advanced-search__no-filters-tag"
+            size="lg"
+            variant="secondary"
+          >
+            No filters selected
+          </base-tag>
+        </div>
+      </div>
     </div>
 
     <div
       v-show="isOpenFilters"
-      class="advanced-search__filters-dialog"
+      class="advanced-search__mobile-filters-dialog"
     >
-      <div class="advanced-search__filters-dialog-inner">
+      <div class="advanced-search__mobile-filters-dialog-inner">
         <div class="advanced-search__filters">
           <div class="advanced-search__filter">
             <base-title level="2">
@@ -67,8 +73,8 @@
             </base-title>
 
             <finder-search-cloud
-              :tags="releaseDates"
               v-model="selectedReleaseDateRanges"
+              :tags="releaseDates"
             />
           </div>
 
@@ -78,10 +84,10 @@
             </base-title>
 
             <finder-search-cloud
+              v-model="selectedGenres"
               :tags="genres"
               :is-multiple="true"
               :has-excludes="true"
-              v-model="selectedGenres"
             />
           </div>
 
@@ -91,10 +97,10 @@
             </base-title>
 
             <finder-search-cloud
+              v-model="selectedKeywords"
               :tags="keywords"
               :is-multiple="true"
               :has-excludes="true"
-              v-model="selectedKeywords"
             />
           </div>
         </div>
@@ -103,9 +109,9 @@
           <base-button
             size="lg"
             width="100%"
-            type="submit"
             color="brand"
             :disabled="!hasSearchParams"
+            @click="handleSubmit"
           >
             <template #icon>
               <base-icon name="SearchIcon" />
@@ -116,6 +122,70 @@
         </div>
       </div>
     </div>
+
+    <teleport to="body">
+      <base-modal
+        v-show="isOpenFilters"
+        @close="toggleIsOpenFilters(false)"
+      >
+        <div class="advanced-search__desktop-filters-dialog">
+          <div class="advanced-search__filters">
+            <div class="advanced-search__filter">
+              <base-title level="2">
+                Release
+              </base-title>
+
+              <finder-search-cloud
+                v-model="selectedReleaseDateRanges"
+                :tags="releaseDates"
+              />
+            </div>
+
+            <div class="advanced-search__filter">
+              <base-title level="2">
+                Genre
+              </base-title>
+
+              <finder-search-cloud
+                v-model="selectedGenres"
+                :tags="genres"
+                :is-multiple="true"
+                :has-excludes="true"
+              />
+            </div>
+
+            <div class="advanced-search__filter">
+              <base-title level="2">
+                Tag
+              </base-title>
+
+              <finder-search-cloud
+                v-model="selectedKeywords"
+                :tags="keywords"
+                :is-multiple="true"
+                :has-excludes="true"
+              />
+            </div>
+          </div>
+
+          <div class="advanced-search__submit-button">
+            <base-button
+              size="lg"
+              width="100%"
+              color="brand"
+              :disabled="!hasSearchParams"
+              @click="handleSubmit"
+            >
+              <template #icon>
+                <base-icon name="SearchIcon" />
+              </template>
+
+              Find titles
+            </base-button>
+          </div>
+        </div>
+      </base-modal>
+    </teleport>
   </form>
 </template>
 
@@ -131,6 +201,7 @@ import BaseFilterCategoryTag from './BaseFilterCategoryTag.vue'
 import BaseTitle from './BaseTitle.vue'
 import BaseTag from './BaseTag.vue'
 import { useDebounceFn } from '../composables/useDebounceFn'
+import BaseModal from './BaseModal.vue'
 const genresRepositories = repositoryFactory.get('genres')
 
 const emits = defineEmits(['submit', 'update:modelValue', 'update:filters'])
@@ -138,7 +209,7 @@ const emits = defineEmits(['submit', 'update:modelValue', 'update:filters'])
 const props = defineProps({
   modelValue: {
     type: Boolean,
-    required: true
+    default: false
   },
   filters: {
     type: Object,
@@ -154,6 +225,7 @@ const isOpenFilters = computed({
     emits('update:modelValue', newValue)
   }
 })
+const getIsOpenFiltersClass = computed(() => isOpenFilters.value && 'is-open')
 const genres = ref([])
 const selectedGenres = ref([])
 const selectedKeywords = ref([])
@@ -222,7 +294,11 @@ const keywords = [
   { value: 9715, title: 'superhero' },
   { value: 282, title: 'video game' },
   { value: 10714, title: 'serial killer' },
-  { value: 11479, title: 'social commentary' }
+  { value: 210024, title: 'anime' },
+  { value: 83, title: 'saving the world' },
+  { value: 2964, title: 'future' },
+  { value: 34117, title: 'cult film' },
+  { value: 6956, title: 'treasure hunt' }
 ]
 
 const fetchGenres = () => {
@@ -265,46 +341,73 @@ onBeforeMount(() => {
 
 <style lang='scss' scoped>
 .advanced-search {
+  display: grid;
+  grid-template-rows: auto minmax(0, 100%);
   background: var(--background-secondary);
-
-  &__searchbar-before {
-    color: var(--text-secondary);
-    display: grid;
-    grid-template-columns: auto 20px;
-    align-items: center;
-    gap: 16px;
-  }
 
   &__toolbar {
     display: grid;
-    padding: var(--space-20) var(--container-gap) var(--space-10);
     background: var(--background-secondary);
+    padding: var(--space-10) 0 0;
     gap: var(--space-10);
-    position: sticky;
-    top: 0;
+  }
+
+  &__search {
+    display: grid;
+    align-items: center;
+    grid-template-columns: auto 1fr auto;
+    padding-right: var(--container-gap);
   }
 
   &__filter-summary {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: var(--space-20);
+    overflow-x: auto;
+    padding: 0 var(--container-gap) var(--space00);
   }
 
-  &__no-filters {
+  &__no-filters-tag {
     color: var(--text-secondary);
+    border-style: dashed;
   }
 
-  &__filters-dialog {
+  &__mobile-filters-dialog {
+    overflow-y: auto;
+    overscroll-behavior: contain;
     border: 1px solid var(--border);
-    border-left-width: 0px;
-    border-right-width: 0px;
+    padding: var(--space-10) var(--container-gap) var(--space20);
+    background: var(--background-secondary);
+
+    @include breakpoint('tablet') {
+      display: none;
+    }
   }
 
-  &__filters-dialog-inner {
-    padding: var(--space-10) var(--container-gap) var(--space20);
+  &__mobile-filters-dialog-inner {
+    max-width: 45ch;
     display: grid;
+    margin: 0 auto;
     gap: var(--space20);
-    // @include container('tablet2');
+  }
+
+  &__desktop-filters-dialog {
+    display: none;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    border: 1px solid var(--border);
+    padding: var(--space-10) var(--container-gap) var(--space20);
+    background: var(--background-secondary);
+
+    @include breakpoint('tablet') {
+      display: block;
+    }
+  }
+
+  &__desktop-filters-dialog-inner {
+    display: grid;
+    margin: 0 auto;
+    gap: var(--space20);
   }
 
   &__filters  {
@@ -321,7 +424,19 @@ onBeforeMount(() => {
 
   &__submit-button {
     position: sticky;
-    bottom: var(--space20);
+    bottom: 0;
+  }
+}
+
+// isOpen prop
+.advanced-search.is-open {
+
+  @include breakpoint-max('tablet') {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    position: fixed;
+    height: 100vh;
+    width: 100%;
   }
 }
 </style>

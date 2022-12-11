@@ -4,9 +4,9 @@
     class="trending-feed"
   >
     <title-poster
-      class="trending-feed__poster"
       v-for="{id, poster_path} in searchResponse.results"
       :key="id"
+      class="trending-feed__poster"
       :src="'http://image.tmdb.org/t/p/w220/' + poster_path"
     />
   </base-feed-row>

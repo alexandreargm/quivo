@@ -11,8 +11,8 @@
       <base-feed-row width="220px">
         <title-card
           v-for="{id, poster_path} in searchResponse.results"
-          :key="id"
           :id="id"
+          :key="id"
           :type="mediaType"
           :src="'http://image.tmdb.org/t/p/w220_and_h330_face/' + poster_path"
         />

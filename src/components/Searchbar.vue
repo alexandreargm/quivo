@@ -6,7 +6,7 @@
       :width="width"
       :max-width="maxWidth"
       :size="size"
-      theme="primary"
+      :theme="theme"
     >
       <template #before>
         <slot name="before">
@@ -33,11 +33,11 @@ const emits = defineEmits(['update:modelValue'])
 const props = defineProps({
   modelValue: {
     type: String,
-    required: true
+    default: ''
   },
   placeholder: {
     type: String,
-    default: 'Search movies and TV series'
+    default: 'Find something to watch'
   },
   width: {
     type: String,
@@ -50,7 +50,14 @@ const props = defineProps({
   size: {
     type: String,
     default: 'md'
-  }
+  },
+  theme: {
+    type: String,
+    default: 'primary',
+    validator: function (value) {
+      return ['primary', 'secondary', 'tertiary'].includes(value)
+    }
+  },
 })
 
 const computedValue = computed({
@@ -67,7 +74,9 @@ const computedValue = computed({
 .searchbar {
   &__icon {
     color: var(--text-secondary) !important;
-    padding: var(--space-20) 0 var(--space-20) var(--space00);
+    height: 100%;
+    display: flex;
+    align-items: center;
     margin-right: var(--space-20);
   }
 }

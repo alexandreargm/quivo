@@ -1,7 +1,7 @@
 <template>
   <component
-    class="base-title"
     :is="getLevelTag()"
+    class="base-title"
     :class="getLevelClass()"
   >
     <slot>{{ props.title }}</slot>

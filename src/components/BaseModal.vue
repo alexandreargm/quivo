@@ -56,19 +56,8 @@ export default {
   top: 0;
   z-index: var(--z-modal-overlay);
 
-  &::before {
-    background-color: var(--background);
-    bottom: 0;
-    content: '';
-    left: 0;
-    opacity: 0.9;
-    pointer-events: none;
-    position: fixed;
-    right: 0;
-    top: 0;
-  }
-
   &__dialog {
+    height: fit-content;
     z-index: var(--z-modal);
   }
 }

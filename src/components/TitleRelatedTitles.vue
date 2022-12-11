@@ -4,18 +4,17 @@
       Related titles
     </h2>
 
-    <base-gallery
-
+    <base-slider
       title="Related results"
     >
       <title-card
         v-for="{id: titleId, poster_path} in relatedResponse.results"
         :id="titleId"
-        :type="route.params.type"
         :key="titleId"
+        :type="route.params.type"
         :src="'http://image.tmdb.org/t/p/w154/' + poster_path"
       />
-    </base-gallery>
+    </base-slider>
 
     <p
       v-if="hasNoResults"
@@ -32,7 +31,7 @@ import { useRoute } from 'vue-router'
 import TitleCard from './TitleCard.vue'
 import repositoryFactory from '@/api/repository-factory'
 import { handleRequest } from '@/api/request-handlers'
-import BaseGallery from './BaseGallery.vue'
+import BaseSlider from './BaseSlider.vue'
 const titlesRepository = repositoryFactory.get('titles')
 
 const route = useRoute()

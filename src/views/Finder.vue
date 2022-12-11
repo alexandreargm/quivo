@@ -1,48 +1,56 @@
 <template>
-  <finder-layout ref="finderLayoutEl">
-    <template #default>
-      <div
-        class="finder"
-        :class="[getIsFinderOpenClass]"
+  <div
+    class="finder"
+    :class="[getIsFinderOpenClass]"
+  >
+    <header class="finder__header">
+      <advanced-search
+        id="searchbar"
+        v-model="isFinderOpen"
+        v-model:filters="filters"
+        @submit="handleSubmitSearch"
       >
-        <div class="finder__search">
-          <advanced-search
-            v-model="isFinderOpen"
-            v-model:filters="filters"
-            @submit="handleSubmitSearch"
-          />
-        </div>
+        <template #before>
+          <base-button
+            icon="only"
+            variant="tertiary"
+            @click="goBack"
+          >
+            <template #icon>
+              <BaseIcon name="ArrowLeftIcon" />
+            </template>
+          </base-button>
+        </template>
+      </advanced-search>
+    </header>
 
-        <div
-          v-show="searchedTitles.length > 0"
-          class="finder__gallery"
-        >
-          <base-gallery>
-            <title-card
-              v-for="{id, poster_path} in searchedTitles"
-              :key="id"
-              :id="id"
-              :type="mediaType"
-              :src="'http://image.tmdb.org/t/p/w220_and_h330_face/' + poster_path"
-            />
-          </base-gallery>
-
-          <div
-            ref="loadMoreEl"
-            id="gallery-footer"
+    <main class="finder__main">
+      <div class="finder__feed">
+        <base-gallery>
+          <title-card
+            v-for="{id, poster_path} in searchedTitles"
+            :id="id"
+            :key="id"
+            :type="mediaType"
+            :src="'http://image.tmdb.org/t/p/w220_and_h330_face/' + poster_path"
           />
-        </div>
+        </base-gallery>
+
+        <div ref="loadMoreEl" />
       </div>
-    </template>
 
-    <template #preview>
-      <router-view name="preview" />
-    </template>
-  </finder-layout>
+      <aside
+        v-show="hasSelectedMovie"
+        class="finder__aside"
+      >
+        <router-view name="preview" />
+      </aside>
+    </main>
+  </div>
 </template>
 <script setup>
-import { ref, computed, watch, onMounted, nextTick } from 'vue'
-import FinderLayout from '../layouts/FinderLayout'
+import { ref, computed, watch, nextTick, onMounted } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import repositoryFactory from '@/api/repository-factory.js'
 import { handleRequest } from '../api/request-handlers'
 import BaseGallery from '../components/BaseGallery.vue'
@@ -50,7 +58,12 @@ import TitleCard from '../components/TitleCard.vue'
 import useIntersectionObserver from '../composables/useIntersectionObserver'
 import { nextRenderPromise } from '../composables/useNextRender'
 import AdvancedSearch from '../components/AdvancedSearch.vue'
+import BaseButton from '../components/BaseButton.vue'
+import BaseIcon from '../components/BaseIcon.vue'
 const titlesRepository = repositoryFactory.get('titles')
+
+const route = useRoute()
+const router = useRouter()
 
 const mediaType = 'movie'
 const searchedTitles = ref([])
@@ -59,11 +72,12 @@ const getIsFinderOpenClass = computed(() => isFinderOpen.value && 'is-finder-ope
 const filters = ref({})
 const hasFilters = computed(() => Object.keys(filters.value).length)
 const currentPage = ref(1)
-const finderLayoutEl = ref(null)
+// const finderLayoutEl = ref(null)
 const loadMoreEl = ref(null)
 const isLoadMoreVisible = ref(false)
 const loadMoreRatio = ref(0)
 const hasMoreResults = ref(true)
+const hasSelectedMovie = computed(() => route.params.id)
 
 const searchTitles = () => {
   return handleRequest(titlesRepository.search({
@@ -110,13 +124,18 @@ const loadMoreIfLoadMoreIsVisible = async () => {
     }
   } while (hasMoreResults.value && loadMoreRatio.value === 1)
 }
+const goBack = () => {
+  router.go(-1)
+}
 
 onMounted(() => {
+  document.querySelector('.searchbar input').focus()
+
   useIntersectionObserver(loadMoreEl, ([loadMoreIntersection]) => {
     isLoadMoreVisible.value = loadMoreIntersection.isIntersecting
     loadMoreRatio.value = loadMoreIntersection.intersectionRatio
   }, {
-    root: finderLayoutEl.value.mainEl,
+    // root: finderLayoutEl.value.mainEl,
     threshold: [0, 1]
   })
 })
@@ -134,16 +153,32 @@ watch(loadMoreRatio, (visibleRatio) => {
   display: grid;
   position: relative;
 
-  &__gallery {
-    position: relative;
-    padding: var(--container-gap) 0;
-  }
-
-  &__search {
-    height: fit-content;
+  &__header {
     position: sticky;
     top: 0;
     width: 100%;
+    z-index: var(--z-sticky);
+  }
+
+  &__main {
+    position: relative;
+
+    @include breakpoint('desktop') {
+      display: grid;
+      grid-template-columns: minmax(0%, 100%) min-content;
+    }
+  }
+
+  &__feed {
+    padding: var(--space10) 0;
+  }
+
+  &__aside {
+    height: fit-content;
+    position: sticky;
+    top: 112px;
+    height: calc(100vh - 112px);
+    overflow-y: auto;
     z-index: var(--z-sticky);
   }
 }

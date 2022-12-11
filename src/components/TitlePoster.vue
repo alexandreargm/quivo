@@ -14,8 +14,8 @@
     </div>
 
     <figcaption
-      class="title-poster__caption"
       v-if="caption"
+      class="title-poster__caption"
     >
       {{ caption }}
     </figcaption>

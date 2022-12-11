@@ -36,10 +36,9 @@
 <script>
 import { onMounted, ref } from 'vue'
 import BaseClose from '../components/BaseClose.vue'
-import useScrollLock from '../composables/useScrollLock'
+// import useScrollLock from '../composables/useScrollLock'
 
 export default {
-  emits: ['close'],
 
   components: { BaseClose },
 
@@ -64,20 +63,21 @@ export default {
       }
     }
   },
+  emits: ['close'],
 
   setup (_, { emit }) {
     const rootEl = ref(null)
-    const { enableBodyScroll, disableBodyScroll } = useScrollLock
+    // const { enableBodyScroll, disableBodyScroll } = useScrollLock
 
     onMounted(() => {
-      disableBodyScroll(rootEl.value)
+      // disableBodyScroll(rootEl.value)
     })
 
     return {
       rootEl,
       handleClose () {
         emit('close')
-        enableBodyScroll(rootEl.value)
+        // enableBodyScroll(rootEl.value)
       }
     }
   }

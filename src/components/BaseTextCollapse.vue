@@ -5,8 +5,8 @@
     :class="[getIsToggleableClass, getIsOpenClass]"
   >
     <p
-      :style="getVisibilityStyle"
       ref="textEl"
+      :style="getVisibilityStyle"
       class="base-text-collapse__text"
     >
       {{ text }}
@@ -14,8 +14,8 @@
 
     <p
       v-if="isToggleable"
-      @click="toggleText(!isOpen)"
       class="base-text-collapse__show-more"
+      @click="toggleText(!isOpen)"
     >
       {{ buttonToggleText }}
     </p>
@@ -27,7 +27,6 @@ import { ref, computed, watch, onMounted } from 'vue'
 import { nextRender } from '../composables/useNextRender'
 
 export default {
-  emits: ['update:isOpen'],
 
   props: {
     text: {
@@ -43,6 +42,7 @@ export default {
       default: 5
     }
   },
+  emits: ['update:isOpen'],
 
   setup (props, { emit }) {
     const textEl = ref()

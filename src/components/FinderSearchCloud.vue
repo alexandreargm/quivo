@@ -2,8 +2,8 @@
   <section class="finder-search-cloud">
     <base-filter-switch
       v-for="({value, title: tagTitle}, index) in props.tags"
-      :key="index"
       :id="index"
+      :key="index"
       :value="value"
       :title="tagTitle"
       :has-excludes="hasExcludes"

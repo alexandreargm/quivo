@@ -2,8 +2,8 @@
   <section class="base-tag-cloud">
     <base-tag
       v-for="({name, id = 0}, index) in currentlyLoadedWords"
-      :key="index"
       :id="id"
+      :key="index"
       @click="handleTagClick({id, name})"
     >
       {{ name }}
@@ -11,8 +11,8 @@
 
     <base-tag
       v-if="hasMoreWords"
-      @click="handleLoadMore"
       class="base-tag-cloud__more-button"
+      @click="handleLoadMore"
     >
       <base-icon
         name="ChevronDownIcon"
@@ -28,7 +28,6 @@ import BaseTag from './BaseTag.vue'
 import BaseIcon from './BaseIcon.vue'
 
 export default {
-  emits: ['click'],
 
   components: {
     BaseTag,
@@ -45,6 +44,7 @@ export default {
       default: 7
     }
   },
+  emits: ['click'],
 
   setup (props, { emit }) {
     const wordsPool = computed(() => props.words)

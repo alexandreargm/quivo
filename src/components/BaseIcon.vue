@@ -1,7 +1,7 @@
 <template>
   <component
-    v-if="isLoaded"
     :is="getIcon()"
+    v-if="isLoaded"
     class="base-icon"
     :class="[size, color, getIsFluidClass()]"
   />
