@@ -1,0 +1,30 @@
+{
+  "mobile" : {
+    "value": "375px",
+    "type": "breakpoint"
+  },
+  "mobile2": {
+    "value": "480px",
+    "type": "breakpoint"
+  },
+  "tablet" : {
+    "value": "760px",
+    "type": "breakpoint"
+  },
+  "tablet2"  : {
+    "value": "1024px",
+    "type": "breakpoint"
+  },
+  "desktop" : {
+    "value": "1200px",
+    "type": "breakpoint"
+  },
+  "desktop2"  : {
+    "value": "1400px",
+    "type": "breakpoint"
+  },
+  "desktop3"  : {
+    "value": "1600px",
+    "type": "breakpoint"
+  }
+}

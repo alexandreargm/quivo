@@ -1,0 +1,46 @@
+{
+  "bottom" : {
+    "value": "-9999",
+    "group": "index"
+  },
+  "base": {
+    "value": "0",
+    "group": "index"
+  },
+  "dropdown" : {
+    "value": "1000",
+    "group": "index"
+  },
+  "sticky": {
+    "value": "1100",
+    "group": "index"
+  },
+  "overlay" : {
+    "value": "1200",
+    "group": "index"
+  },
+  "fixed": {
+    "value": "1300",
+    "group": "index"
+  },
+  "modal-overlay": {
+    "value": "1400",
+    "group": "index"
+  },
+  "modal": {
+    "value": "1450",
+    "group": "index"
+  },
+  "popover": {
+    "value": "1500",
+    "group": "index"
+  },
+  "tooltip": {
+    "value": "1600",
+    "group": "index"
+  },
+  "top": {
+    "value": "9999",
+    "group": "index"
+  }
+}

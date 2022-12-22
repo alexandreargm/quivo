@@ -1,0 +1,18 @@
+/**
+ * Do not edit directly
+ * Generated on Mon, 19 Dec 2022 17:31:17 GMT
+ */
+
+:root {
+  --bottom: -9999;
+  --base: 0;
+  --dropdown: 1000;
+  --sticky: 1100;
+  --overlay: 1200;
+  --fixed: 1300;
+  --modal-overlay: 1400;
+  --modal: 1450;
+  --popover: 1500;
+  --tooltip: 1600;
+  --top: 9999;
+}

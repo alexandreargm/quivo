@@ -1,1621 +1,1621 @@
 {
-  "$color": {
+  "color": {
     "value": "#68667f",
     "type": "color"
   },
-  "$color-secondary": {
+  "color-secondary": {
     "value": "#838099",
     "type": "color"
   },
-  "$color-tertiary": {
+  "color-tertiary": {
     "value": "#9d9ab1",
     "type": "color"
   },
-  "$color-hover": {
+  "color-hover": {
     "value": "#7b7891",
     "type": "color"
   },
-  "$color-hover-secondary": {
+  "color-hover-secondary": {
     "value": "#9793ae",
     "type": "color"
   },
-  "$color-hover-tertiary": {
+  "color-hover-tertiary": {
     "value": "#b6b1c9",
     "type": "color"
   },
-  "$color-active": {
+  "color-active": {
     "value": "#9d9ab1",
     "type": "color"
   },
-  "$color-active-secondary": {
+  "color-active-secondary": {
     "value": "#b8b4ca",
     "type": "color"
   },
-  "$color-active-tertiary": {
+  "color-active-tertiary": {
     "value": "#d7d2e5",
     "type": "color"
   },
-  "$background": {
+  "background": {
     "value": "#111118",
     "type": "color"
   },
-  "$background-secondary": {
+  "background-secondary": {
     "value": "#232230",
     "type": "color"
   },
-  "$background-tertiary": {
+  "background-tertiary": {
     "value": "#4f4f64",
     "type": "color"
   },
-  "$background-hover": {
+  "background-hover": {
     "value": "#1b1b26",
     "type": "color"
   },
-  "$background-hover-secondary": {
+  "background-hover-secondary": {
     "value": "#2e2e3e",
     "type": "color"
   },
-  "$background-hover-tertiary": {
+  "background-hover-tertiary": {
     "value": "#58576f",
     "type": "color"
   },
-  "$background-active": {
+  "background-active": {
     "value": "#232230",
     "type": "color"
   },
-  "$background-active-secondary": {
+  "background-active-secondary": {
     "value": "#39384c",
     "type": "color"
   },
-  "$background-active-tertiary": {
+  "background-active-tertiary": {
     "value": "#68667f",
     "type": "color"
   },
-  "$text": {
+  "text": {
     "value": "#f6f0ff",
     "type": "color"
   },
-  "$text-secondary": {
+  "text-secondary": {
     "value": "#b8b4ca",
     "type": "color"
   },
-  "$text-tertiary": {
+  "text-tertiary": {
     "value": "#838099",
     "type": "color"
   },
-  "$text-hover": {
+  "text-hover": {
     "value": "#f1ebff",
     "type": "color"
   },
-  "$text-hover-secondary": {
+  "text-hover-secondary": {
     "value": "#b6b1c9",
     "type": "color"
   },
-  "$text-hover-tertiary": {
+  "text-hover-tertiary": {
     "value": "#9793ae",
     "type": "color"
   },
-  "$text-active": {
+  "text-active": {
     "value": "#d7d2e5",
     "type": "color"
   },
-  "$text-active-secondary": {
+  "text-active-secondary": {
     "value": "#9d9ab1",
     "type": "color"
   },
-  "$text-active-tertiary": {
+  "text-active-tertiary": {
     "value": "#68667f",
     "type": "color"
   },
-  "$icon": {
+  "icon": {
     "value": "#68667f",
     "type": "color"
   },
-  "$icon-secondary": {
+  "icon-secondary": {
     "value": "#4f4f64",
     "type": "color"
   },
-  "$icon-tertiary": {
+  "icon-tertiary": {
     "value": "#39384c",
     "type": "color"
   },
-  "$icon-hover": {
+  "icon-hover": {
     "value": "#615f77",
     "type": "color"
   },
-  "$icon-hover-secondary": {
+  "icon-hover-secondary": {
     "value": "#474659",
     "type": "color"
   },
-  "$icon-hover-tertiary": {
+  "icon-hover-tertiary": {
     "value": "#303041",
     "type": "color"
   },
-  "$icon-active": {
+  "icon-active": {
     "value": "#4f4f64",
     "type": "color"
   },
-  "$icon-active-secondary": {
+  "icon-active-secondary": {
     "value": "#39384c",
     "type": "color"
   },
-  "$icon-active-tertiary": {
+  "icon-active-tertiary": {
     "value": "#232230",
     "type": "color"
   },
-  "$border": {
+  "border": {
     "value": "#4f4f64",
     "type": "color"
   },
-  "$border-secondary": {
+  "border-secondary": {
     "value": "#39384c",
     "type": "color"
   },
-  "$border-tertiary": {
+  "border-tertiary": {
     "value": "#232230",
     "type": "color"
   },
-  "$border-hover": {
+  "border-hover": {
     "value": "#303041",
     "type": "color"
   },
-  "$border-hover-secondary": {
+  "border-hover-secondary": {
     "value": "#303041",
     "type": "color"
   },
-  "$border-hover-tertiary": {
+  "border-hover-tertiary": {
     "value": "#1a1924",
     "type": "color"
   },
-  "$border-active": {
+  "border-active": {
     "value": "#39384c",
     "type": "color"
   },
-  "$border-active-secondary": {
+  "border-active-secondary": {
     "value": "#39384c",
     "type": "color"
   },
-  "$border-active-tertiary": {
+  "border-active-tertiary": {
     "value": "#232230",
     "type": "color"
   },
-  "$color-reverse": {
+  "color-reverse": {
     "value": "#68667e",
     "type": "color"
   },
-  "$color-reverse-secondary": {
+  "color-reverse-secondary": {
     "value": "#4f4f64",
     "type": "color"
   },
-  "$color-reverse-tertiary": {
+  "color-reverse-tertiary": {
     "value": "#39384b",
     "type": "color"
   },
-  "$color-reverse-hover": {
+  "color-reverse-hover": {
     "value": "#605e76",
     "type": "color"
   },
-  "$color-reverse-hover-secondary": {
+  "color-reverse-hover-secondary": {
     "value": "#605e76",
     "type": "color"
   },
-  "$color-reverse-hover-tertiary": {
+  "color-reverse-hover-tertiary": {
     "value": "#7b7891",
     "type": "color"
   },
-  "$color-reverse-active": {
+  "color-reverse-active": {
     "value": "#827f98",
     "type": "color"
   },
-  "$color-reverse-active-secondary": {
+  "color-reverse-active-secondary": {
     "value": "#827f98",
     "type": "color"
   },
-  "$color-reverse-active-tertiary": {
+  "color-reverse-active-tertiary": {
     "value": "#9e9ab2",
     "type": "color"
   },
-  "$background-reverse": {
+  "background-reverse": {
     "value": "#f7f2ff",
     "type": "color"
   },
-  "$background-reverse-secondary": {
+  "background-reverse-secondary": {
     "value": "#d9d3e5",
     "type": "color"
   },
-  "$background-reverse-tertiary": {
+  "background-reverse-tertiary": {
     "value": "#bbb6cb",
     "type": "color"
   },
-  "$background-reverse-hover": {
+  "background-reverse-hover": {
     "value": "#f3edff",
     "type": "color"
   },
-  "$background-reverse-hover-secondary": {
+  "background-reverse-hover-secondary": {
     "value": "#d4cee4",
     "type": "color"
   },
-  "$background-reverse-hover-tertiary": {
+  "background-reverse-hover-tertiary": {
     "value": "#b5b0c8",
     "type": "color"
   },
-  "$background-reverse-active": {
+  "background-reverse-active": {
     "value": "#d9d3e5",
     "type": "color"
   },
-  "$background-reverse-active-secondary": {
+  "background-reverse-active-secondary": {
     "value": "#bbb6cb",
     "type": "color"
   },
-  "$background-reverse-active-tertiary": {
+  "background-reverse-active-tertiary": {
     "value": "#9e9ab2",
     "type": "color"
   },
-  "$text-reverse": {
+  "text-reverse": {
     "value": "#101017",
     "type": "color"
   },
-  "$text-reverse-secondary": {
+  "text-reverse-secondary": {
     "value": "#242331",
     "type": "color"
   },
-  "$text-reverse-tertiary": {
+  "text-reverse-tertiary": {
     "value": "#39384b",
     "type": "color"
   },
-  "$text-reverse-hover": {
+  "text-reverse-hover": {
     "value": "#050508",
     "type": "color"
   },
-  "$text-reverse-hover-secondary": {
+  "text-reverse-hover-secondary": {
     "value": "#1a1923",
     "type": "color"
   },
-  "$text-reverse-hover-tertiary": {
+  "text-reverse-hover-tertiary": {
     "value": "#2f2f3f",
     "type": "color"
   },
-  "$text-reverse-active": {
+  "text-reverse-active": {
     "value": "#242331",
     "type": "color"
   },
-  "$text-reverse-active-secondary": {
+  "text-reverse-active-secondary": {
     "value": "#39384b",
     "type": "color"
   },
-  "$text-reverse-active-tertiary": {
+  "text-reverse-active-tertiary": {
     "value": "#4f4f64",
     "type": "color"
   },
-  "$icon-reverse": {
+  "icon-reverse": {
     "value": "#827f98",
     "type": "color"
   },
-  "$icon-reverse-secondary": {
+  "icon-reverse-secondary": {
     "value": "#9e9ab2",
     "type": "color"
   },
-  "$icon-reverse-tertiary": {
+  "icon-reverse-tertiary": {
     "value": "#bbb6cb",
     "type": "color"
   },
-  "$icon-reverse-hover": {
+  "icon-reverse-hover": {
     "value": "#7b7891",
     "type": "color"
   },
-  "$icon-reverse-hover-secondary": {
+  "icon-reverse-hover-secondary": {
     "value": "#9793ad",
     "type": "color"
   },
-  "$icon-reverse-hover-tertiary": {
+  "icon-reverse-hover-tertiary": {
     "value": "#b5b0c8",
     "type": "color"
   },
-  "$icon-reverse-active": {
+  "icon-reverse-active": {
     "value": "#9e9ab2",
     "type": "color"
   },
-  "$icon-reverse-active-secondary": {
+  "icon-reverse-active-secondary": {
     "value": "#bbb6cb",
     "type": "color"
   },
-  "$icon-reverse-active-tertiary": {
+  "icon-reverse-active-tertiary": {
     "value": "#d9d3e5",
     "type": "color"
   },
-  "$border-reverse": {
+  "border-reverse": {
     "value": "#d9d3e5",
     "type": "color"
   },
-  "$border-reverse-secondary": {
+  "border-reverse-secondary": {
     "value": "#bbb6cb",
     "type": "color"
   },
-  "$border-reverse-tertiary": {
+  "border-reverse-tertiary": {
     "value": "#9e9ab2",
     "type": "color"
   },
-  "$border-reverse-hover": {
+  "border-reverse-hover": {
     "value": "#b5b0c8",
     "type": "color"
   },
-  "$border-reverse-hover-secondary": {
+  "border-reverse-hover-secondary": {
     "value": "#b5b0c8",
     "type": "color"
   },
-  "$border-reverse-hover-tertiary": {
+  "border-reverse-hover-tertiary": {
     "value": "#d4cee4",
     "type": "color"
   },
-  "$border-reverse-active": {
+  "border-reverse-active": {
     "value": "#bbb6cb",
     "type": "color"
   },
-  "$border-reverse-active-secondary": {
+  "border-reverse-active-secondary": {
     "value": "#bbb6cb",
     "type": "color"
   },
-  "$border-reverse-active-tertiary": {
+  "border-reverse-active-tertiary": {
     "value": "#d9d3e5",
     "type": "color"
   },
-  "$color-interactive": {
+  "color-interactive": {
     "value": "#e33187",
     "type": "color"
   },
-  "$color-interactive-secondary": {
+  "color-interactive-secondary": {
     "value": "#d3097e",
     "type": "color"
   },
-  "$color-interactive-tertiary": {
+  "color-interactive-tertiary": {
     "value": "#b20077",
     "type": "color"
   },
-  "$color-interactive-hover": {
+  "color-interactive-hover": {
     "value": "#df1174",
     "type": "color"
   },
-  "$color-interactive-hover-secondary": {
+  "color-interactive-hover-secondary": {
     "value": "#cc0077",
     "type": "color"
   },
-  "$color-interactive-hover-tertiary": {
+  "color-interactive-hover-tertiary": {
     "value": "#b2007a",
     "type": "color"
   },
-  "$color-interactive-active": {
+  "color-interactive-active": {
     "value": "#d3097e",
     "type": "color"
   },
-  "$color-interactive-active-secondary": {
+  "color-interactive-active-secondary": {
     "value": "#b20077",
     "type": "color"
   },
-  "$color-interactive-active-tertiary": {
+  "color-interactive-active-tertiary": {
     "value": "#94006c",
     "type": "color"
   },
-  "$background-interactive": {
+  "background-interactive": {
     "value": "#1a0015",
     "type": "color"
   },
-  "$background-interactive-secondary": {
+  "background-interactive-secondary": {
     "value": "#3d0031",
     "type": "color"
   },
-  "$background-interactive-tertiary": {
+  "background-interactive-tertiary": {
     "value": "#6b0052",
     "type": "color"
   },
-  "$background-interactive-hover": {
+  "background-interactive-hover": {
     "value": "#0a0008",
     "type": "color"
   },
-  "$background-interactive-hover-secondary": {
+  "background-interactive-hover-secondary": {
     "value": "#330029",
     "type": "color"
   },
-  "$background-interactive-hover-tertiary": {
+  "background-interactive-hover-tertiary": {
     "value": "#61004a",
     "type": "color"
   },
-  "$background-interactive-active": {
+  "background-interactive-active": {
     "value": "#3d0031",
     "type": "color"
   },
-  "$background-interactive-active-secondary": {
+  "background-interactive-active-secondary": {
     "value": "#6b0052",
     "type": "color"
   },
-  "$background-interactive-active-tertiary": {
+  "background-interactive-active-tertiary": {
     "value": "#94006c",
     "type": "color"
   },
-  "$text-interactive": {
+  "text-interactive": {
     "value": "#ffe6e6",
     "type": "color"
   },
-  "$text-interactive-secondary": {
+  "text-interactive-secondary": {
     "value": "#faa3b3",
     "type": "color"
   },
-  "$text-interactive-tertiary": {
+  "text-interactive-tertiary": {
     "value": "#f26493",
     "type": "color"
   },
-  "$text-interactive-hover": {
+  "text-interactive-hover": {
     "value": "#ffe0e0",
     "type": "color"
   },
-  "$text-interactive-hover-secondary": {
+  "text-interactive-hover-secondary": {
     "value": "#f990a3",
     "type": "color"
   },
-  "$text-interactive-hover-tertiary": {
+  "text-interactive-hover-tertiary": {
     "value": "#f04c83",
     "type": "color"
   },
-  "$text-interactive-active": {
+  "text-interactive-active": {
     "value": "#faa3b3",
     "type": "color"
   },
-  "$text-interactive-active-secondary": {
+  "text-interactive-active-secondary": {
     "value": "#f26493",
     "type": "color"
   },
-  "$text-interactive-active-tertiary": {
+  "text-interactive-active-tertiary": {
     "value": "#e33187",
     "type": "color"
   },
-  "$icon-interactive": {
+  "icon-interactive": {
     "value": "#b20077",
     "type": "color"
   },
-  "$icon-interactive-secondary": {
+  "icon-interactive-secondary": {
     "value": "#94006c",
     "type": "color"
   },
-  "$icon-interactive-tertiary": {
+  "icon-interactive-tertiary": {
     "value": "#6b0052",
     "type": "color"
   },
-  "$icon-interactive-hover": {
+  "icon-interactive-hover": {
     "value": "#b2007a",
     "type": "color"
   },
-  "$icon-interactive-hover-secondary": {
+  "icon-interactive-hover-secondary": {
     "value": "#8a0065",
     "type": "color"
   },
-  "$icon-interactive-hover-tertiary": {
+  "icon-interactive-hover-tertiary": {
     "value": "#61004a",
     "type": "color"
   },
-  "$icon-interactive-active": {
+  "icon-interactive-active": {
     "value": "#94006c",
     "type": "color"
   },
-  "$icon-interactive-active-secondary": {
+  "icon-interactive-active-secondary": {
     "value": "#6b0052",
     "type": "color"
   },
-  "$icon-interactive-active-tertiary": {
+  "icon-interactive-active-tertiary": {
     "value": "#3d0031",
     "type": "color"
   },
-  "$border-interactive": {
+  "border-interactive": {
     "value": "#6b0052",
     "type": "color"
   },
-  "$border-interactive-secondary": {
+  "border-interactive-secondary": {
     "value": "#6b0052",
     "type": "color"
   },
-  "$border-interactive-tertiary": {
+  "border-interactive-tertiary": {
     "value": "#3d0031",
     "type": "color"
   },
-  "$border-interactive-hover": {
+  "border-interactive-hover": {
     "value": "#61004a",
     "type": "color"
   },
-  "$border-interactive-hover-secondary": {
+  "border-interactive-hover-secondary": {
     "value": "#61004a",
     "type": "color"
   },
-  "$border-interactive-hover-tertiary": {
+  "border-interactive-hover-tertiary": {
     "value": "#330029",
     "type": "color"
   },
-  "$border-interactive-active": {
+  "border-interactive-active": {
     "value": "#6b0052",
     "type": "color"
   },
-  "$border-interactive-active-secondary": {
+  "border-interactive-active-secondary": {
     "value": "#6b0052",
     "type": "color"
   },
-  "$border-interactive-active-tertiary": {
+  "border-interactive-active-tertiary": {
     "value": "#3d0031",
     "type": "color"
   },
-  "$color-danger": {
+  "color-danger": {
     "value": "#b12427",
     "type": "color"
   },
-  "$color-danger-secondary": {
+  "color-danger-secondary": {
     "value": "#970609",
     "type": "color"
   },
-  "$color-danger-tertiary": {
+  "color-danger-tertiary": {
     "value": "#7d0002",
     "type": "color"
   },
-  "$color-danger-hover": {
+  "color-danger-hover": {
     "value": "#ac0d10",
     "type": "color"
   },
-  "$color-danger-hover-secondary": {
+  "color-danger-hover-secondary": {
     "value": "#900002",
     "type": "color"
   },
-  "$color-danger-hover-tertiary": {
+  "color-danger-hover-tertiary": {
     "value": "#740002",
     "type": "color"
   },
-  "$color-danger-active": {
+  "color-danger-active": {
     "value": "#970609",
     "type": "color"
   },
-  "$color-danger-active-secondary": {
+  "color-danger-active-secondary": {
     "value": "#7d0002",
     "type": "color"
   },
-  "$color-danger-active-tertiary": {
+  "color-danger-active-tertiary": {
     "value": "#630002",
     "type": "color"
   },
-  "$background-danger": {
+  "background-danger": {
     "value": "#140000",
     "type": "color"
   },
-  "$background-danger-secondary": {
+  "background-danger-secondary": {
     "value": "#2e0001",
     "type": "color"
   },
-  "$background-danger-tertiary": {
+  "background-danger-tertiary": {
     "value": "#490001",
     "type": "color"
   },
-  "$background-danger-hover": {
+  "background-danger-hover": {
     "value": "#050000",
     "type": "color"
   },
-  "$background-danger-hover-secondary": {
+  "background-danger-hover-secondary": {
     "value": "#210001",
     "type": "color"
   },
-  "$background-danger-hover-tertiary": {
+  "background-danger-hover-tertiary": {
     "value": "#3d0001",
     "type": "color"
   },
-  "$background-danger-active": {
+  "background-danger-active": {
     "value": "#2e0001",
     "type": "color"
   },
-  "$background-danger-active-secondary": {
+  "background-danger-active-secondary": {
     "value": "#490001",
     "type": "color"
   },
-  "$background-danger-active-tertiary": {
+  "background-danger-active-tertiary": {
     "value": "#630002",
     "type": "color"
   },
-  "$text-danger": {
+  "text-danger": {
     "value": "#ffe6e6",
     "type": "color"
   },
-  "$text-danger-secondary": {
+  "text-danger-secondary": {
     "value": "#e59596",
     "type": "color"
   },
-  "$text-danger-tertiary": {
+  "text-danger-tertiary": {
     "value": "#cb5355",
     "type": "color"
   },
-  "$text-danger-hover": {
+  "text-danger-hover": {
     "value": "#ffdede",
     "type": "color"
   },
-  "$text-danger-hover-secondary": {
+  "text-danger-hover-secondary": {
     "value": "#e38586",
     "type": "color"
   },
-  "$text-danger-hover-tertiary": {
+  "text-danger-hover-tertiary": {
     "value": "#c73e40",
     "type": "color"
   },
-  "$text-danger-active": {
+  "text-danger-active": {
     "value": "#e59596",
     "type": "color"
   },
-  "$text-danger-active-secondary": {
+  "text-danger-active-secondary": {
     "value": "#cb5355",
     "type": "color"
   },
-  "$text-danger-active-tertiary": {
+  "text-danger-active-tertiary": {
     "value": "#b12427",
     "type": "color"
   },
-  "$icon-danger": {
+  "icon-danger": {
     "value": "#7d0002",
     "type": "color"
   },
-  "$icon-danger-secondary": {
+  "icon-danger-secondary": {
     "value": "#630002",
     "type": "color"
   },
-  "$icon-danger-tertiary": {
+  "icon-danger-tertiary": {
     "value": "#490001",
     "type": "color"
   },
-  "$icon-danger-hover": {
+  "icon-danger-hover": {
     "value": "#740002",
     "type": "color"
   },
-  "$icon-danger-hover-secondary": {
+  "icon-danger-hover-secondary": {
     "value": "#580001",
     "type": "color"
   },
-  "$icon-danger-hover-tertiary": {
+  "icon-danger-hover-tertiary": {
     "value": "#3d0001",
     "type": "color"
   },
-  "$icon-danger-active": {
+  "icon-danger-active": {
     "value": "#630002",
     "type": "color"
   },
-  "$icon-danger-active-secondary": {
+  "icon-danger-active-secondary": {
     "value": "#490001",
     "type": "color"
   },
-  "$icon-danger-active-tertiary": {
+  "icon-danger-active-tertiary": {
     "value": "#2e0001",
     "type": "color"
   },
-  "$border-danger": {
+  "border-danger": {
     "value": "#490001",
     "type": "color"
   },
-  "$border-danger-secondary": {
+  "border-danger-secondary": {
     "value": "#490001",
     "type": "color"
   },
-  "$border-danger-tertiary": {
+  "border-danger-tertiary": {
     "value": "#2e0001",
     "type": "color"
   },
-  "$border-danger-hover": {
+  "border-danger-hover": {
     "value": "#3d0001",
     "type": "color"
   },
-  "$border-danger-hover-secondary": {
+  "border-danger-hover-secondary": {
     "value": "#3d0001",
     "type": "color"
   },
-  "$border-danger-hover-tertiary": {
+  "border-danger-hover-tertiary": {
     "value": "#210001",
     "type": "color"
   },
-  "$border-danger-active": {
+  "border-danger-active": {
     "value": "#490001",
     "type": "color"
   },
-  "$border-danger-active-secondary": {
+  "border-danger-active-secondary": {
     "value": "#490001",
     "type": "color"
   },
-  "$border-danger-active-tertiary": {
+  "border-danger-active-tertiary": {
     "value": "#2e0001",
     "type": "color"
   },
-  "$color-success": {
+  "color-success": {
     "value": "#0f9719",
     "type": "color"
   },
-  "$color-success-secondary": {
+  "color-success-secondary": {
     "value": "#0f9719",
     "type": "color"
   },
-  "$color-success-tertiary": {
+  "color-success-tertiary": {
     "value": "#007d0f",
     "type": "color"
   },
-  "$color-success-hover": {
+  "color-success-hover": {
     "value": "#0f9719",
     "type": "color"
   },
-  "$color-success-hover-secondary": {
+  "color-success-hover-secondary": {
     "value": "#0f9719",
     "type": "color"
   },
-  "$color-success-hover-tertiary": {
+  "color-success-hover-tertiary": {
     "value": "#007d0f",
     "type": "color"
   },
-  "$color-success-active": {
+  "color-success-active": {
     "value": "#007d0f",
     "type": "color"
   },
-  "$color-success-active-secondary": {
+  "color-success-active-secondary": {
     "value": "#007d0f",
     "type": "color"
   },
-  "$color-success-active-tertiary": {
+  "color-success-active-tertiary": {
     "value": "#00630f",
     "type": "color"
   },
-  "$background-success": {
+  "background-success": {
     "value": "#001404",
     "type": "color"
   },
-  "$background-success-secondary": {
+  "background-success-secondary": {
     "value": "#002e09",
     "type": "color"
   },
-  "$background-success-tertiary": {
+  "background-success-tertiary": {
     "value": "#00490d",
     "type": "color"
   },
-  "$background-success-hover": {
+  "background-success-hover": {
     "value": "#001404",
     "type": "color"
   },
-  "$background-success-hover-secondary": {
+  "background-success-hover-secondary": {
     "value": "#002e09",
     "type": "color"
   },
-  "$background-success-hover-tertiary": {
+  "background-success-hover-tertiary": {
     "value": "#00490d",
     "type": "color"
   },
-  "$background-success-active": {
+  "background-success-active": {
     "value": "#002e09",
     "type": "color"
   },
-  "$background-success-active-secondary": {
+  "background-success-active-secondary": {
     "value": "#00490d",
     "type": "color"
   },
-  "$background-success-active-tertiary": {
+  "background-success-active-tertiary": {
     "value": "#00630f",
     "type": "color"
   },
-  "$text-success": {
+  "text-success": {
     "value": "#ebffe6",
     "type": "color"
   },
-  "$text-success-secondary": {
+  "text-success-secondary": {
     "value": "#aae5a0",
     "type": "color"
   },
-  "$text-success-tertiary": {
+  "text-success-tertiary": {
     "value": "#69cb64",
     "type": "color"
   },
-  "$text-success-hover": {
+  "text-success-hover": {
     "value": "#ebffe6",
     "type": "color"
   },
-  "$text-success-hover-secondary": {
+  "text-success-hover-secondary": {
     "value": "#aae5a0",
     "type": "color"
   },
-  "$text-success-hover-tertiary": {
+  "text-success-hover-tertiary": {
     "value": "#69cb64",
     "type": "color"
   },
-  "$text-success-active": {
+  "text-success-active": {
     "value": "#aae5a0",
     "type": "color"
   },
-  "$text-success-active-secondary": {
+  "text-success-active-secondary": {
     "value": "#69cb64",
     "type": "color"
   },
-  "$text-success-active-tertiary": {
+  "text-success-active-tertiary": {
     "value": "#33b135",
     "type": "color"
   },
-  "$icon-success": {
+  "icon-success": {
     "value": "#007d0f",
     "type": "color"
   },
-  "$icon-success-secondary": {
+  "icon-success-secondary": {
     "value": "#00630f",
     "type": "color"
   },
-  "$icon-success-tertiary": {
+  "icon-success-tertiary": {
     "value": "#00490d",
     "type": "color"
   },
-  "$icon-success-hover": {
+  "icon-success-hover": {
     "value": "#007d0f",
     "type": "color"
   },
-  "$icon-success-hover-secondary": {
+  "icon-success-hover-secondary": {
     "value": "#00630f",
     "type": "color"
   },
-  "$icon-success-hover-tertiary": {
+  "icon-success-hover-tertiary": {
     "value": "#00490d",
     "type": "color"
   },
-  "$icon-success-active": {
+  "icon-success-active": {
     "value": "#00630f",
     "type": "color"
   },
-  "$icon-success-active-secondary": {
+  "icon-success-active-secondary": {
     "value": "#00490d",
     "type": "color"
   },
-  "$icon-success-active-tertiary": {
+  "icon-success-active-tertiary": {
     "value": "#002e09",
     "type": "color"
   },
-  "$border-success": {
+  "border-success": {
     "value": "#00490d",
     "type": "color"
   },
-  "$border-success-secondary": {
+  "border-success-secondary": {
     "value": "#00490d",
     "type": "color"
   },
-  "$border-success-tertiary": {
+  "border-success-tertiary": {
     "value": "#002e09",
     "type": "color"
   },
-  "$border-success-hover": {
+  "border-success-hover": {
     "value": "#00490d",
     "type": "color"
   },
-  "$border-success-hover-secondary": {
+  "border-success-hover-secondary": {
     "value": "#00490d",
     "type": "color"
   },
-  "$border-success-hover-tertiary": {
+  "border-success-hover-tertiary": {
     "value": "#002e09",
     "type": "color"
   },
-  "$border-success-active": {
+  "border-success-active": {
     "value": "#00490d",
     "type": "color"
   },
-  "$border-success-active-secondary": {
+  "border-success-active-secondary": {
     "value": "#00490d",
     "type": "color"
   },
-  "$border-success-active-tertiary": {
+  "border-success-active-tertiary": {
     "value": "#002e09",
     "type": "color"
   },
-  "$color-warning": {
+  "color-warning": {
     "value": "#977406",
     "type": "color"
   },
-  "$color-warning-secondary": {
+  "color-warning-secondary": {
     "value": "#977406",
     "type": "color"
   },
-  "$color-warning-tertiary": {
+  "color-warning-tertiary": {
     "value": "#7d6200",
     "type": "color"
   },
-  "$color-warning-hover": {
+  "color-warning-hover": {
     "value": "#977406",
     "type": "color"
   },
-  "$color-warning-hover-secondary": {
+  "color-warning-hover-secondary": {
     "value": "#977406",
     "type": "color"
   },
-  "$color-warning-hover-tertiary": {
+  "color-warning-hover-tertiary": {
     "value": "#7d6200",
     "type": "color"
   },
-  "$color-warning-active": {
+  "color-warning-active": {
     "value": "#7d6200",
     "type": "color"
   },
-  "$color-warning-active-secondary": {
+  "color-warning-active-secondary": {
     "value": "#7d6200",
     "type": "color"
   },
-  "$color-warning-active-tertiary": {
+  "color-warning-active-tertiary": {
     "value": "#635000",
     "type": "color"
   },
-  "$background-warning": {
+  "background-warning": {
     "value": "#141100",
     "type": "color"
   },
-  "$background-warning-secondary": {
+  "background-warning-secondary": {
     "value": "#2e2700",
     "type": "color"
   },
-  "$background-warning-tertiary": {
+  "background-warning-tertiary": {
     "value": "#493b00",
     "type": "color"
   },
-  "$background-warning-hover": {
+  "background-warning-hover": {
     "value": "#141100",
     "type": "color"
   },
-  "$background-warning-hover-secondary": {
+  "background-warning-hover-secondary": {
     "value": "#2e2700",
     "type": "color"
   },
-  "$background-warning-hover-tertiary": {
+  "background-warning-hover-tertiary": {
     "value": "#493b00",
     "type": "color"
   },
-  "$background-warning-active": {
+  "background-warning-active": {
     "value": "#2e2700",
     "type": "color"
   },
-  "$background-warning-active-secondary": {
+  "background-warning-active-secondary": {
     "value": "#493b00",
     "type": "color"
   },
-  "$background-warning-active-tertiary": {
+  "background-warning-active-tertiary": {
     "value": "#635000",
     "type": "color"
   },
-  "$text-warning": {
+  "text-warning": {
     "value": "#fff4e6",
     "type": "color"
   },
-  "$text-warning-secondary": {
+  "text-warning-secondary": {
     "value": "#e5c895",
     "type": "color"
   },
-  "$text-warning-tertiary": {
+  "text-warning-tertiary": {
     "value": "#cba553",
     "type": "color"
   },
-  "$text-warning-hover": {
+  "text-warning-hover": {
     "value": "#fff4e6",
     "type": "color"
   },
-  "$text-warning-hover-secondary": {
+  "text-warning-hover-secondary": {
     "value": "#e5c895",
     "type": "color"
   },
-  "$text-warning-hover-tertiary": {
+  "text-warning-hover-tertiary": {
     "value": "#cba553",
     "type": "color"
   },
-  "$text-warning-active": {
+  "text-warning-active": {
     "value": "#e5c895",
     "type": "color"
   },
-  "$text-warning-active-secondary": {
+  "text-warning-active-secondary": {
     "value": "#cba553",
     "type": "color"
   },
-  "$text-warning-active-tertiary": {
+  "text-warning-active-tertiary": {
     "value": "#b18b24",
     "type": "color"
   },
-  "$icon-warning": {
+  "icon-warning": {
     "value": "#7d6200",
     "type": "color"
   },
-  "$icon-warning-secondary": {
+  "icon-warning-secondary": {
     "value": "#635000",
     "type": "color"
   },
-  "$icon-warning-tertiary": {
+  "icon-warning-tertiary": {
     "value": "#493b00",
     "type": "color"
   },
-  "$icon-warning-hover": {
+  "icon-warning-hover": {
     "value": "#7d6200",
     "type": "color"
   },
-  "$icon-warning-hover-secondary": {
+  "icon-warning-hover-secondary": {
     "value": "#635000",
     "type": "color"
   },
-  "$icon-warning-hover-tertiary": {
+  "icon-warning-hover-tertiary": {
     "value": "#493b00",
     "type": "color"
   },
-  "$icon-warning-active": {
+  "icon-warning-active": {
     "value": "#635000",
     "type": "color"
   },
-  "$icon-warning-active-secondary": {
+  "icon-warning-active-secondary": {
     "value": "#493b00",
     "type": "color"
   },
-  "$icon-warning-active-tertiary": {
+  "icon-warning-active-tertiary": {
     "value": "#2e2700",
     "type": "color"
   },
-  "$border-warning": {
+  "border-warning": {
     "value": "#493b00",
     "type": "color"
   },
-  "$border-warning-secondary": {
+  "border-warning-secondary": {
     "value": "#493b00",
     "type": "color"
   },
-  "$border-warning-tertiary": {
+  "border-warning-tertiary": {
     "value": "#2e2700",
     "type": "color"
   },
-  "$border-warning-hover": {
+  "border-warning-hover": {
     "value": "#493b00",
     "type": "color"
   },
-  "$border-warning-hover-secondary": {
+  "border-warning-hover-secondary": {
     "value": "#493b00",
     "type": "color"
   },
-  "$border-warning-hover-tertiary": {
+  "border-warning-hover-tertiary": {
     "value": "#2e2700",
     "type": "color"
   },
-  "$border-warning-active": {
+  "border-warning-active": {
     "value": "#493b00",
     "type": "color"
   },
-  "$border-warning-active-secondary": {
+  "border-warning-active-secondary": {
     "value": "#493b00",
     "type": "color"
   },
-  "$border-warning-active-tertiary": {
+  "border-warning-active-tertiary": {
     "value": "#2e2700",
     "type": "color"
   },
-  "$color-info": {
+  "color-info": {
     "value": "#069790",
     "type": "color"
   },
-  "$color-info-secondary": {
+  "color-info-secondary": {
     "value": "#069790",
     "type": "color"
   },
-  "$color-info-tertiary": {
+  "color-info-tertiary": {
     "value": "#007d71",
     "type": "color"
   },
-  "$color-info-hover": {
+  "color-info-hover": {
     "value": "#069790",
     "type": "color"
   },
-  "$color-info-hover-secondary": {
+  "color-info-hover-secondary": {
     "value": "#069790",
     "type": "color"
   },
-  "$color-info-hover-tertiary": {
+  "color-info-hover-tertiary": {
     "value": "#007d71",
     "type": "color"
   },
-  "$color-info-active": {
+  "color-info-active": {
     "value": "#007d71",
     "type": "color"
   },
-  "$color-info-active-secondary": {
+  "color-info-active-secondary": {
     "value": "#007d71",
     "type": "color"
   },
-  "$color-info-active-tertiary": {
+  "color-info-active-tertiary": {
     "value": "#006356",
     "type": "color"
   },
-  "$background-info": {
+  "background-info": {
     "value": "#001411",
     "type": "color"
   },
-  "$background-info-secondary": {
+  "background-info-secondary": {
     "value": "#002e27",
     "type": "color"
   },
-  "$background-info-tertiary": {
+  "background-info-tertiary": {
     "value": "#00493e",
     "type": "color"
   },
-  "$background-info-hover": {
+  "background-info-hover": {
     "value": "#001411",
     "type": "color"
   },
-  "$background-info-hover-secondary": {
+  "background-info-hover-secondary": {
     "value": "#002e27",
     "type": "color"
   },
-  "$background-info-hover-tertiary": {
+  "background-info-hover-tertiary": {
     "value": "#00493e",
     "type": "color"
   },
-  "$background-info-active": {
+  "background-info-active": {
     "value": "#002e27",
     "type": "color"
   },
-  "$background-info-active-secondary": {
+  "background-info-active-secondary": {
     "value": "#00493e",
     "type": "color"
   },
-  "$background-info-active-tertiary": {
+  "background-info-active-tertiary": {
     "value": "#006356",
     "type": "color"
   },
-  "$text-info": {
+  "text-info": {
     "value": "#e6f9ff",
     "type": "color"
   },
-  "$text-info-secondary": {
+  "text-info-secondary": {
     "value": "#95d8e5",
     "type": "color"
   },
-  "$text-info-tertiary": {
+  "text-info-tertiary": {
     "value": "#53c1cb",
     "type": "color"
   },
-  "$text-info-hover": {
+  "text-info-hover": {
     "value": "#e6f9ff",
     "type": "color"
   },
-  "$text-info-hover-secondary": {
+  "text-info-hover-secondary": {
     "value": "#95d8e5",
     "type": "color"
   },
-  "$text-info-hover-tertiary": {
+  "text-info-hover-tertiary": {
     "value": "#53c1cb",
     "type": "color"
   },
-  "$text-info-active": {
+  "text-info-active": {
     "value": "#95d8e5",
     "type": "color"
   },
-  "$text-info-active-secondary": {
+  "text-info-active-secondary": {
     "value": "#53c1cb",
     "type": "color"
   },
-  "$text-info-active-tertiary": {
+  "text-info-active-tertiary": {
     "value": "#24b0b1",
     "type": "color"
   },
-  "$icon-info": {
+  "icon-info": {
     "value": "#007d71",
     "type": "color"
   },
-  "$icon-info-secondary": {
+  "icon-info-secondary": {
     "value": "#006356",
     "type": "color"
   },
-  "$icon-info-tertiary": {
+  "icon-info-tertiary": {
     "value": "#00493e",
     "type": "color"
   },
-  "$icon-info-hover": {
+  "icon-info-hover": {
     "value": "#007d71",
     "type": "color"
   },
-  "$icon-info-hover-secondary": {
+  "icon-info-hover-secondary": {
     "value": "#006356",
     "type": "color"
   },
-  "$icon-info-hover-tertiary": {
+  "icon-info-hover-tertiary": {
     "value": "#00493e",
     "type": "color"
   },
-  "$icon-info-active": {
+  "icon-info-active": {
     "value": "#006356",
     "type": "color"
   },
-  "$icon-info-active-secondary": {
+  "icon-info-active-secondary": {
     "value": "#00493e",
     "type": "color"
   },
-  "$icon-info-active-tertiary": {
+  "icon-info-active-tertiary": {
     "value": "#002e27",
     "type": "color"
   },
-  "$border-info": {
+  "border-info": {
     "value": "#00493e",
     "type": "color"
   },
-  "$border-info-secondary": {
+  "border-info-secondary": {
     "value": "#00493e",
     "type": "color"
   },
-  "$border-info-tertiary": {
+  "border-info-tertiary": {
     "value": "#002e27",
     "type": "color"
   },
-  "$border-info-hover": {
+  "border-info-hover": {
     "value": "#00493e",
     "type": "color"
   },
-  "$border-info-hover-secondary": {
+  "border-info-hover-secondary": {
     "value": "#00493e",
     "type": "color"
   },
-  "$border-info-hover-tertiary": {
+  "border-info-hover-tertiary": {
     "value": "#002e27",
     "type": "color"
   },
-  "$border-info-active": {
+  "border-info-active": {
     "value": "#00493e",
     "type": "color"
   },
-  "$border-info-active-secondary": {
+  "border-info-active-secondary": {
     "value": "#00493e",
     "type": "color"
   },
-  "$border-info-active-tertiary": {
+  "border-info-active-tertiary": {
     "value": "#002e27",
     "type": "color"
   },
-  "$color-neutral": {
+  "color-neutral": {
     "value": "#989898",
     "type": "color"
   },
-  "$color-neutral-secondary": {
+  "color-neutral-secondary": {
     "value": "#989898",
     "type": "color"
   },
-  "$color-neutral-tertiary": {
+  "color-neutral-tertiary": {
     "value": "#7e7e7e",
     "type": "color"
   },
-  "$color-neutral-hover": {
+  "color-neutral-hover": {
     "value": "#989898",
     "type": "color"
   },
-  "$color-neutral-hover-secondary": {
+  "color-neutral-hover-secondary": {
     "value": "#989898",
     "type": "color"
   },
-  "$color-neutral-hover-tertiary": {
+  "color-neutral-hover-tertiary": {
     "value": "#7e7e7e",
     "type": "color"
   },
-  "$color-neutral-active": {
+  "color-neutral-active": {
     "value": "#7e7e7e",
     "type": "color"
   },
-  "$color-neutral-active-secondary": {
+  "color-neutral-active-secondary": {
     "value": "#7e7e7e",
     "type": "color"
   },
-  "$color-neutral-active-tertiary": {
+  "color-neutral-active-tertiary": {
     "value": "#646464",
     "type": "color"
   },
-  "$background-neutral": {
+  "background-neutral": {
     "value": "#171717",
     "type": "color"
   },
-  "$background-neutral-secondary": {
+  "background-neutral-secondary": {
     "value": "#313131",
     "type": "color"
   },
-  "$background-neutral-tertiary": {
+  "background-neutral-tertiary": {
     "value": "#4b4b4b",
     "type": "color"
   },
-  "$background-neutral-hover": {
+  "background-neutral-hover": {
     "value": "#171717",
     "type": "color"
   },
-  "$background-neutral-hover-secondary": {
+  "background-neutral-hover-secondary": {
     "value": "#313131",
     "type": "color"
   },
-  "$background-neutral-hover-tertiary": {
+  "background-neutral-hover-tertiary": {
     "value": "#4b4b4b",
     "type": "color"
   },
-  "$background-neutral-active": {
+  "background-neutral-active": {
     "value": "#313131",
     "type": "color"
   },
-  "$background-neutral-active-secondary": {
+  "background-neutral-active-secondary": {
     "value": "#4b4b4b",
     "type": "color"
   },
-  "$background-neutral-active-tertiary": {
+  "background-neutral-active-tertiary": {
     "value": "#646464",
     "type": "color"
   },
-  "$text-neutral": {
+  "text-neutral": {
     "value": "#ffffff",
     "type": "color"
   },
-  "$text-neutral-secondary": {
+  "text-neutral-secondary": {
     "value": "#e5e5e5",
     "type": "color"
   },
-  "$text-neutral-tertiary": {
+  "text-neutral-tertiary": {
     "value": "#cbcbcb",
     "type": "color"
   },
-  "$text-neutral-hover": {
+  "text-neutral-hover": {
     "value": "#ffffff",
     "type": "color"
   },
-  "$text-neutral-hover-secondary": {
+  "text-neutral-hover-secondary": {
     "value": "#e5e5e5",
     "type": "color"
   },
-  "$text-neutral-hover-tertiary": {
+  "text-neutral-hover-tertiary": {
     "value": "#cbcbcb",
     "type": "color"
   },
-  "$text-neutral-active": {
+  "text-neutral-active": {
     "value": "#e5e5e5",
     "type": "color"
   },
-  "$text-neutral-active-secondary": {
+  "text-neutral-active-secondary": {
     "value": "#cbcbcb",
     "type": "color"
   },
-  "$text-neutral-active-tertiary": {
+  "text-neutral-active-tertiary": {
     "value": "#b2b2b2",
     "type": "color"
   },
-  "$icon-neutral": {
+  "icon-neutral": {
     "value": "#7e7e7e",
     "type": "color"
   },
-  "$icon-neutral-secondary": {
+  "icon-neutral-secondary": {
     "value": "#646464",
     "type": "color"
   },
-  "$icon-neutral-tertiary": {
+  "icon-neutral-tertiary": {
     "value": "#4b4b4b",
     "type": "color"
   },
-  "$icon-neutral-hover": {
+  "icon-neutral-hover": {
     "value": "#7e7e7e",
     "type": "color"
   },
-  "$icon-neutral-hover-secondary": {
+  "icon-neutral-hover-secondary": {
     "value": "#646464",
     "type": "color"
   },
-  "$icon-neutral-hover-tertiary": {
+  "icon-neutral-hover-tertiary": {
     "value": "#4b4b4b",
     "type": "color"
   },
-  "$icon-neutral-active": {
+  "icon-neutral-active": {
     "value": "#646464",
     "type": "color"
   },
-  "$icon-neutral-active-secondary": {
+  "icon-neutral-active-secondary": {
     "value": "#4b4b4b",
     "type": "color"
   },
-  "$icon-neutral-active-tertiary": {
+  "icon-neutral-active-tertiary": {
     "value": "#313131",
     "type": "color"
   },
-  "$border-neutral": {
+  "border-neutral": {
     "value": "#4b4b4b",
     "type": "color"
   },
-  "$border-neutral-secondary": {
+  "border-neutral-secondary": {
     "value": "#4b4b4b",
     "type": "color"
   },
-  "$border-neutral-tertiary": {
+  "border-neutral-tertiary": {
     "value": "#313131",
     "type": "color"
   },
-  "$border-neutral-hover": {
+  "border-neutral-hover": {
     "value": "#4b4b4b",
     "type": "color"
   },
-  "$border-neutral-hover-secondary": {
+  "border-neutral-hover-secondary": {
     "value": "#4b4b4b",
     "type": "color"
   },
-  "$border-neutral-hover-tertiary": {
+  "border-neutral-hover-tertiary": {
     "value": "#313131",
     "type": "color"
   },
-  "$border-neutral-active": {
+  "border-neutral-active": {
     "value": "#4b4b4b",
     "type": "color"
   },
-  "$border-neutral-active-secondary": {
+  "border-neutral-active-secondary": {
     "value": "#4b4b4b",
     "type": "color"
   },
-  "$border-neutral-active-tertiary": {
+  "border-neutral-active-tertiary": {
     "value": "#313131",
     "type": "color"
   },
-  "$color-reverse-neutral": {
+  "color-reverse-neutral": {
     "value": "#7e7e7e",
     "type": "color"
   },
-  "$color-reverse-neutral-secondary": {
+  "color-reverse-neutral-secondary": {
     "value": "#7e7e7e",
     "type": "color"
   },
-  "$color-reverse-neutral-tertiary": {
+  "color-reverse-neutral-tertiary": {
     "value": "#989898",
     "type": "color"
   },
-  "$color-reverse-neutral-hover": {
+  "color-reverse-neutral-hover": {
     "value": "#7e7e7e",
     "type": "color"
   },
-  "$color-reverse-neutral-hover-secondary": {
+  "color-reverse-neutral-hover-secondary": {
     "value": "#7e7e7e",
     "type": "color"
   },
-  "$color-reverse-neutral-hover-tertiary": {
+  "color-reverse-neutral-hover-tertiary": {
     "value": "#989898",
     "type": "color"
   },
-  "$color-reverse-neutral-active": {
+  "color-reverse-neutral-active": {
     "value": "#989898",
     "type": "color"
   },
-  "$color-reverse-neutral-active-secondary": {
+  "color-reverse-neutral-active-secondary": {
     "value": "#989898",
     "type": "color"
   },
-  "$color-reverse-neutral-active-tertiary": {
+  "color-reverse-neutral-active-tertiary": {
     "value": "#b2b2b2",
     "type": "color"
   },
-  "$background-reverse-neutral": {
+  "background-reverse-neutral": {
     "value": "#ffffff",
     "type": "color"
   },
-  "$background-reverse-neutral-secondary": {
+  "background-reverse-neutral-secondary": {
     "value": "#e5e5e5",
     "type": "color"
   },
-  "$background-reverse-neutral-tertiary": {
+  "background-reverse-neutral-tertiary": {
     "value": "#cbcbcb",
     "type": "color"
   },
-  "$background-reverse-neutral-hover": {
+  "background-reverse-neutral-hover": {
     "value": "#ffffff",
     "type": "color"
   },
-  "$background-reverse-neutral-hover-secondary": {
+  "background-reverse-neutral-hover-secondary": {
     "value": "#e5e5e5",
     "type": "color"
   },
-  "$background-reverse-neutral-hover-tertiary": {
+  "background-reverse-neutral-hover-tertiary": {
     "value": "#cbcbcb",
     "type": "color"
   },
-  "$background-reverse-neutral-active": {
+  "background-reverse-neutral-active": {
     "value": "#e5e5e5",
     "type": "color"
   },
-  "$background-reverse-neutral-active-secondary": {
+  "background-reverse-neutral-active-secondary": {
     "value": "#cbcbcb",
     "type": "color"
   },
-  "$background-reverse-neutral-active-tertiary": {
+  "background-reverse-neutral-active-tertiary": {
     "value": "#b2b2b2",
     "type": "color"
   },
-  "$text-reverse-neutral": {
+  "text-reverse-neutral": {
     "value": "#171717",
     "type": "color"
   },
-  "$text-reverse-neutral-secondary": {
+  "text-reverse-neutral-secondary": {
     "value": "#313131",
     "type": "color"
   },
-  "$text-reverse-neutral-tertiary": {
+  "text-reverse-neutral-tertiary": {
     "value": "#4b4b4b",
     "type": "color"
   },
-  "$text-reverse-neutral-hover": {
+  "text-reverse-neutral-hover": {
     "value": "#171717",
     "type": "color"
   },
-  "$text-reverse-neutral-hover-secondary": {
+  "text-reverse-neutral-hover-secondary": {
     "value": "#313131",
     "type": "color"
   },
-  "$text-reverse-neutral-hover-tertiary": {
+  "text-reverse-neutral-hover-tertiary": {
     "value": "#4b4b4b",
     "type": "color"
   },
-  "$text-reverse-neutral-active": {
+  "text-reverse-neutral-active": {
     "value": "#313131",
     "type": "color"
   },
-  "$text-reverse-neutral-active-secondary": {
+  "text-reverse-neutral-active-secondary": {
     "value": "#4b4b4b",
     "type": "color"
   },
-  "$text-reverse-neutral-active-tertiary": {
+  "text-reverse-neutral-active-tertiary": {
     "value": "#646464",
     "type": "color"
   },
-  "$icon-reverse-neutral": {
+  "icon-reverse-neutral": {
     "value": "#989898",
     "type": "color"
   },
-  "$icon-reverse-neutral-secondary": {
+  "icon-reverse-neutral-secondary": {
     "value": "#b2b2b2",
     "type": "color"
   },
-  "$icon-reverse-neutral-tertiary": {
+  "icon-reverse-neutral-tertiary": {
     "value": "#cbcbcb",
     "type": "color"
   },
-  "$icon-reverse-neutral-hover": {
+  "icon-reverse-neutral-hover": {
     "value": "#989898",
     "type": "color"
   },
-  "$icon-reverse-neutral-hover-secondary": {
+  "icon-reverse-neutral-hover-secondary": {
     "value": "#b2b2b2",
     "type": "color"
   },
-  "$icon-reverse-neutral-hover-tertiary": {
+  "icon-reverse-neutral-hover-tertiary": {
     "value": "#cbcbcb",
     "type": "color"
   },
-  "$icon-reverse-neutral-active": {
+  "icon-reverse-neutral-active": {
     "value": "#b2b2b2",
     "type": "color"
   },
-  "$icon-reverse-neutral-active-secondary": {
+  "icon-reverse-neutral-active-secondary": {
     "value": "#cbcbcb",
     "type": "color"
   },
-  "$icon-reverse-neutral-active-tertiary": {
+  "icon-reverse-neutral-active-tertiary": {
     "value": "#e5e5e5",
     "type": "color"
   },
-  "$border-reverse-neutral": {
+  "border-reverse-neutral": {
     "value": "#cbcbcb",
     "type": "color"
   },
-  "$border-reverse-neutral-secondary": {
+  "border-reverse-neutral-secondary": {
     "value": "#cbcbcb",
     "type": "color"
   },
-  "$border-reverse-neutral-tertiary": {
+  "border-reverse-neutral-tertiary": {
     "value": "#e5e5e5",
     "type": "color"
   },
-  "$border-reverse-neutral-hover": {
+  "border-reverse-neutral-hover": {
     "value": "#cbcbcb",
     "type": "color"
   },
-  "$border-reverse-neutral-hover-secondary": {
+  "border-reverse-neutral-hover-secondary": {
     "value": "#cbcbcb",
     "type": "color"
   },
-  "$border-reverse-neutral-hover-tertiary": {
+  "border-reverse-neutral-hover-tertiary": {
     "value": "#e5e5e5",
     "type": "color"
   },
-  "$border-reverse-neutral-active": {
+  "border-reverse-neutral-active": {
     "value": "#cbcbcb",
     "type": "color"
   },
-  "$border-reverse-neutral-active-secondary": {
+  "border-reverse-neutral-active-secondary": {
     "value": "#cbcbcb",
     "type": "color"
   },
-  "$border-reverse-neutral-active-tertiary": {
+  "border-reverse-neutral-active-tertiary": {
     "value": "#e5e5e5",
     "type": "color"
   }

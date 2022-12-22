@@ -1,8 +1,23 @@
-const StyleDictionaryPackage = require('style-dictionary')
+const StyleDictionary = require('style-dictionary')
+const chroma = require('chroma-js')
+
+// Handles colors using chroma.js.
+// https://gka.github.io/chroma.js/#installation
+const hexToHsl = (hexValue) =>  {
+  const [hueValue, ...otherValues] = chroma(hexValue).hsl()
+
+  const hue = isNaN(hueValue) ? 0 : Math.round(hueValue) // Hue has to be cast from decimal to integer
+
+  const [saturation, lightness] = otherValues.map(value => Math.round(value * 100))
+
+  // console.log(hexValue, [hue, saturation, lightness].join(','))
+
+  return `${hue} ${saturation}% ${lightness}%`
+}
 
 // HAVE THE STYLE DICTIONARY CONFIG DYNAMICALLY GENERATED
 
-StyleDictionaryPackage.registerFormat({
+StyleDictionary.registerFormat({
   name: 'custom-scss-map',
   formatter: function (dictionary) {
     const getMapValuesString = dictionary.allProperties.map(prop => `  '${prop.name}': ${prop.value}`).join(',\n')
@@ -10,7 +25,7 @@ StyleDictionaryPackage.registerFormat({
   }
 })
 
-StyleDictionaryPackage.registerFormat({
+StyleDictionary.registerFormat({
   name: 'custom-js-es6',
   formatter: function (dictionary) {
     const getMapValuesString = dictionary.allProperties.map(prop => `export const ${prop.name} = '${prop.value}'`).join('\n')
@@ -19,7 +34,7 @@ StyleDictionaryPackage.registerFormat({
   }
 })
 
-StyleDictionaryPackage.registerTransform({
+StyleDictionary.registerTransform({
   name: 'sizes/px',
   type: 'value',
   matcher: function (prop) {
@@ -32,7 +47,7 @@ StyleDictionaryPackage.registerTransform({
   }
 })
 
-StyleDictionaryPackage.registerTransform({
+StyleDictionary.registerTransform({
   name: 'lineheights/number',
   type: 'value',
   matcher: function (prop) {
@@ -46,16 +61,14 @@ StyleDictionaryPackage.registerTransform({
 
 function getStyleDictionaryConfig (theme) {
   return {
-    source: [
-      `tokens/${theme}.json`
-    ],
+    source: [__dirname + `/tokens/${theme}.json`],
     platforms: {
       scss: {
         transforms: ['attribute/cti', 'name/cti/kebab', 'sizes/px', 'lineheights/number'],
-        buildPath: 'src/assets/scss/abstracts/tokens/',
+        buildPath: 'src/assets/css/tokens/',
         files: [{
-          destination: `${theme}.scss`,
-          format: 'custom-scss-map',
+          destination: `${theme}.css`,
+          format: 'css/variables',
           selector: theme
         }]
       },
@@ -76,13 +89,13 @@ console.log('Build started...');
 
 // PROCESS THE DESIGN TOKENS FOR THE DIFFEREN BRANDS AND PLATFORMS
 
-['base', 'colors', 'dark', 'light'].map(function (theme) {
+['base', 'colors', 'breakpoints', 'indexes', 'dark', 'light'].map(function (theme) {
   console.log('\n==============================================')
   console.log(`\nProcessing: [${theme}]`)
 
-  const StyleDictionary = StyleDictionaryPackage.extend(getStyleDictionaryConfig(theme))
+  const StyleDictionaryExtended = StyleDictionary.extend(getStyleDictionaryConfig(theme))
 
-  StyleDictionary.buildAllPlatforms()
+  StyleDictionaryExtended.buildAllPlatforms()
 
   console.log('\nEnd processing')
 })

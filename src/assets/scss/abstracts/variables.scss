@@ -26,16 +26,14 @@ $indexes: (
 
 /*
 
-  Dark theme css properties
+  Default theme css properties (Dark)
 
 */
-@media (prefers-color-scheme: dark) {
-  :root {
-    color-scheme: dark;
+:root {
+  color-scheme: dark;
 
-    @each $name, $value in $dark {
-      --#{$name}: #{$value};
-    }
+  @each $name, $value in $dark {
+    --#{$name}: #{$value};
   }
 }
 
