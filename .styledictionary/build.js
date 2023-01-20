@@ -65,10 +65,10 @@ function getStyleDictionaryConfig (theme) {
     platforms: {
       scss: {
         transforms: ['attribute/cti', 'name/cti/kebab', 'sizes/px', 'lineheights/number'],
-        buildPath: 'src/assets/css/tokens/',
+        buildPath: 'src/assets/scss/tokens/',
         files: [{
-          destination: `${theme}.css`,
-          format: 'css/variables',
+          destination: `${theme}.scss`,
+          format: 'custom-scss-map',
           selector: theme
         }]
       },

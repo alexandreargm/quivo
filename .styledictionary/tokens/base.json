@@ -319,6 +319,14 @@
     "value": "monospace",
     "type": "fontFamilies"
   },
+  "White": {
+    "value": "#ffffff",
+    "type": "color"
+  },
+  "Black": {
+    "value": "#000000",
+    "type": "color"
+  },
   "extrabold": {
     "value": 800,
     "type": "fontWeights"

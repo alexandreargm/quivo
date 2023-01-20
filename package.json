@@ -9,7 +9,7 @@
     "lint": "vue-cli-service lint",
     "deploy": "sh gh-deploy.sh",
     "build-storybook": "build-storybook",
-    "build-tokens": "node tokens/build.js",
+    "build-tokens": "node .styledictionary/build.js",
     "dev": "vue-cli-service serve",
     "prod": "serve -s dist",
     "storybook": "start-storybook -p 6006"

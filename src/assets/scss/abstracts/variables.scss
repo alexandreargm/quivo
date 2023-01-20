@@ -1,28 +1,21 @@
 
-$breakpoints: (
-  'mobile': 375px,
-  'mobile2': 480px,
-  'tablet': 760px,
-  'tablet2': 1024px,
-  'desktop': 1200px,
-  'desktop2': 1400px,
-  'desktop3': 1600px
-);
+/*
+  Breakpoints
+*/
+:root {
+  @each $name, $value in $indexes {
+    --#{$name}: #{$value};
+  }
+}
 
-$indexes: (
-  'bottom': -9999,
-  'base': 0,
-  'dropdown': 1000,
-  'sticky': 1100,
-  'overlay': 1200,
-  'fixed': 1300,
-  'modal-overlay': 1400,
-  'modal': 1450,
-  'popover': 1500,
-  'tooltip': 1600,
-  'top': 9999,
-);
-
+/*
+  indexes
+*/
+:root {
+  @each $name, $value in $breakpoints {
+    --#{$name}: #{$value};
+  }
+}
 
 /*
 
