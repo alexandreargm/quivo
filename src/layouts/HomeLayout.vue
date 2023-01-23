@@ -45,7 +45,7 @@ export default {
   }
 
   &__main {
-    height: calc(100vh - var(--the-main-nav-height));
+    height: calc(100dvh - var(--the-main-nav-height));
     overflow-y: scroll;
   }
 }

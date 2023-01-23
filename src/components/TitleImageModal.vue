@@ -68,7 +68,7 @@ export default {
       align-items: center;
       display: flex;
       flex-direction: column;
-      height: 100vh;
+      height: 100dvh;
       width: 100vw;
     }
 
@@ -76,7 +76,7 @@ export default {
       aspect-ratio: 2/3;
       display: flex;
       justify-content: center;
-      max-height: calc(100vh - var(--close-height));
+      max-height: calc(100dvh - var(--close-height));
     }
 
     &__close {

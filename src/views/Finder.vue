@@ -177,7 +177,7 @@ watch(loadMoreRatio, (visibleRatio) => {
     height: fit-content;
     position: sticky;
     top: 112px;
-    height: calc(100vh - 112px);
+    height: calc(100dvh - 112px);
     overflow-y: auto;
     z-index: var(--z-sticky);
   }

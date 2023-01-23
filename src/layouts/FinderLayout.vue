@@ -67,7 +67,7 @@ defineExpose({
 
   display: grid;
   grid-template-rows: auto minmax(0, 100%);
-  height: 100vh;
+  height: 100dvh;
 
   &__header {
     padding: 0 var(--container-gap);

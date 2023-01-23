@@ -98,7 +98,7 @@ export default {
 
     &__inner {
       display: flex;
-      height: 100vh;
+      height: 100dvh;
     }
   }
 
@@ -155,7 +155,7 @@ export default {
 
 .base-drawer.fixed {
   bottom: 0;
-  min-height: 100vh;
+  min-height: 100dvh;
   position: fixed;
   right: 0;
   top: 0;

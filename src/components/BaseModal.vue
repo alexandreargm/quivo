@@ -52,7 +52,7 @@ const handleClose = () => {
   align-items: center;
   bottom: 0;
   display: flex;
-  height: 100vh;
+  height: 100dvh;
   justify-content: center;
   left: 0;
   position: fixed;
