@@ -131,6 +131,7 @@ export default {
   &__body {
     @include breakpoint-max('desktop') {
       overflow: auto;
+      overscroll-behavior: contain;
     }
   }
 }
