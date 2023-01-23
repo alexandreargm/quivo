@@ -68,6 +68,6 @@ const handleClose = () => {
 
 // hasBackground prop
 .base-modal.has-background {
-  background-color: rgba(0,0,0, 0.2);
+  background-color: rgba(0,0,0, 0.75);
 }
 </style>
