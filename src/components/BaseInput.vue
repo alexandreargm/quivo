@@ -110,7 +110,7 @@ defineExpose({ focus })
     max-width: v-bind(maxWidth);
     padding: 0 var(--space-10);
 
-    &:focus-within {
+    &:has(input:focus) {
       outline: 2px solid var(--border-reverse);
     }
 
