@@ -11,7 +11,20 @@
         v-if="$slots.header"
         class="base-modal__header"
       >
-        <slot name="header" />
+        <div class="base-modal__header-content">
+          <slot name="header" />
+        </div>
+
+        <base-button
+          icon="only"
+          variant="tertiary"
+          @click.self="handleClose"
+          @key-down.enter="handleClose"
+        >
+          <template #icon>
+            <base-icon name="XIcon" />
+          </template>
+        </base-button>
       </header>
 
       <main class="base-modal__body">
@@ -30,6 +43,8 @@
 
 <script setup>
 import { defineProps, defineEmits, computed } from 'vue';
+import BaseButton from './BaseButton.vue';
+import BaseIcon from './BaseIcon.vue';
 
 const emits = defineEmits(['close'])
 
@@ -78,8 +93,14 @@ const handleClose = () => {
   }
 
   &__header {
-    padding: var(--space10) var(--container-gap) var(--space-10);
     background: var(--background-secondary);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+  }
+
+  &__header-content {
+    padding: var(--space10) 0 var(--space-10) var(--container-gap);
   }
 
   &__body {
