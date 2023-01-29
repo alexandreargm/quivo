@@ -11,7 +11,7 @@
         v-if="$slots.header"
         class="base-modal__header"
       >
-        <slot />
+        <slot name="header" />
       </header>
 
       <main class="base-modal__body">
@@ -22,7 +22,7 @@
         v-if="$slots.footer"
         class="base-modal__footer"
       >
-        <slot />
+        <slot name="footer" />
       </footer>
     </div>
   </div>
@@ -68,6 +68,6 @@ const handleClose = () => {
 
 // hasBackground prop
 .base-modal.has-background {
-  background-color: rgba(0,0,0, 0.75);
+  background-color: rgba(0,0,0, 0.5);
 }
 </style>
