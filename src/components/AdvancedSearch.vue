@@ -132,7 +132,9 @@
         @close="toggleIsOpenFilters(false)"
       >
         <template #header>
-          <base-title>Filters</base-title>
+          <base-title level="1">
+            Filters
+          </base-title>
         </template>
 
         <div class="advanced-search__desktop-filters-dialog">
@@ -145,7 +147,7 @@
               <Searchbar
                 ref="desktopSearchInput"
                 v-model="searchString"
-                placeholder="keywords in the title"
+                placeholder=""
               />
             </div>
 
@@ -186,23 +188,23 @@
               />
             </div>
           </div>
-
-          <div class="advanced-search__submit-button">
-            <base-button
-              size="lg"
-              width="100%"
-              color="brand"
-              :disabled="!hasSearchParams"
-              @click="handleSubmit"
-            >
-              <template #icon>
-                <base-icon name="SearchIcon" />
-              </template>
-
-              Find titles
-            </base-button>
-          </div>
         </div>
+
+        <template #footer>
+          <base-button
+            size="lg"
+            width="100%"
+            color="brand"
+            :disabled="!hasSearchParams"
+            @click="handleSubmit"
+          >
+            <template #icon>
+              <base-icon name="SearchIcon" />
+            </template>
+
+            Find titles
+          </base-button>
+        </template>
       </base-modal>
     </teleport>
   </form>
@@ -429,8 +431,6 @@ defineExpose({ focusSearch })
   }
 
   &__desktop-filters-dialog {
-    overflow-y: auto;
-    overscroll-behavior: contain;
   }
 
   &__desktop-filters-dialog-inner {
@@ -449,12 +449,6 @@ defineExpose({ focusSearch })
     display: flex;
     flex-direction: column;
     gap: var(--space-10);
-  }
-
-  &__submit-button {
-    position: sticky;
-    bottom: 0;
-    margin-top: var(--space30);
   }
 }
 
