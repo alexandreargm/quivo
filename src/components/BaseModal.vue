@@ -69,10 +69,12 @@ const handleClose = () => {
 
   &__dialog {
     height: fit-content;
+    max-height: 90%;
     z-index: var(--z-modal);
     border: 1px solid var(--border);
-    // padding: var(--container-gap);
     background: var(--background-secondary);
+    overflow-y: auto;
+    overscroll-behavior: contain;
   }
 
   &__header {
@@ -82,9 +84,13 @@ const handleClose = () => {
 
   &__body {
     padding: var(--space10) var(--container-gap);
+    overflow-y: auto;
+    overscroll-behavior: contain;
   }
 
   &__footer {
+    position: sticky;
+    bottom: 0;
     padding: var(--container-gap);
   }
 }
@@ -112,6 +118,7 @@ const handleClose = () => {
 }
 .base-modal.full {
   .base-modal__dialog {
+    max-height: 100%;
     width: 100%;
   }
 }
