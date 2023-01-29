@@ -126,6 +126,8 @@
     <teleport to="body">
       <base-modal
         v-show="isOpenFilters"
+        class="desktop-modal"
+        has-background
         @close="toggleIsOpenFilters(false)"
       >
         <div class="advanced-search__desktop-filters-dialog">
@@ -364,6 +366,7 @@ onBeforeMount(() => {
     flex-wrap: nowrap;
     gap: var(--space-20);
     overflow-x: auto;
+    overscroll-behavior: contain;
     padding: 0 var(--container-gap) var(--space00);
   }
 
@@ -376,7 +379,7 @@ onBeforeMount(() => {
     overflow-y: auto;
     overscroll-behavior: contain;
     border: 1px solid var(--border);
-    padding: var(--space-10) var(--container-gap) var(--space20);
+    padding: var(--container-gap);
     background: var(--background-secondary);
 
     @include breakpoint('tablet') {
@@ -396,11 +399,13 @@ onBeforeMount(() => {
     overflow-y: auto;
     overscroll-behavior: contain;
     border: 1px solid var(--border);
-    padding: var(--space-10) var(--container-gap) var(--space20);
+    padding: var(--container-gap);
     background: var(--background-secondary);
 
     @include breakpoint('tablet') {
       display: block;
+      max-width: 620px;
+      margin: 0 var(--space20);
     }
   }
 
@@ -425,6 +430,7 @@ onBeforeMount(() => {
   &__submit-button {
     position: sticky;
     bottom: 0;
+    margin-top: var(--space30);
   }
 }
 
@@ -435,8 +441,14 @@ onBeforeMount(() => {
     display: grid;
     grid-template-rows: auto 1fr;
     position: fixed;
-    height: 100vh;
+    height: 100dvh;
     width: 100%;
+  }
+}
+
+.desktop-modal {
+  @include breakpoint-max('tablet') {
+    display: none;
   }
 }
 </style>
