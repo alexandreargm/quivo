@@ -1,6 +1,9 @@
 <template>
   <div class="title-image-modal">
-    <base-modal @click.capture="handleClose">
+    <base-modal
+      has-background
+      @click.capture="handleClose"
+    >
       <div class="title-image-modal__inner">
         <div class="title-image-modal__poster-wrapper">
           <img
