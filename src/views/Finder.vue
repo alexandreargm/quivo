@@ -6,6 +6,7 @@
     <header class="finder__header">
       <advanced-search
         id="searchbar"
+        ref="searchInput"
         v-model="isFinderOpen"
         v-model:filters="filters"
         @submit="handleSubmitSearch"
@@ -78,6 +79,7 @@ const isLoadMoreVisible = ref(false)
 const loadMoreRatio = ref(0)
 const hasMoreResults = ref(true)
 const hasSelectedMovie = computed(() => route.params.id)
+const searchInput = ref(null)
 
 const searchTitles = () => {
   return handleRequest(titlesRepository.search({
@@ -129,7 +131,7 @@ const goBack = () => {
 }
 
 onMounted(() => {
-  document.querySelector('.searchbar input').focus()
+  searchInput.value?.focusSearch()
 
   useIntersectionObserver(loadMoreEl, ([loadMoreIntersection]) => {
     isLoadMoreVisible.value = loadMoreIntersection.isIntersecting

@@ -1,7 +1,7 @@
 <template>
   <div
     class="base-modal"
-    :class="getHasBackgroundClass"
+    :class="[getHasBackgroundClass, props.size]"
     aria-modal="true"
     role="dialog"
     @click.prevent.self="handleClose"
@@ -37,6 +37,13 @@ const props = defineProps({
   hasBackground: {
     type: Boolean,
     default: false
+  },
+  size: {
+    type: String,
+    default: 'md',
+    validator: function(value) {
+      return ['sm', 'md', 'lg', 'full'].includes(value)
+    }
   }
 })
 
@@ -63,11 +70,49 @@ const handleClose = () => {
   &__dialog {
     height: fit-content;
     z-index: var(--z-modal);
+    border: 1px solid var(--border);
+    // padding: var(--container-gap);
+    background: var(--background-secondary);
+  }
+
+  &__header {
+    padding: var(--space10) var(--container-gap) var(--space-10);
+    background: var(--background-secondary);
+  }
+
+  &__body {
+    padding: var(--space10) var(--container-gap);
+  }
+
+  &__footer {
+    padding: var(--container-gap);
   }
 }
 
 // hasBackground prop
 .base-modal.has-background {
   background-color: rgba(0,0,0, 0.5);
+}
+
+// size prop
+.base-modal.sm {
+  .base-modal__dialog {
+    width: 45ch;
+  }
+}
+.base-modal.md {
+  .base-modal__dialog {
+    width: 60ch;
+  }
+}
+.base-modal.lg {
+  .base-modal__dialog {
+    width: 75ch;
+  }
+}
+.base-modal.full {
+  .base-modal__dialog {
+    width: 100%;
+  }
 }
 </style>

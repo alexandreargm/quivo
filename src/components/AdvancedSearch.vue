@@ -9,6 +9,7 @@
         <slot name="before" />
 
         <searchbar
+          ref="searchInput"
           v-model="searchString"
           width="100%"
           max-width="600px"
@@ -130,8 +131,24 @@
         has-background
         @close="toggleIsOpenFilters(false)"
       >
+        <template #header>
+          <base-title>Filters</base-title>
+        </template>
+
         <div class="advanced-search__desktop-filters-dialog">
           <div class="advanced-search__filters">
+            <div class="advanced-search__filter">
+              <base-title level="2">
+                Title keywords
+              </base-title>
+
+              <Searchbar
+                ref="desktopSearchInput"
+                v-model="searchString"
+                placeholder="keywords in the title"
+              />
+            </div>
+
             <div class="advanced-search__filter">
               <base-title level="2">
                 Release
@@ -192,7 +209,7 @@
 </template>
 
 <script setup>
-import { ref, onBeforeMount, markRaw, defineEmits, computed, defineProps } from 'vue'
+import { ref, onBeforeMount, markRaw, defineEmits, computed, defineProps, defineExpose, watch, nextTick } from 'vue'
 import FinderSearchCloud from './FinderSearchCloud.vue'
 import repositoryFactory from '@/api/repository-factory.js'
 import { handleRequest } from '../api/request-handlers'
@@ -269,6 +286,8 @@ const hasSearchParams = computed(() => {
 
   return false
 })
+const searchInput = ref(null)
+const desktopSearchInput = ref(null)
 
 const releaseDates = [
   { id: 0, value: [2020, new Date().getFullYear()], title: 'Recent 2020s' },
@@ -335,10 +354,25 @@ const clearCallbackComposer = (callback) => {
     debouncedHandleSubmit()
   }
 }
+const focusSearch = () => {
+  searchInput.value?.focus()
+}
+
+watch(isOpenFilters, async function (newValue) {
+  await nextTick()
+
+  if (newValue) {
+    desktopSearchInput.value?.focus()
+  }
+}, {
+  immediate: true
+})
 
 onBeforeMount(() => {
   fetchGenres()
 })
+
+defineExpose({ focusSearch })
 </script>
 
 <style lang='scss' scoped>
@@ -395,18 +429,8 @@ onBeforeMount(() => {
   }
 
   &__desktop-filters-dialog {
-    display: none;
     overflow-y: auto;
     overscroll-behavior: contain;
-    border: 1px solid var(--border);
-    padding: var(--container-gap);
-    background: var(--background-secondary);
-
-    @include breakpoint('tablet') {
-      display: block;
-      max-width: 620px;
-      margin: 0 var(--space20);
-    }
   }
 
   &__desktop-filters-dialog-inner {

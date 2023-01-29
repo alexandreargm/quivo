@@ -11,6 +11,7 @@
     </div>
 
     <input
+      ref="input"
       v-model="computedValue"
       class="base-input__input"
       v-bind="$attrs"
@@ -29,7 +30,7 @@
 </template>
 
 <script setup>
-import { computed, defineProps, defineEmits } from 'vue'
+import { ref, computed, defineProps, defineEmits, defineExpose } from 'vue'
 
 const emit = defineEmits(['update:modelValue'])
 
@@ -84,6 +85,13 @@ const computedValue = computed({
 })
 const getThemeClass = computed(() => `${props.theme}-theme`)
 const getSizeClass = computed(() => props.size)
+const input = ref(null)
+
+const focus = () => {
+  input.value?.focus()
+}
+
+defineExpose({ focus })
 </script>
 
 <style lang='scss' scoped>
