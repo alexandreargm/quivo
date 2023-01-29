@@ -132,22 +132,20 @@
         @close="toggleIsOpenFilters(false)"
       >
         <template #header>
-          <base-title level="1">
-            Filters
-          </base-title>
+          Filters
         </template>
 
         <div class="advanced-search__desktop-filters-dialog">
           <div class="advanced-search__filters">
             <div class="advanced-search__filter">
               <base-title level="2">
-                Title keywords
+                Title or description
               </base-title>
 
               <Searchbar
                 ref="desktopSearchInput"
                 v-model="searchString"
-                placeholder=""
+                placeholder="Keyword in title or description"
               />
             </div>
 
