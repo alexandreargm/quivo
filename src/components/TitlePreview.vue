@@ -179,6 +179,17 @@ watch(() => route.params.id, () => {
     }
   }
 
+  @include breakpoint-max('tablet') {
+    &__header::after {
+      display: block;
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, var(--background), transparent 30%);
+      pointer-events: none;
+    }
+  }
+
   &__body {
     padding: var(--container-gap);
   }
