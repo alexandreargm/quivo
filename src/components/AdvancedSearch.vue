@@ -126,7 +126,7 @@
 
     <teleport to="body">
       <base-modal
-        v-show="isOpenFilters"
+        v-if="isOpenFilters"
         class="desktop-modal"
         has-background
         @close="toggleIsOpenFilters(false)"
