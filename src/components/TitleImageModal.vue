@@ -2,6 +2,7 @@
   <div class="title-image-modal">
     <base-modal
       has-background
+      variant="dialog"
       @click.capture="handleClose"
     >
       <div class="title-image-modal__inner">

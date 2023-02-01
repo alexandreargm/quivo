@@ -1,7 +1,11 @@
 <template>
   <div
     class="base-modal"
-    :class="[getHasBackgroundClass, props.size]"
+    :class="[
+      getHasBackgroundClass,
+      props.size,
+      props.variant
+    ]"
     aria-modal="true"
     role="dialog"
     @click.prevent.self="handleClose"
@@ -18,8 +22,8 @@
         <base-button
           icon="only"
           variant="tertiary"
-          @click.self="handleClose"
-          @key-down.enter="handleClose"
+          @click.capture="handleClose"
+          @key-down.stop.enter="handleClose"
         >
           <template #icon>
             <base-icon name="XIcon" />
@@ -59,6 +63,13 @@ const props = defineProps({
     validator: function(value) {
       return ['sm', 'md', 'lg', 'full'].includes(value)
     }
+  },
+  variant: {
+    type: String,
+    default: 'modal',
+    validator: function(value) {
+      return ['modal', 'dialog'].includes(value)
+    }
   }
 })
 
@@ -83,13 +94,7 @@ const handleClose = () => {
   z-index: var(--z-modal-overlay);
 
   &__dialog {
-    height: fit-content;
-    max-height: 90%;
     z-index: var(--z-modal);
-    border: 1px solid var(--border);
-    background: var(--background-secondary);
-    overflow-y: auto;
-    overscroll-behavior: contain;
   }
 
   &__header {
@@ -104,9 +109,6 @@ const handleClose = () => {
   }
 
   &__body {
-    padding: var(--space10) var(--container-gap);
-    overflow-y: auto;
-    overscroll-behavior: contain;
   }
 
   &__footer {
@@ -140,6 +142,30 @@ const handleClose = () => {
 .base-modal.full {
   .base-modal__dialog {
     max-height: 100%;
+    width: 100%;
+  }
+}
+
+// variant prop
+.base-modal.modal {
+  .base-modal__body {
+    padding: var(--space10) var(--container-gap);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  .base-modal__dialog {
+    height: fit-content;
+    max-height: 90%;
+    border: 1px solid var(--border);
+    background: var(--background-secondary);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+}
+
+.base-modal.dialog {
+  .base-modal__dialog {
     width: 100%;
   }
 }
