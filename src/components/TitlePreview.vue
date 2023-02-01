@@ -2,6 +2,10 @@
   <article class="title-preview">
     <header class="title-preview__header">
       <div class="title-preview__header-toolbar">
+        <div class="title-preview__header-toolbar-fixed">
+          <base-close @click="handleClose" />
+        </div>
+
         <base-button
           icon="only"
           :is-round="true"
@@ -14,10 +18,6 @@
             />
           </template>
         </base-button>
-
-        <div class="title-preview__header-toolbar-fixed">
-          <base-close @click="handleClose" />
-        </div>
       </div>
 
       <div
@@ -155,7 +155,6 @@ watch(() => route.params.id, () => {
 
   &__header-toolbar {
     display: flex;
-    flex-direction: row-reverse;
     justify-content: space-between;
     opacity: 0.75;
     padding: var(--space00);
@@ -167,6 +166,10 @@ watch(() => route.params.id, () => {
 
   &__header-toolbar > * {
     pointer-events: all;
+  }
+
+  &__header-toolbar-fixed > *{
+    position: fixed;
   }
 
   &__header {
