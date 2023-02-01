@@ -131,8 +131,6 @@ const goBack = () => {
 }
 
 onMounted(() => {
-  searchInput.value?.focusSearch()
-
   useIntersectionObserver(loadMoreEl, ([loadMoreIntersection]) => {
     isLoadMoreVisible.value = loadMoreIntersection.isIntersecting
     loadMoreRatio.value = loadMoreIntersection.intersectionRatio
