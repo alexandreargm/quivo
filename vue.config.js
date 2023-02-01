@@ -9,6 +9,10 @@ module.exports = {
       scss: {
         prependData: '@import "@/assets/scss/abstracts/_all.scss";'
       }
+    },
+    extract: {
+      filename: 'css/[name].css?_hash=[contenthash:8]',
+      chunkFilename: 'css/[name].css?_hash=[contenthash:8]'
     }
   },
   // https://cli.vuejs.org/guide/webpack.html#simple-configuration
