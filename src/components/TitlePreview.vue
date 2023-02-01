@@ -156,7 +156,7 @@ watch(() => route.params.id, () => {
   &__header-toolbar {
     display: flex;
     justify-content: space-between;
-    opacity: 0.75;
+    opacity: 0.85;
     padding: var(--space00);
     position: absolute;
     width: 100%;
