@@ -68,7 +68,7 @@
     <transition>
       <title-image-modal
         v-if="isTitleImageModalOpen"
-        :poster-path="titleResponse.poster_path ? titleResponse.poster_path : ''"
+        :poster-path="titleResponse.poster_path || ''"
         @close="toggleTitleImageModal(false)"
       />
     </transition>
@@ -77,7 +77,6 @@
 
 <script setup>
 import { defineEmits, onMounted, ref, watch } from 'vue'
-import { useRoute } from 'vue-router'
 import repositoryFactory from '@/api/repository-factory'
 import { handleRequest } from '@/api/request-handlers'
 import TitlePoster from './TitlePoster.vue'
@@ -89,10 +88,13 @@ import BaseClose from './BaseClose.vue'
 import BaseIcon from './BaseIcon.vue'
 import TitleImageModal from './TitleImageModal.vue'
 import BaseTextCollapse from './BaseTextCollapse.vue'
+import { useRouter, useRoute } from 'vue-router'
+
+
+const router = useRouter()
+const route = useRoute()
 
 const emit = defineEmits(['close', 'change'])
-
-const route = useRoute()
 
 const titlesRepository = repositoryFactory.get('titles')
 
@@ -104,7 +106,9 @@ const titleReleaseDates = ref([])
 const isTitleImageModalOpen = ref(false)
 const isSynopsisExpanded = ref(false)
 
-const handleClose = () => emit('close')
+const handleClose = () => {
+  router.push({ query: {} })
+}
 const resetPreview = () => {
   isTitleImageModalOpen.value = false
   isSynopsisExpanded.value = false
@@ -115,7 +119,7 @@ const loadNewTitle = async () => {
   return Promise.all([findTitle(), fetchKeywords()])
 }
 const findTitle = () => {
-  return handleRequest(titlesRepository.find({ mediaType: route.params.type, id: route.params.id }), {
+  return handleRequest(titlesRepository.find({ mediaType: route.query.type, id: route.query.id }), {
     onSuccess: async ({ data }) => {
       const { hours, minutes } = Duration.fromObject({ minutes: data.runtime }).shiftTo('hours', 'minutes')
 
@@ -129,7 +133,7 @@ const findTitle = () => {
   })
 }
 const fetchKeywords = () => {
-  return handleRequest(titlesRepository.keywords({ mediaType: route.params.type, id: route.params.id }), {
+  return handleRequest(titlesRepository.keywords({ mediaType: route.query.type, id: route.query.id }), {
     onSuccess: async ({ data }) => {
       titleKeywords.value = data.keywords
     }
@@ -138,10 +142,12 @@ const fetchKeywords = () => {
 const handleKeywordClick = (args) => { console.log(args) }
 const toggleTitleImageModal = (isOpen) => { isTitleImageModalOpen.value = isOpen }
 
-onMounted(async () => { await loadNewTitle() })
+onMounted(async () => { loadNewTitle() })
 
-watch(() => route.params.id, () => {
-  if (route.params.id) { loadNewTitle() }
+watch(() => route.query.id, () => {
+  if (route.query.id) {
+    loadNewTitle()
+  }
 })
 </script>
 

@@ -1,13 +1,24 @@
 import { defineStore } from 'pinia'
+import { ref } from 'vue'
 
-export const useCounterStore = defineStore('counter', {
-  state: () => ({ count: 0 }),
-  getters: {
-    double: state => state.count * 2
-  },
-  actions: {
-    increment () {
-      this.count++
-    }
+export const useTitlePreviewStore = defineStore('titlePreview', () => {
+  const isOpen = ref(false)
+  const type = ref('movie')
+  const id = ref('')
+
+  function setSelectedTitle(titleId) {
+    id.value = titleId
+  }
+
+  function setIsOpen(isOpen) {
+    isOpen.value = isOpen
+  }
+
+  return {
+    isOpen,
+    type,
+    id,
+    setSelectedTitle,
+    setIsOpen
   }
 })

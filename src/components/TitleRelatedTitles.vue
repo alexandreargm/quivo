@@ -11,7 +11,7 @@
         v-for="{id: titleId, poster_path} in relatedResponse.results"
         :id="titleId"
         :key="titleId"
-        :type="route.params.type"
+        :type="route.query.type"
         :src="'http://image.tmdb.org/t/p/w154/' + poster_path"
       />
     </base-slider>
@@ -26,7 +26,7 @@
 </template>
 
 <script setup>
-import { onMounted, ref, watch } from 'vue'
+import { ref, watch, onBeforeUnmount } from 'vue'
 import { useRoute } from 'vue-router'
 import TitleCard from './TitleCard.vue'
 import repositoryFactory from '@/api/repository-factory'
@@ -37,19 +37,21 @@ const titlesRepository = repositoryFactory.get('titles')
 const route = useRoute()
 const relatedResponse = ref([])
 const hasNoResults = ref(false)
+let stopWatch
 
 const fetchSimilar = async () => {
-  const { data } = await handleRequest(titlesRepository.recommendations({ mediaType: route.params.type, id: route.params.id }))
+  const { data } = await handleRequest(titlesRepository.recommendations({ mediaType: route.query.type, id: route.query.id }))
   relatedResponse.value = data
   hasNoResults.value = data.results && data.results.length === 0
 }
 
-onMounted(async () => {
-  await fetchSimilar()
+stopWatch = watch(() => route.query.id, fetchSimilar, {
+  deep: true,
+  immediate: true
 })
 
-watch(() => route.params.id, () => {
-  if (route.params.id) fetchSimilar()
+onBeforeUnmount(() => {
+  stopWatch()
 })
 </script>
 

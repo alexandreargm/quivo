@@ -9,7 +9,6 @@
 <script setup>
 import { defineProps } from 'vue'
 import TitlePoster from './TitlePoster.vue'
-import appendRouteName from '../composables/useAppendRouteName.js'
 
 const props = defineProps({
   id: {
@@ -30,7 +29,10 @@ const props = defineProps({
 })
 
 const titleLink = {
-  name: appendRouteName('feed-preview'),
-  params: { id: props.id, type: props.type }
+  query: {
+    id: props.id,
+
+    type: props.type
+  }
 }
 </script>

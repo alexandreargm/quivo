@@ -2,7 +2,7 @@
   <div class="home">
     <header class="home__header">
       <div class="hero-section">
-        <p class="hero-section__logo">
+        <p class="hero-section__logo block">
           Quivo
         </p>
 
@@ -10,8 +10,9 @@
           <searchbar
             width="100%"
             max-width="600px"
-            theme="tertiary"
-            @click="goToFinder()"
+            size="lg"
+            theme="secondary"
+            @click.stop="goToFinder()"
           />
         </div>
       </div>
@@ -27,17 +28,20 @@
       </div>
 
       <div class="home__aside">
-        <router-view name="preview" />
+        <title-preview-drawer v-if="route.query.id" />
       </div>
     </main>
   </div>
 </template>
 <script setup>
+import { defineAsyncComponent } from 'vue';
 import PopularFeed from '../components/PopularFeed.vue'
 import Searchbar from '../components/Searchbar.vue'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
+const TitlePreviewDrawer = defineAsyncComponent(() => import('../components/TitlePreviewDrawer.vue'))
 
 const router = useRouter()
+const route = useRoute()
 
 const goToFinder = () => {
   router.push({ name: 'finder' })
@@ -52,6 +56,7 @@ const goToFinder = () => {
 
   &__main {
     position: relative;
+    align-items: flex-start;
 
     @include breakpoint('desktop') {
       display: grid;
@@ -60,7 +65,6 @@ const goToFinder = () => {
   }
 
   &__aside {
-    height: fit-content;
     position: sticky;
     top: 0;
     right: 0;
@@ -68,16 +72,10 @@ const goToFinder = () => {
 }
 
 .hero-section  {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   padding: var(--space20) var(--container-gap) var(--space20) var(--container-gap);
-  gap: var(--space00);
 
   &__logo {
-    margin: 0;
-    font-size: var(--font50);
+    font-size: var(--font30);
     text-transform: uppercase;
     color: var(--color-interactive);
     font-weight: var(--extrabold);
