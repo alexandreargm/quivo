@@ -34,6 +34,8 @@
             </div>
           </template>
         </searchbar>
+
+        <slot name="after" />
       </div>
 
       <div class="advanced-search__filter-summary">
@@ -391,8 +393,8 @@ defineExpose({ focusSearch })
   &__search {
     display: grid;
     align-items: center;
-    grid-template-columns: auto 1fr auto;
-    padding-right: var(--container-gap);
+    grid-template-columns: 1fr auto;
+    padding: 0 var(--container-gap);
   }
 
   &__filter-summary {

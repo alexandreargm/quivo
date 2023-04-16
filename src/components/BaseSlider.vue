@@ -104,6 +104,7 @@ export default {
   grid-auto-flow: column;
   overflow: auto hidden;
   padding: 0 0 var(--space00) 0;
+  justify-content: flex-start;
 }
 
 .base-slider.vertical {

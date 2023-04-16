@@ -89,6 +89,6 @@ const getTagState = (id) => {
 .finder-search-cloud {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-20);
+    gap: var(--space-30);
 }
 </style>

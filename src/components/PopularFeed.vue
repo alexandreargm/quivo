@@ -43,7 +43,7 @@ onMounted(() => searchTrending())
 
 <style lang='scss' scoped>
 .popular-feed {
-  padding: var(--container-gap) 0;
+  padding: clamp(var(--space20), 5vw, var(--space40)) 0;
 
   &__title {
     margin: 0 var(--container-gap);

@@ -11,14 +11,17 @@
         v-model:filters="filters"
         @submit="handleSubmitSearch"
       >
-        <template #before>
+        <template #after>
           <base-button
             icon="only"
-            variant="tertiary"
+            variant="secondary"
             @click="goBack"
           >
             <template #icon>
-              <BaseIcon name="ArrowLeftIcon" />
+              <BaseIcon
+                size="lg"
+                name="ArrowLeftIcon"
+              />
             </template>
           </base-button>
         </template>
