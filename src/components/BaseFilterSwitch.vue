@@ -103,15 +103,15 @@ if (props.hasExcludes === false) {
 
     align-items: center;
     background-color: var(--_bg-color);
-    border-radius: var(--rounded40);
+    border-radius: var(--rounded30);
     color: var(--_color);
     cursor: pointer;
     display: flex;
-    font-size: var(--font-20);
+    font-size: var(--font-10);
     font-weight: 300;
-    height: var(--size10);
+    height: var(--size20);
     justify-content: center;
-    padding: 0 var(--space-20);
+    padding: 0 var(--space-10);
     text-decoration-color: var(--text-neutral);
     user-select: none;
     border: 1px solid var(--_border-color);
