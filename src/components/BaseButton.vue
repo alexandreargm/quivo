@@ -27,9 +27,9 @@ export default {
   props: {
     color: {
       type: String,
-      default: '',
+      default: 'default',
       validator: function (value) {
-        return ['', 'brand', 'reverse', 'danger'].includes(value)
+        return ['default', 'brand', 'reverse', 'danger'].includes(value)
       }
     },
     variant: {
@@ -41,14 +41,14 @@ export default {
     },
     size: {
       type: String,
-      default: '',
+      default: 'md',
       validator: function (value) {
-        return ['', 'sm', 'lg'].includes(value)
+        return ['md', 'sm', 'lg'].includes(value)
       }
     },
     icon: {
       type: String,
-      default: 'before',
+      default: 'after',
       validator: function (value) {
         return ['only', 'before', 'after'].includes(value)
       }
@@ -94,13 +94,6 @@ export default {
 
 @layer base {
   .base-button {
-    --_height: var(--size30);
-    --_padding: var(--space20);
-    --_bg-color: var(--color);
-    --_color: var(--text);
-    --_color-hover: var(--text-hover);
-    --_color-active: var(--text-active);
-
     align-items: center;
     appearance: none;
     border: 2px solid transparent;
@@ -108,7 +101,7 @@ export default {
     color: var(--_color);
     display: flex;
     font-family: inherit;
-    font-size: var(--font00);
+    font-size: var(--font-10);
     font-weight: var(--medium);
     height: var(--_height);
     justify-content: center;
@@ -118,6 +111,7 @@ export default {
     white-space: nowrap;
     width: v-bind(width);
     gap: var(--space-30);
+    text-transform: uppercase;
 
     &__icon {
       flex-shrink: 0;
@@ -144,6 +138,21 @@ export default {
 }
 
 @layer color {
+  .base-button.default {
+    --_bg-color: var(--background-secondary);
+    --_color: var(--text-neutral);
+    --_color-hover: var(--text-neutral-hover);
+    --_color-active: var(--text-neutral-active);
+
+    &:hover {
+      --_bg-color: var(--color-interactive-hover);
+    }
+
+    &:active {
+      --_bg-color: var(--color-interactive-active);
+    }
+  }
+
   .base-button.brand {
     --_bg-color: var(--color-interactive);
     --_color: var(--text-reverse-neutral);
@@ -228,12 +237,21 @@ export default {
       margin-left: 0;
     }
   }
+
+  .base-button.tertiary.default {
+    color: var(--text-neutral);
+  }
 }
 
 @layer sizes {
   .base-button.sm {
     --_height: var(--size20);
     --_padding: var(--space10);
+  }
+
+  .base-button.md {
+    --_height: var(--size30);
+    --_padding: var(--space20);
   }
 
   .base-button.lg {
