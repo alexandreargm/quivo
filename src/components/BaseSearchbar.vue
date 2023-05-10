@@ -3,27 +3,38 @@
     class="base-searchbar"
     :class="[getThemeClass, getSizeClass]"
   >
-    <div class="base-searchbar__icon">
-      <BaseIcon name="SearchIcon" />
+    <div class="base-searchbar__control">
+      <div class="base-searchbar__icon">
+        <BaseIcon name="SearchIcon" />
+      </div>
+
+      <input
+        ref="input"
+        v-model="searchString"
+        class="base-searchbar__input"
+        type="text"
+        autocomplete="off"
+        autocorrect="off"
+        placeholder="Where to watch..."
+        @input="debouncedSearchTitles($event.currentTarget.value)"
+      >
     </div>
 
-    <input
-      ref="input"
-      v-model="computedValue"
-      class="base-searchbar__input"
-      type="text"
-      autocomplete="off"
-      autocorrect="off"
-      placeholder="Where to watch..."
-    >
+    <ol class="base-searchbar__list">
+      <li class="base-searchbar__list-item">
+        <span class="base-searchbar__keyword">{{ searchString }}</span> all movie results
+      </li>
+    </ol>
   </div>
 </template>
 
 <script setup>
-import { ref, computed, defineProps, defineEmits, defineExpose } from 'vue'
+import { ref, computed, defineProps,  defineExpose } from 'vue'
 import BaseIcon from './BaseIcon.vue';
+import repositoryFactory from '../api/repository-factory';
+import { useDebounceFn } from '../composables/useDebounceFn';
 
-const emit = defineEmits(['update:modelValue'])
+const titlesRepository = repositoryFactory.get('titles')
 
 const props = defineProps({
   modelValue: {
@@ -43,21 +54,19 @@ const props = defineProps({
   },
 })
 
-const computedValue = computed({
-  get () {
-    return props.modelValue
-  },
-  set (newValue) {
-    emit('update:modelValue', newValue)
-  }
-})
+const searchString = ref('')
 const getThemeClass = computed(() => `${props.theme}-theme`)
 const getSizeClass = computed(() => props.size)
 const input = ref(null)
+const searchResults = ref([])
 
 const focus = () => {
   input.value?.focus()
 }
+async function searchTitles(titleName) {
+  searchResults.value = await titlesRepository.simpleSearch({ title: titleName })
+}
+const debouncedSearchTitles = useDebounceFn((titleName) => searchTitles(titleName), 500)
 
 defineExpose({ focus })
 </script>
@@ -67,18 +76,22 @@ defineExpose({ focus })
 
 @layer base {
   .base-searchbar {
-    align-items: stretch;
-    background-color: var(--_theme-bg);
-    border-radius: var(--rounded20);
-    display: flex;
-    align-items: center;
-    height: var(--size40);
-    font-size: var(--font00);
-    width: v-bind(width);
-    max-width: 100%;
-    padding: 0 var(--space00);
+    position: relative;
 
-    &:has(input:focus) {
+    &__control {
+      align-items: stretch;
+      background-color: var(--_theme-bg);
+      border-radius: var(--rounded20);
+      display: flex;
+      align-items: center;
+      height: var(--size40);
+      font-size: var(--font00);
+      width: v-bind(width);
+      max-width: 100%;
+      padding: 0 var(--space00);
+    }
+
+    &__control:has(input:focus) {
       outline: 2px solid var(--border-reverse);
     }
 
@@ -97,6 +110,25 @@ defineExpose({ focus })
       outline: 0;
       text-overflow: ellipsis;
       padding: 0;
+    }
+
+    &__list {
+      position: absolute;
+      width: 100%;
+      padding: var(--space00);
+      margin: 0;
+      background: var(--_theme-bg);
+      box-shadow: --shadow2;
+    }
+
+    &__list-item {
+      list-style: none;
+      padding: 0 var(--space-10);
+      height: var(--size20);
+    }
+
+    &__keyword {
+      font-weight: var(--bold);
     }
   }
 }
