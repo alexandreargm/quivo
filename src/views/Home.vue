@@ -2,18 +2,20 @@
   <div class="home">
     <header class="home__header">
       <div class="hero-section">
-        <p class="hero-section__logo block">
+        <p
+          class="hero-section__logo block"
+          @click="goToFinder()"
+        >
           Quivo
         </p>
 
         <div class="hero-section__search">
-          <searchbar
-            width="100%"
-            max-width="600px"
+          <BaseSearchbar
             size="lg"
             theme="secondary"
-            @click.stop="goToFinder()"
           />
+
+          <QuickTagFilters />
         </div>
       </div>
     </header>
@@ -36,8 +38,9 @@
 <script setup>
 import { defineAsyncComponent } from 'vue';
 import PopularFeed from '../components/PopularFeed.vue'
-import Searchbar from '../components/Searchbar.vue'
 import { useRouter, useRoute } from 'vue-router'
+import BaseSearchbar from '../components/BaseSearchbar.vue';
+import QuickTagFilters from '../components/QuickTagFilters.vue'
 const TitlePreviewDrawer = defineAsyncComponent(() => import('../components/TitlePreviewDrawer.vue'))
 
 const router = useRouter()
@@ -83,6 +86,9 @@ const goToFinder = () => {
 
   &__search {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space30);
   }
 }
 </style>
