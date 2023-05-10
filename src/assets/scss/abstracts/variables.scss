@@ -17,6 +17,7 @@
   }
 }
 
+
 /*
 
   Default theme css properties (Dark)
@@ -78,4 +79,29 @@
     --container-gap: var(--space20);
     --the-main-nav-height: 70px;
   }
+}
+
+/*
+  Shadows
+*/
+:root {
+  --shadow-color: 240deg 29% 1%;
+  --shadow1:
+    0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.28),
+    0.4px 0.8px 1px -1.1px hsl(var(--shadow-color) / 0.3),
+    1px 1.9px 2.5px -2.2px hsl(var(--shadow-color) / 0.32);
+  --shadow2:
+    0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.29),
+    0.8px 1.7px 2.2px -0.7px hsl(var(--shadow-color) / 0.31),
+    2px 4px 5.2px -1.5px hsl(var(--shadow-color) / 0.33),
+    4.8px 9.6px 12.5px -2.2px hsl(var(--shadow-color) / 0.34);
+  --shadow3:
+    0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.27),
+    1.5px 2.9px 3.8px -0.3px hsl(var(--shadow-color) / 0.28),
+    2.7px 5.3px 6.9px -0.6px hsl(var(--shadow-color) / 0.29),
+    4.3px 8.6px 11.2px -1px hsl(var(--shadow-color) / 0.3),
+    6.7px 13.4px 17.4px -1.3px hsl(var(--shadow-color) / 0.3),
+    10.3px 20.7px 26.9px -1.6px hsl(var(--shadow-color) / 0.31),
+    15.6px 31.1px 40.4px -1.9px hsl(var(--shadow-color) / 0.32),
+    22.8px 45.5px 59.2px -2.2px hsl(var(--shadow-color) / 0.33);
 }
