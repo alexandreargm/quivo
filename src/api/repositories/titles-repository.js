@@ -44,6 +44,10 @@ export default {
     return client.get(`/discover/${mediaType}${searchQuery}`)
   },
 
+  simpleSearch({ title = '', page = 1 }) {
+    return client.get(`/search/movie?query=${title}&page=${page}`)
+  },
+
   keywords ({ mediaType, id }) {
     checkIsValidMediaType(mediaType)
 
