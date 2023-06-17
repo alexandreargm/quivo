@@ -3,14 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "vue-cli-service build",
+    "build": "SET NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
     "lint": "vue-cli-service lint",
     "deploy": "sh gh-deploy.sh",
     "build-storybook": "build-storybook",
     "build-tokens": "node .styledictionary/build.js",
-    "dev": "vue-cli-service serve",
+    "dev": "SET NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service serve",
     "prod": "serve -s dist",
     "storybook": "start-storybook -p 6006"
   },
