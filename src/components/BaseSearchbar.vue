@@ -22,7 +22,7 @@
 
     <ol class="base-searchbar__list">
       <li class="base-searchbar__list-item">
-        <span class="base-searchbar__keyword">{{ searchString }}</span> all movie results
+        <span class="base-searchbar__keyword">{{ searchString }}</span> in all movie results
       </li>
     </ol>
   </div>
@@ -79,7 +79,6 @@ defineExpose({ focus })
     position: relative;
 
     &__control {
-      align-items: stretch;
       background-color: var(--_theme-bg);
       border-radius: var(--rounded20);
       display: flex;
@@ -118,7 +117,7 @@ defineExpose({ focus })
       padding: var(--space00);
       margin: 0;
       background: var(--_theme-bg);
-      box-shadow: --shadow2;
+      box-shadow: var(--shadow2);
     }
 
     &__list-item {
