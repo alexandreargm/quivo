@@ -20,21 +20,24 @@
       >
     </div>
 
-    <ol class="base-searchbar__list">
+    <ol
+      class="base-searchbar__list"
+    >
       <li class="base-searchbar__list-item">
-        <span class="base-searchbar__keyword">{{ searchString }}</span> in all movie results
+        <span class="base-searchbar__keyword">{{ searchString }}</span> in all
+        movie results
       </li>
     </ol>
   </div>
 </template>
 
 <script setup>
-import { ref, computed, defineProps,  defineExpose } from 'vue'
-import BaseIcon from './BaseIcon.vue';
-import repositoryFactory from '../api/repository-factory';
-import { useDebounceFn } from '../composables/useDebounceFn';
+import { ref, computed, defineProps, defineExpose } from "vue";
+import BaseIcon from "./BaseIcon.vue";
+import repositoryFactory from "../api/repository-factory";
+import { useDebounceFn } from "../composables/useDebounceFn";
 
-const titlesRepository = repositoryFactory.get('titles')
+const titlesRepository = repositoryFactory.get("titles");
 
 const props = defineProps({
   modelValue: {
@@ -43,36 +46,43 @@ const props = defineProps({
   },
   width: {
     type: String,
-    default: '550px'
+    default: "550px"
   },
   theme: {
     type: String,
-    default: 'primary',
-    validator: function (value) {
-      return ['primary', 'secondary', 'tertiary'].includes(value)
+    default: "primary",
+    validator: function(value) {
+      return ["primary", "secondary", "tertiary"].includes(value);
     }
-  },
-})
+  }
+});
 
-const searchString = ref('')
-const getThemeClass = computed(() => `${props.theme}-theme`)
-const getSizeClass = computed(() => props.size)
-const input = ref(null)
-const searchResults = ref([])
+const searchString = ref("");
+const getThemeClass = computed(() => `${props.theme}-theme`);
+const getSizeClass = computed(() => props.size);
+const input = ref(null);
+const searchResults = ref([]);
 
 const focus = () => {
-  input.value?.focus()
-}
+  input.value?.focus();
+};
 async function searchTitles(titleName) {
-  searchResults.value = await titlesRepository.simpleSearch({ title: titleName })
+  searchResults.value = await titlesRepository.simpleSearch({
+    title: titleName
+  });
 }
-const debouncedSearchTitles = useDebounceFn((titleName) => searchTitles(titleName), 500)
+const debouncedSearchTitles = useDebounceFn(
+  titleName => searchTitles(titleName),
+  500
+);
 
-defineExpose({ focus })
+defineExpose({ focus });
 </script>
 
-<style lang='scss' scoped>
-@layer base, theme, size;
+<style lang="scss" scoped>
+@layer base,
+theme,
+size;
 
 @layer base {
   .base-searchbar {
@@ -137,9 +147,11 @@ defineExpose({ focus })
   .base-searchbar.primary-theme {
     --_theme-bg: var(--background);
   }
+
   .base-searchbar.secondary-theme {
     --_theme-bg: var(--background-secondary);
   }
+
   .base-searchbar.tertiary-theme {
     --_theme-bg: var(--background-tertiary);
   }
