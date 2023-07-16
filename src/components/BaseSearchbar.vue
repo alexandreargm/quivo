@@ -21,6 +21,7 @@
     </div>
 
     <ol
+      v-show="searchString !== ''"
       class="base-searchbar__list"
     >
       <li class="base-searchbar__list-item">

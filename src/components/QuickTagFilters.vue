@@ -2,7 +2,7 @@
   <div class="quick-tag-filters">
     <menu class="quick-tag-filters__inner">
       <li
-        v-for="{ title, value} in keywords"
+        v-for="{ title, value} in keywordsSortedAlphabetically"
         :key="value"
         class="quick-tag-filters__item"
       >
@@ -19,7 +19,12 @@
 </template>
 
 <script setup>
+import { computed } from 'vue'
 import { keywords } from './AdvancedSearchFeature';
+
+const keywordsSortedAlphabetically = computed(() => {
+  return keywords.sort((a, b) => a.title.localeCompare(b.title, "en", { ignorePunctuation: true }))
+})
 </script>
 
 <style lang='scss' scoped>
