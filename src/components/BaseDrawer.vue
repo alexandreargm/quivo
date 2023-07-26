@@ -2,11 +2,11 @@
   <div
     ref="rootEl"
     class="base-drawer"
-    :class="[size]"
+    :class="[props.size]"
   >
     <div class="base-drawer__inner">
       <div
-        v-if="showClose"
+        v-if="props.showClose"
         class="base-drawer__close"
       >
         <base-close @click="handleClose" />
@@ -19,10 +19,10 @@
 
       <div class="base-drawer__content">
         <header
-          v-if="title"
+          v-if="props.title"
           class="base-drawer__header"
         >
-          {{ title }}
+          {{ props.title }}
         </header>
 
         <div class="base-drawer__body">
@@ -33,25 +33,18 @@
   </div>
 </template>
 
-<script>
-import { onMounted, ref } from 'vue'
+<script setup>
+import { ref, defineEmits, defineProps, defineExpose } from 'vue'
 import BaseClose from '../components/BaseClose.vue'
-// import useScrollLock from '../composables/useScrollLock'
 
-export default {
+const emits = defineEmits(['close'])
 
-  components: { BaseClose },
-
-  props: {
-    title: {
+const props = defineProps({
+  title: {
       type: String,
       default: ''
     },
     showClose: {
-      type: Boolean,
-      default: false
-    },
-    useContainer: {
       type: Boolean,
       default: false
     },
@@ -62,26 +55,18 @@ export default {
         return ['', 'full', 'auto'].includes(value)
       }
     }
-  },
-  emits: ['close'],
+})
 
-  setup (_, { emit }) {
-    const rootEl = ref(null)
-    // const { enableBodyScroll, disableBodyScroll } = useScrollLock
+const rootEl = ref(null)
 
-    onMounted(() => {
-      // disableBodyScroll(rootEl.value)
-    })
-
-    return {
-      rootEl,
-      handleClose () {
-        emit('close')
-        // enableBodyScroll(rootEl.value)
-      }
-    }
-  }
+function handleClose () {
+  emits('close')
 }
+
+defineExpose({
+  rootEl,
+  handleClose
+})
 </script>
 
 <style lang='scss' scoped>
