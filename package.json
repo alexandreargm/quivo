@@ -21,6 +21,7 @@
     "container-query-polyfill": "^1.0.0",
     "core-js": "^3.6.5",
     "css-scroll-snap-polyfill": "^0.1.2",
+    "date-fns": "^2.30.0",
     "pinia": "^2.0.21",
     "register-service-worker": "^1.7.1",
     "token-transformer": "0.0.13",
