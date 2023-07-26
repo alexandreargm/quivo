@@ -36,6 +36,9 @@
 <script setup>
 import { ref, defineEmits, defineProps, defineExpose } from 'vue'
 import BaseClose from '../components/BaseClose.vue'
+import { useScrollLock } from '../composables/useScrollLock'
+
+useScrollLock()
 
 const emits = defineEmits(['close'])
 
