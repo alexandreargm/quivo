@@ -71,3 +71,10 @@ p {
 body[class^="scroll-lock"] {
   overflow: hidden;
 }
+
+.logo {
+  text-transform: uppercase;
+  color: var(--color-interactive);
+  font-weight: var(--extrabold);
+  font-size: var(--font30);
+}
