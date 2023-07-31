@@ -1,7 +1,7 @@
 import { onMounted, onUnmounted } from "vue";
 import { namespacedUuid } from './useUuid'
 
-export function useScrollLock({ immediate = true }) {
+export function useScrollLock({ immediate = true } = {}) {
   const uniqueElementId = namespacedUuid('scroll-lock')
 
   function enable() {
