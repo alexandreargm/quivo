@@ -1,3 +1,11 @@
 .block:not(:last-child) {
   margin-bottom: var(--space00);
 }
+
+.container-padding {
+  padding: var(--container-gap);
+}
+
+.inline-container-padding {
+  padding-inline: var(--container-gap);
+}
