@@ -47,10 +47,6 @@
     "value": "4px",
     "type": "spacing"
   },
-  "space-25": {
-    "value": "6px",
-    "type": "spacing"
-  },
   "space-20": {
     "value": "8px",
     "type": "spacing"
