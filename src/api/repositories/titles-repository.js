@@ -16,7 +16,42 @@ export default {
     return client.get(`/${mediaType}/${id}?append_to_response=release_dates`)
   },
 
-  search ({ mediaType, page = 1, title = '', keywords = [], genres = [], dateRange = ['', ''] }) {
+  search({
+    title = '',
+    keywords = [],
+    excludedKeywords = [],
+    genres = [],
+    excludedGenres = [],
+    startDate = '',
+    endDate = '',
+    page = 1
+  }) {
+    const queryParameters = [
+      ['page=', page],
+      ['with_text_query=', title],
+      ['with_keywords=', encodeValues(keywords, 'AND')],
+      ['without_keywords=', encodeValues(excludedKeywords, 'AND')],
+      ['with_genres=', encodeValues(genres, 'AND')],
+      ['without_genres=', encodeValues(excludedGenres, 'AND')],
+      ['release_date.gte=', startDate],
+      ['release_date.lte=', endDate]
+    ]
+
+    const activeQueryParameters = queryParameters
+      .filter(([_, value]) => value !== '')
+      .map(([param, value]) => param + value)
+      .join('&')
+
+    return client.get(`/discover/movie?${activeQueryParameters}`).then(({ data }) => {
+      return {
+        entries: data.results,
+        pageCount: data.total_pages,
+        entryCount: data.total_results
+      }
+    })
+  },
+
+  search2 ({ mediaType, page = 1, title = '', keywords = [], genres = [], dateRange = ['', ''] }) {
     checkIsValidMediaType(mediaType)
     const { includes: includedKeywords, excludes: excludedKeywords } = getIncludedExcludedValues(keywords)
     const { includes: includedGenres, excludes: excludedGenres } = getIncludedExcludedValues(genres)

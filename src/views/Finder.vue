@@ -85,7 +85,7 @@ const hasSelectedMovie = computed(() => route.params.id)
 const searchInput = ref(null)
 
 const searchTitles = () => {
-  return handleRequest(titlesRepository.search({
+  return handleRequest(titlesRepository.search2({
     mediaType: 'movie',
     ...filters.value,
     page: currentPage.value
