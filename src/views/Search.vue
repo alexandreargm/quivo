@@ -12,35 +12,92 @@
     </header>
 
     <main class="search-view__main">
-      <div class="search-view__search">
-        <BaseAdvancedSearch
-          v-model:title="searchFilters.title"
-          v-model:genres="searchFilters.genres"
-          v-model:excludedGenres="searchFilters.excludedGenres"
+      <div class="search-view__search search-view__search_sticky">
+        <div class="search-view__searchbar">
+          <BaseAdvancedSearch v-model="searchFilters.title" />
+        </div>
+
+        <div class="filters">
+          <div class="filters__inner">
+            <base-switch v-model="isAllFiltersOpen">
+              <template #trigger="{ toggle, isOpen }">
+                <BaseAdvancedSearchToolbarButton
+                  :color="isOpen ? 'interactive' : 'default'"
+                  @click="toggle"
+                >
+                  All filters
+
+                  <template #icon>
+                    <base-icon
+                      v-show="!isOpen"
+                      name="ChevronDownIcon"
+                    />
+
+                    <base-icon
+                      v-show="isOpen"
+                      name="ChevronUpIcon"
+                    />
+                  </template>
+                </BaseAdvancedSearchToolbarButton>
+              </template>
+            </base-switch>
+
+            <base-switch v-model="isAllFiltersOpen">
+              <template #trigger="{ toggle, isOpen }">
+                <BaseAdvancedSearchToolbarFilter
+                  :count="searchFilters.genres.length + searchFilters.excludedGenres.length"
+                  :color="isOpen ? 'interactive' : 'default'"
+                  @click="toggle"
+                >
+                  genres
+                </BaseAdvancedSearchToolbarFilter>
+              </template>
+            </base-switch>
+  
+            <base-switch v-model="isAllFiltersOpen">
+              <template #trigger="{ toggle, isOpen }">
+                <BaseAdvancedSearchToolbarFilter
+                  :count="searchFilters.keywords.length + searchFilters.excludedKeywords.length"
+                  :color="isOpen ? 'interactive' : 'default'"
+                  @click="toggle"
+                >
+                  tags
+                </BaseAdvancedSearchToolbarFilter>
+              </template>
+            </base-switch>
+
+            <base-switch v-model="isAllFiltersOpen">
+              <template #trigger="{ toggle, isOpen }">
+                <BaseAdvancedSearchToolbarFilter
+                  :count="searchFilters.startDate && searchFilters.endDate ? 1 : 0"
+                  :color="isOpen ? 'interactive' : 'default'"
+                  @click="toggle"
+                >
+                  release date
+                </BaseAdvancedSearchToolbarFilter>
+              </template>
+            </base-switch>
+          </div>
+        </div>
+      </div>
+
+      <div
+        v-show="isAllFiltersOpen"
+        class="search-view__filter-dialog"
+      >
+        <BaseAdvancedSearchAllFiltersDialog
+          v-model:dateRange="filterDateRange"
           v-model:keywords="searchFilters.keywords"
-          v-model:excludedKeywords="searchFilters.excludedKeywords"
-          v-model:startDate="searchFilters.startDate"
-          v-model:endDate="searchFilters.endDate"
-        >
-          <BaseAdvancedSearchFilterToggle :count="searchFilters.genres.length + searchFilters.excludedGenres.length">
-            genres
-          </BaseAdvancedSearchFilterToggle>
-        
-          <BaseAdvancedSearchFilterToggle :count="searchFilters.keywords.length + searchFilters.excludedKeywords.length">
-            tags
-          </BaseAdvancedSearchFilterToggle>
-        
-          <BaseAdvancedSearchFilterToggle :count="searchFilters.startDate && searchFilters.endDate ? 1 : 0">
-            release date
-          </BaseAdvancedSearchFilterToggle>
-        </BaseAdvancedSearch>
+          v-model:excluded-keywords="searchFilters.excludedKeywords"
+          v-model:genres="searchFilters.genres"
+          v-model:excluded-genres="searchFilters.excludedGenres"
+        />
       </div>
 
-      <div class="search-view__filter-dialog">
-        <BaseAdvancedSearchAllFiltersDialog />
-      </div>
-
-      <div class="search-view__gallery">
+      <div
+        v-show="!isAllFiltersOpen"
+        class="search-view__gallery"
+      >
         <BaseGallery>
           <TitleCard
             v-for="card in searchResponse.entries"
@@ -56,14 +113,19 @@
 </template>
 
 <script setup>
-import { reactive, ref } from 'vue';
+import { reactive, ref, computed } from 'vue';
 import { useRoute } from 'vue-router';
 import repositoryFactory from '../api/repository-factory';
 import BaseGallery from '../components/BaseGallery.vue';
 import TitleCard from '../components/TitleCard.vue';
 import BaseAdvancedSearch from '../components/BaseAdvancedSearch.vue'
 import BaseAdvancedSearchAllFiltersDialog from '../components/BaseAdvancedSearchAllFiltersDialog.vue';
-import BaseAdvancedSearchFilterToggle from '../components/BaseAdvancedSearchFilterToggle.vue';
+import BaseAdvancedSearchToolbarFilter from '../components/BaseAdvancedSearchToolbarFilter.vue';
+import BaseAdvancedSearchToolbarButton from '../components/BaseAdvancedSearchToolbarButton.vue';
+import BaseIcon from '../components/BaseIcon.vue';
+import { getReleaseTagValues, getReleaseTagId } from './searchTags';
+import BaseSwitch from '../components/BaseSwitch.vue';
+
 const titlesRepository = repositoryFactory.get('titles')
 
 const route = useRoute()
@@ -84,6 +146,24 @@ const searchFilters = reactive({
   endDate: ref(''),
   page: 1,
 })
+const filterDateRange = computed({
+  get() {
+    return getReleaseTagId({startDate: searchFilters.startDate, endDate: searchFilters.endDate})
+  },
+  set(newValue) {
+    const dateValues = getReleaseTagValues(newValue)
+
+    if (!dateValues) {
+      searchFilters.startDate = ''
+      searchFilters.endDate = ''
+      return
+    }
+
+    searchFilters.startDate = dateValues.startDate
+    searchFilters.endDate = dateValues.endDate
+  }
+})
+const isAllFiltersOpen = ref(false)
 
 function handleSearch() {
   isSearching.value = true
@@ -106,34 +186,48 @@ handleSearch()
 </script>
 
 <style lang='scss'>
- .search-view {
+.search-view {
   display: grid;
-  grid-template-rows: auto 1fr;
+  grid-template: auto 1fr / 100%;
+  height: 100dvh;
+  overflow-y: auto;
 
   &__main {
     display: grid;
-    grid-template-rows: auto 1fr 0px;
+    grid-template: auto 1fr / 100%;
   }
 
   &__header {
-    padding: var(--space20) var(--container-gap) var(--space-10);
+    padding: var(--space20) var(--container-gap) 0;
   }
 
-  &__search {
-    padding-inline: var(--container-gap);
+  &__searchbar {
+    padding: var(--space-10) var(--container-gap) var(--space-30);
+  }
+
+  &__search_sticky {
+    position: sticky;
+    top: 0;
+    z-index: var(--z-sticky);
+    background: var(--background);
   }
 
   &__filter-dialog {
     display: grid;
-    grid-row: 2 / 2;
-    grid-column: 1 / 1;
     z-index: var(--z-modal);
   }
+}
 
-  &__gallery {
-    padding: var(--space20) 0;
-    grid-row: 2 / 2;
-    grid-column: 1 / 1;
+.filters {
+  max-width: 100%;
+  overflow: auto;
+  display: flex;
+  padding: var(--space-20) var(--container-gap);
+
+  &__inner {
+    gap: var(--space-20);
+    align-items: center;
+    display: flex;
   }
- }
+}
 </style>
