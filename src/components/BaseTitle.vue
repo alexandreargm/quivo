@@ -40,6 +40,7 @@ const getLevelClass = () => {
   font-weight: var(--medium);
   line-height: var(--line-20);
   white-space: nowrap;
+  margin-bottom: clamp(var(--space-10), 0.5em, 3rem );
 
   &.is-level-1 {
     --min-size: var(--font30);
