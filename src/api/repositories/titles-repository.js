@@ -9,7 +9,7 @@ function checkIsValidMediaType (mediaType) {
   }
 }
 
-export default {
+export const titlesRepository = {
   find ({ mediaType, id }) {
     checkIsValidMediaType(mediaType)
 
