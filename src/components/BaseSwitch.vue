@@ -16,7 +16,13 @@
       role="switch"
       :aria-checked="props.modelValue"
     >
-      <slot name="trigger">
+      <slot
+        name="trigger"
+        :isOpen="props.modelValue"
+        :open="() => emits('update:modelValue', true)"
+        :close="() => emits('update:modelValue', false)"
+        :toggle="() => emits('update:modelValue', !props.modelValue)"
+      >
         <div
           class="base-switch__toggle"
         >
