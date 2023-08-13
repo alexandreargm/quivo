@@ -2,7 +2,10 @@
   <button
     type="button"
     class="advanced-search-toolbar-filter"
-    :class="props.color"
+    :class="{ 
+      [props.color]: props.color,
+      'has-filters': props.count > 0 || undefined
+    }"
     @click="emits('click', $event)"
   >
     <div class="advanced-search-toolbar-filter__title">
@@ -70,6 +73,10 @@ const props = defineProps({
   
     &__count {
       text-align: center;
+    }
+
+    &.has-filters {
+      border-color: var(--icon-interactive);
     }
   }
 }
