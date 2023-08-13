@@ -7,15 +7,13 @@
   />
 </template>
 
-<script>
-import { ref, onMounted, computed } from 'vue'
+<script setup>
+import { ref, onMounted, computed, defineProps } from 'vue'
 import * as solidHeroicons from '@heroicons/vue/solid'
 import * as outlineHeroicons from '@heroicons/vue/outline'
 
-export default {
-  name: 'BaseIcon',
-  props: {
-    name: {
+const props = defineProps({
+  name: {
       type: String,
       required: true
     },
@@ -44,32 +42,23 @@ export default {
       type: Boolean,
       default: false
     }
-  },
-  setup (props) {
-    const isLoaded = ref(false)
-    const solidIcons = ref(solidHeroicons)
-    const outlineIcons = ref(outlineHeroicons)
+})
 
-    const getIcon = computed(() => {
-      return props.type === 'solid'
-        ? () => solidIcons.value[props.name]
-        : () => outlineIcons.value[props.name]
-    })
-    const getIsFluidClass = () => {
-      return props.isFluid ? 'is-fluid' : ''
-    }
-
-    onMounted(() => {
-      isLoaded.value = true
-    })
-
-    return {
-      getIsFluidClass,
-      isLoaded,
-      getIcon
-    }
-  }
+const isLoaded = ref(false)
+const solidIcons = ref(solidHeroicons)
+const outlineIcons = ref(outlineHeroicons)
+const getIcon = computed(() => {
+  return props.type === 'solid'
+    ? () => solidIcons.value[props.name]
+    : () => outlineIcons.value[props.name]
+})
+const getIsFluidClass = () => {
+  return props.isFluid ? 'is-fluid' : ''
 }
+
+onMounted(() => {
+  isLoaded.value = true
+})
 </script>
 
 <style lang='scss' scoped>
