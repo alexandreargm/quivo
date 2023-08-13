@@ -71,6 +71,7 @@
     "vue-content-loader": "^2.0.1",
     "vue-jest": "^5.0.0-0",
     "vue-loader": "^16.5.0",
+    "vue-svg-loader": "^0.17.0-beta.2",
     "webpack-bundle-analyzer": "^4.5.0"
   }
 }
