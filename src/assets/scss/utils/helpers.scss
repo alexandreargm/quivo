@@ -2,6 +2,10 @@
   margin-bottom: var(--space00);
 }
 
+.block2:not(:last-child) {
+  margin-bottom: var(--space30);
+}
+
 .container-padding {
   padding: var(--container-gap);
 }
