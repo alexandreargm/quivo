@@ -1,16 +1,13 @@
 <template>
   <component
-    :is="getIcon()"
-    v-if="isLoaded"
+    :is="icon"
     class="base-icon"
-    :class="[size, color, getIsFluidClass()]"
+    :class="[{ 'is-fluid': props.isFluid}, props.color, props.size]"
   />
 </template>
 
 <script setup>
-import { ref, onMounted, computed, defineProps } from 'vue'
-import * as solidHeroicons from '@heroicons/vue/solid'
-import * as outlineHeroicons from '@heroicons/vue/outline'
+import { ref, defineProps, markRaw } from 'vue'
 
 const props = defineProps({
   name: {
@@ -44,20 +41,10 @@ const props = defineProps({
     }
 })
 
-const isLoaded = ref(false)
-const solidIcons = ref(solidHeroicons)
-const outlineIcons = ref(outlineHeroicons)
-const getIcon = computed(() => {
-  return props.type === 'solid'
-    ? () => solidIcons.value[props.name]
-    : () => outlineIcons.value[props.name]
-})
-const getIsFluidClass = () => {
-  return props.isFluid ? 'is-fluid' : ''
-}
+let icon = ref('')
 
-onMounted(() => {
-  isLoaded.value = true
+import(`@/assets/icons/${props.type}/${props.name}.svg`).then((data) => {
+  icon.value = markRaw(data.default)
 })
 </script>
 
@@ -70,7 +57,7 @@ svg {
 .base-icon {
   --width: var(--size00);
 
-  color: var(--color);
+  fill: var(--color);
   height: auto;
   width: var(--width);
 }
@@ -83,7 +70,7 @@ svg {
 
 // Colors
 .base-icon.inherit {
-  --color: inherit;
+  --color: currentColor;
 }
 
 .base-icon.brand {
