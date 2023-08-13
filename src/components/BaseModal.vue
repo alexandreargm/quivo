@@ -26,7 +26,7 @@
           @key-down.stop.enter="handleClose"
         >
           <template #icon>
-            <base-icon name="XIcon" />
+            <base-icon name="close" />
           </template>
         </base-button>
       </header>

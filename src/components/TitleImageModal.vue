@@ -17,7 +17,7 @@
           <base-button variant="tertiary">
             <template #icon>
               <base-icon
-                name="XIcon"
+                name="close"
                 size="lg"
               />
             </template>

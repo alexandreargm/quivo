@@ -28,7 +28,7 @@
       >
         <template #before>
           <div class="advanced-searchbar__icon">
-            <base-icon name="SearchIcon" />
+            <base-icon name="search" />
           </div>
         </template>
       </base-input>

@@ -41,7 +41,7 @@
           color="brand"
         >
           <template #icon>
-            <base-icon name="LightningBoltIcon" />
+            <base-icon name="search" />
           </template>
 
           Finder

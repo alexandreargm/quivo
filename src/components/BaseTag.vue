@@ -16,7 +16,7 @@
       @click="emits('close', $event)"
     >
       <base-icon
-        name="XIcon"
+        name="close"
         size="md"
         is-fluid
       />

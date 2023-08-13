@@ -10,7 +10,7 @@
         class="base-advanced-search__icon"
       >
         <BaseIcon
-          name="SearchIcon"
+          name="search"
           size="lg"
         />
       </label>

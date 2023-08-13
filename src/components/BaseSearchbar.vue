@@ -13,12 +13,12 @@
           <div class="base-searchbar__icon">
             <BaseIcon
               v-show="!isOpen"
-              name="SearchIcon"
+              name="search"
             />
     
             <BaseIcon
               v-show="isOpen"
-              name="ArrowLeftIcon"
+              name="arrow-left"
             />
           </div>
         </template>

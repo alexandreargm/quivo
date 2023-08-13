@@ -11,7 +11,7 @@
             <template #icon>
               <base-icon
                 size="lg"
-                name="FilterIcon"
+                name="filter"
               />
             </template>
 
@@ -119,7 +119,7 @@
             :disabled="!hasSearchParams"
           >
             <template #icon>
-              <base-icon name="SearchIcon" />
+              <base-icon name="search" />
             </template>
 
             Find titles

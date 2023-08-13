@@ -5,7 +5,7 @@
     :class="[props.size, getIsRoundClass()]"
     @click="emits('click')"
   >
-    <base-icon name="XIcon" />
+    <base-icon name="close" />
   </button>
 </template>
 

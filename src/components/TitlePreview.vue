@@ -13,7 +13,7 @@
         >
           <template #icon>
             <base-icon
-              name="ArrowsExpandIcon"
+              name="fullscreen"
               type="outline"
             />
           </template>

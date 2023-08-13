@@ -11,7 +11,7 @@
     <template #before>
       <slot name="before">
         <div class="searchbar-icon">
-          <base-icon name="SearchIcon" />
+          <base-icon name="search" />
         </div>
       </slot>
     </template>

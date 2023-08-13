@@ -117,7 +117,7 @@
             @click="handleSubmit"
           >
             <template #icon>
-              <base-icon name="SearchIcon" />
+              <base-icon name="search" />
             </template>
 
             Find titles
@@ -199,7 +199,7 @@
             @click="handleSubmit"
           >
             <template #icon>
-              <base-icon name="SearchIcon" />
+              <base-icon name="search" />
             </template>
 
             Find titles

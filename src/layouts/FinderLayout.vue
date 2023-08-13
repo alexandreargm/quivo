@@ -15,7 +15,7 @@
           >
             <template #icon>
               <BaseIcon
-                name="XIcon"
+                name="close"
                 size="lg"
               />
             </template>
