@@ -57,6 +57,7 @@ svg {
 .base-icon {
   --width: var(--size00);
 
+  flex-shrink: 0;
   fill: var(--color);
   height: auto;
   width: var(--width);
@@ -64,6 +65,7 @@ svg {
 
 // IsFluid
 .base-icon.is-fluid {
+  flex-shrink: 1;
   max-height: 100%;
   max-width: 100%;
 }
