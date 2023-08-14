@@ -9,10 +9,7 @@
         for="advanced-search"
         class="base-advanced-search__icon"
       >
-        <BaseIcon
-          name="search"
-          size="lg"
-        />
+        <BaseIcon name="search" />
       </label>
 
       <input
@@ -23,8 +20,21 @@
         autocorrect="off"
         placeholder="Find something to watch"
         :value="props.modelValue"
-        @input="emits('update:modelValue', $event.currentTarget.value)"
+        @input="emits('update:modelValue', $event.currentTarget.value), emits('change', $event)"
+        @key-down.escape="emits('clear', $event)"
       >
+
+      <button
+        v-show="props.modelValue !== ''"
+        type="button"
+        class="base-advanced-search__clear-button"
+        @click="emits('clear', $event)"
+      >
+        <base-icon
+          name="close"
+          size="xl"
+        />
+      </button>
     </div>
   </form>
 </template>
@@ -33,7 +43,7 @@
 import { defineProps, defineEmits } from 'vue';
 import BaseIcon from './BaseIcon.vue';
 
-const emits = defineEmits(["update:modelValue"])
+const emits = defineEmits(["update:modelValue", "change", "clear"])
 
 const props = defineProps({
   modelValue: {
@@ -51,7 +61,7 @@ const props = defineProps({
     &__control {
       position: relative;
       display: grid;
-      grid-template-columns: auto 1fr;
+      grid-template-columns: auto 1fr var(--size30);
       grid-template-rows: var(--size30);
       align-items: stretch;
       border-radius: var(--rounded20);
@@ -78,6 +88,21 @@ const props = defineProps({
       padding: 0 var(--space-10) 0 var(--space-20);
       cursor: text !important;
       color: var(--text);
+    }
+
+    &__clear-button {
+      all: unset;
+      display: grid;
+      place-content: center;
+      color: var(--text-secondary);
+    }
+
+    &__clear-button:hover {
+      color: var(--text-secondary-hover);
+    }
+
+    &__clear-button:active {
+      color: var(--text-active-secondary);
     }
   }
 }
