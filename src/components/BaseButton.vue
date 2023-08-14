@@ -1,7 +1,7 @@
 <template>
   <button
     class="base-button"
-    :class="[size, color, variant, iconClass, round]"
+    :class="[size, color, variant, iconClass, round, { [theme + '-theme']: true}]"
     :type="type"
     @click="handleClick"
   >
@@ -33,6 +33,13 @@ export default {
       }
     },
     variant: {
+      type: String,
+      default: 'primary',
+      validator: function (value) {
+        return ['primary', 'secondary', 'tertiary'].includes(value)
+      }
+    },
+    theme: {
       type: String,
       default: 'primary',
       validator: function (value) {
@@ -139,18 +146,50 @@ export default {
 
 @layer color {
   .base-button.default {
-    --_bg-color: var(--background-secondary);
-    --_color: var(--text-neutral);
-    --_color-hover: var(--text-neutral-hover);
-    --_color-active: var(--text-neutral-active);
+    &.primary-theme {
+      --_bg-color: var(--background);
+      --_color: var(--text-neutral);
+      --_color-hover: var(--text-neutral-hover);
+      --_color-active: var(--text-neutral-active);
 
-    &:hover {
-      --_bg-color: var(--color-interactive-hover);
+      &:hover {
+        --_bg-color: var(--background-hover);
+      }
+
+      &:active {
+        --_bg-color: var(--background-active);
+      }
     }
 
-    &:active {
-      --_bg-color: var(--color-interactive-active);
+    &.secondary-theme {
+      --_bg-color: var(--background-secondary);
+      --_color: var(--text-neutral);
+      --_color-hover: var(--text-neutral-hover);
+      --_color-active: var(--text-neutral-active);
+
+      &:hover {
+        --_bg-color: var(--background-hover-secondary);
+      }
+
+      &:active {
+        --_bg-color: var(--background-active-secondary);
+      }
     }
+
+    &.tertiary-theme {
+      --_bg-color: var(--background-tertiary);
+      --_color: var(--text-neutral);
+      --_color-hover: var(--text-neutral-hover);
+      --_color-active: var(--text-neutral-active);
+
+      &:hover {
+        --_bg-color: var(--background-interactive-tertiary-hover);
+      }
+
+      &:active {
+        --_bg-color: var(--background-interactive-tertiary-active);
+      }
+    }    
   }
 
   .base-button.brand {
