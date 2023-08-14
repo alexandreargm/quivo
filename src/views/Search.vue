@@ -17,7 +17,7 @@
           <BaseAdvancedSearch
             v-model="searchFilters.title"
             @change="handleDebouncedSearch()"
-            @clear="searchFilters.title = '', searchFilters()"
+            @clear="searchFilters.title = '', handleDebouncedSearch()"
           />
         </div>
 
@@ -161,26 +161,10 @@
             />
           </section>
 
-          <template #actions>
-            <base-button
-              variant="primary"
-              color="default"
-              theme="primary"
-              size="lg"
-              icon="only"
-              @click="resetAllFilters()"
-            >
-              <template #icon>
-                <base-icon
-                  name="filter-off"
-                  size="lg"
-                />
-              </template>
-            </base-button>
-            
+          <template #actions>            
             <base-button
               color="brand"
-              width="320px"
+              width="300px"
               size="lg"
               @click="closeDialogs(), handleSearch()"
             >
@@ -209,24 +193,8 @@
 
           <template #actions>
             <base-button
-              variant="primary"
-              color="default"
-              theme="primary"
-              size="lg"
-              icon="only"
-              @click="resetGenreFilters()"
-            >
-              <template #icon>
-                <base-icon
-                  name="filter-off"
-                  size="lg"
-                />
-              </template>
-            </base-button>
-            
-            <base-button
               color="brand"
-              width="320px"
+              width="300px"
               size="lg"
               @click="closeDialogs(), handleSearch()"
             >
@@ -255,24 +223,8 @@
 
           <template #actions>
             <base-button
-              variant="primary"
-              color="default"
-              theme="primary"
-              size="lg"
-              icon="only"
-              @click="resetKeywordFilters()"
-            >
-              <template #icon>
-                <base-icon
-                  name="filter-off"
-                  size="lg"
-                />
-              </template>
-            </base-button>
-            
-            <base-button
               color="brand"
-              width="320px"
+              width="300px"
               size="lg"
               @click="closeDialogs(), handleSearch()"
             >
@@ -298,26 +250,10 @@
             v-model="filterDateRange"
           />
 
-          <template #actions>
-            <base-button
-              variant="primary"
-              color="default"
-              theme="primary"
-              size="lg"
-              icon="only"
-              @click="resetReleaseDateFilters()"
-            >
-              <template #icon>
-                <base-icon
-                  name="filter-off"
-                  size="lg"
-                />
-              </template>
-            </base-button>
-            
+          <template #actions>            
             <base-button
               color="brand"
-              width="320px"
+              width="300px"
               size="lg"
               @click="closeDialogs(), handleSearch()"
             >
