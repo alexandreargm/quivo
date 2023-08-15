@@ -437,7 +437,6 @@ handleSearch()
   &__filter-dialog {
     display: grid;
     grid-template-columns: 100%;
-    z-index: var(--z-modal);
   }
 
   &__no-results {
