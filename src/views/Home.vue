@@ -88,7 +88,7 @@ const goToFinder = () => {
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: var(--space30);
+    gap: var(--space20);
   }
 }
 </style>
