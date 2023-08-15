@@ -33,7 +33,7 @@
         autocorrect="off"
         placeholder="Find where to watch..."
         @focus="handleToggleOpen(true)"
-        @input="debouncedSearchTitles($event.currentTarget.value)"
+        @input="isSearching = true, debouncedSearchTitles($event.currentTarget.value)"
       >
     </div>
 
@@ -46,7 +46,7 @@
         class="base-searchbar__list"
       >
         <li
-          v-show="searchString.trim() !== ''"
+          v-show="(searchString.trim() !== '' && !hasSearched) || (hasSearched && hasResults)"
           class="base-searchbar__list-item"
         >
           <router-link
@@ -73,10 +73,17 @@
       </ol>
 
       <div
-        v-show="isSearching"
+        v-show="searchString.trim() !== '' && isSearching"
         class="base-searchbar__list-loading"
       >
         Searching...
+      </div>
+
+      <div
+        v-show="!isSearching && searchString.trim() !== '' && hasSearched && !hasResults"
+        class="base-searchbar__no-results"
+      >
+        No results. Try another title
       </div>
     </div>
   </div>
@@ -120,19 +127,21 @@ const input = ref(null);
 const searchedTitles = ref([]);
 const isSearching = ref(false)
 const isOpen = ref(false)
+const hasSearched = ref(false)
+const hasResults = ref(false)
 
 const focus = () => {
   input.value?.focus();
 };
 async function searchTitles(titleName) {
-  isSearching.value = true
-
   const { data } = await titlesRepository.simpleSearch({
     title: titleName
   });
 
   searchedTitles.value = data.results
 
+  hasSearched.value = true
+  hasResults.value = data.results.length > 0
   isSearching.value = false
 }
 const debouncedSearchTitles = useDebounceFn(
@@ -232,9 +241,10 @@ size;
       line-height: var(--line10);
     }
 
-    &__list-loading {
-      height: 44px;
-      padding: 0 var(--space-10);
+    &__list-loading,
+    &__no-results {
+      padding: var(--space-10);
+      color: var(--text-secondary);
     }
   }
 
