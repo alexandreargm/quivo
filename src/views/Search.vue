@@ -279,7 +279,7 @@
       </div>
 
       <div
-        v-show="searchResponse.entries.length === 0"
+        v-show="!isSearching && searchResponse.entries.length === 0"
         class="search-view__no-results"
       >
         <p>
