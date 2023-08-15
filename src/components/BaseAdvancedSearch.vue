@@ -18,7 +18,7 @@
         type="text" 
         autocomplete="off"
         autocorrect="off"
-        placeholder="Find something to watch"
+        placeholder="Find where to watch a movie"
         :value="props.modelValue"
         @input="emits('update:modelValue', $event.currentTarget.value), emits('change', $event)"
         @key-down.escape="emits('clear', $event)"

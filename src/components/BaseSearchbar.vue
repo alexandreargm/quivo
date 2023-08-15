@@ -31,7 +31,7 @@
         type="text"
         autocomplete="off"
         autocorrect="off"
-        placeholder="Find where to watch..."
+        placeholder="Find where to watch a movie"
         @focus="handleToggleOpen(true)"
         @input="isSearching = true, debouncedSearchTitles($event.currentTarget.value)"
       >
