@@ -397,12 +397,6 @@ function resetReleaseDateFilters() {
   searchFilters.startDate = ""
   searchFilters.endDate = ""
 }
-
-function resetAllFilters() {
-  resetGenreFilters()
-  resetKeywordFilters()
-  resetReleaseDateFilters()
-}
  
 handleSearch()
 </script>
