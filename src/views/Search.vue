@@ -12,279 +12,305 @@
     </header>
 
     <main class="search-view__main">
-      <div class="search-view__search search-view__search_sticky">
-        <div class="search-view__searchbar">
-          <BaseAdvancedSearch
-            v-model="searchFilters.title"
-            @change="handleDebouncedSearch()"
-            @clear="searchFilters.title = '', handleDebouncedSearch()"
-          />
-        </div>
-
-        <div class="filters">
-          <div class="filters__inner">
-            <base-switch
-              :model-value="filterDialogs.isAllOpen"
-              @update:model-value="closeDialogs(), filterDialogs.isAllOpen = $event"
-            >
-              <template #trigger="{ toggle, isOpen }">
-                <BaseAdvancedSearchToolbarButton
-                  :color="isOpen ? 'interactive' : 'default'"
-                  @click="toggle"
-                >
-                  All filters
-
-                  <template #icon>
-                    <base-icon
-                      v-show="!isOpen"
-                      name="chevron-down"
-                    />
-
-                    <base-icon
-                      v-show="isOpen"
-                      name="chevron-up"
-                    />
-                  </template>
-                </BaseAdvancedSearchToolbarButton>
-              </template>
-            </base-switch>
-
-            <base-switch
-              :model-value="filterDialogs.isGenresOpen"
-              @update:model-value="closeDialogs(), filterDialogs.isGenresOpen = $event"
-            >
-              <template #trigger="{ toggle, isOpen }">
-                <BaseAdvancedSearchToolbarFilter
-                  :count="searchFilters.genres.length + searchFilters.excludedGenres.length"
-                  :color="isOpen ? 'interactive' : 'default'"
-                  :show-close="searchFilters.genres.length + searchFilters.excludedGenres.length > 0"
-                  @click="toggle"
-                  @close="() => {
-                    resetGenreFilters()
-                    handleSearch()
-                  }"
-                >
-                  genres
-                </BaseAdvancedSearchToolbarFilter>
-              </template>
-            </base-switch>
+      <div class="search-view__search">
+        <div class="search-view__search">
+          <div class="search-view__searchbar">
+            <BaseAdvancedSearch
+              v-model="searchFilters.title"
+              @change="handleDebouncedSearch()"
+              @clear="searchFilters.title = '', handleDebouncedSearch()"
+            />
+          </div>
   
-            <base-switch
-              :model-value="filterDialogs.isKeywordsOpen"
-              @update:model-value="closeDialogs(), filterDialogs.isKeywordsOpen = $event"
-            >
-              <template #trigger="{ toggle, isOpen }">
-                <BaseAdvancedSearchToolbarFilter
-                  :count="searchFilters.keywords.length + searchFilters.excludedKeywords.length"
-                  :color="isOpen ? 'interactive' : 'default'"
-                  :show-close="searchFilters.keywords.length + searchFilters.excludedKeywords.length > 0"
-                  @click="toggle"
-                  @close="() => {
-                    resetKeywordFilters()
-                    handleSearch()
-                  }"
-                >
-                  tags
-                </BaseAdvancedSearchToolbarFilter>
-              </template>
-            </base-switch>
-
-            <base-switch
-              :model-value="filterDialogs.isReleaseDateOpen"
-              @update:model-value="closeDialogs(), filterDialogs.isReleaseDateOpen = $event"
-            >
-              <template #trigger="{ toggle, isOpen }">
-                <BaseAdvancedSearchToolbarFilter
-                  :count="searchFilters.startDate && searchFilters.endDate ? 1 : 0"
-                  :color="isOpen ? 'interactive' : 'default'"
-                  :show-close="searchFilters.startDate && searchFilters.endDate || false"
-                  @click="toggle"
-                  @close="() => {
-                    resetReleaseDateFilters()
-                    handleSearch()
-                  }"
-                >
-                  release date
-                </BaseAdvancedSearchToolbarFilter>
-              </template>
-            </base-switch>
+          <div class="filters">
+            <div class="filters__inner">
+              <base-switch
+                :model-value="filterDialogs.isAllOpen"
+                @update:model-value="closeDialogs(), filterDialogs.isAllOpen = $event"
+              >
+                <template #trigger="{ toggle, isOpen }">
+                  <BaseAdvancedSearchToolbarButton
+                    :color="isOpen ? 'interactive' : 'default'"
+                    @click="toggle"
+                  >
+                    All filters
+  
+                    <template #icon>
+                      <base-icon
+                        v-show="!isOpen"
+                        name="chevron-down"
+                      />
+  
+                      <base-icon
+                        v-show="isOpen"
+                        name="chevron-up"
+                      />
+                    </template>
+                  </BaseAdvancedSearchToolbarButton>
+                </template>
+              </base-switch>
+  
+              <base-switch
+                :model-value="filterDialogs.isGenresOpen"
+                @update:model-value="closeDialogs(), filterDialogs.isGenresOpen = $event"
+              >
+                <template #trigger="{ toggle, isOpen }">
+                  <BaseAdvancedSearchToolbarFilter
+                    :count="searchFilters.genres.length + searchFilters.excludedGenres.length"
+                    :color="isOpen ? 'interactive' : 'default'"
+                    :show-close="searchFilters.genres.length + searchFilters.excludedGenres.length > 0"
+                    @click="toggle"
+                    @close="() => {
+                      resetGenreFilters()
+                      handleSearch()
+                    }"
+                  >
+                    genres
+                  </BaseAdvancedSearchToolbarFilter>
+                </template>
+              </base-switch>
+    
+              <base-switch
+                :model-value="filterDialogs.isKeywordsOpen"
+                @update:model-value="closeDialogs(), filterDialogs.isKeywordsOpen = $event"
+              >
+                <template #trigger="{ toggle, isOpen }">
+                  <BaseAdvancedSearchToolbarFilter
+                    :count="searchFilters.keywords.length + searchFilters.excludedKeywords.length"
+                    :color="isOpen ? 'interactive' : 'default'"
+                    :show-close="searchFilters.keywords.length + searchFilters.excludedKeywords.length > 0"
+                    @click="toggle"
+                    @close="() => {
+                      resetKeywordFilters()
+                      handleSearch()
+                    }"
+                  >
+                    tags
+                  </BaseAdvancedSearchToolbarFilter>
+                </template>
+              </base-switch>
+  
+              <base-switch
+                :model-value="filterDialogs.isReleaseDateOpen"
+                @update:model-value="closeDialogs(), filterDialogs.isReleaseDateOpen = $event"
+              >
+                <template #trigger="{ toggle, isOpen }">
+                  <BaseAdvancedSearchToolbarFilter
+                    :count="searchFilters.startDate && searchFilters.endDate ? 1 : 0"
+                    :color="isOpen ? 'interactive' : 'default'"
+                    :show-close="searchFilters.startDate && searchFilters.endDate || false"
+                    @click="toggle"
+                    @close="() => {
+                      resetReleaseDateFilters()
+                      handleSearch()
+                    }"
+                  >
+                    release date
+                  </BaseAdvancedSearchToolbarFilter>
+                </template>
+              </base-switch>
+            </div>
           </div>
         </div>
-      </div>
-
-      <div
-        v-show="isAnyFilterDialogOpen"
-        class="search-view__filter-dialog"
-      >
-        <SearchFilterDialog
-          v-if="filterDialogs.isAllOpen"
-          @close="filterDialogs.isAllOpen = close"
+  
+        <div
+          v-show="isAnyFilterDialogOpen"
+          class="search-view__filter-dialog"
         >
-          <template #title>
-            <BaseTitle
-              :level="2"
-              :has-margin-bottom="false"
-            >
-              All filters
-            </BaseTitle>
-          </template>
-
-          <section class="block2">
-            <BaseTitle :level="3">
-              Genres
-            </BaseTitle>
-
+          <SearchFilterDialog
+            v-if="filterDialogs.isAllOpen"
+            @close="filterDialogs.isAllOpen = close"
+          >
+            <template #title>
+              <BaseTitle
+                :level="2"
+                :has-margin-bottom="false"
+              >
+                All filters
+              </BaseTitle>
+            </template>
+  
+            <section class="block2">
+              <BaseTitle :level="3">
+                Genres
+              </BaseTitle>
+  
+              <SearchGenreFilter
+                v-model:genres="searchFilters.genres"
+                v-model:excluded-genres="searchFilters.excludedGenres"
+              />
+            </section>
+  
+            <section class="block2">
+              <BaseTitle :level="3">
+                Tags
+              </BaseTitle>
+  
+              <SearchKeywordFilter
+                v-model:keywords="searchFilters.keywords"
+                v-model:excluded-keywords="searchFilters.excludedKeywords"
+              />
+            </section>
+  
+            <section class="block2">
+              <BaseTitle :level="3">
+                Release date
+              </BaseTitle>
+  
+              <SearchReleaseDateFilter
+                v-model="filterDateRange"
+              />
+            </section>
+  
+            <template #actions>            
+              <base-button
+                color="brand"
+                width="300px"
+                size="lg"
+                @click="closeDialogs(), handleSearch()"
+              >
+                Search
+              </base-button>
+            </template>
+          </SearchFilterDialog>
+  
+          <SearchFilterDialog
+            v-if="filterDialogs.isGenresOpen"
+            @close="filterDialogs.isGenresOpen = close"
+          >
+            <template #title>
+              <BaseTitle
+                :level="2" 
+                :has-margin-bottom="false"
+              >
+                Genres
+              </BaseTitle>
+            </template>
+  
             <SearchGenreFilter
               v-model:genres="searchFilters.genres"
               v-model:excluded-genres="searchFilters.excludedGenres"
             />
-          </section>
-
-          <section class="block2">
-            <BaseTitle :level="3">
-              Tags
-            </BaseTitle>
-
+  
+            <template #actions>
+              <base-button
+                color="brand"
+                width="300px"
+                size="lg"
+                @click="closeDialogs(), handleSearch()"
+              >
+                Search
+              </base-button>
+            </template>
+          </SearchFilterDialog>
+  
+          <SearchFilterDialog
+            v-if="filterDialogs.isKeywordsOpen"
+            @close="filterDialogs.isKeywordsOpen = close"
+          >
+            <template #title>
+              <BaseTitle
+                :level="2" 
+                :has-margin-bottom="false"
+              >
+                Tags
+              </BaseTitle>
+            </template>
+  
             <SearchKeywordFilter
               v-model:keywords="searchFilters.keywords"
               v-model:excluded-keywords="searchFilters.excludedKeywords"
             />
-          </section>
-
-          <section class="block2">
-            <BaseTitle :level="3">
-              Release date
-            </BaseTitle>
-
+  
+            <template #actions>
+              <base-button
+                color="brand"
+                width="300px"
+                size="lg"
+                @click="closeDialogs(), handleSearch()"
+              >
+                Search
+              </base-button>
+            </template>
+          </SearchFilterDialog>
+  
+          <SearchFilterDialog
+            v-if="filterDialogs.isReleaseDateOpen" 
+            @close="filterDialogs.isReleaseDateOpen = close"
+          >
+            <template #title>
+              <BaseTitle
+                :level="2" 
+                :has-margin-bottom="false"
+              >
+                Release date
+              </BaseTitle>
+            </template>
+  
             <SearchReleaseDateFilter
               v-model="filterDateRange"
             />
-          </section>
+  
+            <template #actions>            
+              <base-button
+                color="brand"
+                width="300px"
+                size="lg"
+                @click="closeDialogs(), handleSearch()"
+              >
+                Search
+              </base-button>
+            </template>
+          </SearchFilterDialog>
+        </div>
+      </div>
 
-          <template #actions>            
-            <base-button
-              color="brand"
-              width="300px"
-              size="lg"
-              @click="closeDialogs(), handleSearch()"
-            >
-              Search
-            </base-button>
-          </template>
-        </SearchFilterDialog>
-
-        <SearchFilterDialog
-          v-if="filterDialogs.isGenresOpen"
-          @close="filterDialogs.isGenresOpen = close"
+      <div class="search-view__results">
+        <div
+          v-show="!isAnyFilterDialogOpen && searchResponse.entries.length > 0"
+          class="search-view__gallery"
         >
-          <template #title>
-            <BaseTitle
-              :level="2" 
-              :has-margin-bottom="false"
-            >
-              Genres
-            </BaseTitle>
-          </template>
-
-          <SearchGenreFilter
-            v-model:genres="searchFilters.genres"
-            v-model:excluded-genres="searchFilters.excludedGenres"
-          />
-
-          <template #actions>
-            <base-button
-              color="brand"
-              width="300px"
-              size="lg"
-              @click="closeDialogs(), handleSearch()"
-            >
-              Search
-            </base-button>
-          </template>
-        </SearchFilterDialog>
-
-        <SearchFilterDialog
-          v-if="filterDialogs.isKeywordsOpen"
-          @close="filterDialogs.isKeywordsOpen = close"
+          <BaseGallery>
+            <TitleCard
+              v-for="card in searchResponse.entries"
+              :id="card.id"
+              :key="card.id"
+              type="movie"
+              :src="'http://image.tmdb.org/t/p/w220_and_h330_face/' + card.poster_path"
+              :to="{ name: 'search.movie.preview', params: { id: card.id } }"
+            />
+          </BaseGallery>
+        </div>
+  
+        <div
+          v-show="!isSearching && searchResponse.entries.length === 0"
+          class="search-view__no-results"
         >
-          <template #title>
-            <BaseTitle
-              :level="2" 
-              :has-margin-bottom="false"
-            >
-              Tags
-            </BaseTitle>
-          </template>
-
-          <SearchKeywordFilter
-            v-model:keywords="searchFilters.keywords"
-            v-model:excluded-keywords="searchFilters.excludedKeywords"
-          />
-
-          <template #actions>
-            <base-button
-              color="brand"
-              width="300px"
-              size="lg"
-              @click="closeDialogs(), handleSearch()"
-            >
-              Search
-            </base-button>
-          </template>
-        </SearchFilterDialog>
-
-        <SearchFilterDialog
-          v-if="filterDialogs.isReleaseDateOpen" 
-          @close="filterDialogs.isReleaseDateOpen = close"
-        >
-          <template #title>
-            <BaseTitle
-              :level="2" 
-              :has-margin-bottom="false"
-            >
-              Release date
-            </BaseTitle>
-          </template>
-
-          <SearchReleaseDateFilter
-            v-model="filterDateRange"
-          />
-
-          <template #actions>            
-            <base-button
-              color="brand"
-              width="300px"
-              size="lg"
-              @click="closeDialogs(), handleSearch()"
-            >
-              Search
-            </base-button>
-          </template>
-        </SearchFilterDialog>
+          <p>
+            No results for this search
+          </p>
+        </div>
       </div>
 
       <div
-        v-show="!isAnyFilterDialogOpen && searchResponse.entries.length > 0"
-        class="search-view__gallery"
+        v-if="$route.name === 'search.movie.preview'"
+        class="search-view__preview"
       >
-        <BaseGallery>
-          <TitleCard
-            v-for="card in searchResponse.entries"
-            :id="card.id"
-            :key="card.id"
-            type="movie"
-            :src="'http://image.tmdb.org/t/p/w220_and_h330_face/' + card.poster_path"
-          />
-        </BaseGallery>
-      </div>
-
-      <div
-        v-show="!isSearching && searchResponse.entries.length === 0"
-        class="search-view__no-results"
-      >
-        <p>
-          No results for this search
-        </p>
+        <router-view
+          v-slot="{ Component }"
+          name="drawer"
+        >
+          <template v-if="Component && !isAnyFilterDialogOpen">
+            <keep-alive>
+              <suspense>
+                <component
+                  :is="Component"
+                  @close="$router.push({ name: 'search'})"
+                />
+              </suspense>
+            </keep-alive>
+          </template>
+        </router-view>
       </div>
     </main>
   </div>
@@ -407,26 +433,43 @@ handleSearch()
   grid-template: auto 1fr / 100%;
   height: 100dvh;
   overflow-y: auto;
+  align-items: start;
 
   &__main {
-    display: grid;
-    grid-template: auto 1fr / 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
   }
 
   &__header {
     padding: var(--space20) var(--container-gap) 0;
   }
 
+  &__search {
+    width: 100%;
+    position: sticky;
+    top: 0;
+  }
+  
+  &__search_sticky {
+    background: var(--background);
+  }
+
+  &__results {
+    flex: 1 1 25%;
+  }
+
+  &__preview {
+    flex: 1;
+    position: sticky;
+    z-index: var(--z-sticky);
+    top: 0;
+  }
+
   &__searchbar {
     padding: var(--space-10) var(--container-gap) var(--space-30);
   }
 
-  &__search_sticky {
-    position: sticky;
-    top: 0;
-    z-index: var(--z-sticky);
-    background: var(--background);
-  }
 
   &__filter-dialog {
     display: grid;
