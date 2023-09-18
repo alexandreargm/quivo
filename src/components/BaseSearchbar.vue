@@ -64,7 +64,7 @@
           class="base-searchbar__list-item"
         >
           <router-link
-            :to="{ name: 'home.movie.preview', params: { id: title.id } }"
+            :to="{ name: 'search.movie.preview', params: { id: title.id } }"
             class="link"
             @click="handleToggleOpen(false)"
           >
