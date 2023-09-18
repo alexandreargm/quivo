@@ -12,7 +12,7 @@
     </header>
 
     <main class="search-view__main">
-      <div class="search-view__search">
+      <div class="search-view__search-and-results">
         <div class="search-view__search">
           <div class="search-view__searchbar">
             <BaseAdvancedSearch
@@ -21,7 +21,6 @@
               @clear="searchFilters.title = '', handleDebouncedSearch()"
             />
           </div>
-  
           <div class="filters">
             <div class="filters__inner">
               <base-switch
@@ -34,13 +33,11 @@
                     @click="toggle"
                   >
                     All filters
-  
                     <template #icon>
                       <base-icon
                         v-show="!isOpen"
                         name="chevron-down"
                       />
-  
                       <base-icon
                         v-show="isOpen"
                         name="chevron-up"
@@ -49,7 +46,6 @@
                   </BaseAdvancedSearchToolbarButton>
                 </template>
               </base-switch>
-  
               <base-switch
                 :model-value="filterDialogs.isGenresOpen"
                 @update:model-value="closeDialogs(), filterDialogs.isGenresOpen = $event"
@@ -69,7 +65,6 @@
                   </BaseAdvancedSearchToolbarFilter>
                 </template>
               </base-switch>
-    
               <base-switch
                 :model-value="filterDialogs.isKeywordsOpen"
                 @update:model-value="closeDialogs(), filterDialogs.isKeywordsOpen = $event"
@@ -89,7 +84,6 @@
                   </BaseAdvancedSearchToolbarFilter>
                 </template>
               </base-switch>
-  
               <base-switch
                 :model-value="filterDialogs.isReleaseDateOpen"
                 @update:model-value="closeDialogs(), filterDialogs.isReleaseDateOpen = $event"
@@ -112,9 +106,8 @@
             </div>
           </div>
         </div>
-  
         <div
-          v-show="isAnyFilterDialogOpen"
+          v-if="isAnyFilterDialogOpen"
           class="search-view__filter-dialog"
         >
           <SearchFilterDialog
@@ -129,40 +122,33 @@
                 All filters
               </BaseTitle>
             </template>
-  
             <section class="block2">
               <BaseTitle :level="3">
                 Genres
               </BaseTitle>
-  
               <SearchGenreFilter
                 v-model:genres="searchFilters.genres"
                 v-model:excluded-genres="searchFilters.excludedGenres"
               />
             </section>
-  
             <section class="block2">
               <BaseTitle :level="3">
                 Tags
               </BaseTitle>
-  
               <SearchKeywordFilter
                 v-model:keywords="searchFilters.keywords"
                 v-model:excluded-keywords="searchFilters.excludedKeywords"
               />
             </section>
-  
             <section class="block2">
               <BaseTitle :level="3">
                 Release date
               </BaseTitle>
-  
               <SearchReleaseDateFilter
                 v-model="filterDateRange"
               />
             </section>
-  
-            <template #actions>            
+            <template #actions>
               <base-button
                 color="brand"
                 width="300px"
@@ -173,25 +159,22 @@
               </base-button>
             </template>
           </SearchFilterDialog>
-  
           <SearchFilterDialog
             v-if="filterDialogs.isGenresOpen"
             @close="filterDialogs.isGenresOpen = close"
           >
             <template #title>
               <BaseTitle
-                :level="2" 
+                :level="2"
                 :has-margin-bottom="false"
               >
                 Genres
               </BaseTitle>
             </template>
-  
             <SearchGenreFilter
               v-model:genres="searchFilters.genres"
               v-model:excluded-genres="searchFilters.excludedGenres"
             />
-  
             <template #actions>
               <base-button
                 color="brand"
@@ -203,25 +186,22 @@
               </base-button>
             </template>
           </SearchFilterDialog>
-  
           <SearchFilterDialog
             v-if="filterDialogs.isKeywordsOpen"
             @close="filterDialogs.isKeywordsOpen = close"
           >
             <template #title>
               <BaseTitle
-                :level="2" 
+                :level="2"
                 :has-margin-bottom="false"
               >
                 Tags
               </BaseTitle>
             </template>
-  
             <SearchKeywordFilter
               v-model:keywords="searchFilters.keywords"
               v-model:excluded-keywords="searchFilters.excludedKeywords"
             />
-  
             <template #actions>
               <base-button
                 color="brand"
@@ -233,25 +213,22 @@
               </base-button>
             </template>
           </SearchFilterDialog>
-  
           <SearchFilterDialog
-            v-if="filterDialogs.isReleaseDateOpen" 
+            v-if="filterDialogs.isReleaseDateOpen"
             @close="filterDialogs.isReleaseDateOpen = close"
           >
             <template #title>
               <BaseTitle
-                :level="2" 
+                :level="2"
                 :has-margin-bottom="false"
               >
                 Release date
               </BaseTitle>
             </template>
-  
             <SearchReleaseDateFilter
               v-model="filterDateRange"
             />
-  
-            <template #actions>            
+            <template #actions>
               <base-button
                 color="brand"
                 width="300px"
@@ -263,32 +240,34 @@
             </template>
           </SearchFilterDialog>
         </div>
-      </div>
-
-      <div class="search-view__results">
         <div
-          v-show="!isAnyFilterDialogOpen && searchResponse.entries.length > 0"
-          class="search-view__gallery"
+          v-if="!isAnyFilterDialogOpen && searchResponse.entries.length > 0"
+          class="search-view__results"
         >
-          <BaseGallery>
-            <TitleCard
-              v-for="card in searchResponse.entries"
-              :id="card.id"
-              :key="card.id"
-              type="movie"
-              :src="'http://image.tmdb.org/t/p/w220_and_h330_face/' + card.poster_path"
-              :to="{ name: 'search.movie.preview', params: { id: card.id } }"
-            />
-          </BaseGallery>
-        </div>
-  
-        <div
-          v-show="!isSearching && searchResponse.entries.length === 0"
-          class="search-view__no-results"
-        >
-          <p>
-            No results for this search
-          </p>
+          <div class="search-view__gallery">
+            <BaseGallery>
+              <router-link
+                v-for="card in searchResponse.entries"
+                :key="card.id"
+                :to="{ name: 'search.movie.preview', params: { id: card.id } }"
+              >
+                <TitleCard
+        
+                  :id="card.id"
+                  type="movie"
+                  :src="'http://image.tmdb.org/t/p/w220_and_h330_face/' + card.poster_path"
+                />
+              </router-link>
+            </BaseGallery>
+          </div>
+          <div
+            v-show="!isSearching && searchResponse.entries.length === 0"
+            class="search-view__no-results"
+          >
+            <p>
+              No results for this search
+            </p>
+          </div>
         </div>
       </div>
 
@@ -429,51 +408,51 @@ handleSearch()
 
 <style lang='scss'>
 .search-view {
-  display: grid;
-  grid-template: auto 1fr / 100%;
+  display: flex;
+  flex-wrap: wrap;
   height: 100dvh;
   overflow-y: auto;
-  align-items: start;
+  align-content: start;
 
   &__main {
     display: flex;
-    flex-wrap: wrap;
     align-items: start;
+    flex-grow: 1;
   }
 
   &__header {
     padding: var(--space20) var(--container-gap) 0;
+    width: 100%;
   }
 
   &__search {
-    width: 100%;
     position: sticky;
     top: 0;
+    z-index: var(--z-sticky);
+    background: inherit;
+    background-color: var(--background);
   }
-  
+
+  &__filter-dialog {
+    flex-grow: 1;
+  }
+
   &__search_sticky {
     background: var(--background);
   }
 
-  &__results {
-    flex: 1 1 25%;
+  &__search-and-results {
+    flex-grow: 1;
   }
 
   &__preview {
-    flex: 1;
     position: sticky;
-    z-index: var(--z-sticky);
     top: 0;
+    z-index: var(--z-sticky);
   }
 
   &__searchbar {
     padding: var(--space-10) var(--container-gap) var(--space-30);
-  }
-
-
-  &__filter-dialog {
-    display: grid;
-    grid-template-columns: 100%;
   }
 
   &__no-results {
@@ -489,7 +468,6 @@ handleSearch()
 .filters {
   max-width: 100%;
   overflow: auto;
-  display: flex;
   padding: var(--space-20) var(--container-gap);
 
   &__inner {
