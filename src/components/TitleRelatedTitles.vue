@@ -11,7 +11,7 @@
         v-for="{id: titleId, poster_path} in relatedResponse.results"
         :id="titleId"
         :key="titleId"
-        :type="route.query.type"
+        :type="'movie'"
         :src="'http://image.tmdb.org/t/p/w154/' + poster_path"
       />
     </base-slider>
@@ -40,12 +40,12 @@ const hasNoResults = ref(false)
 let stopWatch
 
 const fetchSimilar = async () => {
-  const { data } = await handleRequest(titlesRepository.recommendations({ mediaType: route.query.type, id: route.query.id }))
+  const { data } = await handleRequest(titlesRepository.recommendations({ mediaType: 'movie', id: route.params.id }))
   relatedResponse.value = data
   hasNoResults.value = data.results && data.results.length === 0
 }
 
-stopWatch = watch(() => route.query.id, fetchSimilar, {
+stopWatch = watch(() => route.params.id, fetchSimilar, {
   deep: true,
   immediate: true
 })
