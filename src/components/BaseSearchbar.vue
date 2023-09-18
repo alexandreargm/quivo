@@ -64,8 +64,9 @@
           class="base-searchbar__list-item"
         >
           <router-link
-            to="#"
+            :to="{ name: 'home.movie.preview', params: { id: title.id } }"
             class="link"
+            @click="handleToggleOpen(false)"
           >
             {{ title.title }}, <em>{{ parse(title.release_date, 'yyyy-MM-dd', new Date()).getFullYear() }}</em>
           </router-link>
@@ -159,6 +160,8 @@ function handleClose() {
   disableScrollLock()
   searchString.value = ""
   searchedTitles.value = []
+  hasSearched.value = false
+  hasResults.value = false
 }
 
 defineExpose({ focus });
