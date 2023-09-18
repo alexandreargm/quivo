@@ -5,12 +5,12 @@
   >
     <base-drawer
       size="full"
-      @close="handleClose"
+      @close="emit('close')"
     >
       <div class="title-preview-drawer__inner">
         <div class="title-preview-drawer__preview">
           <async-title-preview
-            @close="handleClose"
+            @close="emit('close')"
             @change="handleChange"
           />
         </div>
@@ -24,20 +24,14 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { useRouter } from 'vue-router'
+import { ref, defineEmits } from 'vue'
 import BaseDrawer from './BaseDrawer.vue'
-// import getStyleProperty from '@/composables/useGetStyleProperty'
-// import nextRender from '@/composables/useNextRender'
 import AsyncTitleRelatedTitles from './AsyncTitleRelatedTitles'
 import AsyncTitlePreview from './AsyncTitlePreview'
 
-const root = ref()
-const router = useRouter()
+const emit = defineEmits(['close'])
 
-const handleClose = () => {
-  router.go(-1)
-}
+const root = ref()
 
 const handleChange = () => {
   if (root.value) {
@@ -61,9 +55,8 @@ const handleChange = () => {
 
 <style lang='scss' scoped>
 .title-preview-drawer {
-  background-color: var(--background);
-  // height: calc(100vh - var(--the-main-nav-height));
-  // overflow-y: scroll;
+  background-color: var(--background-secondary);
+  min-height: 100dvh;
 
   @include breakpoint('desktop') {
     padding: var(--space20);
