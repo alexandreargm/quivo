@@ -17,7 +17,7 @@
         @click="handleClose"
       />
 
-      <div class="base-drawer__content">
+      <section class="base-drawer__content">
         <header
           v-if="props.title"
           class="base-drawer__header"
@@ -28,7 +28,7 @@
         <div class="base-drawer__body">
           <slot />
         </div>
-      </div>
+      </section>
     </div>
   </div>
 </template>
@@ -36,9 +36,6 @@
 <script setup>
 import { ref, defineEmits, defineProps, defineExpose } from 'vue'
 import BaseClose from '../components/BaseClose.vue'
-import { useScrollLock } from '../composables/useScrollLock'
-
-useScrollLock()
 
 const emits = defineEmits(['close'])
 
@@ -74,7 +71,7 @@ defineExpose({
 
 <style lang='scss' scoped>
 .base-drawer {
-  --background-color: var(--background);
+  --background-color: var(--background-secondary);
 
   @include breakpoint-max('desktop') {
     bottom: 0;
