@@ -15,7 +15,7 @@
       @click="handleLoadMore"
     >
       <base-icon
-        name="ChevronDownIcon"
+        name="chevron-down"
         size="xs"
       />
     </base-tag>
