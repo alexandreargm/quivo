@@ -2,18 +2,14 @@
   <article class="title-preview">
     <header class="title-preview__header">
       <div class="title-preview__header-toolbar">
-        <div class="title-preview__header-toolbar-fixed">
-          <base-close @click="emit('close')" />
-        </div>
-
         <base-button
           icon="only"
           :is-round="true"
-          @click="toggleTitleImageModal(true)"
+          @click="emit('close')"
         >
           <template #icon>
             <base-icon
-              name="fullscreen"
+              name="close"
             />
           </template>
         </base-button>
@@ -167,10 +163,6 @@ watch(() => route.params.id, () => {
 
   &__header-toolbar > * {
     pointer-events: all;
-  }
-
-  &__header-toolbar-fixed > *{
-    position: fixed;
   }
 
   &__header {
