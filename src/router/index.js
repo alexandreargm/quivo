@@ -6,6 +6,8 @@ const FinderView = () => import('../views/Finder')
 
 const SearchView = () => import('../views/Search')
 
+const TitlePreviewDrawer = () => import('../components/TitlePreviewDrawer.vue')
+
 export default createRouter({
   history: createWebHashHistory(process.env.BASE_URL),
   routes: [
@@ -13,6 +15,15 @@ export default createRouter({
       path: '/',
       name: 'home',
       component: HomeView,
+      children: [
+        {
+          path: 'movie/:id',
+          name: 'home.movie.preview',
+          components: {
+            drawer: TitlePreviewDrawer
+          }
+        }
+      ]
     },
     {
       path: '/finder',
@@ -22,7 +33,20 @@ export default createRouter({
     {
       path: '/search',
       name: 'search',
-      component: SearchView
-    }
+      component: SearchView,
+      children: [
+        {
+          path: 'movie/:id',
+          name: 'search.movie.preview',
+          components: {
+            drawer: TitlePreviewDrawer
+          },
+          params: {
+            type: 'movie'
+          }
+        }
+      ]
+    },
+    
   ]
 })

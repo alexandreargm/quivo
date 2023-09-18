@@ -30,21 +30,29 @@
       </div>
 
       <div class="home__aside">
-        <title-preview-drawer v-if="route.query.id" />
+        <router-view
+          v-slot="{ Component }"
+          name="drawer"
+        >
+          <template v-if="Component">
+            <keep-alive>
+              <suspense>
+                <component :is="Component" />
+              </suspense>
+            </keep-alive>
+          </template>
+        </router-view>
       </div>
     </main>
   </div>
 </template>
 <script setup>
-import { defineAsyncComponent } from 'vue';
 import PopularFeed from '../components/PopularFeed.vue'
-import { useRouter, useRoute } from 'vue-router'
+import { useRouter } from 'vue-router'
 import BaseSearchbar from '../components/BaseSearchbar.vue';
 import QuickTagFilters from '../components/QuickTagFilters.vue'
-const TitlePreviewDrawer = defineAsyncComponent(() => import('../components/TitlePreviewDrawer.vue'))
 
 const router = useRouter()
-const route = useRoute()
 
 const goToFinder = () => {
   router.push({ name: 'finder' })
