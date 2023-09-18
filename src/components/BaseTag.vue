@@ -72,7 +72,7 @@ const getHasCloseClass = () => {
 
 @layer base {
   .base-tag {
-    --_bg-color: var(--border);
+    --_bg-color: var(--background-tertiary);
     --_color: var(--text);
     --_font-size: var(--font-20);
     --_padding-size: var(--space-20);
