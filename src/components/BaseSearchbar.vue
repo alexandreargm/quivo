@@ -34,6 +34,7 @@
         placeholder="Find where to watch a movie"
         @focus="handleToggleOpen(true)"
         @input="isSearching = true, debouncedSearchTitles($event.currentTarget.value)"
+        @keydown.enter="$router.push({ name: 'search', params: { title: searchString } })"
       >
     </div>
 
