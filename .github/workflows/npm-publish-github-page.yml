@@ -59,6 +59,9 @@ jobs:
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Setup environment variables
+        with:
+          VUE_APP_TMBD_API_ENDPOINT: ${{ secrets.VUE_APP_TMBD_API_ENDPOINT }}
+          VUE_APP_TMBD_READ_TOKEN: ${{ secrets.VUE_APP_TMBD_READ_TOKEN }}
         env:
           VUE_APP_TMBD_API_ENDPOINT: ${{ secrets.VUE_APP_TMBD_API_ENDPOINT }}
           VUE_APP_TMBD_READ_TOKEN: ${{ secrets.VUE_APP_TMBD_READ_TOKEN }}
