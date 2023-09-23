@@ -58,8 +58,8 @@ jobs:
             ${{ runner.os }}-vue-build-
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
-      - name: Hello world action
-        env: # Or as an environment variable
+      - name: Setup environment variables
+        env:
           VUE_APP_TMBD_API_ENDPOINT: ${{ secrets.VUE_APP_TMBD_API_ENDPOINT }}
           VUE_APP_TMBD_READ_TOKEN: ${{ secrets.VUE_APP_TMBD_READ_TOKEN }}
       - name: Static HTML export
