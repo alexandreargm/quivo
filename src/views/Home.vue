@@ -4,7 +4,6 @@
       <div class="hero-section">
         <p
           class="hero-section__logo block"
-          @click="goToFinder()"
         >
           Quivo
         </p>
@@ -48,15 +47,8 @@
 </template>
 <script setup>
 import PopularFeed from '../components/PopularFeed.vue'
-import { useRouter } from 'vue-router'
 import BaseSearchbar from '../components/BaseSearchbar.vue';
 import QuickTagFilters from '../components/QuickTagFilters.vue'
-
-const router = useRouter()
-
-const goToFinder = () => {
-  router.push({ name: 'finder' })
-}
 </script>
 
 <style lang="scss" scoped>
