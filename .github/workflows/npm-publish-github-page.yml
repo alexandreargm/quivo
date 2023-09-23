@@ -23,9 +23,6 @@ concurrency:
 
 jobs:
   build:
-    env:
-      VUE_APP_TMBD_API_ENDPOINT: ${{ vars.VUE_APP_TMBD_API_ENDPOINT }}
-      VUE_APP_TMBD_READ_TOKEN: ${{ vars.VUE_APP_TMBD_READ_TOKEN }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -60,7 +57,10 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-vue-build-
       - name: Install dependencies
-        run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}       
+        run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
+      - name: Setup environment variables
+        run: EXPOSE VUE_APP_TMBD_API_ENDPOINT=${{ secrets.VUE_APP_TMBD_API_ENDPOINT }}
+          | EXPOSE VUE_APP_TMBD_READ_TOKEN=${{ secrets.VUE_APP_TMBD_READ_TOKEN }}
       - name: Static HTML export
         run: ${{ steps.detect-package-manager.outputs.manager }} run build
       - name: Upload artifact
