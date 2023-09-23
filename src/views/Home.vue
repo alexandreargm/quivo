@@ -22,10 +22,6 @@
     <main class="home__main">
       <div class="home__feed">
         <popular-feed />
-        <popular-feed />
-        <popular-feed />
-        <popular-feed />
-        <popular-feed />
       </div>
 
       <div class="home__aside">
