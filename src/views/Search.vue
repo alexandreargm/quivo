@@ -336,6 +336,7 @@ const searchFilters = reactive({
   endDate: ref(''),
   page: 1,
 })
+const hasSetFilters = computed(() => searchFilters.title || searchFilters.keywords.length > 0 || searchFilters.excludedKeywords.length > 0 || searchFilters.genres.length > 0 || searchFilters.excludedGenres.length > 0 || searchFilters.startDate || searchFilters.endDate)
 const filterDateRange = computed({
   get() {
     return getReleaseTagId({startDate: searchFilters.startDate, endDate: searchFilters.endDate})
@@ -365,6 +366,14 @@ const filterDialogs = reactive({
 })
 
 function handleSearch() {
+  if (!hasSetFilters.value) {
+    searchResponse.entries = []
+    searchResponse.pageCount = 1
+    searchResponse.entryCount = 0
+
+    return
+  }
+
   isSearching.value = true
 
   const response = titlesRepository.search(searchFilters)
