@@ -60,8 +60,8 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}       
       - name: Static HTML export
         env:
-          VUE_APP_TMBD_API_ENDPOINT: ${{ secrets.VUE_APP_TMBD_API_ENDPOINT }}
-          VUE_APP_TMBD_READ_TOKEN: ${{ secrets.VUE_APP_TMBD_READ_TOKEN }}
+          VUE_APP_TMBD_API_ENDPOINT: ${{ vars.VUE_APP_TMBD_API_ENDPOINT }}
+          VUE_APP_TMBD_READ_TOKEN: ${{ vars.VUE_APP_TMBD_READ_TOKEN }}
         run: ${{ steps.detect-package-manager.outputs.manager }} run build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
