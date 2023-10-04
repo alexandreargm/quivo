@@ -77,7 +77,6 @@ const emits = defineEmits(['close'])
   &__actions {
     display: flex;
     gap: var(--space-10);
-    justify-content: center;
   }
 
   &__header-actions {
