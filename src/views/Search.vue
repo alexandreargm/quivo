@@ -241,7 +241,7 @@
           </SearchFilterDialog>
         </div>
         <div
-          v-if="!isAnyFilterDialogOpen && searchResponse.entries.length > 0"
+          v-if="searchResponse.entries.length > 0"
           class="search-view__results"
         >
           <div class="search-view__gallery">
@@ -279,7 +279,7 @@
           v-slot="{ Component }"
           name="drawer"
         >
-          <template v-if="Component && !isAnyFilterDialogOpen">
+          <template v-if="Component">
             <keep-alive>
               <suspense>
                 <component
@@ -417,16 +417,13 @@ handleSearch()
 
 <style lang='scss'>
 .search-view {
-  display: flex;
-  flex-wrap: wrap;
   height: 100dvh;
   overflow-y: auto;
-  align-content: start;
 
   &__main {
-    display: flex;
     align-items: start;
-    flex-grow: 1;
+    display: grid;
+    grid-template-columns: minmax(0%, 100%) min-content;
   }
 
   &__header {
@@ -443,7 +440,7 @@ handleSearch()
   }
 
   &__filter-dialog {
-    flex-grow: 1;
+    display: grid;
   }
 
   &__search_sticky {
