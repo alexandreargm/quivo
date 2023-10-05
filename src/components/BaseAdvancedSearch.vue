@@ -32,7 +32,7 @@
       >
         <base-icon
           name="close"
-          size="xl"
+          size="lg"
         />
       </button>
     </div>
