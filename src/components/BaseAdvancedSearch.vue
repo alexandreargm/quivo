@@ -61,8 +61,8 @@ const props = defineProps({
     &__control {
       position: relative;
       display: grid;
-      grid-template-columns: auto 1fr var(--size30);
-      grid-template-rows: var(--size30);
+      grid-template-columns: auto 1fr var(--size40);
+      grid-template-rows: var(--size40);
       align-items: stretch;
       border-radius: var(--rounded20);
       background: var(--background-secondary);
