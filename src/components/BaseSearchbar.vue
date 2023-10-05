@@ -33,8 +33,9 @@
         autocorrect="off"
         placeholder="Find where to watch a movie"
         @focus="handleToggleOpen(true)"
-        @input="isSearching = true, debouncedSearchTitles($event.currentTarget.value)"
+        @input="handleSearch($event.currentTarget.value)"
         @keydown.enter="$router.push({ name: 'search', params: { title: searchString } })"
+        @keydown.escape="handleSearch('')"
       >
     </div>
 
@@ -130,7 +131,7 @@ const searchedTitles = ref([]);
 const isSearching = ref(false)
 const isOpen = ref(false)
 const hasSearched = ref(false)
-const hasResults = ref(false)
+const hasResults = computed(() => searchedTitles.value.length > 0 )
 
 const focus = () => {
   input.value?.focus();
@@ -140,12 +141,28 @@ async function searchTitles(titleName) {
     title: titleName
   });
 
+  if (searchString.value.trim() === '') return
+
   searchedTitles.value = data.results
 
   hasSearched.value = true
   hasResults.value = data.results.length > 0
   isSearching.value = false
 }
+
+function handleSearch(titleName) {
+  if (titleName.trim() === '') {
+    searchString.value = ''
+    isSearching.value = false
+    searchedTitles.value = []
+    return
+  }
+
+  isSearching.value = true
+
+  debouncedSearchTitles(titleName)
+}
+
 const debouncedSearchTitles = useDebounceFn(
   titleName => searchTitles(titleName),
   600
