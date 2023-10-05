@@ -459,6 +459,8 @@ handleSearch()
 
   &__searchbar {
     padding: var(--space-10) var(--container-gap) var(--space-30);
+    width: 65ch;
+    max-width: 100%;
   }
 
   &__no-results {
@@ -474,7 +476,7 @@ handleSearch()
 .filters {
   max-width: 100%;
   overflow: auto;
-  padding: var(--space-20) var(--container-gap);
+  padding: var(--space-20) var(--container-gap) var(--space-10);
 
   &__inner {
     gap: var(--space-20);
