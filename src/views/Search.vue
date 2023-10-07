@@ -1,5 +1,5 @@
 <template>
-  <div class="search-view">
+  <div class="search-view container">
     <header class="search-view__header">
       <router-link :to="{ name: 'home'}">
         <span
@@ -21,8 +21,9 @@
               @clear="searchFilters.title = '', handleDebouncedSearch()"
             />
           </div>
+
           <div class="filters">
-            <div class="filters__inner">
+            <div class="filters__controls">
               <base-switch
                 :model-value="filterDialogs.isAllOpen"
                 @update:model-value="closeDialogs(), filterDialogs.isAllOpen = $event"
@@ -105,141 +106,143 @@
               </base-switch>
             </div>
           </div>
-        </div>
-        <div
-          v-if="isAnyFilterDialogOpen"
-          class="search-view__filter-dialog"
-        >
-          <SearchFilterDialog
-            v-if="filterDialogs.isAllOpen"
-            @close="filterDialogs.isAllOpen = close"
+
+          <div
+            v-if="isAnyFilterDialogOpen"
+            class="search-view__dialogs"
           >
-            <template #title>
-              <BaseTitle
-                :level="2"
-                :has-margin-bottom="false"
-              >
-                All filters
-              </BaseTitle>
-            </template>
-            <section class="block2">
-              <BaseTitle :level="3">
-                Genres
-              </BaseTitle>
+            <SearchFilterDialog
+              v-if="filterDialogs.isAllOpen"
+              @close="filterDialogs.isAllOpen = close"
+            >
+              <template #title>
+                <BaseTitle
+                  :level="2"
+                  :has-margin-bottom="false"
+                >
+                  All filters
+                </BaseTitle>
+              </template>
+              <section class="block2">
+                <BaseTitle :level="3">
+                  Genres
+                </BaseTitle>
+                <SearchGenreFilter
+                  v-model:genres="searchFilters.genres"
+                  v-model:excluded-genres="searchFilters.excludedGenres"
+                />
+              </section>
+              <section class="block2">
+                <BaseTitle :level="3">
+                  Tags
+                </BaseTitle>
+                <SearchKeywordFilter
+                  v-model:keywords="searchFilters.keywords"
+                  v-model:excluded-keywords="searchFilters.excludedKeywords"
+                />
+              </section>
+              <section class="block2">
+                <BaseTitle :level="3">
+                  Release date
+                </BaseTitle>
+                <SearchReleaseDateFilter
+                  v-model="filterDateRange"
+                />
+              </section>
+              <template #actions>
+                <base-button
+                  color="brand"
+                  width="300px"
+                  size="lg"
+                  @click="closeDialogs(), handleSearch()"
+                >
+                  Search
+                </base-button>
+              </template>
+            </SearchFilterDialog>
+            <SearchFilterDialog
+              v-if="filterDialogs.isGenresOpen"
+              @close="filterDialogs.isGenresOpen = close"
+            >
+              <template #title>
+                <BaseTitle
+                  :level="2"
+                  :has-margin-bottom="false"
+                >
+                  Genres
+                </BaseTitle>
+              </template>
               <SearchGenreFilter
                 v-model:genres="searchFilters.genres"
                 v-model:excluded-genres="searchFilters.excludedGenres"
               />
-            </section>
-            <section class="block2">
-              <BaseTitle :level="3">
-                Tags
-              </BaseTitle>
+              <template #actions>
+                <base-button
+                  color="brand"
+                  width="300px"
+                  size="lg"
+                  @click="closeDialogs(), handleSearch()"
+                >
+                  Search
+                </base-button>
+              </template>
+            </SearchFilterDialog>
+            <SearchFilterDialog
+              v-if="filterDialogs.isKeywordsOpen"
+              @close="filterDialogs.isKeywordsOpen = close"
+            >
+              <template #title>
+                <BaseTitle
+                  :level="2"
+                  :has-margin-bottom="false"
+                >
+                  Tags
+                </BaseTitle>
+              </template>
               <SearchKeywordFilter
                 v-model:keywords="searchFilters.keywords"
                 v-model:excluded-keywords="searchFilters.excludedKeywords"
               />
-            </section>
-            <section class="block2">
-              <BaseTitle :level="3">
-                Release date
-              </BaseTitle>
+              <template #actions>
+                <base-button
+                  color="brand"
+                  width="300px"
+                  size="lg"
+                  @click="closeDialogs(), handleSearch()"
+                >
+                  Search
+                </base-button>
+              </template>
+            </SearchFilterDialog>
+            <SearchFilterDialog
+              v-if="filterDialogs.isReleaseDateOpen"
+              @close="filterDialogs.isReleaseDateOpen = close"
+            >
+              <template #title>
+                <BaseTitle
+                  :level="2"
+                  :has-margin-bottom="false"
+                >
+                  Release date
+                </BaseTitle>
+              </template>
               <SearchReleaseDateFilter
                 v-model="filterDateRange"
               />
-            </section>
-            <template #actions>
-              <base-button
-                color="brand"
-                width="300px"
-                size="lg"
-                @click="closeDialogs(), handleSearch()"
-              >
-                Search
-              </base-button>
-            </template>
-          </SearchFilterDialog>
-          <SearchFilterDialog
-            v-if="filterDialogs.isGenresOpen"
-            @close="filterDialogs.isGenresOpen = close"
-          >
-            <template #title>
-              <BaseTitle
-                :level="2"
-                :has-margin-bottom="false"
-              >
-                Genres
-              </BaseTitle>
-            </template>
-            <SearchGenreFilter
-              v-model:genres="searchFilters.genres"
-              v-model:excluded-genres="searchFilters.excludedGenres"
-            />
-            <template #actions>
-              <base-button
-                color="brand"
-                width="300px"
-                size="lg"
-                @click="closeDialogs(), handleSearch()"
-              >
-                Search
-              </base-button>
-            </template>
-          </SearchFilterDialog>
-          <SearchFilterDialog
-            v-if="filterDialogs.isKeywordsOpen"
-            @close="filterDialogs.isKeywordsOpen = close"
-          >
-            <template #title>
-              <BaseTitle
-                :level="2"
-                :has-margin-bottom="false"
-              >
-                Tags
-              </BaseTitle>
-            </template>
-            <SearchKeywordFilter
-              v-model:keywords="searchFilters.keywords"
-              v-model:excluded-keywords="searchFilters.excludedKeywords"
-            />
-            <template #actions>
-              <base-button
-                color="brand"
-                width="300px"
-                size="lg"
-                @click="closeDialogs(), handleSearch()"
-              >
-                Search
-              </base-button>
-            </template>
-          </SearchFilterDialog>
-          <SearchFilterDialog
-            v-if="filterDialogs.isReleaseDateOpen"
-            @close="filterDialogs.isReleaseDateOpen = close"
-          >
-            <template #title>
-              <BaseTitle
-                :level="2"
-                :has-margin-bottom="false"
-              >
-                Release date
-              </BaseTitle>
-            </template>
-            <SearchReleaseDateFilter
-              v-model="filterDateRange"
-            />
-            <template #actions>
-              <base-button
-                color="brand"
-                width="300px"
-                size="lg"
-                @click="closeDialogs(), handleSearch()"
-              >
-                Search
-              </base-button>
-            </template>
-          </SearchFilterDialog>
+              <template #actions>
+                <base-button
+                  color="brand"
+                  width="300px"
+                  size="lg"
+                  @click="closeDialogs(), handleSearch()"
+                >
+                  Search
+                </base-button>
+              </template>
+            </SearchFilterDialog>
+          </div>
         </div>
+       
         <div
           v-if="searchResponse.entries.length > 0"
           class="search-view__results"
@@ -418,7 +421,6 @@ handleSearch()
 <style lang='scss'>
 .search-view {
   height: 100dvh;
-  overflow-y: auto;
 
   &__main {
     align-items: start;
@@ -437,10 +439,6 @@ handleSearch()
     z-index: var(--z-sticky);
     background: inherit;
     background-color: var(--background);
-  }
-
-  &__filter-dialog {
-    display: grid;
   }
 
   &__search_sticky {
@@ -463,6 +461,11 @@ handleSearch()
     max-width: 100%;
   }
 
+  &__dialogs {
+    flex-grow: 1;
+    display: grid;
+  }
+
   &__no-results {
     padding: var(--container-gap);
     font-size: var(--font60);
@@ -476,12 +479,12 @@ handleSearch()
 .filters {
   max-width: 100%;
   overflow: auto;
-  padding: var(--space-20) var(--container-gap) var(--space-10);
 
-  &__inner {
+  &__controls {
     gap: var(--space-20);
     align-items: center;
     display: flex;
+    padding: var(--space-20) var(--container-gap) var(--space-10);
   }
 }
 </style>
