@@ -56,7 +56,9 @@ const handleChange = () => {
 <style lang='scss' scoped>
 .title-preview-drawer {
   background-color: var(--background-secondary);
-  min-height: 100dvh;
+  height: 100dvh;
+  overflow-y: auto;
+  box-shadow: var(--shadow3);
 
   @include breakpoint('desktop') {
     padding: var(--space20);
