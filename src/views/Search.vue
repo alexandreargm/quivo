@@ -467,6 +467,14 @@ handleSearch()
     display: grid;
   }
 
+  &__results {
+    padding-left: var(--container-gap);
+
+    @include breakpoint-max('desktop4') {
+      padding-left: 0;
+    }
+  }
+
   &__no-results {
     padding: var(--container-gap);
     font-size: var(--font60);
