@@ -14,11 +14,6 @@
   padding-inline: var(--container-gap);
 }
 
-.container {
-  max-width: 120rem;
-  margin: auto;
-}
-
 .visually-hidden {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);

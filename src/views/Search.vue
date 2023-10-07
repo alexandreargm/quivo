@@ -1,5 +1,5 @@
 <template>
-  <div class="search-view container">
+  <div class="search-view">
     <header class="search-view__header">
       <router-link :to="{ name: 'home'}">
         <span
@@ -421,6 +421,7 @@ handleSearch()
 <style lang='scss'>
 .search-view {
   height: 100dvh;
+  @include container('desktop4');
 
   &__main {
     align-items: start;
