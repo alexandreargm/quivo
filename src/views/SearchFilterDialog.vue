@@ -11,25 +11,6 @@
       >
         <slot name="headerActions" />
       </div>
-
-      <div class="search-filter-dialog__close-button-container">
-        <div class="search-filter-dialog__close-button">
-          <base-button
-            icon="only"
-            size="md"
-            theme="tertiary"
-            is-round
-            @click="emits('close')"
-          >
-            <template #icon>
-              <base-icon
-                name="close"
-                size="xl"
-              />
-            </template>
-          </base-button>
-        </div>
-      </div>
     </header>
 
     <main class="search-filter-dialog__body">
@@ -43,14 +24,6 @@
     </footer>
   </div>
 </template>
-
-<script setup>
-import { defineEmits } from 'vue';
-import BaseButton from '../components/BaseButton.vue';
-import BaseIcon from '../components/BaseIcon.vue';
-
-const emits = defineEmits(['close'])
-</script>
 
 <style lang='scss'>
  .search-filter-dialog {
