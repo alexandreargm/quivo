@@ -67,7 +67,6 @@ const handleChange = () => {
   box-shadow: var(--shadow3);
 
   &__inner {
-    padding: var(--space30)  var(--space30) var(--space20);
     max-width: 100vw;
     position: relative;
 
@@ -76,6 +75,7 @@ const handleChange = () => {
     }
 
     @include breakpoint('tablet') {
+      padding: var(--space30)  var(--space30) var(--space20);
       width: 850px;
     }
   }
@@ -83,6 +83,10 @@ const handleChange = () => {
   &__related-titles {
     @include breakpoint('tablet') {
       grid-area: 2 / span 2;
+    }
+
+    @include breakpoint-max('tablet') {
+      padding: var(--container-gap);
     }
   }
 

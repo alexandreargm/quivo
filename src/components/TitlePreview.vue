@@ -191,6 +191,12 @@ watch(() => route.params.id, () => {
     margin-top: var(--space20);
   }
 
+  &__body {
+    @include breakpoint-max('tablet') {
+      padding: var(--container-gap);
+    }
+  }
+
   &__title {
     color: var(--text);
     font-size: clamp(var(--font00), 4vw, var(--font20));
