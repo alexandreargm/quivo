@@ -87,7 +87,7 @@ import { useRoute } from 'vue-router'
 
 const route = useRoute()
 
-const emit = defineEmits(['change'])
+const emit = defineEmits(['close', 'change'])
 
 const titlesRepository = repositoryFactory.get('titles')
 
@@ -153,9 +153,9 @@ watch(() => route.params.id, () => {
 
   &__header-toolbar {
     display: flex;
-    justify-content: space-between;
+    justify-content: end;
     opacity: 0.85;
-    padding: var(--space-10);
+    padding: var(--space-20);
     position: absolute;
     width: 100%;
     z-index: var(--z-fixed);
