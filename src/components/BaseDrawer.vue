@@ -99,7 +99,7 @@ defineExpose({
     background-color: var(--background-color);
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: 100dvh;
   }
 
   &__background {
@@ -114,10 +114,8 @@ defineExpose({
   }
 
   &__body {
-    @include breakpoint-max('desktop') {
-      overflow: auto;
-      overscroll-behavior: contain;
-    }
+    overflow-y: auto;
+    overscroll-behavior: contain;
   }
 }
 
