@@ -5,7 +5,10 @@
     :class="[props.size, getIsRoundClass()]"
     @click="emits('click')"
   >
-    <base-icon name="close" />
+    <base-icon
+      name="close"
+      size="lg"
+    />
   </button>
 </template>
 
@@ -36,8 +39,7 @@ const getIsRoundClass = () => {
 
 <style lang='scss' scoped>
 .base-close {
-  --_height: var(--size30);
-  --_width: var(--_height);
+  --_size: var(--size30);
   --_color: var(--text);
   --_bg-color: var(--color);
 
@@ -47,10 +49,10 @@ const getIsRoundClass = () => {
   border: 2px solid transparent;
   color: var(--_color);
   display: flex;
-  height: var(--_height);
+  height: var(--_size);
+  width: var(--_size);
   justify-content: center;
   vertical-align: middle;
-  width: var(--_width);
 }
 
 // Size
