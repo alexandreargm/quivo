@@ -247,8 +247,8 @@
           v-if="searchResponse.entries.length > 0"
           class="search-view__results"
         >
-          <div class="search-view__gallery">
-            <BaseGallery>
+          <div class="search-view__feed">
+            <BaseGallery class="block">
               <router-link
                 v-for="card in searchResponse.entries"
                 :key="card.id"
@@ -262,7 +262,19 @@
                 />
               </router-link>
             </BaseGallery>
+
+            <div class="search-view__more-results">
+              <base-button
+                color="brand"
+                is-round
+                :disabled="isSearching || searchFilters.page === searchResponse.pageCount"
+                @click="handleLoadMoreItems()"
+              >
+                More results
+              </base-button>
+            </div>
           </div>
+
           <div
             v-show="!isSearching && searchResponse.entries.length === 0"
             class="search-view__no-results"
@@ -379,6 +391,8 @@ function handleSearch() {
 
   isSearching.value = true
 
+  searchFilters.page = 1
+
   const response = titlesRepository.search(searchFilters)
 
   response.then((data) => {
@@ -413,6 +427,23 @@ function resetKeywordFilters() {
 function resetReleaseDateFilters() {
   searchFilters.startDate = ""
   searchFilters.endDate = ""
+}
+
+function handleLoadMoreItems() {
+  searchFilters.page++
+
+  
+  isSearching.value = true
+
+  const response = titlesRepository.search(searchFilters)
+
+  response.then((data) => {
+    searchResponse.entries = [...searchResponse.entries, ...data.entries]
+    searchResponse.pageCount = data.pageCount,
+    searchResponse.entryCount = data.entryCount
+  }).finally(() => {
+    isSearching.value = false
+  })
 }
  
 handleSearch()
@@ -482,6 +513,15 @@ handleSearch()
     font-weight: var(--light);
     color: var(--text-secondary);
     max-width: 90%;
+  }
+
+  &__more-results {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__feed {
+    margin-bottom: var(--space30);
   }
 }
 
