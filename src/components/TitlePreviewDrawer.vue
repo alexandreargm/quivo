@@ -8,9 +8,17 @@
       @close="emit('close')"
     >
       <div class="title-preview-drawer__inner">
+        <div class="title-preview-drawer__close">
+          <base-close
+            size="lg"
+            @click="emit('close')"
+          />
+        </div>
+
         <div class="title-preview-drawer__preview">
           <async-title-preview
             @change="handleChange"
+            @close="emit('close')"
           />
         </div>
 
@@ -27,6 +35,7 @@ import { ref, defineEmits } from 'vue'
 import BaseDrawer from './BaseDrawer.vue'
 import AsyncTitleRelatedTitles from './AsyncTitleRelatedTitles'
 import AsyncTitlePreview from './AsyncTitlePreview'
+import BaseClose from './BaseClose.vue'
 
 const emit = defineEmits(['close'])
 
@@ -55,16 +64,12 @@ const handleChange = () => {
 <style lang='scss' scoped>
 .title-preview-drawer {
   background-color: var(--background-secondary);
-  height: 100dvh;
-  overflow-y: auto;
   box-shadow: var(--shadow3);
 
-  @include breakpoint('desktop') {
-    padding: var(--space20);
-  }
-
   &__inner {
+    padding: var(--space30)  var(--space30) var(--space20);
     max-width: 100vw;
+    position: relative;
 
     @include breakpoint-max('tablet') {
       width: min(450px, 100vw);
@@ -79,6 +84,15 @@ const handleChange = () => {
     @include breakpoint('tablet') {
       grid-area: 2 / span 2;
     }
+  }
+
+  &__close {
+    position: sticky;
+    height: 0;
+    top: 0;
+    width: min-content;
+    z-index: var(--z-fixed);
+    transform: translate(8px, 8px);
   }
 }
 </style>
