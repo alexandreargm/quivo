@@ -10,7 +10,6 @@
       <div class="title-preview-drawer__inner">
         <div class="title-preview-drawer__preview">
           <async-title-preview
-            @close="emit('close')"
             @change="handleChange"
           />
         </div>
@@ -77,10 +76,6 @@ const handleChange = () => {
   }
 
   &__related-titles {
-    @include breakpoint-max('desktop') {
-      padding: 0 var(--container-gap);
-    }
-
     @include breakpoint('tablet') {
       grid-area: 2 / span 2;
     }

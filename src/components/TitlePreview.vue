@@ -5,11 +5,11 @@
         <base-button
           icon="only"
           :is-round="true"
-          @click="emit('close')"
+          @click="toggleTitleImageModal(true)"
         >
           <template #icon>
             <base-icon
-              name="close"
+              name="fullscreen"
             />
           </template>
         </base-button>
@@ -79,7 +79,6 @@ import { DateTime, Duration } from 'luxon'
 import BaseButton from '@/components/BaseButton.vue'
 import BaseTagCloud from './BaseTagCloud.vue'
 import TitleAgeBadge from './TitleAgeBadge.vue'
-import BaseClose from './BaseClose.vue'
 import BaseIcon from './BaseIcon.vue'
 import TitleImageModal from './TitleImageModal.vue'
 import BaseTextCollapse from './BaseTextCollapse.vue'
@@ -88,7 +87,7 @@ import { useRoute } from 'vue-router'
 
 const route = useRoute()
 
-const emit = defineEmits(['close', 'change'])
+const emit = defineEmits(['change'])
 
 const titlesRepository = repositoryFactory.get('titles')
 
@@ -144,6 +143,8 @@ watch(() => route.params.id, () => {
 
 <style lang='scss' scoped>
 .title-preview {
+  gap: var(--container-gap);
+
   // TODO: Add container query polifyll to simplify queries
   @include breakpoint('tablet') {
     display: grid;
@@ -154,7 +155,7 @@ watch(() => route.params.id, () => {
     display: flex;
     justify-content: space-between;
     opacity: 0.85;
-    padding: var(--space00);
+    padding: var(--space-10);
     position: absolute;
     width: 100%;
     z-index: var(--z-fixed);
@@ -184,10 +185,6 @@ watch(() => route.params.id, () => {
       background: linear-gradient(0deg, var(--background), transparent 30%);
       pointer-events: none;
     }
-  }
-
-  &__body {
-    padding: var(--container-gap);
   }
 
   &__body > * + * {
