@@ -1,6 +1,10 @@
 <template>
   <article class="title-card">
-    <title-poster :src="props.src" />
+    <title-poster
+      :src="props.src"
+      :alt="props.alt"
+      :caption="props.caption"
+    />
   </article>
 </template>
 
@@ -12,6 +16,14 @@ const props = defineProps({
   src: {
     type: String,
     required: true
+  },
+  alt: {
+    type: String,
+    required: true
+  },
+  caption: {
+    type: String,
+    default: ''
   },
 })
 </script>
