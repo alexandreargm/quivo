@@ -76,13 +76,14 @@ export default {
   height: 100%;
   margin: 0;
   width: 100%;
+  background-color: var(--background-secondary);
+  position: relative;
 
   &__image-wrapper {
     aspect-ratio: var(--width-ratio) / var(--height-ratio);
     height: 100%;
     position: relative;
     width: 100%;
-    background-color: var(--background-tertiary);
   }
 
   &__image {
@@ -93,6 +94,21 @@ export default {
     right: 0;
     top: 0;
     width: 100%;
+  }
+
+  &__caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    margin: var(--space-10);
+    line-height: var(--line-10);
+    max-height: 100%;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 8;
+    overflow: hidden;
   }
 }
 
