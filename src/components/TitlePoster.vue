@@ -103,7 +103,7 @@ export default {
     right: 0;
     z-index: 1;
     margin: var(--space-10);
-    line-height: var(--line-10);
+    line-height: var(--line00);
     max-height: 100%;
     display: -webkit-box;
     -webkit-box-orient: vertical;
