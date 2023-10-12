@@ -244,10 +244,13 @@
         </div>
        
         <div
-          v-if="searchResponse.entries.length > 0"
+          
           class="search-view__results"
         >
-          <div class="search-view__feed">
+          <div
+            v-if="searchResponse.entries.length > 0"
+            class="search-view__feed"
+          >
             <BaseGallery class="block">
               <router-link
                 v-for="card in searchResponse.entries"
@@ -272,7 +275,7 @@
                 :disabled="isSearching || searchFilters.page === searchResponse.pageCount"
                 @click="handleLoadMoreItems()"
               >
-                More results
+                More results ({{ remainingEntryCount }})
               </base-button>
             </div>
           </div>
@@ -371,7 +374,6 @@ const filterDateRange = computed({
     searchFilters.endDate = dateValues.endDate
   }
 })
-
 const isAnyFilterDialogOpen = computed(() => {
   return filterDialogs.isAllOpen || filterDialogs.isGenresOpen || filterDialogs.isKeywordsOpen || filterDialogs.isReleaseDateOpen
 })
@@ -380,6 +382,13 @@ const filterDialogs = reactive({
   isGenresOpen: ref(false),
   isKeywordsOpen: ref(false),
   isReleaseDateOpen: ref(false)
+})
+const remainingEntryCount = computed(() => {
+  const ENTRIES_PER_PAGE = 20
+
+  if (searchFilters.page === searchResponse.pageCount) return 0
+
+  return searchResponse.entryCount - (searchFilters.page * ENTRIES_PER_PAGE)
 })
 
 function handleSearch() {
@@ -510,7 +519,7 @@ handleSearch()
 
   &__no-results {
     padding: var(--container-gap);
-    font-size: var(--font60);
+    font-size: var(--font30);
     line-height: var(--line-20);
     font-weight: var(--light);
     color: var(--text-secondary);
