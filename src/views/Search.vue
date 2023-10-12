@@ -263,7 +263,7 @@
                   type="movie"
                   :src="card.poster_path && 'http://image.tmdb.org/t/p/w220_and_h330_face/' + card.poster_path || ''"
                   :alt="card.title"
-                  :caption="!card.poster_path && card.title"
+                  :caption="card.title"
                 />
               </router-link>
             </BaseGallery>
