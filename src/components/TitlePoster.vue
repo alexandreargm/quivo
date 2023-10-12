@@ -14,7 +14,6 @@
     </div>
 
     <figcaption
-      v-show="caption && !src"
       class="title-poster__caption"
     >
       {{ caption }}
@@ -84,6 +83,7 @@ export default {
     height: 100%;
     position: relative;
     width: 100%;
+    z-index: 1;
   }
 
   &__image {
@@ -109,6 +109,7 @@ export default {
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 8;
     overflow: hidden;
+    z-index: 0;
   }
 }
 
