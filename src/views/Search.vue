@@ -17,8 +17,8 @@
           <div class="search-view__searchbar">
             <BaseAdvancedSearch
               v-model="searchFilters.title"
-              @change="handleDebouncedSearch()"
-              @clear="searchFilters.title = '', handleDebouncedSearch()"
+              @change="isSearching = true, handleDebouncedSearch()"
+              @clear="searchFilters.title = '', isSearching = true, handleDebouncedSearch()"
             />
           </div>
 
@@ -418,7 +418,7 @@ function handleSearch() {
   return response
 }
 
-const handleDebouncedSearch = useDebounceFn(handleSearch, 200)
+const handleDebouncedSearch = useDebounceFn(handleSearch, 300)
 
 function closeDialogs() {
   filterDialogs.isAllOpen = false
