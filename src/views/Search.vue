@@ -258,12 +258,12 @@
                 :to="{ name: 'search.movie.preview', params: { id: card.id } }"
               >
                 <TitleCard
-        
                   :id="card.id"
                   type="movie"
                   :src="card.poster_path && 'http://image.tmdb.org/t/p/w220_and_h330_face/' + card.poster_path || ''"
                   :alt="card.title"
                   :caption="card.title"
+                  theme="secondary"
                 />
               </router-link>
             </BaseGallery>
