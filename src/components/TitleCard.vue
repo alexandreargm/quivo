@@ -4,6 +4,7 @@
       :src="props.src"
       :alt="props.alt"
       :caption="props.caption"
+      :theme="props.theme"
     />
   </article>
 </template>
@@ -24,6 +25,13 @@ const props = defineProps({
   caption: {
     type: String,
     default: ''
+  },
+  theme: {
+    type: String,
+    default: 'primary',
+    validator: function (value) {
+      return ['primary', 'secondary', 'tertiary'].includes(value)
+    }
   },
 })
 </script>
