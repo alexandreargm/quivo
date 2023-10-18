@@ -16,9 +16,9 @@
         <div class="search-view__search">
           <div class="search-view__searchbar">
             <BaseAdvancedSearch
-              v-model="searchFilters.title"
-              @change="isSearching = true, handleDebouncedSearch()"
-              @clear="searchFilters.title = '', isSearching = true, handleDebouncedSearch()"
+              v-model="searchFeature.searchFilters.title"
+              @change="searchFeature.handleDebouncedSearch()"
+              @clear="searchFeature.searchFilters.title = '', searchFeature.handleDebouncedSearch()"
             />
           </div>
 
@@ -53,9 +53,9 @@
               >
                 <template #trigger="{ toggle, isOpen }">
                   <BaseAdvancedSearchToolbarFilter
-                    :count="searchFilters.genres.length + searchFilters.excludedGenres.length"
+                    :count="searchFeature.searchFilters.genres.length + searchFeature.searchFilters.excludedGenres.length"
                     :color="isOpen ? 'interactive' : 'default'"
-                    :show-close="searchFilters.genres.length + searchFilters.excludedGenres.length > 0"
+                    :show-close="searchFeature.searchFilters.genres.length + searchFeature.searchFilters.excludedGenres.length > 0"
                     @click="toggle"
                     @close="() => {
                       resetGenreFilters()
@@ -72,9 +72,9 @@
               >
                 <template #trigger="{ toggle, isOpen }">
                   <BaseAdvancedSearchToolbarFilter
-                    :count="searchFilters.keywords.length + searchFilters.excludedKeywords.length"
+                    :count="searchFeature.searchFilters.keywords.length + searchFeature.searchFilters.excludedKeywords.length"
                     :color="isOpen ? 'interactive' : 'default'"
-                    :show-close="searchFilters.keywords.length + searchFilters.excludedKeywords.length > 0"
+                    :show-close="searchFeature.searchFilters.keywords.length + searchFeature.searchFilters.excludedKeywords.length > 0"
                     @click="toggle"
                     @close="() => {
                       resetKeywordFilters()
@@ -91,9 +91,9 @@
               >
                 <template #trigger="{ toggle, isOpen }">
                   <BaseAdvancedSearchToolbarFilter
-                    :count="searchFilters.startDate && searchFilters.endDate ? 1 : 0"
+                    :count="searchFeature.searchFilters.startDate && searchFeature.searchFilters.endDate ? 1 : 0"
                     :color="isOpen ? 'interactive' : 'default'"
-                    :show-close="searchFilters.startDate && searchFilters.endDate || false"
+                    :show-close="searchFeature.searchFilters.startDate && searchFeature.searchFilters.endDate || false"
                     @click="toggle"
                     @close="() => {
                       resetReleaseDateFilters()
@@ -128,8 +128,8 @@
                   Genres
                 </BaseTitle>
                 <SearchGenreFilter
-                  v-model:genres="searchFilters.genres"
-                  v-model:excluded-genres="searchFilters.excludedGenres"
+                  v-model:genres="searchFeature.searchFilters.genres"
+                  v-model:excluded-genres="searchFeature.searchFilters.excludedGenres"
                 />
               </section>
               <section class="block2">
@@ -137,8 +137,8 @@
                   Tags
                 </BaseTitle>
                 <SearchKeywordFilter
-                  v-model:keywords="searchFilters.keywords"
-                  v-model:excluded-keywords="searchFilters.excludedKeywords"
+                  v-model:keywords="searchFeature.searchFilters.keywords"
+                  v-model:excluded-keywords="searchFeature.searchFilters.excludedKeywords"
                 />
               </section>
               <section class="block2">
@@ -173,8 +173,8 @@
                 </BaseTitle>
               </template>
               <SearchGenreFilter
-                v-model:genres="searchFilters.genres"
-                v-model:excluded-genres="searchFilters.excludedGenres"
+                v-model:genres="searchFeature.searchFilters.genres"
+                v-model:excluded-genres="searchFeature.searchFilters.excludedGenres"
               />
               <template #actions>
                 <base-button
@@ -200,8 +200,8 @@
                 </BaseTitle>
               </template>
               <SearchKeywordFilter
-                v-model:keywords="searchFilters.keywords"
-                v-model:excluded-keywords="searchFilters.excludedKeywords"
+                v-model:keywords="searchFeature.searchFilters.keywords"
+                v-model:excluded-keywords="searchFeature.searchFilters.excludedKeywords"
               />
               <template #actions>
                 <base-button
@@ -214,6 +214,7 @@
                 </base-button>
               </template>
             </SearchFilterDialog>
+
             <SearchFilterDialog
               v-if="filterDialogs.isReleaseDateOpen"
               @close="filterDialogs.isReleaseDateOpen = close"
@@ -248,12 +249,12 @@
           class="search-view__results"
         >
           <div
-            v-if="searchResponse.entries.length > 0"
+            v-if="searchFeature.searchResponse.entries.length > 0"
             class="search-view__feed"
           >
             <BaseGallery class="block">
               <router-link
-                v-for="card in searchResponse.entries"
+                v-for="card in searchFeature.searchResponse.entries"
                 :key="card.id"
                 :to="{ name: 'search.movie.preview', params: { id: card.id } }"
               >
@@ -272,7 +273,7 @@
               <base-button
                 color="brand"
                 is-round
-                :disabled="isSearching || searchFilters.page === searchResponse.pageCount"
+                :disabled="searchFeature.isSearching || searchFeature.searchFilters.page === searchFeature.searchResponse.pageCount"
                 @click="handleLoadMoreItems()"
               >
                 More results ({{ remainingEntryCount }})
@@ -281,7 +282,7 @@
           </div>
 
           <div
-            v-show="!isSearching && hasSetFilters && searchResponse.entries.length === 0"
+            v-show="!searchFeature.isSearching && searchFeature.hasSetFilters && searchFeature.searchResponse.entries.length === 0"
             class="search-view__no-results"
           >
             <p>
@@ -318,7 +319,6 @@
 <script setup>
 import { reactive, ref, computed } from 'vue';
 import { useRoute } from 'vue-router';
-import repositoryFactory from '../api/repository-factory';
 import BaseGallery from '../components/BaseGallery.vue';
 import TitleCard from '../components/TitleCard.vue';
 import BaseAdvancedSearch from '../components/BaseAdvancedSearch.vue'
@@ -333,45 +333,29 @@ import SearchGenreFilter from './SearchGenreFilter.vue';
 import SearchKeywordFilter from './SearchKeywordFilter.vue';
 import SearchReleaseDateFilter from './SearchReleaseDateFilter.vue';
 import BaseButton from '../components/BaseButton.vue';
-import { useDebounceFn } from '../composables/useDebounceFn';
+import { useSearchFeatureStore } from '@/store/search.js'
 
-
-const titlesRepository = repositoryFactory.get('titles')
+const searchFeature = useSearchFeatureStore()
 
 const route = useRoute()
 
-const isSearching = ref(false)
-const searchResponse = reactive({
-  entries: ref([]),
-  entryCount: ref(0),
-  pageCount: ref(0),
-})
-const searchFilters = reactive({
-  title: ref(route.params.title || ''),
-  keywords: ref([]),
-  excludedKeywords: ref([]),
-  genres: ref([]),
-  excludedGenres: ref([]),
-  startDate: ref(''),
-  endDate: ref(''),
-  page: 1,
-})
-const hasSetFilters = computed(() => searchFilters.title || searchFilters.keywords.length > 0 || searchFilters.excludedKeywords.length > 0 || searchFilters.genres.length > 0 || searchFilters.excludedGenres.length > 0 || searchFilters.startDate || searchFilters.endDate)
+searchFeature.searchFilters.title = route.params.title || ""
+
 const filterDateRange = computed({
   get() {
-    return getReleaseTagId({startDate: searchFilters.startDate, endDate: searchFilters.endDate})
+    return getReleaseTagId({startDate: searchFeature.searchFilters.startDate, endDate: searchFeature.searchFilters.endDate})
   },
   set(newValue) {
     const dateValues = getReleaseTagValues(newValue)
 
     if (!dateValues) {
-      searchFilters.startDate = ''
-      searchFilters.endDate = ''
+      searchFeature.searchFilters.startDate = ''
+      searchFeature.searchFilters.endDate = ''
       return
     }
 
-    searchFilters.startDate = dateValues.startDate
-    searchFilters.endDate = dateValues.endDate
+    searchFeature.searchFilters.startDate = dateValues.startDate
+    searchFeature.searchFilters.endDate = dateValues.endDate
   }
 })
 const isAnyFilterDialogOpen = computed(() => {
@@ -386,39 +370,10 @@ const filterDialogs = reactive({
 const remainingEntryCount = computed(() => {
   const ENTRIES_PER_PAGE = 20
 
-  if (searchFilters.page === searchResponse.pageCount) return 0
+  if (searchFeature.searchFilters.page === searchFeature.searchResponse.pageCount) return 0
 
-  return searchResponse.entryCount - (searchFilters.page * ENTRIES_PER_PAGE)
+  return searchFeature.searchResponse.entryCount - (searchFeature.searchFilters.page * ENTRIES_PER_PAGE)
 })
-
-function handleSearch() {
-  if (!hasSetFilters.value) {
-    searchResponse.entries = []
-    searchResponse.pageCount = 1
-    searchResponse.entryCount = 0
-
-    return
-  }
-
-  isSearching.value = true
-
-  searchFilters.page = 1
-
-  const response = titlesRepository.search(searchFilters)
-
-  response.then((data) => {
-    searchResponse.entries = data.entries
-    searchResponse.pageCount = data.pageCount,
-    searchResponse.entryCount = data.entryCount
-
-  }).finally(() => {
-    isSearching.value = false
-  })
-
-  return response
-}
-
-const handleDebouncedSearch = useDebounceFn(handleSearch, 300)
 
 function closeDialogs() {
   filterDialogs.isAllOpen = false
@@ -426,38 +381,8 @@ function closeDialogs() {
   filterDialogs.isKeywordsOpen = false
   filterDialogs.isReleaseDateOpen = false
 }
-
-function resetGenreFilters() {
-  searchFilters.genres = []
-  searchFilters.excludedGenres = []
-}
-function resetKeywordFilters() {
-  searchFilters.keywords = []
-  searchFilters.excludedKeywords = []
-}
-function resetReleaseDateFilters() {
-  searchFilters.startDate = ""
-  searchFilters.endDate = ""
-}
-
-function handleLoadMoreItems() {
-  searchFilters.page++
-
-  
-  isSearching.value = true
-
-  const response = titlesRepository.search(searchFilters)
-
-  response.then((data) => {
-    searchResponse.entries = [...searchResponse.entries, ...data.entries]
-    searchResponse.pageCount = data.pageCount,
-    searchResponse.entryCount = data.entryCount
-  }).finally(() => {
-    isSearching.value = false
-  })
-}
  
-handleSearch()
+searchFeature.handleSearch()
 </script>
 
 <style lang='scss'>
