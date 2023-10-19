@@ -139,6 +139,7 @@
                 <SearchKeywordFilter
                   v-model:keywords="searchFeature.searchFilters.keywords"
                   v-model:excluded-keywords="searchFeature.searchFilters.excludedKeywords"
+                  :tags="keywordTags"
                 />
               </section>
               <section class="block2">
@@ -202,6 +203,7 @@
               <SearchKeywordFilter
                 v-model:keywords="searchFeature.searchFilters.keywords"
                 v-model:excluded-keywords="searchFeature.searchFilters.excludedKeywords"
+                :tags="keywordTags"
               />
               <template #actions>
                 <base-button
@@ -333,6 +335,7 @@ import SearchGenreFilter from './SearchGenreFilter.vue';
 import SearchKeywordFilter from './SearchKeywordFilter.vue';
 import SearchReleaseDateFilter from './SearchReleaseDateFilter.vue';
 import BaseButton from '../components/BaseButton.vue';
+import { keywordTags } from './searchTags'
 import { useSearchFeatureStore } from '@/store/search.js'
 
 const searchFeature = useSearchFeatureStore()

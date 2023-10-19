@@ -47,9 +47,11 @@
         More info
       </base-button>
 
-      <base-tag-cloud
-        :words="titleKeywords"
-        @click="handleKeywordClick"
+      <SearchKeywordFilter
+        v-model:keywords="searchFeature.searchFilters.keywords"
+        v-model:excluded-keywords="searchFeature.searchFilters.excludedKeywords"
+        :tags="titleKeywords"
+        @change="searchFeature.handleDebouncedSearch()"
       />
 
       <div class="title-preview__synopsis">
@@ -77,13 +79,15 @@ import { handleRequest } from '@/api/request-handlers'
 import TitlePoster from './TitlePoster.vue'
 import { DateTime, Duration } from 'luxon'
 import BaseButton from '@/components/BaseButton.vue'
-import BaseTagCloud from './BaseTagCloud.vue'
+import SearchKeywordFilter from '@/views/SearchKeywordFilter.vue'
 import TitleAgeBadge from './TitleAgeBadge.vue'
 import BaseIcon from './BaseIcon.vue'
 import TitleImageModal from './TitleImageModal.vue'
 import BaseTextCollapse from './BaseTextCollapse.vue'
 import { useRoute } from 'vue-router'
+import { useSearchFeatureStore } from '../store/search'
 
+const searchFeature = useSearchFeatureStore()
 
 const route = useRoute()
 
@@ -125,11 +129,16 @@ const findTitle = () => {
 const fetchKeywords = () => {
   return handleRequest(titlesRepository.keywords({ mediaType: 'movie', id: route.params.id }), {
     onSuccess: async ({ data }) => {
-      titleKeywords.value = data.keywords
+      titleKeywords.value = data.keywords.map(item => ({
+        id: item.id,
+        title: item.name
+      }))
     }
   })
 }
-const handleKeywordClick = (args) => { console.log(args) }
+function handleKeywordClick(args) { 
+  
+}
 const toggleTitleImageModal = (isOpen) => { isTitleImageModalOpen.value = isOpen }
 
 onMounted(async () => { loadNewTitle() })
