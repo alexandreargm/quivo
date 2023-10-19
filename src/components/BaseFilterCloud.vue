@@ -21,6 +21,7 @@ import { defineProps, defineEmits } from 'vue';
 
 const emits = defineEmits([
   "update:modelValue",
+  "change"
 ])
 
 const props = defineProps({
@@ -35,9 +36,12 @@ const props = defineProps({
 })
 
 function handleClickSwitch(tagId) {
-  props.modelValue === tagId
-    ? emits('update:modelValue', 0)
-    : emits('update:modelValue', tagId)
+  const newTagId = props.modelValue === tagId
+    ? 0
+    : tagId
+
+  emits('update:modelValue', newTagId)
+  emits('change', newTagId)
 }
 </script>
 
