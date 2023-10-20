@@ -40,6 +40,10 @@
     position: relative;
   }
 
+  &__body {
+    max-width: 70ch;
+  }
+
   &__footer {
     padding-top: var(--space20);
     margin-top: auto;
