@@ -59,7 +59,7 @@
                     @click="toggle"
                     @close="() => {
                       resetGenreFilters()
-                      handleSearch()
+                      searchFeature.handleSearch()
                     }"
                   >
                     genres
@@ -78,7 +78,7 @@
                     @click="toggle"
                     @close="() => {
                       resetKeywordFilters()
-                      handleSearch()
+                      searchFeature.handleSearch()
                     }"
                   >
                     tags
@@ -97,7 +97,7 @@
                     @click="toggle"
                     @close="() => {
                       resetReleaseDateFilters()
-                      handleSearch()
+                      searchFeature.handleSearch()
                     }"
                   >
                     release date
@@ -159,7 +159,7 @@
                   color="brand"
                   width="300px"
                   size="lg"
-                  @click="closeDialogs(), handleSearch()"
+                  @click="closeDialogs(), searchFeature.handleSearch()"
                 >
                   Search
                 </base-button>
@@ -186,7 +186,7 @@
                   color="brand"
                   width="300px"
                   size="lg"
-                  @click="closeDialogs(), handleSearch()"
+                  @click="closeDialogs(), searchFeature.handleSearch()"
                 >
                   Search
                 </base-button>
@@ -214,7 +214,7 @@
                   color="brand"
                   width="300px"
                   size="lg"
-                  @click="closeDialogs(), handleSearch()"
+                  @click="closeDialogs(), searchFeature.handleSearch()"
                 >
                   Search
                 </base-button>
@@ -241,7 +241,7 @@
                   color="brand"
                   width="300px"
                   size="lg"
-                  @click="closeDialogs(), handleSearch()"
+                  @click="closeDialogs(), searchFeature.handleSearch()"
                 >
                   Search
                 </base-button>
