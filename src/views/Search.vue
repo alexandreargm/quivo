@@ -58,7 +58,7 @@
                     :show-close="searchFeature.searchFilters.genres.length + searchFeature.searchFilters.excludedGenres.length > 0"
                     @click="toggle"
                     @close="() => {
-                      resetGenreFilters()
+                      searchFeature.resetGenreFilters()
                       searchFeature.handleSearch()
                     }"
                   >
@@ -77,7 +77,7 @@
                     :show-close="searchFeature.searchFilters.keywords.length + searchFeature.searchFilters.excludedKeywords.length > 0"
                     @click="toggle"
                     @close="() => {
-                      resetKeywordFilters()
+                      searchFeature.resetKeywordFilters()
                       searchFeature.handleSearch()
                     }"
                   >
@@ -96,7 +96,7 @@
                     :show-close="searchFeature.searchFilters.startDate && searchFeature.searchFilters.endDate || false"
                     @click="toggle"
                     @close="() => {
-                      resetReleaseDateFilters()
+                      searchFeature.resetReleaseDateFilters()
                       searchFeature.handleSearch()
                     }"
                   >
