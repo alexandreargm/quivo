@@ -136,9 +136,6 @@ const fetchKeywords = () => {
     }
   })
 }
-function handleKeywordClick(args) { 
-  
-}
 const toggleTitleImageModal = (isOpen) => { isTitleImageModalOpen.value = isOpen }
 
 onMounted(async () => { loadNewTitle() })
