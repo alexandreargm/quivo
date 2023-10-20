@@ -123,6 +123,7 @@
                   All filters
                 </BaseTitle>
               </template>
+
               <section class="block2">
                 <BaseTitle :level="3">
                   Genres
@@ -132,6 +133,7 @@
                   v-model:excluded-genres="searchFeature.searchFilters.excludedGenres"
                 />
               </section>
+
               <section class="block2">
                 <BaseTitle :level="3">
                   Tags
@@ -142,6 +144,7 @@
                   :tags="keywordTags"
                 />
               </section>
+
               <section class="block2">
                 <BaseTitle :level="3">
                   Release date
@@ -150,6 +153,7 @@
                   v-model="filterDateRange"
                 />
               </section>
+
               <template #actions>
                 <base-button
                   color="brand"

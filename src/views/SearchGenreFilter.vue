@@ -1,6 +1,7 @@
 <template>
   <base-filter-cloud-multiple
-    :tags="genreTags"
+    v-if="genreStore.genres.length > 0"
+    :tags="genreStore.genres"
     multiple
     has-excluded-values
     :included-values="props.genres"
@@ -11,9 +12,11 @@
 </template>
 
 <script setup>
-import { defineProps, defineEmits, ref } from 'vue';
+import { defineProps, defineEmits } from 'vue';
 import BaseFilterCloudMultiple from '@/components/BaseFilterCloudMultiple.vue';
-import { genresRepository } from '@/api/repositories/genres-repository';
+import { useGenreStore } from "@/store/genre"
+
+const genreStore = useGenreStore()
 
 const emits = defineEmits([
   "update:genres",
@@ -30,18 +33,4 @@ const props = defineProps({
     required: true
   },
 })
-
-const genreTags = ref([])
-
-function handleSearchGenres() {
-  const data = genresRepository.fetch()
-
-  data.then(response => {
-    genreTags.value = response
-  })
-
-  return data
-}
-
-handleSearchGenres()
 </script>
