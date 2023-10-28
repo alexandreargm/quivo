@@ -250,6 +250,10 @@
           </div>
         </div>
        
+        <div class="search-view__results-control block inline-container-padding">
+          <small>{{ searchFeature.searchResponse.entryCount }} results</small>
+        </div>
+
         <div
           
           class="search-view__results"
@@ -280,7 +284,7 @@
                 color="brand"
                 is-round
                 :disabled="searchFeature.isSearching || searchFeature.searchFilters.page === searchFeature.searchResponse.pageCount"
-                @click="handleLoadMoreItems()"
+                @click="searchFeature.handleLoadMoreItems()"
               >
                 More results ({{ remainingEntryCount }})
               </base-button>
@@ -447,6 +451,10 @@ searchFeature.handleSearch()
     @include breakpoint-max('desktop4') {
       padding-left: 0;
     }
+  }
+
+  &__results-control {
+    color: var(--text-tertiary);
   }
 
   &__no-results {
