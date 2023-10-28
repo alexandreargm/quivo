@@ -88,7 +88,7 @@
 
             <finder-search-cloud
               v-model="selectedGenres"
-              :tags="genres"
+              :tags="genreStore.genres"
               :is-multiple="true"
               :has-excludes="true"
             />
@@ -211,10 +211,8 @@
 </template>
 
 <script setup>
-import { ref, onBeforeMount, markRaw, defineEmits, computed, defineProps, defineExpose, watch, nextTick } from 'vue'
+import { ref, defineEmits, computed, defineProps, defineExpose, watch, nextTick } from 'vue'
 import FinderSearchCloud from './FinderSearchCloud.vue'
-import repositoryFactory from '@/api/repository-factory.js'
-import { handleRequest } from '../api/request-handlers'
 import Searchbar from './Searchbar.vue'
 import BaseButton from './BaseButton.vue'
 import BaseIcon from './BaseIcon.vue'
@@ -224,7 +222,9 @@ import BaseTag from './BaseTag.vue'
 import { useDebounceFn } from '../composables/useDebounceFn'
 import BaseModal from './BaseModal.vue'
 import { keywords, releaseDates } from './AdvancedSearchFeature'
-const genresRepositories = repositoryFactory.get('genres')
+import { useGenreStore } from '../store/genre'
+
+const genreStore = useGenreStore()
 
 const emits = defineEmits(['submit', 'update:modelValue', 'update:filters'])
 
@@ -248,7 +248,6 @@ const isOpenFilters = computed({
   }
 })
 const getIsOpenFiltersClass = computed(() => isOpenFilters.value && 'is-open')
-const genres = ref([])
 const selectedGenres = ref([])
 const selectedKeywords = ref([])
 const selectedReleaseDateRanges = ref({})
@@ -261,7 +260,7 @@ const getActiveFilters = computed(() => {
   const getGenreIsExcluded = selectedGenres.value?.[0]?.state === 2
   const getKeywordIsExcluded = selectedKeywords.value?.[0]?.state === 2
 
-  const getGenreSingleItemLabel = genres.value.find(genre => genre.value === selectedGenres.value?.[0]?.value)?.title
+  const getGenreSingleItemLabel = genreStore.genres.value.find(genre => genre.value === selectedGenres.value?.[0]?.value)?.title
   const getKeywordsSingleItemLabel = keywords.find(keyword => keyword.value === selectedKeywords.value?.[0]?.value)?.title
   const getDateRangeSingleItemLabel = releaseDates?.[selectedReleaseDateRanges.value?.id]?.title
 
@@ -292,13 +291,6 @@ const hasSearchParams = computed(() => {
 const searchInput = ref(null)
 const desktopSearchInput = ref(null)
 
-const fetchGenres = () => {
-  handleRequest(genresRepositories.fetch('movie'), {
-    onSuccess: ({ data }) => {
-      genres.value = markRaw(data.genres.map(genre => ({ title: genre.name, value: genre.id })))
-    }
-  })
-}
 const handleSubmit = () => {
   if (!hasSearchParams.value) return
 
@@ -336,10 +328,6 @@ watch(isOpenFilters, async function (newValue) {
   }
 }, {
   immediate: true
-})
-
-onBeforeMount(() => {
-  fetchGenres()
 })
 
 defineExpose({ focusSearch })
@@ -396,9 +384,6 @@ defineExpose({ focusSearch })
     display: grid;
     margin: 0 auto;
     gap: var(--space20);
-  }
-
-  &__desktop-filters-dialog {
   }
 
   &__desktop-filters-dialog-inner {
