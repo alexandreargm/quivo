@@ -37,7 +37,8 @@ const props = defineProps({
   --_desktop-column-count: v-bind(props.desktopColumnCount);
 
   display: grid;
-  gap: var(--space-20);
+  align-items: start;
+  gap: var(--space-10) var(--space-20);
   grid-template-columns: repeat(var(--_mobile-column-count), 1fr);
 
   @container (min-width: 450px) {
