@@ -262,22 +262,37 @@
             v-if="searchFeature.searchResponse.entries.length > 0"
             class="search-view__feed"
           >
-            <BaseGallery class="block">
-              <router-link
-                v-for="card in searchFeature.searchResponse.entries"
-                :key="card.id"
-                :to="{ name: 'search.movie.preview', params: { id: card.id } }"
+            <suspense>
+              <BaseGallery
+                class="block"
+                :mobile-column-count="2"
+                :mobile-lg-column-count="4"
+                :tablet-column-count="5"
+                :desktop-column-count="10"
               >
-                <TitleCard
-                  :id="card.id"
+                <TitleDetailedCard
+                  v-for="card in searchFeature.searchResponse.entries"
+                  :key="card.id"
+                  :to="{ name: 'search.movie.preview', params: { id: card.id } }"
                   type="movie"
                   :src="card.poster_path && 'http://image.tmdb.org/t/p/w220_and_h330_face/' + card.poster_path || ''"
                   :alt="card.title"
                   :caption="card.title"
                   theme="secondary"
+                  :release-date="card.release_date"
+                  :genre-ids="card.genre_ids"
+                  :selected-genre-ids="searchFeature.searchFilters.genres"
+                  :selected-keyword-ids="searchFeature.searchFilters.keywords"
+                  :selected-start-date="searchFeature.searchFilters.startDate"
+                  :selected-end-date="searchFeature.searchFilters.endDate"
+                  :title-id="String(card.id)"
                 />
-              </router-link>
-            </BaseGallery>
+              </BaseGallery>
+
+              <template #fallback>
+                Loading...
+              </template>
+            </suspense>
 
             <div class="search-view__more-results">
               <base-button
@@ -330,7 +345,6 @@
 import { reactive, ref, computed } from 'vue';
 import { useRoute } from 'vue-router';
 import BaseGallery from '../components/BaseGallery.vue';
-import TitleCard from '../components/TitleCard.vue';
 import BaseAdvancedSearch from '../components/BaseAdvancedSearch.vue'
 import BaseAdvancedSearchToolbarFilter from '../components/BaseAdvancedSearchToolbarFilter.vue';
 import BaseAdvancedSearchToolbarButton from '../components/BaseAdvancedSearchToolbarButton.vue';
@@ -345,6 +359,7 @@ import SearchReleaseDateFilter from './SearchReleaseDateFilter.vue';
 import BaseButton from '../components/BaseButton.vue';
 import { keywordTags } from './searchTags'
 import { useSearchFeatureStore } from '@/store/search.js'
+import TitleDetailedCard from '../components/TitleDetailedCard.vue';
 
 const searchFeature = useSearchFeatureStore()
 
