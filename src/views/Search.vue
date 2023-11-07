@@ -250,7 +250,7 @@
           </div>
         </div>
        
-        <div class="search-view__results-control block inline-container-padding">
+        <div class="search-view__results-control">
           <small>{{ searchFeature.searchResponse.entryCount }} results</small>
         </div>
 
@@ -470,6 +470,7 @@ searchFeature.handleSearch()
 
   &__results-control {
     color: var(--text-tertiary);
+    padding: var(--space-10) var(--container-gap) var(--space00);
   }
 
   &__no-results {
