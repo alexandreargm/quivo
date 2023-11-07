@@ -3,7 +3,10 @@
     class="base-tag"
     :class="[props.color, props.variant, props.size, getHasCloseClass()]"
   >
-    <div class="base-tag__title">
+    <div
+      class="base-tag__title"
+      :title="props.title"
+    >
       <slot>
         {{ props.title }}
       </slot>
@@ -81,19 +84,22 @@ const getHasCloseClass = () => {
     align-items: center;
     border-radius: var(--rounded30);
     color: var(--_color);
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr auto;
     font-size: var(--_font-size);
     height: var(--_height-size);
     justify-content: center;
     overflow: hidden;
     user-select: none;
-    width: fit-content;
+    max-width: 100%;
     font-weight: 300;
     border: 1px solid;
 
     &__title {
       padding: 0 var(--_padding-size);
       white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     &__close-button {
