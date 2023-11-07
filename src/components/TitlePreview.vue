@@ -73,7 +73,7 @@
 </template>
 
 <script setup>
-import { defineEmits, onMounted, ref, watch } from 'vue'
+import { defineEmits, ref, watch } from 'vue'
 import repositoryFactory from '@/api/repository-factory'
 import { handleRequest } from '@/api/request-handlers'
 import TitlePoster from './TitlePoster.vue'
@@ -138,7 +138,7 @@ const fetchKeywords = () => {
 }
 const toggleTitleImageModal = (isOpen) => { isTitleImageModalOpen.value = isOpen }
 
-onMounted(async () => { loadNewTitle() })
+await loadNewTitle()
 
 watch(() => route.params.id, () => {
   if (route.params.id) {
