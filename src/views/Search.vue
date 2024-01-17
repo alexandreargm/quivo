@@ -286,6 +286,7 @@
                   :selected-start-date="searchFeature.searchFilters.startDate"
                   :selected-end-date="searchFeature.searchFilters.endDate"
                   :title-id="String(card.id)"
+                  :show-details="searchFeature.hasFiltersSetBesidesTitle"
                 />
               </BaseGallery>
 

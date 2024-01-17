@@ -20,7 +20,8 @@ export const useSearchFeatureStore = defineStore('searchFeature', () => {
     page: 1,
   })
   const isSearching = ref(false)
-  const hasSetFilters = computed(() => searchFilters.title || searchFilters.keywords.length > 0 || searchFilters.excludedKeywords.length > 0 || searchFilters.genres.length > 0 || searchFilters.excludedGenres.length > 0 || searchFilters.startDate || searchFilters.endDate)
+  const hasFiltersSetBesidesTitle = computed(() => searchFilters.keywords.length > 0 || searchFilters.excludedKeywords.length > 0 || searchFilters.genres.length > 0 || searchFilters.excludedGenres.length > 0 || Boolean(searchFilters.startDate) || Boolean(searchFilters.endDate))
+  const hasSetFilters = computed(() => searchFilters.title || hasFiltersSetBesidesTitle.value)
 
   function handleSearch() {
     if (!hasSetFilters.value) {
@@ -87,6 +88,7 @@ export const useSearchFeatureStore = defineStore('searchFeature', () => {
     searchResponse,
     searchFilters,
     isSearching,
+    hasFiltersSetBesidesTitle,
     hasSetFilters,
     handleSearch,
     handleDebouncedSearch,

@@ -17,6 +17,7 @@
     </div>
 
     <div
+      v-show="showDetails"
       class="title-card__details"
     >
       <h1 class="visually-hidden">
@@ -98,6 +99,10 @@ import { handleRequest } from '@/api/request-handlers'
 const genreStore = useGenreStore()
 
 const props = defineProps({
+  showDetails: {
+    type: Boolean,
+    default: true
+  },
   src: {
     type: String,
     required: true
