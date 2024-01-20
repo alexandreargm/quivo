@@ -47,19 +47,19 @@
         Where to watch
       </base-button>
 
-      <SearchKeywordFilter
-        v-model:keywords="searchFeature.searchFilters.keywords"
-        v-model:excluded-keywords="searchFeature.searchFilters.excludedKeywords"
-        :tags="titleKeywords"
-        @change="searchFeature.handleDebouncedSearch()"
-      />
-
       <div class="title-preview__synopsis">
         <base-text-collapse
           v-model:is-open="isSynopsisExpanded"
           :text="titleResponse.overview || ''"
         />
       </div>
+
+      <SearchKeywordFilter
+        v-model:keywords="searchFeature.searchFilters.keywords"
+        v-model:excluded-keywords="searchFeature.searchFilters.excludedKeywords"
+        :tags="titleKeywords"
+        @change="searchFeature.handleDebouncedSearch()"
+      />
     </main>
 
     <transition-group>
