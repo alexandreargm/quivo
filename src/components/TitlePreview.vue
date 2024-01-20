@@ -205,7 +205,7 @@ watch(() => route.params.id, () => {
 
   &__title {
     color: var(--text);
-    font-size: clamp(var(--font00), 4vw, var(--font20));
+    font-size: clamp(var(--font20), 4vw, var(--font30));
     font-weight: var(--medium);
     line-height: var(--line00);
     margin: 0;
