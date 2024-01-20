@@ -44,7 +44,7 @@
         color="brand"
         size="sm"
       >
-        More info
+        Where to watch
       </base-button>
 
       <SearchKeywordFilter
@@ -62,13 +62,13 @@
       </div>
     </main>
 
-    <transition>
+    <transition-group>
       <title-image-modal
         v-if="isTitleImageModalOpen"
         :poster-path="titleResponse.poster_path || ''"
         @close="toggleTitleImageModal(false)"
       />
-    </transition>
+    </transition-group>
   </article>
 </template>
 
